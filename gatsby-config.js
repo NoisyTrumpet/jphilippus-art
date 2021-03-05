@@ -34,6 +34,6 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-gatsby-cloud`, // Gatsby Cloud Hosting?
     `gatsby-plugin-offline`, // this (optional) plugin enables Progressive Web App + Offline functionality
-    "gatsby-plugin-sitemap", // Site Map Plugin
+    // "gatsby-plugin-sitemap",  Site Map Plugin
   ],
 }
