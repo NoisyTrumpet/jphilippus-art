@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `J. Philippus Art Studio`,
@@ -5,11 +9,25 @@ module.exports = {
     author: `@noisytrumpet`,
   },
   flags: {
-    FAST_DEV: true,
+    DEV_SSR: true,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
+    // Shopify API Setup
+    {
+      resolve: "gatsby-source-shopify-experimental",
+      options: {
+        apiKey: process.env.GATSBY_SHOPIFY_ADMIN_API_KEY,
+        password: process.env.GATSBY_SHOPIFY_ADMIN_PASSWORD,
+        storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
+        // downloadImages: true,
+      },
+    },
+    `@chakra-ui/gatsby-plugin`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -17,8 +35,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -32,8 +48,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    `gatsby-plugin-gatsby-cloud`, // Gatsby Cloud Hosting?
-    `gatsby-plugin-offline`, // this (optional) plugin enables Progressive Web App + Offline functionality
-    // "gatsby-plugin-sitemap",  Site Map Plugin
+    // `gatsby-plugin-offline`, // this (optional) plugin enables Progressive Web App + Offline functionality
+    "gatsby-plugin-sitemap",
   ],
 }
