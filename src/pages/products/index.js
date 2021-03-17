@@ -1,0 +1,35 @@
+import * as React from "react"
+import { Container, VisuallyHidden } from "@chakra-ui/react"
+import { graphql } from "gatsby"
+import Layout from "../../components/Layout/layout"
+import ProductListing from "../../components/ProductListing/index"
+import SEO from "../../components/seo"
+
+const Products = ({ data: { products } }) => {
+  return (
+    <Layout>
+      <SEO title="All Products in Hexagon Store" />
+      <VisuallyHidden as="h1">Products</VisuallyHidden>
+      <Container py={20}>
+        <ProductListing products={products} />
+      </Container>
+    </Layout>
+  )
+}
+
+export default Products
+
+// To display all products here, remove the "filter" on the query
+
+export const query = graphql`
+  {
+    products: allShopifyProduct(
+      filter: { productType: { in: ["Art", "Class"] } }
+      sort: { fields: [publishedAt], order: ASC }
+    ) {
+      nodes {
+        ...ProductCard
+      }
+    }
+  }
+`

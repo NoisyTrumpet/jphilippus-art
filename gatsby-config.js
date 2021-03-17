@@ -7,6 +7,7 @@ module.exports = {
     title: `J. Philippus Art Studio`,
     description: `We are excited to share that The Shard Studio, LLC is now J. Philippus Art Studio and Gallery, LLC!  Please stay tuned for the launch of our new logo, which is coming soon!`,
     author: `@noisytrumpet`,
+    siteUrl: `https://jphilippusart.com`,
   },
   flags: {
     DEV_SSR: true,
@@ -19,7 +20,7 @@ module.exports = {
         apiKey: process.env.GATSBY_SHOPIFY_ADMIN_API_KEY,
         password: process.env.GATSBY_SHOPIFY_ADMIN_PASSWORD,
         storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
-        // downloadImages: true,
+        downloadImages: true,
       },
     },
     `@chakra-ui/gatsby-plugin`,
