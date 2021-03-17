@@ -8,6 +8,10 @@ import {
   Heading,
   Flex,
   Button,
+  List,
+  ListItem,
+  ListIcon,
+  UnorderedList,
   useColorModeValue,
 } from "@chakra-ui/react"
 import { FiArrowRight as ArrowIcon } from "react-icons/fi"
@@ -40,7 +44,28 @@ const IndexPage = () => {
                 Welcome to J. Philippus Art Studio & Gallery
               </Heading>
               <Spacer axis="vertical" size={3} />
-              <Text fontSize="21px">Your place for Art & Classes</Text>
+              <Text fontSize="21px">
+                Beautiful 1500 Square Foot Facility Including:
+              </Text>
+              <List spacing={3}>
+                <ListItem>
+                  <ListIcon as={ArrowIcon} color="green.500" />
+                  KITCHEN WITH REFRIGERATOR, MICROWAVE AND ICE MAKER
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={ArrowIcon} color="green.500" />
+                  HANDICAP ACCESSIBLE
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={ArrowIcon} color="green.500" />
+                  TV AVAILABLE FOR PRESENTATIONS
+                </ListItem>
+                {/* You can also use custom icons from react-icons */}
+                <ListItem>
+                  <ListIcon as={ArrowIcon} color="green.500" />
+                  OPEN FLEX AREA IN THE FRONT EXCELLENT FOR COCKTAIL RECEPTIONS
+                </ListItem>
+              </List>
               <Spacer axis="vertical" size={9} />
               <Button
                 as={GatsbyLink}
@@ -134,16 +159,27 @@ const IndexPage = () => {
               maxWidth="60ch"
             >
               <Heading as="h2" color={headingColor}>
-                About Us
+                About Jeanne
               </Heading>
               <Spacer axis="vertical" size={3} />
               <Text fontSize="lg">
-                Half-giant jinxes peg-leg gillywater broken glasses large black
-                dog Great Hall. Nearly-Headless Nick now string them together,
-                and answer me this, which creature would you be unwilling to
-                kiss? Poltergeist sticking charm, troll umbrella stand flying
-                cars golden locket Lily Potter. Pumpkin juice Trevor wave your
-                wand out glass orbs, a Grim knitted hats.
+                Jeanne grew up on a farm in Shiner, Texas. Inspired by her
+                father's love of art, she developed her own stlyle using
+                leftover paint and items she found on the farm. In her late
+                twenties, Jeanne lost her husband to cancer after only a few
+                short years of marriage. While grieving such a great loss,
+                Jeanne began incorporating broken glass in her art as a metaphor
+                for her life. Creating art from the brokern and discarded
+                materials was a crucial part of her healing process. Combining
+                acrylics, resins and recycled glass, Jeanne began creating
+                unique art that set the stage for hr future career.
+              </Text>
+              <Spacer axis="vertical" size={3} />
+              <Text fontSize="lg">
+                Jeanne currently lives in San Antonio, Texas where she owns The
+                Shard Studio. One of her greatest passions is her love of people
+                and art and she feels blessed to teach classes and create
+                abstract, contemporary and coastal art everyday.
               </Text>
             </Flex>
             <StaticImage

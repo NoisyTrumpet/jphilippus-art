@@ -1,46 +1,10 @@
-// import * as React from "react"
-
-// import { Link } from "gatsby"
-// import "./header.scss"
-
-// const Header = ({ siteTitle }) => (
-//   <header className="header">
-//     <section className="logo-wrapper">
-//       <Link
-//         to="/"
-//         style={{
-//           color: `white`,
-//           textDecoration: `none`,
-//         }}
-//       >
-//         <StaticImage
-//           src="../../images/logo.png"
-//           width={150}
-//           quality={95}
-//           formats={["WEBP"]}
-//           alt={siteTitle}
-//         />
-//       </Link>
-//     </section>
-//   </header>
-// )
-
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
-
-// export default Header
-
 import * as React from "react"
 import PropTypes from "prop-types"
 import {
   Box,
   Container,
   useColorModeValue,
+  useColorMode,
   useMediaQuery,
 } from "@chakra-ui/react"
 import { StoreContext } from "../../context/storeContext"
@@ -56,6 +20,7 @@ const Header = ({ siteTitle }) => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
   const [isSmallerThan640] = useMediaQuery("(max-width: 640px)")
   const bg = useColorModeValue(`bg`, `dark.bg`)
+  const { colorMode } = useColorMode()
   const logoColor = useColorModeValue(`primary`, `dark.primary`)
   const linkColor = useColorModeValue(`headingColor`, `dark.headingColor`)
   const btnRef = React.useRef()
@@ -75,7 +40,7 @@ const Header = ({ siteTitle }) => {
         as="header"
         position="fixed"
         zIndex="docked"
-        height="navigationHeight"
+        // height="navigationHeight"
         display="flex"
         alignItems="center"
         bg={bg}
@@ -84,6 +49,7 @@ const Header = ({ siteTitle }) => {
         <Container
           display="grid"
           gridTemplateColumns={["1fr 1fr", "1fr auto 1fr"]}
+          height="fit-content"
         >
           <Link
             to="/"
@@ -96,13 +62,25 @@ const Header = ({ siteTitle }) => {
               color: logoColor,
             }}
           >
-            <StaticImage
-              src="../../images/logo.png"
-              width={75}
-              quality={95}
-              formats={["WEBP"]}
-              alt={siteTitle}
-            />{" "}
+            {colorMode === "dark" ? (
+              <StaticImage
+                src="../../images/logo-horizontal-dark.png"
+                width={175}
+                style={{ margin: "10px 5px" }}
+                quality={95}
+                formats={["WEBP", "AVIF", "PNG"]}
+                alt={siteTitle}
+              />
+            ) : (
+              <StaticImage
+                src="../../images/logo-horizontal.png"
+                width={175}
+                style={{ margin: "10px 5px" }}
+                quality={95}
+                formats={["WEBP", "AVIF", "PNG"]}
+                alt={siteTitle}
+              />
+            )}
           </Link>
           {isSmallerThan640 ? (
             <MobileMenu quantity={quantity} btnRef={btnRef} onOpen={onOpen} />
