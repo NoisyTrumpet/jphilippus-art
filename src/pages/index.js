@@ -1,34 +1,166 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link as GatsbyLink } from "gatsby"
+import {
+  Container,
+  Box,
+  Text,
+  Grid,
+  Heading,
+  Flex,
+  Button,
+  useColorModeValue,
+} from "@chakra-ui/react"
+import { FiArrowRight as ArrowIcon } from "react-icons/fi"
 import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/Layout/layout"
-import SEO from "../components/seo"
+import Spacer from "../components/Spacer/index"
+import { ChakraHelpersContext } from "../context/chakra-helpers-context"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Future Home of J.Philippus Art Studio</h1>
-    <p>
-      We are excited to share that The Shard Studio, LLC is now J. Philippus Art
-      Studio and Gallery, LLC!
-    </p>
-    <p>Please stay tuned for the launch of our new website.</p>
-    <StaticImage
-      src="../images/texas.webp"
-      width={300}
-      quality={95}
-      formats={["WEBP"]}
-      alt="Texas glass art"
-      style={{
-        margin: "0 auto",
-      }}
-    />
-    {/* <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p> */}
-  </Layout>
-)
+const IndexPage = () => {
+  const bgGradient = useColorModeValue(
+    `linear(to-b, gradientTop, gradientBottom)`,
+    `linear(to-b, dark.gradientTop, dark.gradientBottom)`
+  )
+  const { primaryColorScheme } = React.useContext(ChakraHelpersContext)
+  const headingColor = useColorModeValue(`headingColor`, `dark.headingColor`)
+  const fullWidthColor = useColorModeValue(`gray.700`, `gray.300`)
+  const fullWidthBg = useColorModeValue(`gray.100`, `black`)
+
+  return (
+    <Layout>
+      <Box bgGradient={bgGradient}>
+        <Container py={[20, 28]}>
+          <Grid templateColumns={["1fr", null, "repeat(2, 1fr)"]} gap={8}>
+            <Flex
+              direction="column"
+              alignItems="flex-start"
+              justifyContent="center"
+            >
+              <Heading as="h1" color={headingColor}>
+                Welcome to J. Philippus Art Studio & Gallery
+              </Heading>
+              <Spacer axis="vertical" size={3} />
+              <Text fontSize="21px">Your place for Art & Classes</Text>
+              <Spacer axis="vertical" size={9} />
+              <Button
+                as={GatsbyLink}
+                to="/products/"
+                colorScheme={primaryColorScheme}
+                rightIcon={<ArrowIcon />}
+              >
+                See all products
+              </Button>
+            </Flex>
+            <StaticImage
+              src="../images/texas.webp"
+              width={300}
+              quality={95}
+              formats={["WEBP"]}
+              alt="Texas glass art"
+              style={{
+                margin: "0 auto",
+              }}
+            />
+          </Grid>
+        </Container>
+      </Box>
+      <Container my={[24, 32, 36, 40]}>
+        <Flex alignItems="center" justifyContent="space-between" mb={8}>
+          <Heading as="h2" fontSize="3xl">
+            Art
+          </Heading>
+          <Button
+            as={GatsbyLink}
+            to="/products/art/"
+            variant="ghost"
+            rightIcon={<ArrowIcon />}
+          >
+            View all
+          </Button>
+        </Flex>
+        <Grid
+          templateColumns={["1fr", null, "repeat(2, 1fr)"]}
+          gap={8}
+          sx={{
+            ".product-image-1": { order: 1 },
+            ".product-image-2": { order: [3, null, 2] },
+          }}
+        >
+          <StaticImage
+            src="../images/texas.webp"
+            width={300}
+            quality={95}
+            formats={["WEBP"]}
+            alt="Texas glass art"
+            style={{
+              margin: "0 auto",
+            }}
+          />
+          <StaticImage
+            src="../images/texas.webp"
+            width={300}
+            quality={95}
+            formats={["WEBP"]}
+            alt="Texas glass art"
+            style={{
+              margin: "0 auto",
+            }}
+          />
+          <Text fontSize="lg" maxWidth="65ch" order={[2, null, 3]}>
+            Half-giant jinxes peg-leg gillywater broken glasses large black dog
+            Great Hall. Nearly-Headless Nick now string them together, and
+            answer me this, which creature would you be unwilling to kiss?
+            Poltergeist sticking charm, troll umbrella stand flying cars golden
+            locket Lily Potter. Pumpkin juice Trevor wave your wand out glass
+            orbs, a Grim knitted hats.
+          </Text>
+          <Text fontSize="lg" maxWidth="65ch" order={4}>
+            Half-giant jinxes peg-leg gillywater broken glasses large black dog
+            Great Hall. Nearly-Headless Nick now string them together, and
+            answer me this, which creature would you be unwilling to kiss?
+            Poltergeist sticking charm, troll umbrella stand flying cars golden
+            locket Lily Potter. Pumpkin juice Trevor wave your wand out glass
+            orbs, a Grim knitted hats.
+          </Text>
+        </Grid>
+      </Container>
+      <Box py={[20, null, 28]} bg={fullWidthBg} color={fullWidthColor}>
+        <Container>
+          <Grid templateColumns={["1fr", null, "repeat(2, 1fr)"]} gap={8}>
+            <Flex
+              direction="column"
+              alignItems="flex-start"
+              justifyContent="center"
+              maxWidth="60ch"
+            >
+              <Heading as="h2" color={headingColor}>
+                About Us
+              </Heading>
+              <Spacer axis="vertical" size={3} />
+              <Text fontSize="lg">
+                Half-giant jinxes peg-leg gillywater broken glasses large black
+                dog Great Hall. Nearly-Headless Nick now string them together,
+                and answer me this, which creature would you be unwilling to
+                kiss? Poltergeist sticking charm, troll umbrella stand flying
+                cars golden locket Lily Potter. Pumpkin juice Trevor wave your
+                wand out glass orbs, a Grim knitted hats.
+              </Text>
+            </Flex>
+            <StaticImage
+              src="../images/texas.webp"
+              width={300}
+              quality={95}
+              formats={["WEBP"]}
+              alt="Texas glass art"
+              style={{
+                margin: "0 auto",
+              }}
+            />
+          </Grid>
+        </Container>
+      </Box>
+    </Layout>
+  )
+}
 
 export default IndexPage

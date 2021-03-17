@@ -1,14 +1,15 @@
 import * as React from "react"
 import { Container, VisuallyHidden } from "@chakra-ui/react"
 import { graphql } from "gatsby"
-import Layout from "../../components/Layout/layout"
-import ProductListing from "../../components/ProductListing/index"
-import SEO from "../../components/seo"
+import Layout from "../components/Layout/layout"
+import ProductListing from "../components/ProductListing/index"
+import SEO from "../components/seo"
 
 const Products = ({ data: { products } }) => {
+  console.log(products)
   return (
     <Layout>
-      <SEO title="All Products in Hexagon Store" />
+      <SEO title="All Products in J. Philippus Art Studio & Gallery" />
       <VisuallyHidden as="h1">Products</VisuallyHidden>
       <Container py={20}>
         <ProductListing products={products} />
@@ -24,7 +25,7 @@ export default Products
 export const query = graphql`
   {
     products: allShopifyProduct(
-      filter: { productType: { in: ["Art", "Class"] } }
+      filter: { productType: { in: ["Art", "Class", "Gift Card"] } }
       sort: { fields: [publishedAt], order: ASC }
     ) {
       nodes {
