@@ -14,22 +14,6 @@ module.exports = {
     FAST_DEV: true,
   },
   plugins: [
-    // Shopify API Setup
-    {
-      resolve: "gatsby-source-shopify",
-      options: {
-        apiKey: process.env.GATSBY_SHOPIFY_ADMIN_API_KEY,
-        password: process.env.GATSBY_SHOPIFY_ADMIN_PASSWORD,
-        storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
-        downloadImages: true,
-      },
-    },
-    `@chakra-ui/gatsby-plugin`,
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,8 +33,23 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-source-shopify",
+      options: {
+        apiKey: process.env.GATSBY_SHOPIFY_ADMIN_API_KEY,
+        password: process.env.GATSBY_SHOPIFY_ADMIN_PASSWORD,
+        storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
+        downloadImages: true,
+      },
+    },
+    `@chakra-ui/gatsby-plugin`,
+    "gatsby-plugin-image",
+    "gatsby-image",
+    "gatsby-plugin-sharp",
     `gatsby-plugin-sass`,
-    // `gatsby-plugin-offline`, // this (optional) plugin enables Progressive Web App + Offline functionality
+    "gatsby-plugin-sitemap",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
   ],
 }
