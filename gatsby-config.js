@@ -16,7 +16,7 @@ module.exports = {
   plugins: [
     // Shopify API Setup
     {
-      resolve: "gatsby-source-shopify-experimental",
+      resolve: "gatsby-source-shopify",
       options: {
         apiKey: process.env.GATSBY_SHOPIFY_ADMIN_API_KEY,
         password: process.env.GATSBY_SHOPIFY_ADMIN_PASSWORD,

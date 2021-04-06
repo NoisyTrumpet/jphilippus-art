@@ -6829,15 +6829,16 @@ gatsby-source-filesystem@^3.1.0, gatsby-source-filesystem@^3.2.0:
     valid-url "^1.0.9"
     xstate "^4.14.0"
 
-gatsby-source-shopify-experimental@^1.16.3:
-  version "1.16.3"
-  resolved "https://registry.yarnpkg.com/gatsby-source-shopify-experimental/-/gatsby-source-shopify-experimental-1.16.3.tgz#5216edaa927bb9b616fb7ed4e0b859c0cdd1fd00"
-  integrity sha512-BxqbRLGJaOmfq48URI4tQsq5vLJFnRXN83TX7SoW7XUKXkhc1rE9ZSbWSbr4mj6aFTrcAu82ulrGUusl9k3j1g==
+gatsby-source-shopify@^5.0.0-rc.14:
+  version "5.0.0-rc.14"
+  resolved "https://registry.yarnpkg.com/gatsby-source-shopify/-/gatsby-source-shopify-5.0.0-rc.14.tgz#6223786939867959be41c8468c76b55240ee7083"
+  integrity sha512-jPkIMM1xKWLrM8Z77qhhFI/AQIYWfLo8RTNJMReVCHs1HxwLoq8t2Q5thtuQ7n8m1H0z6n5xYdayw8gu22k3iw==
   dependencies:
     gatsby-core-utils "^2.1.0"
     gatsby-source-filesystem "^3.1.0"
     node-fetch "^2.6.1"
     sharp "^0.27.2"
+    shift-left "^0.1.5"
 
 gatsby-telemetry@^2.2.0:
   version "2.2.0"
@@ -12306,6 +12307,11 @@ shell-quote@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
+
+shift-left@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/shift-left/-/shift-left-0.1.5.tgz#4a61a9d0412b1b32f9abbd97f72466c9c74a6be1"
+  integrity sha512-55d8QaP1YmuL1D52fhgq8CT1tXksM/2WPZ6980RtkMbl0Cze++kuJy50GLMnXwostk/YG9hasaJmP3r+d3yUtQ==
 
 shopify-buy@^2.11.0:
   version "2.11.0"
