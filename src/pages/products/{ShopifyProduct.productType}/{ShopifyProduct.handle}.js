@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react"
 import isEqual from "lodash.isequal"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Layout from "../../../components/Layout/layout"
+import Layout from "../../../components/Layout/Layout"
 import { StoreContext } from "../../../context/storeContext"
 import AddToCart from "../../../components/AddToCart/index"
 import formatPrice from "../../../utils/formatPrice"

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Container, VisuallyHidden } from "@chakra-ui/react"
 import { graphql } from "gatsby"
-import Layout from "../../../components/Layout/layout"
+import Layout from "../../../components/Layout/Layout"
 import ProductListing from "../../../components/ProductListing/index"
 import SEO from "../../../components/seo"
 

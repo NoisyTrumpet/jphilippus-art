@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react"
 import { FiArrowRight as ArrowIcon } from "react-icons/fi"
 import { StaticImage } from "gatsby-plugin-image"
-import Layout from "../components/Layout/layout"
+import Layout from "../components/Layout/Layout"
 import Spacer from "../components/Spacer/index"
 import { ChakraHelpersContext } from "../context/chakra-helpers-context"
 
