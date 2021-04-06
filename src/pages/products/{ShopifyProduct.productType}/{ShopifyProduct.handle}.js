@@ -311,7 +311,7 @@ export const query = graphql`
           publicURL
           childImageSharp {
             gatsbyImageData(
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP, AVIF, PNG]
               quality: 90
               layout: CONSTRAINED
               width: 640
