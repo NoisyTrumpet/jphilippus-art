@@ -11,7 +11,6 @@ import {
   List,
   ListItem,
   ListIcon,
-  UnorderedList,
   useColorModeValue,
 } from "@chakra-ui/react"
 import { FiArrowRight as ArrowIcon } from "react-icons/fi"

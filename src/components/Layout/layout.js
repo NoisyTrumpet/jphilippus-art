@@ -9,7 +9,6 @@ import * as React from "react"
 import { SkipNavContent, SkipNavLink } from "../SkipNav/index"
 import Footer from "../Footer/index"
 import Header from "../Header/header"
-import SEO from "../seo"
 import { ChakraHelpersProvider } from "../../context/chakra-helpers-context"
 
 const Layout = ({ children }) => (

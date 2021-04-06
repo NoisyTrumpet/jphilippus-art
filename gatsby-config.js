@@ -9,10 +9,10 @@ module.exports = {
     author: `@noisytrumpet`,
     siteUrl: `https://jphilippusart.com`,
   },
-  flags: {
-    DEV_SSR: true,
-    FAST_DEV: true,
-  },
+  // flags: {
+  //   DEV_SSR: true,
+  //   FAST_DEV: true,
+  // },
   plugins: [
     // Shopify API Setup
     {
