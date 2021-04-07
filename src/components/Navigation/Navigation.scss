@@ -1,0 +1,23 @@
+@import "../../styles/main.scss";
+
+header {
+    padding: .5rem 0 .5rem 0 !important;
+}
+
+.navigation {
+    background-color: $brand-true-white;
+    text-transform: uppercase;
+
+    .navigation-link {
+        font-size: 17px;
+        color: $brand-dk-grey !important;
+        text-transform: uppercase !important;
+        padding-right: 10px;
+        margin: 1px;
+    }
+
+    .active {
+        color: $brand-turquoise;
+    }
+}
+

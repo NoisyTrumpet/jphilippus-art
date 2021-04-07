@@ -1,10 +1,12 @@
 import * as React from "react"
-import { Badge, IconButton, Stack } from "@chakra-ui/react"
+import { Badge, IconButton, Stack, Button } from "@chakra-ui/react"
 import { FiShoppingCart } from "react-icons/fi"
 import { ChakraHelpersContext } from "../../context/chakra-helpers-context"
 
+import "./CartButton.scss"
+
 const CartButton = ({ quantity, btnRef, onOpen }) => {
-  const { primaryColorScheme } = React.useContext(ChakraHelpersContext)
+  // const { primaryColorScheme } = React.useContext(ChakraHelpersContext)
 
   return (
     <Stack
@@ -13,13 +15,17 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
       alignItems="center"
       spacing={3}
     >
+      <span className="gift-card-container">
+      <a className="navigation-link gift-cards-btn">Gift Cards</a>
+      </span>
+      <Button className="navigation-link navigation-cart" onClick={onOpen}>Cart
       <IconButton
         aria-label={`Shopping Cart with ${quantity} items`}
         icon={<FiShoppingCart />}
         variant="ghost"
         ref={btnRef}
         onClick={onOpen}
-      />{" "}
+      />{""}
       <Badge
         height="24px"
         width="24px"
@@ -28,10 +34,10 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        colorScheme={primaryColorScheme}
       >
         {quantity}
       </Badge>
+      </Button>
     </Stack>
   )
 }
