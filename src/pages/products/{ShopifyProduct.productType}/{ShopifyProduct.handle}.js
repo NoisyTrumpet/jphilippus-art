@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import {
   Container,
   Grid,
@@ -25,6 +25,7 @@ import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
 import SEO from "../../../components/SEO"
 
+
 const Product = ({ data: { product, suggestions } }) => {
   const {
     options,
@@ -35,6 +36,9 @@ const Product = ({ data: { product, suggestions } }) => {
     description,
     images,
     images: [firstImage],
+    legacyResourceId,
+    productType,
+    handle,
   } = product
   const { client } = React.useContext(StoreContext)
 
@@ -109,6 +113,7 @@ const Product = ({ data: { product, suggestions } }) => {
 
   return (
     <Layout>
+
       <SEO
         title={title}
         description={description}
@@ -157,6 +162,7 @@ const Product = ({ data: { product, suggestions } }) => {
                         <NumberDecrementStepper />
                       </NumberInputStepper>
                     </NumberInput>
+
                   </Stack>
                   {hasVariants && (
                     <>
@@ -183,6 +189,7 @@ const Product = ({ data: { product, suggestions } }) => {
                       ))}
                     </>
                   )}
+
                   <AddToCart
                     type="submit"
                     variantId={productVariant.storefrontId}
@@ -191,6 +198,8 @@ const Product = ({ data: { product, suggestions } }) => {
                     alignSelf="flex-end"
                     mt={4}
                   />
+
+
                 </Flex>
               </Stack>
             </Stack>
@@ -294,6 +303,8 @@ export const query = graphql`
     product: shopifyProduct(id: { eq: $id }) {
       title
       description
+      legacyResourceId
+      productType
       priceRangeV2 {
         maxVariantPrice {
           amount
@@ -304,6 +315,7 @@ export const query = graphql`
           currencyCode
         }
       }
+      handle
       storefrontId
       images {
         altText
