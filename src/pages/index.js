@@ -22,7 +22,6 @@ import Hero from "../components/Hero/Hero"
 import Hero1 from "../components/Hero/Hero1"
 import { ChakraHelpersContext } from "../context/chakra-helpers-context"
 
-
 const IndexPage = () => {
   const bgGradient = useColorModeValue(
     `linear(to-b, gradientTop, gradientBottom)`,
@@ -35,10 +34,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-
       <Hero />
-      <Hero1 />
-
       <Box bgGradient={bgGradient}>
         <Container py={[20, 28]}>
           <Grid templateColumns={["1fr", null, "repeat(2, 1fr)"]} gap={8}>
