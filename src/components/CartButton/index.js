@@ -16,7 +16,7 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
       spacing={3}
     >
       <span className="gift-card-container">
-      <a className="navigation-link gift-cards-btn">Gift Cards</a>
+      <Button className="navigation-link gift-cards-btn">Gift Cards</Button>
       </span>
       <Button className="navigation-link navigation-cart" onClick={onOpen}>Cart
       <IconButton
@@ -25,8 +25,10 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
         variant="ghost"
         ref={btnRef}
         onClick={onOpen}
+        className="cart-btn cart-link"
       />{""}
       <Badge
+        className="nav-cart-badge"
         height="24px"
         width="24px"
         borderRadius="full"

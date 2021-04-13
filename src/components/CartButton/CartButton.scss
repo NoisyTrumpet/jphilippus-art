@@ -1,7 +1,7 @@
 @import "../../styles/main.scss";
 
-.navigation-link {
-    font-size: 17px;
+.navigation-link, .cart-link {
+    font-size: 14px !important;
     color: $brand-dk-grey !important;
     text-transform: uppercase !important;
     padding-right: 10px;
@@ -9,18 +9,10 @@
     background-color: transparent !important;
 }
 
-.gift-card-container {
-    background-color: $brand-burnt-orange !important;
-    background-size: cover;
-    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
+.nav-cart-badge {
+    background-color: $brand-turquoise !important;
     color: $brand-true-white !important;
-    padding: 15px;
-
-    .gift-cards-btn {
-        color: $brand-true-white !important;
-        padding: 0px !important;
-        text-align: center;
-    }
 }
+
 
 

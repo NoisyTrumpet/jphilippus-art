@@ -2,14 +2,14 @@
 
 header {
     padding: .5rem 0 .5rem 0 !important;
+    background-color: $brand-true-white;
 }
 
 .navigation {
-    background-color: $brand-true-white;
     text-transform: uppercase;
 
     .navigation-link {
-        font-size: 17px;
+        font-size: 14px;
         color: $brand-dk-grey !important;
         text-transform: uppercase !important;
         padding-right: 10px;

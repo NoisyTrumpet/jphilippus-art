@@ -8,7 +8,7 @@ import Logo from "../../images/logo-horizontal.png"
 
 const Footer = () => {
   return (
-    <Container as="footer" py={16}>
+    <Container className="footer-container" as="footer" py={16}>
       <Grid
       templateColumns="repeat(3, 1fr)" 
       gap={3} 
@@ -16,7 +16,7 @@ const Footer = () => {
         
         {/* Footer logo */}
         <Box px={10}>
-          <Image src={Logo} />
+          <Image className="footer-logo" src={Logo} />
         </Box>
 
         {/* Footer Menu section */}
@@ -63,29 +63,12 @@ const Footer = () => {
           <Text>Follow us</Text>
         </Box>
       </Grid>
-      {/* <Grid
-        gridTemplateColumns={["1fr", "1fr", "1fr auto 1fr"]}
-        alignItems="center"
-        gap={[3, 3, 12]}
-      >
-        <Text textAlign={["center", "center", "left"]}>
-          Copyright &copy; {new Date().getFullYear()}. All rights reserved.
-        </Text>
-        <Stack
-          direction="row"
-          spacing={3}
-          alignItems="center"
-          justifyContent={["center", "center", "flex-end"]}
-        >
-          <span>Theme:</span> <ThemeToggle />
-        </Stack>
-        <Link
-          justifySelf={["center", "center", "flex-end"]}
-          href="https://github.com/NoisyTrumpet/jphilippus-art"
-        >
-          Source Code
-        </Link>
-      </Grid> */}
+
+      {/* Footer theme toggler */}
+      <Box className="theme-toggle-container">
+        <span>Theme:</span> <ThemeToggle />
+      </Box>
+      
     </Container>
   )
 }

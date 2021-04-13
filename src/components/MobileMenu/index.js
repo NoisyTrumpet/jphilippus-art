@@ -62,10 +62,13 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
         </DrawerOverlay>
       </Drawer>
       <Button
+        className="hamburger"
         onClick={onOpenMenu}
         ref={menuRef}
+        my={5}
         px={3}
-        size="sm"
+        sx={ { background: 'transparent' } }
+        size="md"
         aria-label={isOpenMenu ? `Close menu` : `Open menu`}
         justifySelf="flex-end"
         rightIcon={<FiMenu />}

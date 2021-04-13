@@ -3,14 +3,14 @@ import { theme } from "@chakra-ui/react"
 const defaultColors = theme.colors
 
 const colors = {
-  color: defaultColors.gray["800"],
-  bg: defaultColors.white,
-  primaryColorScheme: "blue", // Used for all "colorScheme" props on components. Not defined in "dark" as components handle dark mode by themselves.
-  primary: defaultColors.blue["500"],
-  gradientTop: defaultColors.white,
-  gradientBottom: defaultColors.gray["100"],
+  color: "#707070",
+  bg: "#FFFFFF",
+  primaryColorScheme: "gray", // Used for all "colorScheme" props on components. Not defined in "dark" as components handle dark mode by themselves.
+  primary: "#3FA7B6",
+  gradientTop: "#FFFFFF",
+  gradientBottom: "#FFFFFF",
   headingColor: "black",
-  cardBg: defaultColors.gray["100"],
+  cardBg: "#FFFFFF",
   cardLink: defaultColors.black,
   cardLinkHover: defaultColors.blue["600"],
   dark: {
