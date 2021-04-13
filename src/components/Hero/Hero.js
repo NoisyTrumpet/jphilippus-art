@@ -36,7 +36,6 @@ const Hero = () => {
       preserveStackingContext
     >
       <div style={{ minHeight: 1000, minWidth: 1000 }}>
-
         <Grid
           templateColumns="repeat(5, 1fr)"
           templateRows="repeat(3, 1fr)"
