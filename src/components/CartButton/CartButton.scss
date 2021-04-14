@@ -7,20 +7,22 @@
     padding-right: 10px;
     margin: 1px;
     background-color: transparent !important;
+    white-space: nowrap;
+    font-weight: 500px;
 }
 
-.gift-card-container {
-    background-color: $brand-burnt-orange !important;
-    background-size: cover;
-    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
-    color: $brand-true-white !important;
-    padding: 15px;
+// .gift-card-container {
+//     background-color: $brand-burnt-orange !important;
+//     background-size: cover;
+//     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
+//     color: $brand-true-white !important;
+//     padding: 15px;
 
-    .gift-cards-btn {
-        color: $brand-true-white !important;
-        padding: 0px !important;
-        text-align: center;
-    }
-}
+//     .gift-cards-btn {
+//         color: $brand-true-white !important;
+//         padding: 0px !important;
+//         text-align: center;
+//     }
+// }
 
 
