@@ -16,3 +16,18 @@
     color: $brand-true-white;
     border: none;
 }
+
+.btn--small {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.btn--medium {
+    padding: 10px 15px;
+    font-size: 18px;
+}
+
+.btn--large {
+    padding: 15px 20px;
+    font-size: 21px;
+}

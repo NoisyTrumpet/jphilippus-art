@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "@chakra-ui/react";
 
 import './DiamondButton.scss'
 
@@ -28,7 +27,7 @@ export const DiamondButton = ({ children, type, onClick, buttonStyle, buttonSize
             type={type}>
 
                 {children}
-                
+
         </button>
     )
 }
