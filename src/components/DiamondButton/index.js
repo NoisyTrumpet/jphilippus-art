@@ -25,9 +25,7 @@ export const DiamondButton = ({ children, type, onClick, buttonStyle, buttonSize
             className={`btn ${checkButtonStyle} ${checkButtonSize}`} 
             onClick={onClick} 
             type={type}>
-
-                {children}
-
+                <span className="btn-text">{children}</span>
         </button>
     )
 }

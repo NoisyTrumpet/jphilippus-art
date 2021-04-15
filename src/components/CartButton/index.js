@@ -3,7 +3,7 @@ import { Badge, IconButton, Stack, Button } from "@chakra-ui/react"
 import { FiShoppingCart } from "react-icons/fi"
 import { ChakraHelpersContext } from "../../context/chakra-helpers-context"
 
-import DiamondButton from "../DiamondButton/index"
+import { DiamondButton } from "../DiamondButton"
 
 import "./CartButton.scss"
 
@@ -17,7 +17,8 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
       alignItems="center"
       spacing={3}
     >
-      <DiamondButton>Gift Cards</DiamondButton>
+      <DiamondButton buttonStyle="btn--secondary" buttonSize="btn--small">Gift Cards</DiamondButton>
+
       <Button className="navigation-link navigation-cart" onClick={onOpen}>Cart
       <IconButton
         aria-label={`Shopping Cart with ${quantity} items`}

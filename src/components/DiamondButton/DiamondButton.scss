@@ -2,32 +2,55 @@
 
 
 .btn {
-    border-radius: 10px;
+    // border-radius: 15px;
     cursor: pointer;
-    transition: transform 0.3s ease;
-
+    transition: transform 0.3s ease; 
+    text-align: center;
+    content:"";
+    display:block;
+    padding-top: 86.6%;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  
+    .btn-text {
+      // transform: rotate(-45deg) !important;
+      white-space: nowrap;
+    }
+  
     &:hover {
         transform: translateY(-3px);
     }
-}
-
-.btn--primary {
-    background-color: $brand-turquoise;
-    color: $brand-true-white;
+  }
+  
+  .btn--primary {
+    background-color: #3FA7B6;
+    color: #FFFFFF;
     border: none;
-}
-
-.btn--small {
+  }
+  
+  .btn--secondary {
+    background-color: #C09559;
+    color: #FFFFFF;
+    border: none;
+  }
+  
+  .btn--small {
     padding: 5px 10px;
-    font-size: 14px;
-}
-
-.btn--medium {
+    font-size: 12px;
+    height: 75px;
+    width: 75px;
+  }
+  
+  .btn--medium {
     padding: 10px 15px;
-    font-size: 18px;
-}
-
-.btn--large {
+    font-size: 15px;
+    height: 95px;
+    widtH: 95px;
+  }
+  
+  .btn--large {
     padding: 15px 20px;
-    font-size: 21px;
-}
+    font-size: 18px;
+    height: 110px;
+    widtH: 110px;
+  }
+  
