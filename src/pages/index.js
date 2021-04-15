@@ -12,14 +12,12 @@ import {
   ListItem,
   ListIcon,
   useColorModeValue,
-  Portal,
 } from "@chakra-ui/react"
 import { FiArrowRight as ArrowIcon } from "react-icons/fi"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout/Layout"
 import Spacer from "../components/Spacer/index"
 import Hero from "../components/Hero/Hero"
-import Hero1 from "../components/Hero/Hero1"
 import { ChakraHelpersContext } from "../context/chakra-helpers-context"
 
 const IndexPage = () => {
