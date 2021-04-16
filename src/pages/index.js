@@ -19,8 +19,6 @@ import Layout from "../components/Layout/Layout"
 import Spacer from "../components/Spacer/index"
 import { ChakraHelpersContext } from "../context/chakra-helpers-context"
 
-import {DiamondButton} from "../components/DiamondButton"
-
 const IndexPage = () => {
   const bgGradient = useColorModeValue(
     `linear(to-b, gradientTop, gradientBottom)`,
@@ -48,7 +46,6 @@ const IndexPage = () => {
               <Text fontSize="21px">
                 Beautiful 1500 Square Foot Facility Including:
               </Text>
-              <DiamondButton />
               <List spacing={3}>
                 <ListItem>
                   <ListIcon as={ArrowIcon} color="green.500" />

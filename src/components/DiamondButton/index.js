@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { Container, Button, Tag } from "@chakra-ui/react"
 
 import './DiamondButton.scss'
 
@@ -9,23 +10,25 @@ const styles = [
 ]
 
 const sizes = [
-    "btn--large",
+    "btn--small",
     "btn--medium",
-    "btn-small"
+    "btn--large"
 ]
 
 export const DiamondButton = ({ children, type, onClick, buttonStyle, buttonSize }) => {
 
     const checkButtonStyle = styles.includes(buttonStyle) ? buttonStyle : styles[0];
 
-    const checkButtonSize = sizes.includes(checkButtonSize) ? buttonSize : sizes[0];
+    const checkButtonSize = sizes.includes(buttonSize) ? buttonSize : sizes[0];
 
     return(
-        <button 
-            className={`btn ${checkButtonStyle} ${checkButtonSize}`} 
-            onClick={onClick} 
-            type={type}>
-                <span className="btn-text">{children}</span>
-        </button>
+        <Container className="rotate-45" transform="rotate(45deg)">
+            <Button 
+                className={`btn ${checkButtonStyle} ${checkButtonSize}`} 
+                onClick={onClick} 
+                type={type}>
+                    <Tag className="btn-text" transform="rotate(-45deg)" colorScheme="none" p="0">{children}</Tag>
+            </Button>
+        </Container>
     )
 }

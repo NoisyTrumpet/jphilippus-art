@@ -1,43 +1,59 @@
 @import "../../styles/main.scss";
 
+.rotate-45 {
+  margin: 0;
 
 .btn {
-    // border-radius: 15px;
+    border-radius: 15px;
     cursor: pointer;
     transition: transform 0.3s ease; 
     text-align: center;
-    content:"";
-    display:block;
-    padding-top: 86.6%;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    // margin-top: 10px 0 0 10px;
   
     .btn-text {
-      // transform: rotate(-45deg) !important;
-      white-space: nowrap;
-    }
-  
-    &:hover {
-        transform: translateY(-3px);
+      text-transform: uppercase;
+      white-space: normal;
     }
   }
   
   .btn--primary {
-    background-color: #3FA7B6;
-    color: #FFFFFF;
+    background-color: $brand-turquoise;
+    color: $brand-true-white;
     border: none;
+
+    &:hover {
+      background-color: $brand-turquoise-hover;
+      transform: scale(1.05);
+    }
   }
   
   .btn--secondary {
-    background-color: #C09559;
-    color: #FFFFFF;
+    background-color: $brand-burnt-orange;
+    color: $brand-true-white;
     border: none;
+
+    &:hover {
+      background-color: $brand-burnt-orange-hover;
+      transform: scale(1.05);
+    }
+  }
+
+  .btn--tertiary {
+    background-color: $brand-dk-grey;
+    color: $brand-true-white;
+    border: none;
+
+    &:hover {
+      background-color: $brand-dk-grey-hover;
+      transform: scale(1.05);
+    }
   }
   
   .btn--small {
     padding: 5px 10px;
-    font-size: 12px;
-    height: 75px;
-    width: 75px;
+    font-size: 13px;
+    height: 70px;
+    width: 70px;
   }
   
   .btn--medium {
@@ -53,4 +69,4 @@
     height: 110px;
     widtH: 110px;
   }
-  
+}
