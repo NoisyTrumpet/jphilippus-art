@@ -16,6 +16,9 @@ import Navigation from "../Navigation/index"
 import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
 
+import { DarkLogo } from "../../images/logo-horizontal-dark.png"
+import { LightLogo } from "../../images/logo-horizontal.png"
+
 const Header = ({ siteTitle }) => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
   const [isSmallerThan768] = useMediaQuery("(max-width: 768px)")
@@ -65,7 +68,7 @@ const Header = ({ siteTitle }) => {
           >
             {colorMode === "dark" ? (
               <StaticImage
-                src="../../images/logo-horizontal-dark.png"
+                src={DarkLogo}
                 width={175}
                 style={{ margin: "10px 5px" }}
                 quality={95}
@@ -75,7 +78,7 @@ const Header = ({ siteTitle }) => {
               />
             ) : (
               <StaticImage
-                src="../../images/logo-horizontal.png"
+                src={LightLogo}
                 width={175}
                 style={{ margin: "10px 5px" }}
                 quality={95}

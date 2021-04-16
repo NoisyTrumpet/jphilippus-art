@@ -67,7 +67,7 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
         ref={menuRef}
         my={5}
         px={3}
-        sx={ { background: 'transparent' } }
+        sx={ { background: 'transparent', color: '#707070' } }
         size="md"
         aria-label={isOpenMenu ? `Close menu` : `Open menu`}
         justifySelf="flex-end"
