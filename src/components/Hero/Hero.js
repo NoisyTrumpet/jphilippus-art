@@ -1,4 +1,6 @@
 import * as React from "react"
+import Roll from "react-reveal/Roll"
+import Fade from "react-reveal/Fade"
 import { graphql, useStaticQuery } from "gatsby"
 import { Box, Grid, GridItem, Heading, Text, Button, Container } from "@chakra-ui/react"
 import BackgroundImage from "gatsby-background-image"
@@ -35,41 +37,49 @@ const Hero = () => {
     <BackgroundImage
       Tag="section"
       fluid={images}
+      style={{ backgroundAttachment: "fixed" }}
       preserveStackingContext
     >
 
       <Grid
-        templateColumns="repeat(6, 1fr)"
-        templateRows="repeat(2, 1fr)"
+        templateColumns={["repeat(1, 1fr)", "repeat(6, 1fr)"]}
+        templateRows="repeat(1, 1fr)"
         gap={2}
-        pt="5rem"
-        h={800}
+        py={["3rem", "5rem"]}
+        px="1rem"
+        h={["700px", "800px"]}
+
       >
         <GridItem
-          colStart={5}
+          colStart={[1, 5]}
           rowStart={1}
-          textAlign="left"
+          textAlign={["center", "left"]}
           h="min-content"
         >
-          <Heading as="h1" color="#C09559">
-            Teaching <br /> Art Studio
+          <Fade top cascade>
+            <Heading as="h1" color="#C09559">
+              Teaching <br /> Art Studio
             </Heading>
-          <Text fontSize="21px">
-            We are excited to share that <br /> The Shard Studio, LLC is now
+            <Text fontSize="21px">
+              We are excited to share that <br /> The Shard Studio, LLC is now
             </Text>
-          <Heading as="h2" fontSize="26px" color="#C09559">
-            J.Philippus Art Studio <br /> and Gallery, LLC
+            <Heading as="h2" fontSize="26px" color="#C09559">
+              J.Philippus Art Studio <br /> and Gallery, LLC
             </Heading>
+          </Fade>
         </GridItem>
 
         <GridItem
-          colStart={5}
+          colStart={[1, 5]}
           rowStart={2}
           h="min-content"
           pos="relative"
-          top="-5rem"
+          top={["-8rem", "-5rem"]}
         >
-          <Container>
+          <Container
+            w="min-content"
+            mr={["2rem", "0"]}
+          >
             <Grid
               templateColumns="repeat(2, 1fr)"
               templateRows="repeat(2, 1fr)"
@@ -82,40 +92,48 @@ const Hero = () => {
                 colStart={1}
                 rowStart={1}
                 d="flex"
-                alignItems="end"
+                alignItems="flex-end"
               >
-                <Button
-                  bg="#3FA7B6"
-                  w={100}
-                  h={100}
-                  borderRadius="15px"
-                  color="white"
-                  _hover={{ background: "#c09559" }}
-                >
-                  <Text transform="rotate(-45deg)">Book a <br /> Class</Text>
-                </Button>
+                <Roll top>
+                  <Button
+                    bg="#3FA7B6"
+                    w={100}
+                    h={100}
+                    borderRadius="15px"
+                    color="white"
+                    _hover={{ background: "#c09559" }}
+                  >
+                    <Text transform="rotate(-45deg)">Book a <br /> Class</Text>
+                  </Button>
+                </Roll>
               </GridItem>
               <GridItem
                 colStart={2}
                 rowStart={1}
+                d={["none", "flex"]}
               >
-                <Box
-                  bg="rgba(63, 167, 182, .4)"
-                  w={300}
-                  h={300}
-                  borderRadius="15px"
-                />
+                <Roll top>
+                  <Box
+                    bg="rgba(63, 167, 182, .4)"
+                    w={300}
+                    h={300}
+                    borderRadius="15px"
+                  />
+                </Roll>
               </GridItem>
               <GridItem
                 colStart={2}
                 rowStart={2}
+                d={["none", "flex"]}
               >
-                <Box
-                  bg="rgba(63, 167, 182, .4)"
-                  w={150}
-                  h={150}
-                  borderRadius="15px"
-                />
+                <Roll top>
+                  <Box
+                    bg="rgba(63, 167, 182, .4)"
+                    w={150}
+                    h={150}
+                    borderRadius="15px"
+                  />
+                </Roll>
               </GridItem>
             </Grid>
           </Container>
