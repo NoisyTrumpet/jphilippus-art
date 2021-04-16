@@ -8,7 +8,8 @@
     cursor: pointer;
     transition: transform 0.3s ease; 
     text-align: center;
-    // margin-top: 10px 0 0 10px;
+    width: max-content;
+    margin: 5px;
   
     .btn-text {
       text-transform: uppercase;
@@ -57,16 +58,16 @@
   }
   
   .btn--medium {
-    padding: 10px 15px;
+    padding: 0;
     font-size: 15px;
     height: 95px;
-    widtH: 95px;
+    width: 95px;
   }
   
   .btn--large {
-    padding: 15px 20px;
+    padding: 0;
     font-size: 18px;
     height: 110px;
-    widtH: 110px;
+    width: 110px;
   }
 }
