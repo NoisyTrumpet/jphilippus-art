@@ -2,6 +2,8 @@ import * as React from "react"
 import { Stack, useColorModeValue } from "@chakra-ui/react"
 import Link from "../link"
 
+import { DiamondButton } from "../DiamondButton"
+
 import "./Navigation.scss";
 
 // In theory this could also be defined inside "gatsby-config.js" and then queried via GraphQL
@@ -60,8 +62,9 @@ const Navigation = () => {
           partiallyActive={n.pActive}
         >
           {n.name}
-        </Link>
+        </Link>  
       ))}
+    <DiamondButton buttonStyle="btn--secondary" buttonSize="btn--small">Gift Cards</DiamondButton>
     </Stack>
   )
 }

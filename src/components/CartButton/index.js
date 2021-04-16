@@ -17,7 +17,6 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
       alignItems="center"
       spacing={3}
     >
-      <DiamondButton buttonStyle="btn--secondary" buttonSize="btn--small">Gift Cards</DiamondButton>
       <Button className="navigation-link navigation-cart" onClick={onOpen}>Cart
       <IconButton
         aria-label={`Shopping Cart with ${quantity} items`}

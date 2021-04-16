@@ -50,11 +50,11 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
                   },
                 }}
               >
-                <CartButton
+                {/* <CartButton
                   quantity={quantity}
                   onOpen={onOpen}
                   btnRef={btnRef}
-                />
+                /> */}
                 <Navigation />
               </Stack>
             </DrawerBody>
@@ -75,6 +75,11 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
       >
         Menu
       </Button>
+      <CartButton
+                  quantity={quantity}
+                  onOpen={onOpen}
+                  btnRef={btnRef}
+                />
     </>
   )
 }
