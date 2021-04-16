@@ -48,7 +48,6 @@ const Hero = () => {
         py={["3rem", "5rem"]}
         px="1rem"
         h={["700px", "800px"]}
-
       >
         <GridItem
           colStart={[1, 5]}

@@ -18,6 +18,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout/Layout"
 import Spacer from "../components/Spacer/index"
 import Hero from "../components/Hero/Hero"
+import Testimonials from "../components/Testimonials/Testimonials"
 import { ChakraHelpersContext } from "../context/chakra-helpers-context"
 
 const IndexPage = () => {
@@ -196,6 +197,8 @@ const IndexPage = () => {
           </Grid>
         </Container>
       </Box>
+
+      <Testimonials />
     </Layout>
   )
 }
