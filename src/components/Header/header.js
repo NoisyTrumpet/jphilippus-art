@@ -1,4 +1,5 @@
 import * as React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import {
   Box,
@@ -8,16 +9,13 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react"
 import { StoreContext } from "../../context/storeContext"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Link from "../link"
 import Spacer from "../Spacer/index"
 import Cart from "../Cart/index"
 import Navigation from "../Navigation/index"
 import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
-
-import { DarkLogo } from "../../images/logo-horizontal-dark.png"
-import { LightLogo } from "../../images/logo-horizontal.png"
 
 const Header = ({ siteTitle }) => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
@@ -33,6 +31,35 @@ const Header = ({ siteTitle }) => {
   const quantity = items.reduce((total, item) => {
     return total + item.quantity
   }, 0)
+
+  const { DarkLogo, LightLogo } = useStaticQuery(
+    graphql`
+      query {
+        DarkLogo: file(relativePath: { eq: "logo-horizontal-dark.png" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              quality: 90
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        LightLogo: file(relativePath: { eq: "logo-horizontal.png" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              quality: 90
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    `
+  )
+  const dark = getImage(DarkLogo)
+  const light = getImage(LightLogo)
 
   return (
     <>
@@ -67,40 +94,33 @@ const Header = ({ siteTitle }) => {
             }}
           >
             {colorMode === "dark" ? (
-              <StaticImage
-                src={DarkLogo}
-                width={175}
+              <GatsbyImage
+                image={dark}
                 style={{ margin: "10px 5px" }}
-                quality={95}
-                formats={["WEBP", "AVIF", "PNG"]}
                 alt={siteTitle}
                 className="header-logo-dark"
               />
             ) : (
-              <StaticImage
-                src={LightLogo}
-                width={175}
+              <GatsbyImage
+                image={light}
                 style={{ margin: "10px 5px" }}
-                quality={95}
-                formats={["WEBP", "AVIF", "PNG"]}
                 alt={siteTitle}
                 className="header-logo-reg"
               />
             )}
           </Link>
+
           {isSmallerThan768 ? (
-            <MobileMenu 
-              quantity={quantity} 
-              btnRef={btnRef} 
-              onOpen={onOpen} 
-              className="mobile-nav" />
+            <MobileMenu
+              quantity={quantity}
+              btnRef={btnRef}
+              onOpen={onOpen}
+              className="mobile-nav"
+            />
           ) : (
             <>
               <Navigation className="navigation" />
-              <CartButton 
-                quantity={quantity} 
-                onOpen={onOpen} 
-                btnRef={btnRef} />
+              <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
             </>
           )}
         </Container>

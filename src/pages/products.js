@@ -24,7 +24,7 @@ export default Products
 export const query = graphql`
   {
     products: allShopifyProduct(
-      filter: { productType: { in: ["art", "class", "gift-card"] } }
+      filter: { productType: { in: ["Art", "Class", "Gift Cards"] } }
       sort: { fields: [publishedAt], order: ASC }
     ) {
       nodes {

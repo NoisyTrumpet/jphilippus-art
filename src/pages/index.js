@@ -8,24 +8,15 @@ import {
   Heading,
   Flex,
   Button,
-  List,
-  ListItem,
-  ListIcon,
   useColorModeValue,
 } from "@chakra-ui/react"
 import { FiArrowRight as ArrowIcon } from "react-icons/fi"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout/Layout"
 import Spacer from "../components/Spacer/index"
-import Hero from "../components/Hero/Hero"
-import { ChakraHelpersContext } from "../context/chakra-helpers-context"
+import Hero from "../components/Hero/Hero.js"
 
 const IndexPage = () => {
-  const bgGradient = useColorModeValue(
-    `linear(to-b, gradientTop, gradientBottom)`,
-    `linear(to-b, dark.gradientTop, dark.gradientBottom)`
-  )
-  const { primaryColorScheme } = React.useContext(ChakraHelpersContext)
   const headingColor = useColorModeValue(`headingColor`, `dark.headingColor`)
   const fullWidthColor = useColorModeValue(`gray.700`, `gray.300`)
   const fullWidthBg = useColorModeValue(`gray.100`, `black`)
@@ -33,63 +24,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Hero />
-      <Box bgGradient={bgGradient}>
-        <Container py={[20, 28]}>
-          <Grid templateColumns={["1fr", null, "repeat(2, 1fr)"]} gap={8}>
-            <Flex
-              direction="column"
-              alignItems="flex-start"
-              justifyContent="center"
-            >
-              <Heading as="h1" color={headingColor}>
-                Welcome to J. Philippus Art Studio & Gallery
-              </Heading>
-              <Spacer axis="vertical" size={3} />
-              <Text fontSize="21px">
-                Beautiful 1500 Square Foot Facility Including:
-              </Text>
-              <List spacing={3}>
-                <ListItem>
-                  <ListIcon as={ArrowIcon} color="green.500" />
-                  KITCHEN WITH REFRIGERATOR, MICROWAVE AND ICE MAKER
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={ArrowIcon} color="green.500" />
-                  HANDICAP ACCESSIBLE
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={ArrowIcon} color="green.500" />
-                  TV AVAILABLE FOR PRESENTATIONS
-                </ListItem>
-                {/* You can also use custom icons from react-icons */}
-                <ListItem>
-                  <ListIcon as={ArrowIcon} color="green.500" />
-                  OPEN FLEX AREA IN THE FRONT EXCELLENT FOR COCKTAIL RECEPTIONS
-                </ListItem>
-              </List>
-              <Spacer axis="vertical" size={9} />
-              <Button
-                as={GatsbyLink}
-                to="/products/"
-                colorScheme={primaryColorScheme}
-                rightIcon={<ArrowIcon />}
-              >
-                See all products
-              </Button>
-            </Flex>
-            <StaticImage
-              src="../images/texas.webp"
-              width={300}
-              quality={95}
-              formats={["WEBP"]}
-              alt="Texas glass art"
-              style={{
-                margin: "0 auto",
-              }}
-            />
-          </Grid>
-        </Container>
-      </Box>
+
       <Container my={[24, 32, 36, 40]}>
         <Flex alignItems="center" justifyContent="space-between" mb={8}>
           <Heading as="h2" fontSize="3xl">

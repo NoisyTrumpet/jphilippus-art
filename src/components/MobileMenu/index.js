@@ -67,7 +67,7 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
         ref={menuRef}
         my={5}
         px={3}
-        sx={ { background: 'transparent', color: '#707070' } }
+        sx={{ background: "transparent", color: "#707070" }}
         size="md"
         aria-label={isOpenMenu ? `Close menu` : `Open menu`}
         justifySelf="flex-end"
@@ -75,11 +75,7 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
       >
         Menu
       </Button>
-      <CartButton
-                  quantity={quantity}
-                  onOpen={onOpen}
-                  btnRef={btnRef}
-                />
+      <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
     </>
   )
 }

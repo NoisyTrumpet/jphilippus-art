@@ -2,7 +2,17 @@ import * as React from "react"
 import Roll from "react-reveal/Roll"
 import Fade from "react-reveal/Fade"
 import { graphql, useStaticQuery } from "gatsby"
-import { Box, Grid, GridItem, Heading, Text, Button, Container } from "@chakra-ui/react"
+import { convertToBgImage } from "gbimage-bridge"
+import { getImage } from "gatsby-plugin-image"
+import {
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  Button,
+  Container,
+} from "@chakra-ui/react"
 import BackgroundImage from "gatsby-background-image"
 
 const Hero = () => {
@@ -11,36 +21,45 @@ const Hero = () => {
       query {
         mobileImage: file(relativePath: { eq: "heroMobile-banner.jpg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 490) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              width: 490
+              quality: 90
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
         desktopImage: file(relativePath: { eq: "heroDesktop-banner.jpg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              width: 2160
+              quality: 90
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
-      }`
-  );
+      }
+    `
+  )
+
+  const mobileImageGet = getImage(mobileImage)
+  const desktopImageGet = getImage(desktopImage)
+  const desk = convertToBgImage(desktopImageGet)
+  const mob = convertToBgImage(mobileImageGet)
+
   const images = [
-    mobileImage.childImageSharp.fluid,
+    mob.fluid,
     {
-      ...desktopImage.childImageSharp.fluid,
+      ...desk.fluid,
       media: `(min-width: 491px)`,
     },
   ]
 
   return (
-    <BackgroundImage
-      Tag="section"
-      fluid={images}
-      style={{ backgroundAttachment: "fixed" }}
-      preserveStackingContext
-    >
-
+    <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
       <Grid
         templateColumns={["repeat(1, 1fr)", "repeat(6, 1fr)"]}
         templateRows="repeat(1, 1fr)"
@@ -48,7 +67,6 @@ const Hero = () => {
         py={["3rem", "5rem"]}
         px="1rem"
         h={["700px", "800px"]}
-
       >
         <GridItem
           colStart={[1, 5]}
@@ -76,10 +94,7 @@ const Hero = () => {
           pos="relative"
           top={["-8rem", "-5rem"]}
         >
-          <Container
-            w="min-content"
-            mr={["2rem", "0"]}
-          >
+          <Container w="min-content" mr={["2rem", "0"]}>
             <Grid
               templateColumns="repeat(2, 1fr)"
               templateRows="repeat(2, 1fr)"
@@ -103,15 +118,13 @@ const Hero = () => {
                     color="white"
                     _hover={{ background: "#c09559" }}
                   >
-                    <Text transform="rotate(-45deg)">Book a <br /> Class</Text>
+                    <Text transform="rotate(-45deg)">
+                      Book a <br /> Class
+                    </Text>
                   </Button>
                 </Roll>
               </GridItem>
-              <GridItem
-                colStart={2}
-                rowStart={1}
-                d={["none", "flex"]}
-              >
+              <GridItem colStart={2} rowStart={1} d={["none", "flex"]}>
                 <Roll top>
                   <Box
                     bg="rgba(63, 167, 182, .4)"
@@ -121,11 +134,7 @@ const Hero = () => {
                   />
                 </Roll>
               </GridItem>
-              <GridItem
-                colStart={2}
-                rowStart={2}
-                d={["none", "flex"]}
-              >
+              <GridItem colStart={2} rowStart={2} d={["none", "flex"]}>
                 <Roll top>
                   <Box
                     bg="rgba(63, 167, 182, .4)"
@@ -138,9 +147,7 @@ const Hero = () => {
             </Grid>
           </Container>
         </GridItem>
-
       </Grid>
-
     </BackgroundImage>
   )
 }

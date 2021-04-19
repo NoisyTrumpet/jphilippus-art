@@ -4,38 +4,38 @@ import Link from "../link"
 
 import { DiamondButton } from "../DiamondButton"
 
-import "./Navigation.scss";
+import "./Navigation.scss"
 
 // In theory this could also be defined inside "gatsby-config.js" and then queried via GraphQL
 const navigationLinks = [
   {
     name: "About the Artist",
-    slug: "/",
+    slug: "/about",
     pActive: false,
   },
   {
     name: "Shop",
-    slug: "/",
+    slug: "/products",
     pActive: true,
   },
   {
     name: "Class Schedule",
-    slug: "/",
+    slug: "/schedule",
     pActive: true,
   },
   {
     name: "News/Press",
-    slug: "/",
+    slug: "/news",
     pActive: true,
   },
   {
     name: "Contact",
-    slug: "/",
+    slug: "/contact",
     pActive: true,
   },
   {
     name: "FAQ",
-    slug: "/",
+    slug: "/faq",
     pActive: true,
   },
 ]
@@ -62,9 +62,11 @@ const Navigation = () => {
           partiallyActive={n.pActive}
         >
           {n.name}
-        </Link>  
+        </Link>
       ))}
-    <DiamondButton buttonStyle="btn--secondary" buttonSize="btn--small">Gift Cards</DiamondButton>
+      <DiamondButton buttonStyle="btn--secondary" buttonSize="btn--small">
+        Gift Cards
+      </DiamondButton>
     </Stack>
   )
 }
