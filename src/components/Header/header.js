@@ -16,9 +16,12 @@ import Navigation from "../Navigation/index"
 import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
 
+import { DarkLogo } from "../../images/logo-horizontal-dark.png"
+import { LightLogo } from "../../images/logo-horizontal.png"
+
 const Header = ({ siteTitle }) => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
-  const [isSmallerThan640] = useMediaQuery("(max-width: 640px)")
+  const [isSmallerThan768] = useMediaQuery("(max-width: 768px)")
   const bg = useColorModeValue(`bg`, `dark.bg`)
   const { colorMode } = useColorMode()
   const logoColor = useColorModeValue(`primary`, `dark.primary`)
@@ -47,6 +50,7 @@ const Header = ({ siteTitle }) => {
         sx={{ svg: { height: `24px`, width: `auto` } }}
       >
         <Container
+          className="mobile-header"
           display="grid"
           gridTemplateColumns={["1fr 1fr", "1fr auto 1fr"]}
           height="fit-content"
@@ -64,30 +68,39 @@ const Header = ({ siteTitle }) => {
           >
             {colorMode === "dark" ? (
               <StaticImage
-                src="../../images/logo-horizontal-dark.png"
+                src={DarkLogo}
                 width={175}
                 style={{ margin: "10px 5px" }}
                 quality={95}
                 formats={["WEBP", "AVIF", "PNG"]}
                 alt={siteTitle}
+                className="header-logo-dark"
               />
             ) : (
               <StaticImage
-                src="../../images/logo-horizontal.png"
+                src={LightLogo}
                 width={175}
                 style={{ margin: "10px 5px" }}
                 quality={95}
                 formats={["WEBP", "AVIF", "PNG"]}
                 alt={siteTitle}
+                className="header-logo-reg"
               />
             )}
           </Link>
-          {isSmallerThan640 ? (
-            <MobileMenu quantity={quantity} btnRef={btnRef} onOpen={onOpen} />
+          {isSmallerThan768 ? (
+            <MobileMenu 
+              quantity={quantity} 
+              btnRef={btnRef} 
+              onOpen={onOpen} 
+              className="mobile-nav" />
           ) : (
             <>
-              <Navigation />
-              <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
+              <Navigation className="navigation" />
+              <CartButton 
+                quantity={quantity} 
+                onOpen={onOpen} 
+                btnRef={btnRef} />
             </>
           )}
         </Container>

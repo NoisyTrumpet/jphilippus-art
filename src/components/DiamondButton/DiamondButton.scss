@@ -1,0 +1,73 @@
+@import "../../styles/main.scss";
+
+.rotate-45 {
+  margin: 0;
+
+.btn {
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+    text-align: center;
+    width: max-content;
+    margin: 5px;
+  
+    .btn-text {
+      text-transform: uppercase;
+      white-space: normal;
+    }
+  }
+  
+  .btn--primary {
+    background-color: $brand-turquoise;
+    color: $brand-true-white;
+    border: none;
+
+    &:hover {
+      background-color: $brand-turquoise-hover;
+      transform: scale(1.05);
+    }
+  }
+  
+  .btn--secondary {
+    background-color: $brand-burnt-orange;
+    color: $brand-true-white;
+    border: none;
+
+    &:hover {
+      background-color: $brand-burnt-orange-hover;
+      transform: scale(1.05);
+    }
+  }
+
+  .btn--tertiary {
+    background-color: $brand-dk-grey;
+    color: $brand-true-white;
+    border: none;
+
+    &:hover {
+      background-color: $brand-dk-grey-hover;
+      transform: scale(1.05);
+    }
+  }
+  
+  .btn--small {
+    padding: 5px 10px;
+    font-size: 13px;
+    height: 70px;
+    width: 70px;
+  }
+  
+  .btn--medium {
+    padding: 0;
+    font-size: 15px;
+    height: 95px;
+    width: 95px;
+  }
+  
+  .btn--large {
+    padding: 0;
+    font-size: 18px;
+    height: 110px;
+    width: 110px;
+  }
+}

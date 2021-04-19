@@ -1,0 +1,35 @@
+@import "../../styles/main.scss";
+
+.footer-container {
+    @media (max-width: 768px) {
+        padding: 1rem 0 1rem 0;
+    }
+}
+
+.footer-heading {
+    color: $brand-burnt-orange;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: left;
+}
+
+.footer-menu {
+    text-align: left;
+}
+
+.footer-link {
+    color: $brand-dk-grey;
+    text-transform: uppercase;
+    justify-content: left;
+    text-align: left !important;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.theme-toggle-container {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+

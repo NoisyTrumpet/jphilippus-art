@@ -2,21 +2,40 @@ import * as React from "react"
 import { Stack, useColorModeValue } from "@chakra-ui/react"
 import Link from "../link"
 
+import { DiamondButton } from "../DiamondButton"
+
+import "./Navigation.scss";
+
 // In theory this could also be defined inside "gatsby-config.js" and then queried via GraphQL
 const navigationLinks = [
   {
-    name: "All products",
-    slug: "/products/",
+    name: "About the Artist",
+    slug: "/",
     pActive: false,
   },
   {
-    name: "Art",
-    slug: "/products/art/",
+    name: "Shop",
+    slug: "/",
     pActive: true,
   },
   {
-    name: "Classes",
-    slug: "/products/class/",
+    name: "Class Schedule",
+    slug: "/",
+    pActive: true,
+  },
+  {
+    name: "News/Press",
+    slug: "/",
+    pActive: true,
+  },
+  {
+    name: "Contact",
+    slug: "/",
+    pActive: true,
+  },
+  {
+    name: "FAQ",
+    slug: "/",
     pActive: true,
   },
 ]
@@ -27,6 +46,7 @@ const Navigation = () => {
   return (
     <Stack
       as="nav"
+      className="navigation"
       direction={["column", "row"]}
       fontSize="lg"
       alignItems="center"
@@ -37,12 +57,14 @@ const Navigation = () => {
           key={n.slug}
           p={2}
           to={n.slug}
+          className="navigation-link"
           activeClassName="active"
           partiallyActive={n.pActive}
         >
           {n.name}
-        </Link>
+        </Link>  
       ))}
+    <DiamondButton buttonStyle="btn--secondary" buttonSize="btn--small">Gift Cards</DiamondButton>
     </Stack>
   )
 }
