@@ -15,6 +15,8 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout/Layout"
 import Spacer from "../components/Spacer/index"
 import Hero from "../components/Hero/Hero.js"
+import News from "../components/News/index"
+import { DiamondButton } from "../components/DiamondButton"
 
 const IndexPage = () => {
   const headingColor = useColorModeValue(`headingColor`, `dark.headingColor`)
@@ -131,6 +133,14 @@ const IndexPage = () => {
           </Grid>
         </Container>
       </Box>
+      {/* Latest News and Social */}
+      <Grid templateColumns={["1fr", null, "repeat(2, 1fr)"]}
+          gap={8}>
+        <News>
+          <DiamondButton buttonStyle="btn--primary" buttonSize="btn--large">LATEST NEWS</DiamondButton>
+        </News>
+        <span>Social placeholder</span>
+      </Grid>
     </Layout>
   )
 }
