@@ -2,47 +2,41 @@ import * as React from "react"
 import { Stack, useColorModeValue } from "@chakra-ui/react"
 import Link from "../link"
 
-import { DiamondButton } from "../DiamondButton"
+import DiamondButton from "../DiamondButton/DiamondButton"
 
 import "./Navigation.scss"
 
 // In theory this could also be defined inside "gatsby-config.js" and then queried via GraphQL
-const navigationLinks = [
-  {
-    name: "About the Artist",
-    slug: "/about",
-    pActive: false,
-  },
-  {
-    name: "Shop",
-    slug: "/products",
-    pActive: true,
-  },
-  {
-    name: "Class Schedule",
-    slug: "/schedule",
-    pActive: true,
-  },
-  {
-    name: "News/Press",
-    slug: "/news",
-    pActive: true,
-  },
-  {
-    name: "Contact",
-    slug: "/contact",
-    pActive: true,
-  },
-  {
-    name: "FAQ",
-    slug: "/faq",
-    pActive: true,
-  },
-]
 
 const Navigation = () => {
   const linkColor = useColorModeValue(`headingColor`, `dark.headingColor`)
-
+  const navigationLinks = [
+    {
+      name: "About the Artist",
+      slug: "/about",
+      pActive: false,
+    },
+    {
+      name: "Shop",
+      slug: "/products",
+      pActive: true,
+    },
+    {
+      name: "Class Schedule",
+      slug: "/schedule",
+      pActive: true,
+    },
+    {
+      name: "Contact",
+      slug: "/contact",
+      pActive: true,
+    },
+    {
+      name: "FAQ",
+      slug: "/faq",
+      pActive: true,
+    },
+  ]
   return (
     <Stack
       as="nav"
@@ -50,7 +44,7 @@ const Navigation = () => {
       direction={["column", "row"]}
       fontSize="lg"
       alignItems="center"
-      sx={{ "a.active": { fontWeight: `medium`, color: linkColor } }}
+      sx={{ "a.active": { fontWeight: `bold`, color: linkColor } }}
     >
       {navigationLinks.map(n => (
         <Link

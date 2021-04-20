@@ -1,13 +1,5 @@
 import * as React from "react"
-import {
-  Grid,
-  Container,
-  Box,
-  Image,
-  Text,
-  Stack,
-  Link,
-} from "@chakra-ui/react"
+import { Grid, Container, Box, Image, Text, Link } from "@chakra-ui/react"
 import ThemeToggle from "../ThemeToggle/index"
 
 import "./Footer.scss"

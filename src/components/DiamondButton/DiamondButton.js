@@ -7,7 +7,7 @@ const styles = ["btn--primary", "btn--secondary", "btn--tertiary"]
 
 const sizes = ["btn--small", "btn--medium", "btn--large"]
 
-export const DiamondButton = ({
+const DiamondButton = ({
   children,
   type,
   onClick,
@@ -39,3 +39,5 @@ export const DiamondButton = ({
     </Container>
   )
 }
+
+export default DiamondButton

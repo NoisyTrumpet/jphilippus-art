@@ -1,6 +1,6 @@
 import * as React from "react"
 import {
-  Button,
+  IconButton,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -61,20 +61,17 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-      <Button
+      <IconButton
         className="hamburger"
         onClick={onOpenMenu}
         ref={menuRef}
         my={5}
         px={3}
         sx={{ background: "transparent", color: "#707070" }}
-        size="md"
+        size="lg"
         aria-label={isOpenMenu ? `Close menu` : `Open menu`}
-        justifySelf="flex-end"
-        rightIcon={<FiMenu />}
-      >
-        Menu
-      </Button>
+        icon={<FiMenu />}
+      />
       <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
     </>
   )

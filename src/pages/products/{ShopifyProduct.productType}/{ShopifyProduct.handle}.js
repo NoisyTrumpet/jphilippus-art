@@ -23,7 +23,7 @@ import { StoreContext } from "../../../context/storeContext"
 import AddToCart from "../../../components/AddToCart/index"
 import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
-import SEO from "../../../components/SEO"
+import SEO from "../../../components/SEO.js"
 
 const Product = ({ data: { product, suggestions } }) => {
   const {

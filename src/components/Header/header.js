@@ -74,12 +74,13 @@ const Header = ({ siteTitle }) => {
         display="flex"
         alignItems="center"
         bg={bg}
-        sx={{ svg: { height: `24px`, width: `auto` } }}
+        // sx={{ svg: { height: `24px`, width: `auto` } }}
       >
         <Container
           className="mobile-header"
-          display="grid"
-          gridTemplateColumns={["1fr 1fr", "1fr auto 1fr"]}
+          display="flex"
+          width="100%"
+          justifyContent={["space-between", "space-evenly"]}
           height="fit-content"
         >
           <Link
@@ -109,20 +110,25 @@ const Header = ({ siteTitle }) => {
               />
             )}
           </Link>
-
-          {isSmallerThan768 ? (
-            <MobileMenu
-              quantity={quantity}
-              btnRef={btnRef}
-              onOpen={onOpen}
-              className="mobile-nav"
-            />
-          ) : (
-            <>
-              <Navigation className="navigation" />
-              <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
-            </>
-          )}
+          <Container className="right-nav" display="flex" width="min-content">
+            {isSmallerThan768 ? (
+              <MobileMenu
+                quantity={quantity}
+                btnRef={btnRef}
+                onOpen={onOpen}
+                className="mobile-nav"
+              />
+            ) : (
+              <>
+                <Navigation className="navigation" />
+                <CartButton
+                  quantity={quantity}
+                  onOpen={onOpen}
+                  btnRef={btnRef}
+                />
+              </>
+            )}
+          </Container>
         </Container>
       </Box>
       <Spacer size="navigationHeight" axis="vertical" />
