@@ -11,36 +11,28 @@ exports.onCreateBabelConfig = ({ actions }) => {
   })
 }
 
-// Implement the Gatsby API “createPages”. This is called once the
-// data layer is bootstrapped to let plugins create pages from data.
-exports.createPages = async ({ actions, reporter }) => {
-  const { createPage } = actions
-  // Query for markdown nodes to use in creating pages.
+const getBlogData = async () => {
   const token = process.env.GATSBY_SHOPIFY_ADMIN_PASSWORD
   const url = `https://${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com/admin/api/2021-04/blogs/77412401306/articles.json`
-
-  const result = await axios({
+  return axios.get(url, {
     headers: {
       "Content-Type": "application/json",
       "X-Shopify-Access-Token": token,
     },
     method: "get",
-    url: url,
   })
+}
 
-  if (result.status !== 200) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
-  const blogPostTemplate = path.resolve(`src/pages/blogPage.js`)
-  result.data.articles.forEach(article => {
-    const path = article.handle
-    createPage({
-      path: `/news/${path}`,
-      component: blogPostTemplate,
-      context: {
-        data: article,
-      },
-    })
+exports.createPages = async ({ actions: { createPage } }) => {
+  const result = await getBlogData()
+  const article = result.data.articles[0]
+
+  // Create a page that lists all articles.
+  createPage({
+    path: `/news/${article.handle}`,
+    component: require.resolve("./src/pages/blogPage.js"),
+    context: {
+      article: article,
+    },
   })
 }
