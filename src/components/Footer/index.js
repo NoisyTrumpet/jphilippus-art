@@ -30,16 +30,16 @@ const Footer = () => {
           </Text>
           <Grid templateColumns="repeat(2, 1fr)">
             <Box className="footer-menu">
-              <Link className="footer-link">About the Artist</Link>
+              <Link to="/about" className="footer-link">About the Artist</Link>
               <br />
-              <Link className="footer-link">Shop</Link>
+              <Link to="/products" className="footer-link">Shop</Link>
             </Box>
             <Box className="footer-menu">
-              <Link className="footer-link">News/Press</Link>
+              <Link to="/news" className="footer-link">News/Press</Link>
               <br />
-              <Link className="footer-link">Contact</Link>
+              <Link to="/contact" className="footer-link">Contact</Link>
               <br />
-              <Link className="footer-link">FAQ</Link>
+              <Link to="/faq" className="footer-link">FAQ</Link>
             </Box>
           </Grid>
         </Box>
