@@ -4,32 +4,30 @@
     @media (max-width: 768px) {
         padding: 1rem 0 1rem 0;
     }
-}
 
-.footer-heading {
-    color: $brand-burnt-orange;
-    text-transform: uppercase;
-    font-weight: 800;
     text-align: left;
-}
 
-.footer-menu {
-    text-align: left;
-}
+    .footer-logo {
+        max-width: 250px;
+    }
 
-.footer-link {
-    color: $brand-dk-grey;
-    text-transform: uppercase;
-    justify-content: left;
-    text-align: left !important;
-}
+    .footer-heading {
+        color: $brand-burnt-orange;
+        text-transform: uppercase;
+    }
 
-.footer-bottom {
-    text-align: center;
-}
+    .footer-link {
+        color: $brand-dk-grey;
+    }
 
-.theme-toggle-container {
-    margin-top: 1.5rem;
-    text-align: center;
-}
+// Footer theme toggle
 
+    .footer-bottom {
+        text-align: center;
+    }
+    
+    .theme-toggle-container {
+        margin-top: 1.5rem;
+        text-align: center;
+    }
+}

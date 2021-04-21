@@ -5,7 +5,6 @@ import {
   Box,
   Image,
   Text,
-  Stack,
   Link,
 } from "@chakra-ui/react"
 import ThemeToggle from "../ThemeToggle/index"
@@ -16,7 +15,7 @@ import Logo from "../../images/logo-horizontal.png"
 
 const Footer = () => {
   return (
-    <Container className="footer-container" as="footer" py={16}>
+    <Container maxW="container.xl" className="footer-container" as="footer" py={16}>
       <Grid templateColumns="repeat(3, 1fr)" gap={3} m={10}>
         {/* Footer logo */}
         <Box px={10}>
