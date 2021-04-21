@@ -147,7 +147,7 @@ const NavBar = (props, { siteTitle }) => {
 
   const [isNowOpen, setIsNowOpen] = React.useState(false)
   const toggle = () => setIsNowOpen(!isNowOpen)
-  const [isSmallerThan768] = useMediaQuery("(max-width: 768px)")
+  const [isSmallerThan1160] = useMediaQuery("(max-width: 1160px)")
   const items = checkout ? checkout.lineItems : []
 
   const quantity = items.reduce((total, item) => {
@@ -183,68 +183,51 @@ const NavBar = (props, { siteTitle }) => {
   const logoColor = useColorModeValue(`primary`, `dark.primary`)
   const dark = getImage(DarkLogo)
   const light = getImage(LightLogo)
+  const btnRef = React.useRef()
 
   return (
-    <NavBarContainer {...props}>
-      {colorMode === "dark" ? (
-        <Link to="/" alt="Home">
-          <GatsbyImage
-            image={dark}
-            style={{ margin: "10px 5px" }}
-            alt={siteTitle}
-            className="header-logo-dark"
+    <>
+      <Cart isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
+      <NavBarContainer {...props}>
+        {colorMode === "dark" ? (
+          <Link to="/" alt="Home">
+            <GatsbyImage
+              image={dark}
+              style={{ margin: "10px 5px" }}
+              alt={siteTitle}
+              className="header-logo-dark"
+            />
+          </Link>
+        ) : (
+          <Link to="/" alt="Home">
+            <GatsbyImage
+              image={light}
+              style={{ margin: "10px 5px" }}
+              alt={siteTitle}
+              className="header-logo-reg"
+            />
+          </Link>
+        )}
+        {!isSmallerThan1160 && <MenuLinks isNowOpen={isNowOpen} />}
+        {isSmallerThan1160 ? (
+          <MobileMenu
+            quantity={quantity}
+            btnRef={btnRef}
+            onOpen={onOpen}
+            className="mobile-nav"
           />
-        </Link>
-      ) : (
-        <Link to="/" alt="Home">
-          <GatsbyImage
-            image={light}
-            style={{ margin: "10px 5px" }}
-            alt={siteTitle}
-            className="header-logo-reg"
-          />
-        </Link>
-      )}
-      <MenuLinks isNowOpen={isNowOpen} />
-    </NavBarContainer>
-  )
-}
-
-const CloseIcon = () => (
-  <svg width="24" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-    <title>Close</title>
-    <path
-      fill="white"
-      d="M9.00023 7.58599L13.9502 2.63599L15.3642 4.04999L10.4142 8.99999L15.3642 13.95L13.9502 15.364L9.00023 10.414L4.05023 15.364L2.63623 13.95L7.58623 8.99999L2.63623 4.04999L4.05023 2.63599L9.00023 7.58599Z"
-    />
-  </svg>
-)
-
-const MenuIcon = () => (
-  <svg
-    width="24px"
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="white"
-  >
-    <title>Menu</title>
-    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-  </svg>
-)
-
-const MenuToggle = ({ toggle, isOpen }) => {
-  return (
-    <Box display={{ base: "block", md: "none" }} onClick={toggle}>
-      {isOpen ? <CloseIcon /> : <MenuIcon />}
-    </Box>
+        ) : (
+          <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
+        )}
+      </NavBarContainer>
+    </>
   )
 }
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
-  const { colorMode } = useColorMode()
   const linkColor = useColorModeValue(`headingColor`, `dark.headingColor`)
   return (
-    <Link href={to} color={linkColor}>
+    <Link to={to} color={linkColor}>
       <Text display="block" {...rest}>
         {children}
       </Text>
@@ -261,6 +244,7 @@ const MenuLinks = ({ isNowOpen }) => {
   const quantity = items.reduce((total, item) => {
     return total + item.quantity
   }, 0)
+  const [isSmallerThan1160] = useMediaQuery("(max-width: 1160px)")
   const navigationLinks = [
     {
       name: "About the Artist",
@@ -305,10 +289,13 @@ const MenuLinks = ({ isNowOpen }) => {
             {n.name}
           </MenuItem>
         ))}
-        <DiamondButton buttonStyle="btn--secondary" buttonSize="btn--small">
+        <DiamondButton
+          buttonStyle="btn--secondary"
+          buttonSize="btn--small"
+          to="/products/gift-cards"
+        >
           Gift Cards
         </DiamondButton>
-        <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
       </Stack>
     </Box>
   )
