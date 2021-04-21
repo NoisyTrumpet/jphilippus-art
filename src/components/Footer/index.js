@@ -9,7 +9,7 @@ import Logo from "../../images/logo-horizontal.png"
 const Footer = () => {
   return (
     <Container className="footer-container" as="footer" py={16}>
-      <Grid templateColumns="repeat(3, 1fr)" gap={3} m={10}>
+      <Grid templateColumns={["1fr", "repeat(3, 1fr)"]} gap={3} m={10}>
         {/* Footer logo */}
         <Box px={10}>
           <Image className="footer-logo" src={Logo} />

@@ -32,6 +32,7 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
         onClose={onCloseMenu}
         finalFocusRef={menuRef}
         size="full"
+        marginLeft="auto"
       >
         <DrawerOverlay>
           <DrawerContent>
@@ -71,6 +72,7 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
         size="lg"
         aria-label={isOpenMenu ? `Close menu` : `Open menu`}
         icon={<FiMenu />}
+        marginLeft="auto"
       />
       <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
     </>

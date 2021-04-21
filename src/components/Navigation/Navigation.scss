@@ -1,24 +1,24 @@
 @import "../../styles/main.scss";
 
-header {
-    padding: 1rem 0 .5rem 0 !important;
-    max-height: fit-content;
-}
+// header {
+    //     padding: 1rem 0 .5rem 0 !important;
+    //     max-height: fit-content;
+    // }
 
-.navigation {
-    text-transform: uppercase;
+    // .navigation {
+    //     text-transform: uppercase;
 
-    .navigation-link {
-        font-size: 14px;
-        color: $brand-dk-grey !important;
-        text-transform: uppercase !important;
-        padding-right: 10px;
-        margin: 1px;
-    }
+    //     .navigation-link {
+    //         font-size: 14px;
+    //         color: $brand-dk-grey !important;
+    //         text-transform: uppercase !important;
+    //         padding-right: 10px;
+    //         margin: 1px;
+    //     }
 
-    .active {
-        color: $brand-turquoise;
-        text-decoration: none;
-    }
-}
+    //     .active {
+    //         color: $brand-turquoise;
+    //         text-decoration: none;
+    //     }
+    // }
 

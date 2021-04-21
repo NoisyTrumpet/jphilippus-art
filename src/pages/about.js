@@ -30,9 +30,8 @@ const AboutPage = () => {
   return (
     <Layout>
       <Grid
-        templateColumns={["repeat(2, 1fr)"]}
-        templateRows="repeat(1, 1fr)"
-        gap={2}
+        templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
+        templateRows={["1fr 1fr", "1fr 1fr", "repeat(1, 1fr)"]}
       >
         <GatsbyImage image={hero} alt="About Jeanne" />
         <Box className="bio-text" p="5" style={{ backgroundColor: `#F2F2F2` }}>
