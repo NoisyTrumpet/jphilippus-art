@@ -33,9 +33,10 @@ const AboutPage = () => {
         templateColumns={["repeat(2, 1fr)"]}
         templateRows="repeat(1, 1fr)"
         gap={2}
+        style={{ backgroundColor: `#F2F2F2` }}
       >
         <GatsbyImage image={hero} alt="About Jeanne" />
-        <Box className="bio-text" p="5" style={{ backgroundColor: `#F2F2F2` }}>
+        <Box className="bio-text" px="100" py="75" style={{ lineHeight: `25px` }}>
           <Text
             Tag="h1"
             style={{
