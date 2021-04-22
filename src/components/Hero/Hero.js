@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react"
 import BackgroundImage from "gatsby-background-image"
 
+
 const Hero = () => {
   const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
@@ -61,40 +62,44 @@ const Hero = () => {
   return (
     <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(6, 1fr)"]}
+        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(2, 1fr)", "repeat(6, 1fr)"]}
         templateRows="repeat(1, 1fr)"
         gap={2}
-        py={["3rem", "5rem"]}
+        py={["1.5rem", "5rem"]}
         px="1rem"
-        h={["700px", "800px"]}
+        h={["650px", "800px"]}
+        overflow="hidden"
       >
         <GridItem
-          colStart={[1, 5]}
+          colStart={[1, 1, 2, 2, 5]}
           rowStart={1}
           textAlign={["center", "left"]}
           h="min-content"
+          w="fit-content"
+          mr={["auto", "auto", "2rem", "auto", "auto"]}
+          ml="auto"
         >
           <Fade top cascade>
-            <Heading as="h1" color="#C09559">
-              Teaching <br /> Art Studio
+              <Heading as="h1" color="#C09559">
+                Teaching <br /> Art Studio
             </Heading>
-            <Text fontSize="21px">
-              We are excited to share that <br /> The Shard Studio, LLC is now
+              <Text fontSize="21px">
+                We are excited to share that <br /> The Shard Studio, LLC is now
             </Text>
-            <Heading as="h2" fontSize="26px" color="#C09559">
-              J.Philippus Art Studio <br /> and Gallery, LLC
+              <Heading as="h2" fontSize="26px" color="#C09559">
+                J.Philippus Art Studio <br /> and Gallery, LLC
             </Heading>
-          </Fade>
+            </Fade>
         </GridItem>
 
         <GridItem
-          colStart={[1, 5]}
+          colStart={[1, 1, 2, 2, 5]}
           rowStart={2}
           h="min-content"
           pos="relative"
-          top={["-8rem", "-5rem"]}
+          top={["-9rem", "-8rem", "0", "0", "-5rem"]}
         >
-          <Container w="min-content" mr={["2rem", "0"]}>
+          <Container w="min-content" mr={["2rem", "2rem", "8rem", "8rem", "0"]}>
             <Grid
               templateColumns="repeat(2, 1fr)"
               templateRows="repeat(2, 1fr)"
