@@ -1,0 +1,41 @@
+@import "../../styles/main.scss";
+
+.hero-heading {
+    color: $brand-burnt-orange;
+}
+
+.hero-text{ 
+    font-size: 21px;
+}
+
+.hero-sub-heading {
+    color: $brand-burnt-orange;
+    font-size: 25px !important;
+}
+
+.hero-btn {
+    background-color: $brand-turquoise !important;
+    color: $brand-true-white;
+    border-radius: 15px;
+    width: 100px !important;
+    height: 100px !important;
+    font-weight: 400;
+
+    &:hover {
+        background-color: #79C1CC !important;
+    }
+}
+
+.hero-deco-diamond-sm {
+    background-color: rgba(63, 167, 182, .4) !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 15px;
+}
+
+.hero-deco-diamond-lg {
+    background-color: rgba(63, 167, 182, .4) !important;
+    width: 300px !important;
+    height: 300px !important;
+    border-radius: 15px;
+}

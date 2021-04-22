@@ -15,6 +15,8 @@ import {
 } from "@chakra-ui/react"
 import BackgroundImage from "gatsby-background-image"
 
+import "./Hero.scss"
+
 const Hero = () => {
   const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
@@ -75,13 +77,13 @@ const Hero = () => {
           h="min-content"
         >
           <Fade top cascade>
-            <Heading as="h1" color="#C09559">
+            <Heading as="h1" className="hero-heading">
               Teaching <br /> Art Studio
             </Heading>
-            <Text fontSize="21px">
+            <Text className="hero-text">
               We are excited to share that <br /> The Shard Studio, LLC is now
             </Text>
-            <Heading as="h2" fontSize="26px" color="#C09559">
+            <Heading className="hero-sub-heading" as="h2">
               J.Philippus Art Studio <br /> and Gallery, LLC
             </Heading>
           </Fade>
@@ -111,14 +113,9 @@ const Hero = () => {
               >
                 <Roll top>
                   <Button
-                    bg="#3FA7B6"
-                    w={100}
-                    h={100}
-                    borderRadius="15px"
-                    color="white"
-                    _hover={{ background: "#c09559" }}
+                    className="hero-btn"
                   >
-                    <Text transform="rotate(-45deg)">
+                    <Text transform="rotate(-45deg)" style={{textTransform: `uppercase`}} >
                       Book a <br /> Class
                     </Text>
                   </Button>
@@ -127,20 +124,14 @@ const Hero = () => {
               <GridItem colStart={2} rowStart={1} d={["none", "flex"]}>
                 <Roll top>
                   <Box
-                    bg="rgba(63, 167, 182, .4)"
-                    w={300}
-                    h={300}
-                    borderRadius="15px"
+                    className="hero-deco-diamond-lg"
                   />
                 </Roll>
               </GridItem>
               <GridItem colStart={2} rowStart={2} d={["none", "flex"]}>
                 <Roll top>
                   <Box
-                    bg="rgba(63, 167, 182, .4)"
-                    w={150}
-                    h={150}
-                    borderRadius="15px"
+                    className="hero-deco-diamond-sm"
                   />
                 </Roll>
               </GridItem>
