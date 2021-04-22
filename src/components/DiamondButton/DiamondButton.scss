@@ -1,15 +1,18 @@
 @import "../../styles/main.scss";
 
 .rotate-45 {
-  margin: 0;
+  margin: 0 !important;
+  width: fit-content !important;
+  height: fit-content !important;
 
 .btn {
     border-radius: 15px;
     cursor: pointer;
     transition: transform 0.3s ease; 
     text-align: center;
-    width: max-content;
+    width: min-content;
     margin: 5px;
+  
   
     .btn-text {
       text-transform: uppercase;
@@ -55,6 +58,7 @@
     font-size: 13px;
     height: 70px;
     width: 70px;
+    margin: 0 !important;
   }
   
   .btn--medium {
@@ -62,6 +66,7 @@
     font-size: 15px;
     height: 95px;
     width: 95px;
+    margin: 0 !important;
   }
   
   .btn--large {
@@ -69,5 +74,6 @@
     font-size: 18px;
     height: 110px;
     width: 110px;
+    margin: 0 !important;
   }
 }

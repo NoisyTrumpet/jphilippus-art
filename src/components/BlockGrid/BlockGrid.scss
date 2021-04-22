@@ -1,12 +1,15 @@
+@import "../../styles/main.scss";
+
 .block-grid-item {
 
     .block-grid-image {
-        position: relative;
+        position: relative !important;
 
-        .grid-item-btn {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-        }
+        .grid-diamond-btn {
+            position: absolute !important;
+            top: 50% !important; 
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
     }
+}
 }
