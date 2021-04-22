@@ -3,6 +3,7 @@ import { Container, Text, Heading, useColorModeValue } from "@chakra-ui/react"
 import Layout from "../components/Layout/Layout"
 import Hero from "../components/Hero/Hero.js"
 import Link from "../components/link"
+import BlockGrid from "../components/BlockGrid/index"
 
 const IndexPage = () => {
   // const headingColor = useColorModeValue(`headingColor`, `dark.headingColor`)
@@ -36,6 +37,7 @@ const IndexPage = () => {
           read more
         </Link>
       </Container>
+      <BlockGrid />
     </Layout>
   )
 }

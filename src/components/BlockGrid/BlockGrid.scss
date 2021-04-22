@@ -1,0 +1,12 @@
+.block-grid-item {
+
+    .block-grid-image {
+        position: relative;
+
+        .grid-item-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
