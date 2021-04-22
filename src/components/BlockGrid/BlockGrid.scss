@@ -1,15 +1,41 @@
 @import "../../styles/main.scss";
 
-.block-grid-item {
+.block-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". ."
+      ". .";
+    
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr 1fr 1fr 1fr !important;
+        gap: 0px 0px;
+        grid-template-areas:
+          "."
+          "."
+          "."
+          ".";
+      }
 
-    .block-grid-image {
-        position: relative !important;
+    .block-grid-item {
+        .block-grid-image {
+            min-height: 300px;
+            max-height: 500px;
 
-        .grid-diamond-btn {
-            position: absolute !important;
-            top: 50% !important; 
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
+            @media (max-width: 767px) {
+                height: 300;
+                width: 300px;
+            }
+
+            .center-grid-diamond {
+                padding-top: 30%;
+                .grid-diamond-btn {
+                    // margin-top: 30%;
+                }
+            }
+        }
     }
-}
 }
