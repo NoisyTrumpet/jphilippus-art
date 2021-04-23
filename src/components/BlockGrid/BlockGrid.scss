@@ -20,20 +20,36 @@
           ".";
       }
 
+      @media (max-width: 400px) {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: .5fr .5fr .5fr .5fr !important;
+        gap: 0px 0px;
+        grid-template-areas:
+          "."
+          "."
+          "."
+          ".";
+      }
+
     .block-grid-item {
         .block-grid-image {
             min-height: 300px;
             max-height: 500px;
 
             @media (max-width: 767px) {
-                height: 300;
-                width: 300px;
+                height: auto;
+                width: full-width;
             }
 
             .center-grid-diamond {
                 padding-top: 20%;
-                .grid-diamond-btn {
-                    // margin-top: 30%;
+
+                @media (max-width: 767px) {
+                    padding-top: 15%;
+                }
+
+                @media (max-width: 400px) {
+                    padding-top: 25%;
                 }
             }
         }
