@@ -26,7 +26,7 @@
     "gatsby-plugin-sharp": "^3.2.0",
     "gatsby-plugin-sitemap": "^3.2.0",
     "gatsby-source-filesystem": "^3.2.0",
-    "gatsby-source-shopify": "^5.0.0-rc.19",
+    "gatsby-source-shopify": "^5.0.0-rc.20",
     "gatsby-transformer-sharp": "^3.2.0",
     "gbimage-bridge": "^0.1.2",
     "isomorphic-fetch": "^3.0.0",

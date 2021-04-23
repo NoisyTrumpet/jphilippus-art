@@ -14,7 +14,7 @@ import { ChakraHelpersProvider } from "../../context/chakra-helpers-context"
 const Layout = ({ children }) => (
   <ChakraHelpersProvider>
     <SkipNavLink />
-    <Header />
+    <Header siteTitle="J. Philippus Art Studi & Gallery" />
     <SkipNavContent>{children}</SkipNavContent>
     <Footer />
   </ChakraHelpersProvider>
