@@ -80,14 +80,14 @@ const Hero = () => {
           ml="auto"
         >
           <Fade top cascade>
-              <Heading as="h1" color="#C09559">
-                Teaching <br /> Art Studio
+            <Heading as="h1" color="secondary">
+              Teaching <br /> Art Studio
             </Heading>
-              <Text fontSize="21px">
-                We are excited to share that <br /> The Shard Studio, LLC is now
+            <Text fontSize="21px" color="color">
+              We are excited to share that <br /> The Shard Studio, LLC is now
             </Text>
-              <Heading as="h2" fontSize="26px" color="#C09559">
-                J.Philippus Art Studio <br /> and Gallery, LLC
+            <Heading as="h2" fontSize="26px" color="secondary">
+              J.Philippus Art Studio <br /> and Gallery, LLC
             </Heading>
             </Fade>
         </GridItem>
@@ -116,12 +116,12 @@ const Hero = () => {
               >
                 <Roll top>
                   <Button
-                    bg="#3FA7B6"
+                    bg="primary"
                     w={100}
                     h={100}
                     borderRadius="15px"
                     color="white"
-                    _hover={{ background: "#c09559" }}
+                    _hover={{ background: "secondary" }}
                   >
                     <Text transform="rotate(-45deg)">
                       Book a <br /> Class
