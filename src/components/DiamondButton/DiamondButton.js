@@ -5,7 +5,7 @@ import "./DiamondButton.scss"
 
 const styles = ["btn--primary", "btn--secondary", "btn--tertiary"]
 
-const sizes = ["btn--small", "btn--medium", "btn--large"]
+const sizes = ["btn--small", "btn--medium", "btn--large", "btn--xl"]
 
 const DiamondButton = ({
   children,

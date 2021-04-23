@@ -10,10 +10,10 @@ import "./BlockGrid.scss"
 
 const BlockGrid = () => {
 
-    const { GridImage } = useStaticQuery(
+    const { JewelryImg, FlowerImg, AcrylicImg } = useStaticQuery(
         graphql`
             query {
-                GridImage: file(relativePath: { eq: "texas.webp" } ) {
+                JewelryImg: file(relativePath: { eq: "jewelry.jpg" } ) {
                 childImageSharp {
                     gatsbyImageData(
                     width: 500
@@ -24,19 +24,48 @@ const BlockGrid = () => {
                     )
                 }
             }
+                FlowerImg: file(relativePath: { eq: "flower.jpg" } ) {
+                    childImageSharp {
+                        gatsbyImageData(
+                            width: 500
+                            quality: 90
+                            layout: CONSTRAINED
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, AVIF]
+                        )
+                    }
+                }
+                AcrylicImg: file(relativePath: { eq: "acrylic-pour.jpg" } ) {
+                    childImageSharp {
+                        gatsbyImageData(
+                            width: 500
+                            quality: 90
+                            layout: CONSTRAINED
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, AVIF]
+                        )
+                    }
+                }
         }
         `
     )
-    const image = getImage(GridImage)
-    const bgImage = convertToBgImage(image)
+
+    const JewelryImage = getImage(JewelryImg)
+    const JewelryBgImg = convertToBgImage(JewelryImage)
+
+    const FlowerImage = getImage(FlowerImg)
+    const FlowerBgImg = convertToBgImage(FlowerImage)
+
+    const AcrylicImage = getImage(AcrylicImg)
+    const AcrylicBgImg = convertToBgImage(AcrylicImage)
     
     return(
-        <Container maxWidth="container.md">
+        <Container maxWidth="container.lg">
             <Grid className="block-grid" templateColumns={["repeat(2, 1fr)"]} gap={25}>
                 <Box className="block-grid-item">
-                    <BackgroundImage className="block-grid-image" Tag="section" {...bgImage} preserveStackingContext />
+                    <BackgroundImage className="block-grid-image" Tag="section" {...FlowerBgImg} preserveStackingContext />
                 </Box>
-                <Box className="block-grid-item">
+                <Box className="block-grid-item" py="5">
                     <Text style={{ fontSize: `25px`, color: `#3FA7B6`, paddingBottom: `5px`, textTransform: `uppercase` }}>Create Your Masterpiece</Text>
                     <Text>The Acrylic Pour on Metal Flowers Class is back with more classes and we are adding resin for no extra charge.</Text>
                     <Center my="10">
@@ -44,12 +73,16 @@ const BlockGrid = () => {
                     </Center>
                 </Box>
                 <Box className="block-grid-item">
-                    <BackgroundImage className="block-grid-image" Tag="section" {...bgImage} preserveStackingContext>
+                    <BackgroundImage 
+                        className="block-grid-image" 
+                        Tag="section" 
+                        {...AcrylicBgImg} 
+                        preserveStackingContext>
                         <Center className="center-grid-diamond">
                             <DiamondButton 
                                 className="grid-diamond-btn" 
                                 buttonStyle="btn--primary" 
-                                buttonSize="btn--medium"
+                                buttonSize="btn--xl"
                                 m="0"
                                 p="0">
                                     Custom Art Kits
@@ -61,13 +94,13 @@ const BlockGrid = () => {
                     <BackgroundImage 
                         className="block-grid-image" 
                         Tag="section" 
-                        {...bgImage} 
+                        {...JewelryBgImg} 
                         preserveStackingContext>
                         <Center className="center-grid-diamond">
                             <DiamondButton 
                                 className="grid-diamond-btn" 
                                 buttonStyle="btn--primary" 
-                                buttonSize="btn--medium">
+                                buttonSize="btn--xl">
                                 Jewelry
                             </DiamondButton>
                         </Center>
