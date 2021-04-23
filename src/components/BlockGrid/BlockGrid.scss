@@ -32,6 +32,14 @@
       }
 
     .block-grid-item {
+        .block-grid-title {
+            font-size: 25px;
+
+            @media (max-width: 767px) {
+                font-size: 21px;
+            }
+        }
+        
         .block-grid-image {
             min-height: 300px;
             max-height: 500px;

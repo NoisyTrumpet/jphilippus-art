@@ -66,7 +66,7 @@ const BlockGrid = () => {
                     <BackgroundImage className="block-grid-image" Tag="section" {...FlowerBgImg} preserveStackingContext />
                 </Box>
                 <Box className="block-grid-item" py="5">
-                    <Text style={{ fontSize: `25px`, color: `#3FA7B6`, paddingBottom: `5px`, textTransform: `uppercase` }}>Create Your Masterpiece</Text>
+                    <Text className="block-grid-title" style={{ color: `#3FA7B6`, paddingBottom: `5px`, textTransform: `uppercase` }}>Create Your Masterpiece</Text>
                     <Text>The Acrylic Pour on Metal Flowers Class is back with more classes and we are adding resin for no extra charge.</Text>
                     <Center my="10">
                     <DiamondButton buttonStyle="btn--primary" buttonSize="btn--medium" style={{ textAlign: `center`, margin: `0 auto` }} py="10">Book a Class</DiamondButton>
