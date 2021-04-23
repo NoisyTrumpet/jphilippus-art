@@ -3,7 +3,7 @@ import { Container, Button, Tag } from "@chakra-ui/react"
 
 import "./DiamondButton.scss"
 
-const styles = ["btn--primary", "btn--secondary", "btn--tertiary"]
+const styles = ["btn--primary", "btn--secondary", "btn--tertiary", "btn--primary-transparent"]
 
 const sizes = ["btn--small", "btn--medium", "btn--large", "btn--xl"]
 

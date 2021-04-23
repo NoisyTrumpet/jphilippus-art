@@ -81,7 +81,7 @@ const BlockGrid = () => {
                         <Center className="center-grid-diamond">
                             <DiamondButton 
                                 className="grid-diamond-btn" 
-                                buttonStyle="btn--primary" 
+                                buttonStyle="btn--primary-transparent" 
                                 buttonSize="btn--xl"
                                 m="0"
                                 p="0">
@@ -99,7 +99,7 @@ const BlockGrid = () => {
                         <Center className="center-grid-diamond">
                             <DiamondButton 
                                 className="grid-diamond-btn" 
-                                buttonStyle="btn--primary" 
+                                buttonStyle="btn--primary-transparent" 
                                 buttonSize="btn--xl">
                                 Jewelry
                             </DiamondButton>

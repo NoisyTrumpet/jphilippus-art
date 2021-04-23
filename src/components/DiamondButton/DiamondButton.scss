@@ -30,6 +30,17 @@
       transform: scale(1.05);
     }
   }
+
+  .btn--primary-transparent {
+    background-color: rgba(63, 167, 187, .90);
+    color: $brand-true-white;
+    border: none;
+
+    &:hover {
+      background-color: $brand-turquoise-hover;
+      transform: scale(1.05);
+    }
+  }
   
   .btn--secondary {
     background-color: $brand-burnt-orange;
