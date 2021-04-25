@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/Layout/Layout"
 import { graphql, useStaticQuery } from "gatsby"
 
-import { Box, Grid, Text, Container, Center } from "@chakra-ui/react"
+import { Box, Grid, Text, Center } from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const AboutPage = () => {

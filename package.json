@@ -6,6 +6,7 @@
   "author": "Noisy Trumpet Digital & Public Relations <web.dev@noisytrumpet.com>",
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^1.0.2",
+    "@chakra-ui/icons": "^1.0.12",
     "@chakra-ui/react": "^1.4.2",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",

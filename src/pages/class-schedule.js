@@ -14,6 +14,7 @@ const ClassSchedule = () => {
           height="600px"
           src="https://widget.coattend.com/calendar?template=true&shop=j-philippus-art-studio.myshopify.com"
           frameBorder="0"
+          title="Class Schedule iframe"
           allowFullScreen=""
           style={{ height: "790px" }}
         />

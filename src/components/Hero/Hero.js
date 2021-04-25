@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/react"
 import BackgroundImage from "gatsby-background-image"
 
-
 const Hero = () => {
   const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
@@ -62,7 +61,13 @@ const Hero = () => {
   return (
     <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(2, 1fr)", "repeat(6, 1fr)"]}
+        templateColumns={[
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(6, 1fr)",
+        ]}
         templateRows="repeat(1, 1fr)"
         gap={2}
         py={["1.5rem", "5rem"]}
@@ -89,7 +94,7 @@ const Hero = () => {
             <Heading as="h2" fontSize="26px" color="secondary">
               J.Philippus Art Studio <br /> and Gallery, LLC
             </Heading>
-            </Fade>
+          </Fade>
         </GridItem>
 
         <GridItem

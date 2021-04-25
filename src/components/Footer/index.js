@@ -1,73 +1,125 @@
+import { Box, Stack, useColorMode, StackDivider } from "@chakra-ui/react"
 import * as React from "react"
-import { Grid, Container, Box, Image, Text, Link } from "@chakra-ui/react"
-import ThemeToggle from "../ThemeToggle/index"
+import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import "./Footer.scss"
+import Copyright from "./Fragments/Copyright"
+import LinkGrid from "./Fragments/LinkGrid"
+import Link from "../link"
 
-import Logo from "../../images/logo-horizontal.png"
+import SocialMediaLinks from "./Fragments/SocialMediaLinks"
+import Newsletter from "../Newsletter/Newsletter"
 
 const Footer = () => {
+  const { DarkLogo, LightLogo } = useStaticQuery(
+    graphql`
+      query {
+        DarkLogo: file(relativePath: { eq: "logo-horizontal-dark.png" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              quality: 90
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        LightLogo: file(relativePath: { eq: "logo-horizontal.png" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              quality: 90
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    `
+  )
+
+  const { colorMode } = useColorMode()
+  const dark = getImage(DarkLogo)
+  const light = getImage(LightLogo)
+
   return (
-    <Container className="footer-container" as="footer" py={16}>
-      <Grid templateColumns={["1fr", "repeat(3, 1fr)"]} gap={3} m={10}>
-        {/* Footer logo */}
-        <Box px={10}>
-          <Image className="footer-logo" src={Logo} />
-        </Box>
-
-        {/* Footer Menu section */}
-        <Box pr={5}>
-          <Text className="footer-heading" fontSize="xl">
-            Menu
-          </Text>
-          <Grid templateColumns="repeat(2, 1fr)">
-            <Box className="footer-menu">
-              <Link className="footer-link">About the Artist</Link>
-              <br />
-              <Link className="footer-link">Shop</Link>
-            </Box>
-            <Box className="footer-menu">
-              <Link className="footer-link">News/Press</Link>
-              <br />
-              <Link className="footer-link">Contact</Link>
-              <br />
-              <Link className="footer-link">FAQ</Link>
-            </Box>
-          </Grid>
-        </Box>
-
-        {/* Footer Contact section */}
-        <Box pr={5}>
-          <Text className="footer-heading" fontSize="xl">
-            Contact
-          </Text>
-          <Box className="footer-menu">
-            <Link className="footer-link">
-              1846 North Loop
-              <br />
-              1604 W
-              <br />
-              Suite 104
-            </Link>
+    <Box
+      as="footer"
+      role="contentinfo"
+      mx="auto"
+      marginTop={8}
+      maxW="7xl"
+      py="12"
+      px={{
+        base: "4",
+        md: "8",
+      }}
+    >
+      <Stack spacing={10} divider={<StackDivider />}>
+        <Stack
+          direction={{
+            base: "column",
+            lg: "row",
+          }}
+          spacing={{
+            base: "10",
+            lg: "28",
+          }}
+          // justify="space-between"
+        >
+          <Box flex="1">
+            {colorMode === "dark" ? (
+              <Link to="/" alt="Home">
+                <GatsbyImage
+                  image={dark}
+                  style={{ margin: "10px 5px" }}
+                  alt="Footer Logo Dark"
+                  className="header-logo-dark"
+                />
+              </Link>
+            ) : (
+              <Link to="/" alt="Home">
+                <GatsbyImage
+                  image={light}
+                  style={{ margin: "10px 5px" }}
+                  alt="Footer Logo Light"
+                  className="header-logo-reg"
+                />
+              </Link>
+            )}
           </Box>
-        </Box>
-      </Grid>
-
-      {/* Footer bottom: Copyright and social */}
-      <Grid templateColumns="repeat(2, 1fr)" className="footer-bottom">
-        <Box>
-          <Text>&copy; 2021 J. Philippus Art Studio</Text>
-        </Box>
-        <Box>
-          <Text>Follow us</Text>
-        </Box>
-      </Grid>
-
-      {/* Footer theme toggler */}
-      <Box className="theme-toggle-container">
-        <span>Theme:</span> <ThemeToggle />
-      </Box>
-    </Container>
+          <Stack
+            direction={{
+              base: "column",
+              md: "row",
+            }}
+            spacing={{
+              base: "10",
+              md: "20",
+            }}
+          >
+            <LinkGrid />
+            <Newsletter />
+          </Stack>
+        </Stack>
+        <Stack
+          direction={{
+            base: "column-reverse",
+            md: "row",
+          }}
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Copyright
+            alignSelf={{
+              base: "center",
+              sm: "start",
+            }}
+          />
+          <SocialMediaLinks />
+        </Stack>
+      </Stack>
+    </Box>
   )
 }
 
