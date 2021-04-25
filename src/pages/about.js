@@ -34,7 +34,12 @@ const AboutPage = () => {
         templateRows={["1fr 1fr", "1fr 1fr", "repeat(1, 1fr)"]}
       >
         <GatsbyImage image={hero} alt="About Jeanne" />
-        <Box className="bio-text" p="5" style={{ backgroundColor: `#F2F2F2` }}>
+        <Box
+          className="bio-text"
+          px="100"
+          py="75"
+          style={{ lineHeight: `25px` }}
+        >
           <Text
             Tag="h1"
             style={{

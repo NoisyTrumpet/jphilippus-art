@@ -4,6 +4,7 @@ import Layout from "../components/Layout/Layout"
 import Hero from "../components/Hero/Hero.js"
 import Link from "../components/link"
 import Newsletter from "../components/Newsletter/Newsletter"
+import BlockGrid from "../components/BlockGrid/index"
 
 const IndexPage = () => {
   // const headingColor = useColorModeValue(`headingColor`, `dark.headingColor`)
@@ -37,6 +38,7 @@ const IndexPage = () => {
           read more
         </Link>
       </Container>
+      <BlockGrid />
       <Container className="form-container">
         <Newsletter />
       </Container>
