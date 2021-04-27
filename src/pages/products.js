@@ -8,7 +8,6 @@ import SEO from "../components/SEO"
 const Products = ({ data: { products } }) => {
   return (
     <Layout>
-      {console.log(products)}
       <SEO title="All Products in J. Philippus Art Studio & Gallery" />
       <VisuallyHidden as="h1">Products</VisuallyHidden>
       <Container py={20}>
