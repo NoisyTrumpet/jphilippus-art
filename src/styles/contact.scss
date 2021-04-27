@@ -1,0 +1,39 @@
+.pinWrapper {
+    svg {
+        width: 75px;
+        height: auto;
+
+        :hover {
+          fill: #c09559;
+        }
+    }
+}
+
+.hidden {
+  display: none;
+}
+
+.pinWrapper:hover + .hidden {
+  display: inline-block;
+  position: relative;
+  left: 30px;
+  bottom: 130px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px grey;
+  background: white;
+  padding: 1rem;
+  width: 250px;
+  height:auto;
+  z-index: 2;
+
+  h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: black;
+  }
+  p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: black;
+  }
+}
