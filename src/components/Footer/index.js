@@ -67,7 +67,7 @@ const Footer = () => {
           }}
           // justify="space-between"
         >
-          <Box flex="1">
+          <Box flex="1" className="footer-logo">
             {colorMode === "dark" ? (
               <Link to="/" alt="Home">
                 <GatsbyImage

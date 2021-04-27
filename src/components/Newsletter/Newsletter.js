@@ -3,6 +3,8 @@ import { Input, Stack, Text, useColorModeValue } from "@chakra-ui/react"
 import { FooterHeading } from "../Footer/Fragments/FooterHeading.js"
 import DiamondButton from "../DiamondButton/DiamondButton"
 
+import './Newsletter.scss'
+
 const Newsletter = () => {
   //   Theme:
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
@@ -24,6 +26,7 @@ const Newsletter = () => {
             base: "column",
             md: "row",
           }}
+          className="footer-newsletter"
         >
           <Input
             bg={useColorModeValue("white", "inherit")}
@@ -40,6 +43,7 @@ const Newsletter = () => {
             type="submit"
             buttonStyle="btn--primary"
             buttonSize="btn--xs"
+            id="footerNewsletterBtn"
           >
             Subscribe
           </DiamondButton>

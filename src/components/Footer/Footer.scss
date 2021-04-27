@@ -3,6 +3,11 @@
 .footer-container {
     @media (max-width: 768px) {
         padding: 1rem 0 1rem 0;
+
+        .footer-logo {
+            margin: 0 auto !important;
+            text-align: center;
+        }
     }
     position: relative;
 }

@@ -1,0 +1,23 @@
+@import "../../styles/main.scss";
+
+.footer-newsletter {
+
+        @media (max-width: 767px) {
+            display: block !important;
+
+            input {
+                margin-bottom: 1rem;
+            }
+
+            .rotate-45 {
+                display: block !important;
+                margin: 0 auto;
+                text-align: center !important;
+
+                .btn {
+                    display: block !important;
+                }
+            }
+
+        }
+}
