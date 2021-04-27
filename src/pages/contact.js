@@ -1,6 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/Layout/Layout"
 import Roll from "react-reveal/Roll"
+import axios from "axios";
+import PropTypes from "prop-types"
+import Pin from "../images/SVG/Pin"
 import {
   Text,
   Heading,
@@ -16,8 +19,82 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react"
+import GoogleMapReact from 'google-map-react';
+import "../styles/contact.scss"
+  
+
+const center = {
+  lat: 29.608090,
+  lng: -98.520390
+}
+const PinWrapper = () => (
+  <div>
+    <div
+      style={{
+        padding: "15px 10px",
+        width: "75px",
+        display: "inline-flex",
+        textAlign: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "100%",
+        transform: "translate(-50%, -50%)",
+        cursor: "pointer",
+      }}
+      className="pinWrapper"
+      onClick={() =>
+        window.open(
+          "https://www.google.com/maps/dir//J+Philippus+Art+Studio+%26+Gallery,+1846+N+Loop+1604+W+STE+104,+San+Antonio,+TX+78248/@29.6065838,-98.5237701,16.5z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865c611c33dc2b73:0x5f7bc89cd7fcdf47!2m2!1d-98.5215116!2d29.6067463",
+          "_blank"
+        )
+      }
+    >
+      <Pin />
+    </div>
+
+    <div className="hidden">
+      <h3>J.Philippus Art Studio and Gallery, LLC</h3>
+      <p>
+        1846 North Loop 1604W Suite 104
+        <br />
+        San Antonio, Tx 78248
+      </p>
+    </div>
+  </div>
+)
 
 const Contact = () => {
+
+  const [serverState, setServerState] = useState({
+    submitting: false,
+    status: null
+  });
+  const handleServerResponse = (ok, msg, form) => {
+    setServerState({
+      submitting: false,
+      status: { ok, msg }
+    });
+    if (ok) {
+      form.reset();
+    }
+  };
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    setServerState({ submitting: true });
+    axios({
+      method: "post",
+      url: "https://getform.io/f/5d9b4c2f-392c-41fa-82b4-c3c176621c15",
+      data: new FormData(form)
+    })
+      .then(r => {
+        handleServerResponse(true, "Thank You!", form);
+      })
+      .catch(r => {
+        handleServerResponse(false, r.response.data.error, form);
+      });
+  };
+
   return (
     <Layout>
       <Grid
@@ -33,9 +110,13 @@ const Contact = () => {
           rowStart={1}
           rowSpan={[1, 1, 2]}
         >
-          <Box bg="blue.100" h="100%">
-            Map
-          </Box>
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAPS_API_KEY }}
+            defaultCenter={center}
+            defaultZoom={15}
+          >
+            <PinWrapper lat={29.608090} lng={-98.520390} />
+          </GoogleMapReact>
         </GridItem>
         <GridItem
           colStart={[1, 1, 2]}
@@ -68,22 +149,22 @@ const Contact = () => {
           rowStart={[3, 2, 2]}
           rowSpan={1}
         >
-          <form>
+          <form action="https://getform.io/f/5d9b4c2f-392c-41fa-82b4-c3c176621c15" method="POST">
             <FormControl id="first-name" isRequired>
               <Wrap justify="space-between">
                 <WrapItem flexDir="column" w="48%">
                   <FormLabel>First name</FormLabel>
-                  <Input placeholder="First name" />
+                  <Input type="text" placeholder="First name" name="first name" />
                 </WrapItem>
                 <WrapItem flexDir="column" w="48%">
                   <FormLabel>Last name</FormLabel>
-                  <Input placeholder="Last name" />
+                  <Input type="text" placeholder="Last name" name="last name" />
                 </WrapItem>
               </Wrap>
               <FormLabel mt={2}>Email Address</FormLabel>
-              <Input placeholder="Email Address" />
+              <Input type="email" placeholder="Email Address" name="email" />
               <FormLabel mt={2}>Message</FormLabel>
-              <Textarea placeholder="Message Area" minH="150px" />
+              <Textarea type="text" placeholder="Message Area" minH="150px" name="message" />
               <Container display="flex" justifyContent="flex-end">
                 <Roll top>
                   <Button
@@ -108,6 +189,10 @@ const Contact = () => {
       </Grid>
     </Layout>
   )
+}
+
+Contact.propTypes = {
+  isHome: PropTypes.bool,
 }
 
 export default Contact
