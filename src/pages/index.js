@@ -1,19 +1,22 @@
 import * as React from "react"
 import { Container, Text, Heading, useColorModeValue } from "@chakra-ui/react"
 import Layout from "../components/Layout/Layout"
+import { graphql } from "gatsby"
+
 import Hero from "../components/Hero/Hero.js"
 import Link from "../components/link"
 import BlockGrid from "../components/BlockGrid/index"
+import ProductListing from "../components/ProductListing"
+import SEO from "../components/SEO"
 
-const IndexPage = () => {
-  // const headingColor = useColorModeValue(`headingColor`, `dark.headingColor`)
-  // const fullWidthColor = useColorModeValue(`gray.700`, `gray.300`)
-  // const fullWidthBg = useColorModeValue(`gray.100`, `black`)
-
+const IndexPage = ({ data: products }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
-
+  const featuredProducts = {
+    nodes: products?.shopifyCollection?.products,
+  }
   return (
     <Layout>
+      <SEO title="J. Philippus Art Studio & Gallery" />
       <Hero />
       <Container my={[16, 16, 16, 16]} textAlign="center">
         <Heading
@@ -46,8 +49,41 @@ const IndexPage = () => {
         </Link>
       </Container>
       <BlockGrid />
+      <Container px={8} maxWidth="100%">
+        <ProductListing featured products={featuredProducts} />
+      </Container>
     </Layout>
   )
 }
 
+export const query = graphql`
+  query FeaturedProductsQuery {
+    shopifyCollection(title: { eq: "Featured Products" }) {
+      products {
+        title
+        slug: gatsbyPath(
+          filePath: "/products/{ShopifyProduct.productType}/{ShopifyProduct.handle}"
+        )
+        images {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                aspectRatio: 1
+                formats: [AUTO, WEBP, AVIF]
+                quality: 90
+                width: 640
+              )
+            }
+          }
+        }
+        priceRangeV2 {
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+        }
+      }
+    }
+  }
+`
 export default IndexPage

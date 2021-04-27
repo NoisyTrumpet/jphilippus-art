@@ -40,6 +40,7 @@ module.exports = {
         password: process.env.GATSBY_SHOPIFY_ADMIN_PASSWORD,
         storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
         downloadImages: true,
+        shopifyConnections: ["collections"],
       },
     },
     `@chakra-ui/gatsby-plugin`,
