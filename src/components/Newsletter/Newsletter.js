@@ -16,8 +16,7 @@ const Newsletter = () => {
           Subscribe to our newsletter
         </FooterHeading>
         <Text>
-          Get notified when we add new components or we have exciting news for
-          you.
+          Get notified when we add new products and classes.
         </Text>
         <Stack
           spacing="4"
@@ -40,7 +39,7 @@ const Newsletter = () => {
           <DiamondButton
             type="submit"
             buttonStyle="btn--primary"
-            buttonSize="btn--small"
+            buttonSize="btn--xs"
           >
             Subscribe
           </DiamondButton>

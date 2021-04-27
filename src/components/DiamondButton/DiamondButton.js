@@ -10,7 +10,7 @@ const styles = [
   "btn--primary-transparent",
 ]
 
-const sizes = ["btn--small", "btn--medium", "btn--large", "btn--xl"]
+const sizes = ["btn--xs", "btn--small", "btn--medium", "btn--large", "btn--xl"]
 
 const DiamondButton = ({
   children,

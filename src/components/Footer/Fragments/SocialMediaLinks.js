@@ -3,7 +3,7 @@ import * as React from "react"
 import { FaFacebook } from "react-icons/fa"
 
 const SocialMediaLinks = props => (
-  <ButtonGroup variant="ghost" color="gray.600" {...props}>
+  <ButtonGroup variant="ghost" color="#3FA7B6" {...props}>
     <IconButton
       as="a"
       href="https://www.facebook.com/JPhilippusArtStudio"
