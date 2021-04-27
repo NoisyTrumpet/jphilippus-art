@@ -24,15 +24,15 @@ import "../styles/contact.scss"
   
 
 const center = {
-  lat: 29.608090,
-  lng: -98.520390
+  lat: 29.606779288223038,
+  lng: -98.52148720604819
 }
 const PinWrapper = () => (
   <div>
     <div
       style={{
         padding: "15px 10px",
-        width: "75px",
+        width: "55px",
         display: "inline-flex",
         textAlign: "center",
         alignItems: "center",
@@ -115,7 +115,7 @@ const Contact = () => {
             defaultCenter={center}
             defaultZoom={15}
           >
-            <PinWrapper lat={29.608090} lng={-98.520390} />
+            <PinWrapper lat={29.606779288223038} lng={-98.52148720604819} />
           </GoogleMapReact>
         </GridItem>
         <GridItem
