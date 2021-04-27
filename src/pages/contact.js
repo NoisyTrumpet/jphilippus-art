@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Layout from "../components/Layout/Layout"
 import Roll from "react-reveal/Roll"
-import axios from "axios";
+import axios from "axios"
 import PropTypes from "prop-types"
 import Pin from "../images/SVG/Pin"
 import {
@@ -19,13 +19,12 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react"
-import GoogleMapReact from 'google-map-react';
+import GoogleMapReact from "google-map-react"
 import "../styles/contact.scss"
-  
 
 const center = {
   lat: 29.606779288223038,
-  lng: -98.52148720604819
+  lng: -98.52148720604819,
 }
 const PinWrapper = () => (
   <div>
@@ -64,36 +63,35 @@ const PinWrapper = () => (
 )
 
 const Contact = () => {
-
   const [serverState, setServerState] = useState({
     submitting: false,
-    status: null
-  });
+    status: null,
+  })
   const handleServerResponse = (ok, msg, form) => {
     setServerState({
       submitting: false,
-      status: { ok, msg }
-    });
+      status: { ok, msg },
+    })
     if (ok) {
-      form.reset();
+      form.reset()
     }
-  };
+  }
   const handleOnSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    setServerState({ submitting: true });
+    e.preventDefault()
+    const form = e.target
+    setServerState({ submitting: true })
     axios({
       method: "post",
       url: "https://getform.io/f/5d9b4c2f-392c-41fa-82b4-c3c176621c15",
-      data: new FormData(form)
+      data: new FormData(form),
     })
       .then(r => {
-        handleServerResponse(true, "Thank You!", form);
+        handleServerResponse(true, "Thank You!", form)
       })
       .catch(r => {
-        handleServerResponse(false, r.response.data.error, form);
-      });
-  };
+        handleServerResponse(false, r.response.data.error, form)
+      })
+  }
 
   return (
     <Layout>
@@ -149,12 +147,19 @@ const Contact = () => {
           rowStart={[3, 2, 2]}
           rowSpan={1}
         >
-          <form action="https://getform.io/f/5d9b4c2f-392c-41fa-82b4-c3c176621c15" method="POST">
+          <form
+            action="https://getform.io/f/5d9b4c2f-392c-41fa-82b4-c3c176621c15"
+            method="POST"
+          >
             <FormControl id="first-name" isRequired>
               <Wrap justify="space-between">
                 <WrapItem flexDir="column" w="48%">
                   <FormLabel>First name</FormLabel>
-                  <Input type="text" placeholder="First name" name="first name" />
+                  <Input
+                    type="text"
+                    placeholder="First name"
+                    name="first name"
+                  />
                 </WrapItem>
                 <WrapItem flexDir="column" w="48%">
                   <FormLabel>Last name</FormLabel>
@@ -164,7 +169,12 @@ const Contact = () => {
               <FormLabel mt={2}>Email Address</FormLabel>
               <Input type="email" placeholder="Email Address" name="email" />
               <FormLabel mt={2}>Message</FormLabel>
-              <Textarea type="text" placeholder="Message Area" minH="150px" name="message" />
+              <Textarea
+                type="text"
+                placeholder="Message Area"
+                minH="150px"
+                name="message"
+              />
               <Container display="flex" justifyContent="flex-end">
                 <Roll top>
                   <Button
