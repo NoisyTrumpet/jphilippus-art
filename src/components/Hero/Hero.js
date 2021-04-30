@@ -54,7 +54,7 @@ const Hero = () => {
     mob.fluid,
     {
       ...desk.fluid,
-      media: `(min-width: 491px)`,
+      media: `(min-width: 1024px)`,
     },
   ]
 
@@ -72,16 +72,16 @@ const Hero = () => {
         gap={2}
         py={["1.5rem", "5rem"]}
         px="1rem"
-        h={["650px", "800px"]}
+        h={["600px", "800px"]}
         overflow="hidden"
       >
         <GridItem
           colStart={[1, 1, 2, 2, 5]}
           rowStart={1}
-          textAlign={["center", "left"]}
+          textAlign={["center", "center", "left"]}
           h="min-content"
           w="fit-content"
-          mr={["auto", "auto", "2rem", "auto", "auto"]}
+          mr={["auto", "auto", "auto", "auto"]}
           ml="auto"
         >
           <Fade top cascade>
@@ -102,7 +102,7 @@ const Hero = () => {
           rowStart={2}
           h="min-content"
           pos="relative"
-          top={["-9rem", "-8rem", "0", "0", "-5rem"]}
+          top={["-6.5rem", "-8rem", "-8rem", "-2rem", "-5rem"]}
         >
           <Container w="min-content" mr={["2rem", "2rem", "8rem", "8rem", "0"]}>
             <Grid
@@ -134,7 +134,7 @@ const Hero = () => {
                   </Button>
                 </Roll>
               </GridItem>
-              <GridItem colStart={2} rowStart={1} d={["none", "flex"]}>
+              <GridItem colStart={2} rowStart={1} d={["none", "none", "none", "flex"]}>
                 <Roll top>
                   <Box
                     bg="rgba(63, 167, 182, .4)"
@@ -144,7 +144,7 @@ const Hero = () => {
                   />
                 </Roll>
               </GridItem>
-              <GridItem colStart={2} rowStart={2} d={["none", "flex"]}>
+              <GridItem colStart={2} rowStart={2} d={["none", "none", "none", "flex"]}>
                 <Roll top>
                   <Box
                     bg="rgba(63, 167, 182, .4)"
