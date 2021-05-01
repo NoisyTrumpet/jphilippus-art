@@ -48,12 +48,12 @@ const Footer = () => {
       role="contentinfo"
       mx="auto"
       marginTop={8}
-      maxW="7xl"
       py="12"
       px={{
         base: "4",
         md: "8",
       }}
+      justifyContent="center"
     >
       <Stack spacing={10} divider={<StackDivider />}>
         <Stack
@@ -65,14 +65,13 @@ const Footer = () => {
             base: "10",
             lg: "28",
           }}
-          // justify="space-between"
+          justify="space-between"
         >
-          <Box flex="1" className="footer-logo">
+
             {colorMode === "dark" ? (
               <Link to="/" alt="Home">
                 <GatsbyImage
                   image={dark}
-                  style={{ margin: "10px 5px" }}
                   alt="Footer Logo Dark"
                   className="header-logo-dark"
                 />
@@ -81,13 +80,12 @@ const Footer = () => {
               <Link to="/" alt="Home">
                 <GatsbyImage
                   image={light}
-                  style={{ margin: "10px 5px" }}
                   alt="Footer Logo Light"
                   className="header-logo-reg"
                 />
               </Link>
             )}
-          </Box>
+
           <Stack
             direction={{
               base: "column",

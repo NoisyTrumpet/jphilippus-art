@@ -23,7 +23,7 @@ const Newsletter = () => {
         <Stack
           spacing="4"
           direction={{
-            base: "column",
+            // base: "column",
             md: "row",
           }}
           className="footer-newsletter"

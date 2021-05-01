@@ -11,10 +11,10 @@ const styles = [
 ]
 
 const sizes = [
-  "btn--xs", 
-  "btn--small", 
-  "btn--medium", 
-  "btn--large", 
+  "btn--xs",
+  "btn--small",
+  "btn--medium",
+  "btn--large",
   "btn--xl",
 ]
 
@@ -32,7 +32,7 @@ const DiamondButton = ({
   const checkButtonSize = sizes.includes(buttonSize) ? buttonSize : sizes[0]
 
   return (
-    <Container className="rotate-45" transform="rotate(45deg)">
+    <Container className="rotate-45" transform="rotate(45deg)" m={`0px!important`} >
       <Button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}

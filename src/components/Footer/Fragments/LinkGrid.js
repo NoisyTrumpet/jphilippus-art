@@ -1,7 +1,7 @@
-import { Box, SimpleGrid, Stack, Link } from "@chakra-ui/react"
-import { Link as ReachLink } from "@reach/router"
+import { Box, SimpleGrid, Stack } from "@chakra-ui/react"
 import * as React from "react"
 import { FooterHeading } from "./FooterHeading"
+import Link from "../../link"
 
 const LinkGrid = props => (
   <SimpleGrid columns={{base: 1, lg: 2}} {...props}>
@@ -9,16 +9,13 @@ const LinkGrid = props => (
       <FooterHeading mb="4">Menu</FooterHeading>
       <SimpleGrid columns={{base: 2, lg: 2}}>
         <Box mr="5">
-          <Link as={ReachLink} to="/about/">About the Artist</Link>
-          <br />
-          <Link as={ReachLink} to="/shop">Shop</Link>
+          <Link to="/about" display="block">About the Artist</Link>
+          <Link to="/shop" display="block">Shop</Link>
         </Box>
-        <Box ml="5">
-          <Link as={ReachLink} to="/news">News/Press</Link>
-          <br />
-          <Link as={ReachLink} to="/contact">Contact</Link>
-          <br />
-          <Link as={ReachLink} to="/faq">FAQ</Link>
+        <Box ml="5" mb={8}>
+          {/* <Link to="/news" display="block">News/Press</Link> */}
+          <Link to="/contact" display="block">Contact</Link>
+          <Link to="/faq" display="block">FAQ</Link>
         </Box>
       </SimpleGrid>
     </Box>
