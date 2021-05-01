@@ -134,7 +134,11 @@ const Hero = () => {
                   </Button>
                 </Roll>
               </GridItem>
-              <GridItem colStart={2} rowStart={1} d={["none", "none", "none", "flex"]}>
+              <GridItem
+                colStart={2}
+                rowStart={1}
+                d={["none", "none", "none", "flex"]}
+              >
                 <Roll top>
                   <Box
                     bg="rgba(63, 167, 182, .4)"
@@ -144,7 +148,11 @@ const Hero = () => {
                   />
                 </Roll>
               </GridItem>
-              <GridItem colStart={2} rowStart={2} d={["none", "none", "none", "flex"]}>
+              <GridItem
+                colStart={2}
+                rowStart={2}
+                d={["none", "none", "none", "flex"]}
+              >
                 <Roll top>
                   <Box
                     bg="rgba(63, 167, 182, .4)"
