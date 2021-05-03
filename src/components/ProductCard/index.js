@@ -6,7 +6,7 @@ import Link from "../link"
 import formatPrice from "../../utils/formatPrice"
 import { ChakraHelpersContext } from "../../context/chakra-helpers-context"
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, featured }) => {
   const {
     title,
     priceRangeV2,
@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
         h2: { color: linkHoverColor },
       }}
     >
-      <Box bg={bg} p={6} data-name="product-image-box">
+      <Box bg={bg}  data-name="product-image-box">
         {firstImage && (
           <GatsbyImage
             alt=""
@@ -46,10 +46,10 @@ const ProductCard = ({ product }) => {
           />
         )}
       </Box>
-      <Grid templateColumns="auto auto" gap={6} mt={6}>
+      <Grid templateColumns="auto auto" gap={2} mt={2}>
         <Heading
           as="h2"
-          fontSize="24px"
+          fontSize={featured ? 'md' : "4xl"}
           color={linkColor}
           transition="color 0.25s ease-in-out"
         >

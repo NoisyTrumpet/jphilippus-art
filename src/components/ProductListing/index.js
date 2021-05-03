@@ -13,6 +13,7 @@ const ProductListing = ({ products, featured }) => {
           width="100%"
           maxWidth="100%"
           marginTop={20}
+          marginBottom={8}
         >
           <Heading
             as="h2"
@@ -27,7 +28,6 @@ const ProductListing = ({ products, featured }) => {
           </Heading>
           <Link
             to="/products"
-            marginRight={10}
             position="absolute"
             right="0"
             top="25%"
@@ -41,7 +41,7 @@ const ProductListing = ({ products, featured }) => {
 
       <Grid
         templateColumns={[
-          "1fr",
+          "repeat(2, 1fr)",
           "repeat(2, 1fr)",
           null,
           featured ? "repeat(5, 1fr)" : "repeat(3, 1fr)",
@@ -50,7 +50,7 @@ const ProductListing = ({ products, featured }) => {
         rowGap={[12, 16, 20]}
       >
         {products.nodes.map(p => (
-          <ProductCard product={p} key={p.slug} />
+          <ProductCard product={p} key={p.slug} featured/>
         ))}
       </Grid>
     </>
