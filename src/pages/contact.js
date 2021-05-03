@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/Layout/Layout"
 import Roll from "react-reveal/Roll"
-import axios from "axios"
+// import axios from "axios"
 import PropTypes from "prop-types"
 import Pin from "../images/SVG/Pin"
 import {
@@ -9,7 +9,6 @@ import {
   Heading,
   Grid,
   GridItem,
-  Box,
   FormControl,
   FormLabel,
   Input,
@@ -63,35 +62,35 @@ const PinWrapper = () => (
 )
 
 const Contact = () => {
-  const [serverState, setServerState] = useState({
-    submitting: false,
-    status: null,
-  })
-  const handleServerResponse = (ok, msg, form) => {
-    setServerState({
-      submitting: false,
-      status: { ok, msg },
-    })
-    if (ok) {
-      form.reset()
-    }
-  }
-  const handleOnSubmit = e => {
-    e.preventDefault()
-    const form = e.target
-    setServerState({ submitting: true })
-    axios({
-      method: "post",
-      url: "https://getform.io/f/5d9b4c2f-392c-41fa-82b4-c3c176621c15",
-      data: new FormData(form),
-    })
-      .then(r => {
-        handleServerResponse(true, "Thank You!", form)
-      })
-      .catch(r => {
-        handleServerResponse(false, r.response.data.error, form)
-      })
-  }
+  // const [serverState, setServerState] = useState({
+  //   submitting: false,
+  //   status: null,
+  // })
+  // const handleServerResponse = (ok, msg, form) => {
+  //   setServerState({
+  //     submitting: false,
+  //     status: { ok, msg },
+  //   })
+  //   if (ok) {
+  //     form.reset()
+  //   }
+  // }
+  // const handleOnSubmit = e => {
+  //   e.preventDefault()
+  //   const form = e.target
+  //   setServerState({ submitting: true })
+  //   axios({
+  //     method: "post",
+  //     url: "https://getform.io/f/5d9b4c2f-392c-41fa-82b4-c3c176621c15",
+  //     data: new FormData(form),
+  //   })
+  //     .then(r => {
+  //       handleServerResponse(true, "Thank You!", form)
+  //     })
+  //     .catch(r => {
+  //       handleServerResponse(false, r.response.data.error, form)
+  //     })
+  // }
 
   return (
     <Layout>

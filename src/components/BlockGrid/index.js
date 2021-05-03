@@ -65,15 +65,15 @@ const BlockGrid = () => {
         templateColumns={["repeat(2, 1fr)"]}
         gap={25}
       >
-        <Box className="block-grid-item">
+        <Box className="block-grid-item" zIndex={1}>
           <BackgroundImage
             className="block-grid-image"
-            Tag="section"
+            tag="section"
             {...FlowerBgImg}
             preserveStackingContext
           />
         </Box>
-        <Box className="block-grid-item" py="5">
+        <Box className="block-grid-item" py="5" zIndex={1}>
           <Text
             className="block-grid-title"
             style={{
@@ -99,10 +99,10 @@ const BlockGrid = () => {
             </DiamondButton>
           </Center>
         </Box>
-        <Box className="block-grid-item">
+        <Box className="block-grid-item" zIndex={1}>
           <BackgroundImage
             className="block-grid-image"
-            Tag="section"
+            tag="section"
             {...AcrylicBgImg}
             preserveStackingContext
           >
@@ -119,10 +119,10 @@ const BlockGrid = () => {
             </Center>
           </BackgroundImage>
         </Box>
-        <Box className="block-grid-item">
+        <Box className="block-grid-item" zIndex={1}>
           <BackgroundImage
             className="block-grid-image"
-            Tag="section"
+            tag="section"
             {...JewelryBgImg}
             preserveStackingContext
           >

@@ -11,7 +11,6 @@ const ThemeToggle = () => {
     <Button
       onClick={toggleColorMode}
       size="sm"
-      variant="outline"
       aria-label={
         isLight ? `Activate dark color mode` : `Activate light color mode`
       }

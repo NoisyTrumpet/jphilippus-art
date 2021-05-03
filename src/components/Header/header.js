@@ -18,7 +18,6 @@ import Cart from "../Cart/index"
 import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
 import DiamondButton from "../DiamondButton/DiamondButton"
-import ThemeToggle from "../ThemeToggle/index"
 
 const NavBar = props => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
@@ -87,7 +86,7 @@ const NavBar = props => {
         )}
 
         {!isSmallerThan1160 && <MenuLinks isNowOpen={isNowOpen} />}
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         {isSmallerThan1160 ? (
           <MobileMenu
             quantity={quantity}
@@ -137,11 +136,11 @@ const MenuLinks = () => {
       slug: "/contact",
       pActive: true,
     },
-    {
-      name: "FAQ",
-      slug: "/faq",
-      pActive: true,
-    },
+    // {
+    //   name: "FAQ",
+    //   slug: "/faq",
+    //   pActive: true,
+    // },
   ]
   return (
     <Box
@@ -168,7 +167,7 @@ const MenuLinks = () => {
         <DiamondButton
           buttonStyle="btn--secondary"
           buttonSize="btn--small"
-          to="/products/gift-cards"
+          to="/products/gift-card/gift-card/"
         >
           Gift Cards
         </DiamondButton>

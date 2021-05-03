@@ -31,7 +31,7 @@ const News = () => {
 
   return (
     <BackgroundImage
-      Tag="section"
+      tag="section"
       fluid={image}
       {...bgImage}
       preserveStackingContext

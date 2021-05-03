@@ -38,6 +38,10 @@ const theme = extendTheme({
     initialColorMode: "light",
     // useSystemColorMode: true,
   },
+  fonts: {
+    heading: "Gill Sans Bold",
+    body: "Gill Sans",
+  },
 })
 
 export default theme

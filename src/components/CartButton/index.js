@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Badge, IconButton, Stack, Container } from "@chakra-ui/react"
-import { FiShoppingCart } from "react-icons/fi"
+import Cart from "../../svg/cart"
 
 import "./CartButton.scss"
 
@@ -17,7 +17,7 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
       <Container display="flex" alignItems="center">
         <IconButton
           aria-label={`Shopping Cart with ${quantity} items`}
-          icon={<FiShoppingCart />}
+          icon={<Cart />}
           variant="ghost"
           size="lg"
           ref={btnRef}
@@ -30,10 +30,9 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
           height="24px"
           width="24px"
           borderRadius="full"
-          p={0}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
+          paddingTop={1}
+          display="grid"
+          placeItems="center"
         >
           {quantity}
         </Badge>

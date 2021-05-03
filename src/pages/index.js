@@ -1,5 +1,11 @@
 import * as React from "react"
-import { Container, Text, Heading, useColorModeValue } from "@chakra-ui/react"
+import {
+  Container,
+  Text,
+  Heading,
+  useColorModeValue,
+  Box,
+} from "@chakra-ui/react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 
@@ -9,9 +15,11 @@ import Link from "../components/link"
 import BlockGrid from "../components/BlockGrid/index"
 import ProductListing from "../components/ProductListing"
 import SEO from "../components/SEO"
+import CallToAction from "../components/CallToAction/index"
 
 const IndexPage = ({ data: products }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
+  const bgGray = useColorModeValue(`bgGray`, `gray.700`)
   const featuredProducts = {
     nodes: products?.shopifyCollection?.products,
   }
@@ -49,7 +57,12 @@ const IndexPage = ({ data: products }) => {
           read more
         </Link>
       </Container>
-      <BlockGrid />
+      <Box py={8} backgroundColor={bgGray}>
+        <BlockGrid />
+      </Box>
+      <Box>
+        <CallToAction />
+      </Box>
       <Container px={8} maxWidth="100%">
         <ProductListing featured products={featuredProducts} />
       </Container>

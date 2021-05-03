@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Container, Button, Tag } from "@chakra-ui/react"
+import { navigate } from "gatsby"
 
 import "./DiamondButton.scss"
 
@@ -18,6 +19,8 @@ const DiamondButton = ({
   onClick,
   buttonStyle,
   buttonSize,
+  to,
+  mTop,
 }) => {
   const checkButtonStyle = styles.includes(buttonStyle)
     ? buttonStyle
@@ -29,11 +32,14 @@ const DiamondButton = ({
     <Container
       className="rotate-45"
       transform="rotate(45deg)"
-      m={`0px!important`}
+      marginTop={mTop ? mTop : 0}
     >
       <Button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-        onClick={onClick}
+        onClick={() => {
+          onClick && onClick()
+          to && navigate(to)
+        }}
         type={type}
       >
         <Tag
