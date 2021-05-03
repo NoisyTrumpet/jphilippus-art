@@ -4,6 +4,7 @@ import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import Hero from "../components/Hero/Hero.js"
+import Testimonials from "../components/Testimonials/testimonials.js"
 import Link from "../components/link"
 import BlockGrid from "../components/BlockGrid/index"
 import ProductListing from "../components/ProductListing"
@@ -52,6 +53,7 @@ const IndexPage = ({ data: products }) => {
       <Container px={8} maxWidth="100%">
         <ProductListing featured products={featuredProducts} />
       </Container>
+      <Testimonials />
     </Layout>
   )
 }
