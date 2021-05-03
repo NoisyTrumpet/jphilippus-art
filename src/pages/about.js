@@ -5,6 +5,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Box, Grid, Text, Center } from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import '../styles/about.scss'
+
 const AboutPage = () => {
   // Hero Image Query
   const { heroImage } = useStaticQuery(
@@ -36,8 +38,6 @@ const AboutPage = () => {
         <GatsbyImage image={hero} alt="About Jeanne" />
         <Box
           className="bio-text"
-          px="100"
-          py="75"
           style={{ lineHeight: `25px` }}
         >
           <Text
@@ -73,7 +73,7 @@ const AboutPage = () => {
       <Center className="quote-block">
         <Text
           p="10"
-          style={{ color: `#3FA7B6`, fontStyle: `italic`, fontSize: `25px` }}
+          style={{ color: `#3FA7B6`, fontStyle: `italic`, fontSize: `25px`, textAlign: `center` }}
         >
           "Creating Art From The Broken Pieces"
         </Text>

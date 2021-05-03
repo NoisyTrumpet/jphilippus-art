@@ -30,6 +30,7 @@
     "gatsby-source-shopify": "^5.0.0-rc.19",
     "gatsby-transformer-sharp": "^3.2.0",
     "gbimage-bridge": "^0.1.2",
+    "google-map-react": "^2.1.9",
     "isomorphic-fetch": "^3.0.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
