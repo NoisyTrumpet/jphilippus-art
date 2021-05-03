@@ -69,7 +69,7 @@ const Footer = () => {
         >
 
             {colorMode === "dark" ? (
-              <Link to="/" alt="Home">
+              <Link to="/" alt="Home" width={{ base: `150px`, lg: `300px` }}>
                 <GatsbyImage
                   image={dark}
                   alt="Footer Logo Dark"
@@ -77,7 +77,7 @@ const Footer = () => {
                 />
               </Link>
             ) : (
-              <Link to="/" alt="Home">
+              <Link to="/" alt="Home" width={{ base: `150px`, lg: `300px` }}>
                 <GatsbyImage
                   image={light}
                   alt="Footer Logo Light"
@@ -87,6 +87,7 @@ const Footer = () => {
             )}
 
           <Stack
+          className="footer-links"
             direction={{
               base: "column",
               md: "row",
