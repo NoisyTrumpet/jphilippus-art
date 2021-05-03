@@ -12,6 +12,7 @@ const colors = {
   gradientBottom: "#FFFFFF",
   headingColor: "black",
   cardBg: "#FFFFFF",
+  bgGray: "#F4F4F4",
   cardLink: defaultColors.black,
   cardLinkHover: defaultColors.blue["600"],
   dark: {

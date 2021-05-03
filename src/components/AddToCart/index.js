@@ -4,13 +4,16 @@ import { StoreContext } from "../../context/storeContext"
 import { ChakraHelpersContext } from "../../context/chakra-helpers-context"
 
 const AddToCart = ({ variantId, quantity, available, ...props }) => {
-  const { addVariantToCart, loading } = React.useContext(StoreContext)
+  const { addVariantToCart, loading, onOpen } = React.useContext(StoreContext)
   const { primaryColorScheme } = React.useContext(ChakraHelpersContext)
 
   return (
     <Button
       colorScheme={primaryColorScheme}
-      onClick={() => addVariantToCart(variantId, quantity)}
+      onClick={() => {
+        addVariantToCart(variantId, quantity)
+        onOpen()
+      }}
       disabled={!available || loading}
       {...props}
     >
