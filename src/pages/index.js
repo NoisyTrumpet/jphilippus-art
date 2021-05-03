@@ -14,6 +14,7 @@ import Link from "../components/link"
 import BlockGrid from "../components/BlockGrid/index"
 import ProductListing from "../components/ProductListing"
 import SEO from "../components/SEO"
+import CallToAction from "../components/CallToAction/index"
 
 const IndexPage = ({ data: products }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
@@ -57,6 +58,9 @@ const IndexPage = ({ data: products }) => {
       </Container>
       <Box py={8} backgroundColor={bgGray}>
         <BlockGrid />
+      </Box>
+      <Box>
+        <CallToAction />
       </Box>
       <Container px={8} maxWidth="100%">
         <ProductListing featured products={featuredProducts} />

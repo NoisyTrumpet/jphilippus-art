@@ -29,14 +29,18 @@ const LinkGrid = props => (
       </SimpleGrid>
     </Box>
     <Box minW="140px">
-      <FooterHeading mb="4">Contact</FooterHeading>
+      <FooterHeading mb="4">Address</FooterHeading>
       <Stack>
-        <Link>
+        <a
+          href="https://www.google.com/maps/dir//J+Philippus+Art+Studio+%26+Gallery,+1846+N+Loop+1604+W+STE+104,+San+Antonio,+TX+78248/@29.6065838,-98.5237701,16.5z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865c611c33dc2b73:0x5f7bc89cd7fcdf47!2m2!1d-98.5215116!2d29.6067463"
+          rel="noopener"
+          target="_blank"
+        >
           1846 North Loop
           <br />
           1604 W<br />
           Suite 104
-        </Link>
+        </a>
       </Stack>
     </Box>
   </SimpleGrid>

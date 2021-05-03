@@ -23,7 +23,7 @@ const Navigation = () => {
     },
     {
       name: "Class Schedule",
-      slug: "/schedule",
+      slug: "/class-schedule",
       pActive: true,
     },
     {
@@ -54,11 +54,18 @@ const Navigation = () => {
           className="navigation-link"
           activeClassName="active"
           partiallyActive={n.pActive}
+          _last={{
+            marginBottom: 8,
+          }}
         >
           {n.name}
         </Link>
       ))}
-      <DiamondButton buttonStyle="btn--secondary" buttonSize="btn--small">
+      <DiamondButton
+        buttonStyle="btn--secondary"
+        buttonSize="btn--small"
+        mTop={8}
+      >
         Gift Cards
       </DiamondButton>
     </Stack>

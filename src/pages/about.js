@@ -41,7 +41,7 @@ const AboutPage = () => {
           style={{ lineHeight: `25px` }}
         >
           <Text
-            Tag="h1"
+            tag="h1"
             style={{
               color: `#3FA7B6`,
               fontSize: `25px`,

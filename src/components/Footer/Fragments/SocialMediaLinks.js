@@ -1,6 +1,7 @@
 import { ButtonGroup, IconButton } from "@chakra-ui/react"
 import * as React from "react"
 import { FaFacebook, FaInstagram } from "react-icons/fa"
+import ThemeToggle from "../../ThemeToggle/index"
 
 const SocialMediaLinks = props => (
   <ButtonGroup variant="ghost" color="#3FA7B6" {...props}>
@@ -16,6 +17,8 @@ const SocialMediaLinks = props => (
       aria-label="Instagram"
       icon={<FaInstagram fontSize="20px" />}
     />
+    <IconButton aria-label="Theme Toggle" icon={<ThemeToggle />} />
+
     {/* <IconButton
       as="a"
       href="#"
