@@ -22,7 +22,7 @@ const LinkGrid = props => (
     <Box minW="140px">
       <FooterHeading mb="4">Contact</FooterHeading>
       <VStack align="stretch" spacing={2}>
-        <Link>1846 North Loop<br />1604 W<br/>Suite 104</Link>
+        <a href="https://goo.gl/maps/hiSb5EPxsGVxcCnd6">1846 North Loop<br />1604 W<br/>Suite 104</a>
       </VStack>
     </Box>
   </SimpleGrid>
