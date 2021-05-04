@@ -60,16 +60,13 @@ const IndexPage = ({ data: products }) => {
       <Box py={8} backgroundColor={bgGray}>
         <BlockGrid />
       </Box>
-<<<<<<< HEAD
       <Box>
         <CallToAction />
       </Box>
       <Container px={8} maxWidth="100%">
         <ProductListing featured products={featuredProducts} />
       </Container>
-=======
 
->>>>>>> testimonials
       <Testimonials />
     </Layout>
   )

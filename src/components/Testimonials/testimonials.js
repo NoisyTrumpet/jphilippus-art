@@ -18,7 +18,7 @@ const Testimonials = () => {
   const { desktopImage } = useStaticQuery(
     graphql`
       query {
-        desktopImage: file(relativePath: { eq: "goldenTestBg.png" }) {
+        desktopImage: file(relativePath: { eq: "goldenTestBg.jpg" }) {
           childImageSharp {
             gatsbyImageData(
               width: 2160
@@ -74,7 +74,7 @@ const Testimonials = () => {
     <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
       <Box
         as="section"
-        bg={useColorModeValue("rgba(63, 166, 182, 0.7)")}
+        bg={useColorModeValue("rgba(102, 117, 138, 0.5)")}
         mt="2rem"
       >
         <Box
@@ -95,7 +95,6 @@ const Testimonials = () => {
                 md: "6xl",
               }}
             />
-
             <Quotee
               name={t.person}
               QuoteBlock={t.text}
