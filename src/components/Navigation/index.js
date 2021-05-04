@@ -63,7 +63,7 @@ const Navigation = () => {
       ))}
       <DiamondButton
         buttonStyle="btn--secondary"
-        buttonSize="btn--small"
+        buttonSize="btn--xs"
         mTop={8}
       >
         Gift Cards

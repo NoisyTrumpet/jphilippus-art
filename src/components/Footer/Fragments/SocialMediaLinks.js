@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa"
 import ThemeToggle from "../../ThemeToggle/index"
 
 const SocialMediaLinks = props => (
-  <ButtonGroup variant="ghost" color="#3FA7B6" {...props}>
+  <ButtonGroup variant="ghost" color="#C09559" {...props}>
     <IconButton
       as="a"
       href="https://www.facebook.com/JPhilippusArtStudio"
