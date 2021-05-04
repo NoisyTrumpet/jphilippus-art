@@ -27,16 +27,17 @@ const IndexPage = ({ data: products }) => {
       <SEO title="J. Philippus Art Studio & Gallery" />
       <Hero />
       <Container my={[16, 16, 16, 16]} textAlign="center">
-        <Heading
+        <Text
           as="h2"
           fontSize="3xl"
           textAlign="center"
-          fontWeight="extrabold"
+          fontWeight="semi-bold"
           letterSpacing="tight"
           color={themeBlue}
+          textTransform="uppercase"
         >
           2021 Parade of Homes
-        </Heading>
+        </Text>
         <Text
           textAlign="center"
           my={7}
@@ -52,6 +53,7 @@ const IndexPage = ({ data: products }) => {
           to="/news/parade-of-homes/"
           style={{ textAlign: "center" }}
           color={themeBlue}
+          alt={`Read more about Jeanne Philippus, the featured artist of all original art in the "Rohare Custom Home" at the 2021 San Antonio Parade of Homes`}
         >
           read more
         </Link>
