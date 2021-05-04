@@ -71,7 +71,7 @@ const NavBar = props => {
           <Link to="/" alt="Home">
             <GatsbyImage
               image={dark}
-              style={{ margin: "10px 5px" }}
+              style={{ margin: "10px 5px", width: { base: "160px", lg: "190px" } }}
               alt={`J. Philippus Art Studio & Gallery Logo`}
               className="header-logo-dark"
             />
@@ -80,7 +80,7 @@ const NavBar = props => {
           <Link to="/" alt="Home">
             <GatsbyImage
               image={light}
-              style={{ margin: "10px 5px" }}
+              style={{ margin: "10px 5px", width: { base: "160px", lg: "190px" } }}
               alt={`J. Philippus Art Studio & Gallery Logo`}
               className="header-logo-reg"
             />
