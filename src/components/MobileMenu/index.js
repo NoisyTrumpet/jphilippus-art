@@ -46,6 +46,8 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
                 direction="column"
                 fontSize="lg"
                 alignItems="center"
+                my={{ base: 0, lg: 5 }}
+                px={{ base: 0, lg: 5 }}
                 sx={{
                   "a.active": {
                     fontWeight: `medium`,
@@ -64,19 +66,20 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
+      <CartButton className="cart-btn" quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
       <IconButton
         className="hamburger"
         onClick={onOpenMenu}
         ref={menuRef}
-        my={5}
-        px={3}
+        my={{ base: `1px`, lg: 3 }}
+        px={{ base: `1px`, lg: 3 }}
         sx={{ background: "transparent", color: "#707070" }}
-        size="lg"
+        size="md"
         aria-label={isOpenMenu ? `Close menu` : `Open menu`}
         icon={<FiMenu />}
         marginLeft="auto"
       />
-      <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
+      
     </>
   )
 }

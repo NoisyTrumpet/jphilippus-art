@@ -1,7 +1,10 @@
 @import "../../styles/main.scss";
 
-.hamburger {
-    &:hover {
-        background: transparent;
+@media (max-width: 414px) {
+    .cart-btn {
+        svg {
+            height: 28 !important;
+            width: 23 !important;
+        }
     }
 }

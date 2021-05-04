@@ -66,23 +66,24 @@ const NavBar = props => {
     <>
       <Cart isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
       <Announcement />
-      <NavBarContainer {...props}>
+      <NavBarContainer className="navbar" {...props}>
         {colorMode === "dark" ? (
-          <Link to="/" alt="Home">
+          <Link to="/" alt="Home" className="logo-header">
             <GatsbyImage
               image={dark}
-              style={{ margin: "10px 5px", width: { base: "160px", lg: "190px" } }}
               alt={`J. Philippus Art Studio & Gallery Logo`}
               className="header-logo-dark"
             />
           </Link>
         ) : (
-          <Link to="/" alt="Home">
+          <Link to="/" alt="Home" 
+            className="logo-header" 
+            width={{ base: `160px`, lg: `200px` }}>
             <GatsbyImage
               image={light}
-              style={{ margin: "10px 5px", width: { base: "160px", lg: "190px" } }}
               alt={`J. Philippus Art Studio & Gallery Logo`}
               className="header-logo-reg"
+              width={{ base: `160px`, lg: `200px`}}
             />
           </Link>
         )}
@@ -168,7 +169,7 @@ const MenuLinks = () => {
         ))}
         <DiamondButton
           buttonStyle="btn--secondary"
-          buttonSize="btn--small"
+          buttonSize="btn--xs"
           to="/products/gift-card/gift-card/"
         >
           Gift Cards
@@ -186,8 +187,8 @@ const NavBarContainer = ({ children, ...props }) => {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      my={4}
-      px={8}
+      my={{ base: 2, lg: 4}}
+      px={{ base: 2, lg: 8}}
       bg={["primary.500", "primary.500", "transparent", "transparent"]}
       color={["white", "white", "primary.700", "primary.700"]}
       {...props}
