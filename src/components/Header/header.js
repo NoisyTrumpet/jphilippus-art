@@ -19,6 +19,8 @@ import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
 import DiamondButton from "../DiamondButton/DiamondButton"
 
+import "./header.scss"
+
 const NavBar = props => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
 

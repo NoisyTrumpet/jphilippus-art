@@ -15,6 +15,8 @@ import { FiMenu } from "react-icons/fi"
 import Navigation from "../Navigation/index"
 import CartButton from "../CartButton/index"
 
+import './MobileMenu.scss'
+
 const MobileMenu = ({ quantity, btnRef, onOpen }) => {
   const {
     isOpen: isOpenMenu,

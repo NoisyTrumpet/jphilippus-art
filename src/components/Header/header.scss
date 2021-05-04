@@ -7,4 +7,10 @@
   .mobile-nav {
     background-color: transparent !important;
   }
+
+  .header-logo-reg, .header-logo-dark {
+    @media (max-width: 414px) {
+      max-width: 160px !important;
+    }
+  }
 }
