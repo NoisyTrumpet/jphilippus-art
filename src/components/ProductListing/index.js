@@ -12,7 +12,6 @@ const ProductListing = ({ products, featured }) => {
           position="relative"
           width="100%"
           maxWidth="100%"
-          marginTop={20}
           marginBottom={8}
         >
           <Heading

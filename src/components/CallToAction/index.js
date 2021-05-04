@@ -69,7 +69,7 @@ const CallToAction = () => {
         >
           <Button
             as="a"
-            href="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+            href=""
             size="lg"
             h="16"
             px="10"

@@ -1,4 +1,3 @@
-import React from "React"
 import {
   Badge,
   Box,
@@ -7,6 +6,7 @@ import {
   Text,
   useColorModeValue as mode,
 } from "@chakra-ui/react"
+import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -20,7 +20,7 @@ const AltHero = ({ title, subcaption, body, logo, imageAlt, productType }) => {
             gatsbyImageData(
               width: 1200
               quality: 90
-              layout: CONSTRAINED
+              layout: FULL_WIDTH
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
@@ -36,17 +36,33 @@ const AltHero = ({ title, subcaption, body, logo, imageAlt, productType }) => {
     }
   }
 
+  const bgGray = mode(`bgGray`, `gray.700`)
+  const blue = mode(`primary`)
+  const yellow = mode(`secondary`)
+
   return (
-    <Box maxHeight={200} position={`relative`}>
-      <Grid templateColumns={["repeat(2, 1fr)"]}>
-        <Box>
-          {title && <Heading as="h1">{title}</Heading>}
-          {subcaption && <Heading as="h2">{subcaption}</Heading>}
+    <Box position={`relative`}>
+      <Grid templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)"]}>
+        <Box backgroundColor={bgGray} padding={8}>
+          {title && (
+            <Heading as="h1" color={blue} textTransform="uppercase">
+              {title}
+            </Heading>
+          )}
+          {subcaption && (
+            <Text color={yellow} fontWeight="semibold">
+              {subcaption}
+            </Text>
+          )}
           {body && <Text>{body}</Text>}
           {/* {logo && } */}
         </Box>
         <Box>
-          <GatsbyImage image={getImgSrc()} />
+          <GatsbyImage
+            image={getImgSrc()}
+            alt={`${productType} | Hero Image`}
+            style={{ height: `100%` }}
+          />
         </Box>
       </Grid>
     </Box>
