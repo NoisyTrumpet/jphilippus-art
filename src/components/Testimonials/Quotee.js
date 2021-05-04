@@ -21,14 +21,16 @@ export const Quotee = props => {
       </Box>
       <Box {...boxProps}>
         {/* <GatsbyImage image={imageSrc} /> */}
-        {imageSrc && <Img
-          src={imageSrc}
-          mx="auto"
-          objectFit="cover"
-          w="16"
-          h="16"
-          rounded="full"
-        />}
+        {imageSrc && (
+          <Img
+            src={imageSrc}
+            mx="auto"
+            objectFit="cover"
+            w="16"
+            h="16"
+            rounded="full"
+          />
+        )}
         <Box mt="3" color={useColorModeValue("bg")}>
           <Text as="cite" fontStyle="normal" fontWeight="bold">
             {name}

@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../../../components/Layout/Layout"
 import ProductListing from "../../../components/ProductListing/index"
 import SEO from "../../../components/SEO"
+import AltHero from "../../../components/AltHero"
 
 const ProductTypeIndex = ({
   data: { products },
@@ -13,6 +14,7 @@ const ProductTypeIndex = ({
     <Layout>
       <SEO title={`Category: ${productType}`} />
       <VisuallyHidden as="h1">{productType}</VisuallyHidden>
+      <AltHero title={productType} productType={productType} />
       <Container py={20}>
         <ProductListing products={products} />
       </Container>
