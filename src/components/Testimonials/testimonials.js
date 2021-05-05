@@ -1,12 +1,5 @@
-import {
-  Box,
-  Circle,
-  Flex,
-  HStack,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react"
-import React, { useState, useEffect } from "react"
+import { Box, Circle, Flex, HStack, useColorModeValue } from "@chakra-ui/react"
+import React, { useState } from "react"
 import { Quotee } from "./Quotee"
 import { QuoteIcon } from "./QuoteIcon"
 import { graphql, useStaticQuery } from "gatsby"
@@ -61,14 +54,10 @@ const Testimonials = () => {
   }
 
   const [index, setIndex] = useState(0)
-  const length = testimonial_data.nodes.length - 1
-  const handleNext = () =>
-    index === length ? setIndex(0) : setIndex(index + 1)
+  // const length = testimonial_data.nodes.length - 1
+  const handleClick = key => setIndex(key)
+  // index === length ? setIndex(0) : setIndex(index + 1)
   const t = testimonial_data.nodes[index]
-  useEffect(() => {
-    const timeout = setTimeout(() => handleNext(), 8000)
-    return () => clearTimeout(timeout)
-  })
 
   return (
     <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
@@ -98,10 +87,26 @@ const Testimonials = () => {
             <Quotee
               name={t.person}
               QuoteBlock={t.text}
-              imageSrc={t.image}
+              // imageSrc={t.image}
               mt="8"
             />
           </Flex>
+          <HStack
+            justify="center"
+            spacing="4"
+            mt="8"
+            color={useColorModeValue("gray.600", "gray.600")}
+          >
+            {testimonial_data.nodes.map((n, key) => (
+              <Circle
+                w="3"
+                h="3"
+                bg={key === index ? `primary` : `secondary`}
+                key={n.person}
+                onClick={() => handleClick(key)}
+              />
+            ))}
+          </HStack>
         </Box>
       </Box>
     </BackgroundImage>

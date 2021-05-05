@@ -67,15 +67,21 @@ const CallToAction = () => {
           maxW="md"
           mx="auto"
         >
+          {/* <DiamondButton>
+
+          </DiamondButton> */}
           <Button
             as="a"
             href=""
             size="lg"
             h="16"
             px="10"
+            href="https://j-philippus-art-studio.myshopify.com/pages/calendar"
             backgroundColor="primary"
             color="white"
-            fontWeight="bold"
+            fontFamily="Gill Sans"
+            fontWeight={500}
+            textTransform="uppercase"
             flex={{
               md: "1",
             }}

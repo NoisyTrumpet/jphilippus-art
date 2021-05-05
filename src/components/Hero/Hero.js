@@ -14,6 +14,7 @@ import {
   Container,
 } from "@chakra-ui/react"
 import BackgroundImage from "gatsby-background-image"
+import DiamondButton from "../DiamondButton/DiamondButton"
 
 const Hero = () => {
   const { mobileImage, desktopImage } = useStaticQuery(
@@ -118,8 +119,12 @@ const Hero = () => {
                 rowStart={1}
                 d="flex"
                 alignItems="flex-end"
+                // transform="rotate(-45deg)"
               >
                 <Roll top>
+                  {/* <DiamondButton >
+                    Book a Class
+                  </DiamondButton> */}
                   <Button
                     bg="primary"
                     w={100}

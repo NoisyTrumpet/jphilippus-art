@@ -1,11 +1,5 @@
 import * as React from "react"
-import {
-  Container,
-  Text,
-  Heading,
-  useColorModeValue,
-  Box,
-} from "@chakra-ui/react"
+import { Container, Text, useColorModeValue, Box } from "@chakra-ui/react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 

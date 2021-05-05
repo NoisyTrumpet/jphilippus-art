@@ -1,4 +1,4 @@
-import { Box, Container, Img, Text, useColorModeValue } from "@chakra-ui/react"
+import { Box, Container, Text, useColorModeValue } from "@chakra-ui/react"
 import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -21,7 +21,7 @@ export const Quotee = props => {
       </Box>
       <Box {...boxProps}>
         {/* <GatsbyImage image={imageSrc} /> */}
-        {imageSrc && (
+        {/* {imageSrc && (
           <Img
             src={imageSrc}
             mx="auto"
@@ -30,7 +30,7 @@ export const Quotee = props => {
             h="16"
             rounded="full"
           />
-        )}
+        )} */}
         <Box mt="3" color={useColorModeValue("bg")}>
           <Text as="cite" fontStyle="normal" fontWeight="bold">
             {name}

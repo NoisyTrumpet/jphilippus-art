@@ -8,12 +8,7 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
   // const { primaryColorScheme } = React.useContext(ChakraHelpersContext)
 
   return (
-    <Stack
-      direction="row"
-      justifyContent="flex-end"
-      alignItems="center"
-      spacing={3}
-    >
+    <Stack direction="row" justifyContent="flex-end" alignItems="center">
       <Container display="flex" alignItems="center">
         <IconButton
           aria-label={`Shopping Cart with ${quantity} items`}
