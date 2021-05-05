@@ -1,5 +1,14 @@
 @import "../../styles/main.scss";
 
-.about-bio {
-    background-color: $brand-lt-grey;
+.latest-news-container {
+    margin: 3rem;
+
+    .latest-news-img {
+        height: 350px;
+        width: auto;
+
+        .grid-center-diamond {
+            // padding-top: 9rem;
+        }
+    }
 }

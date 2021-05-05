@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
+import DiamondButton from "../components/DiamondButton/DiamondButton"
 
 import Hero from "../components/Hero/Hero.js"
 import Testimonials from "../components/Testimonials/testimonials.js"
@@ -16,6 +17,7 @@ import BlockGrid from "../components/BlockGrid/index"
 import ProductListing from "../components/ProductListing"
 import SEO from "../components/SEO"
 import CallToAction from "../components/CallToAction/index"
+import News from "../components/News/index"
 
 const IndexPage = ({ data: products }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
@@ -68,8 +70,8 @@ const IndexPage = ({ data: products }) => {
       <Container px={8} maxWidth="100%">
         <ProductListing featured products={featuredProducts} />
       </Container>
-
       <Testimonials />
+      <News />
     </Layout>
   )
 }
