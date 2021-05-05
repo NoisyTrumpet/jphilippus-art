@@ -1,5 +1,5 @@
 import * as React from "react"
-import { SimpleGrid, Box, Center } from "@chakra-ui/react"
+import { Container, SimpleGrid, Box, Center, Text } from "@chakra-ui/react"
 import { getImage } from "gatsby-plugin-image"
 import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from "gatsby-background-image"
@@ -33,32 +33,35 @@ const News = () => {
   const bgImage = convertToBgImage(image)
 
   return (
-    <SimpleGrid columns={{ base: 1, xl: 2 }} mt="5">
-      <Box className="latest-news-container" zIndex={1}>
-        <BackgroundImage
-          className="latest-news-img"
-          tag="section"
-          p={{ base: 10, lg: 25 }}
-          fluid={image}
-          {...bgImage}
-          preserveStackingContext
-        >
-          <Center className="center-grid-diamond" pt={{ base: `3rem`, md: `5rem`, lg: `7rem` }}>
-            <DiamondButton 
-              className="grid-diamond-btn"
-              buttonStyle="btn--primary-transparent" 
-              buttonSize="btn--xl">
-                Latest News
-            </DiamondButton>
+    <Container>
+      <SimpleGrid columns={{ base: 1, xl: 2 }} mt="5">
+        <Box className="latest-news-container" zIndex={1}>
+          <BackgroundImage
+            className="latest-news-img"
+            tag="section"
+            p={{ base: 10, lg: 25 }}
+            fluid={image}
+            {...bgImage}
+            preserveStackingContext
+          >
+            <Center className="center-grid-diamond" pt={{ base: `3rem`, md: `5rem`, lg: `7rem` }}>
+              <DiamondButton 
+                className="grid-diamond-btn"
+                buttonStyle="btn--primary-transparent" 
+                buttonSize="btn--xl">
+                  Latest News
+              </DiamondButton>
+            </Center>
+          </BackgroundImage>
+        </Box>
+
+        <Box className="social-container" mt="10">
+          <Center>
+            <Text className="social-heading">Let's Get Social</Text>
           </Center>
-        </BackgroundImage>
-      </Box>
-
-      <Box className="social-container">
-        Social
-      </Box>
-
-    </SimpleGrid>
+        </Box>
+      </SimpleGrid>
+    </Container>
   )
 }
 
