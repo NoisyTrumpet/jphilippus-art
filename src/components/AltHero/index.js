@@ -34,7 +34,7 @@ const AltHero = ({
             gatsbyImageData(
               width: 1200
               quality: 90
-              layout: FULL_WIDTH
+              layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
@@ -47,7 +47,7 @@ const AltHero = ({
             gatsbyImageData(
               width: 1200
               quality: 90
-              layout: FULL_WIDTH
+              layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
@@ -60,7 +60,7 @@ const AltHero = ({
             gatsbyImageData(
               width: 1054
               quality: 90
-              layout: FULL_WIDTH
+              layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
@@ -71,7 +71,7 @@ const AltHero = ({
             gatsbyImageData(
               width: 1000
               quality: 90
-              layout: FULL_WIDTH
+              layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )

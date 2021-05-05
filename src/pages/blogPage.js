@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const BlogPage = ({ pageContext }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
-  const blogImage = pageContext.article.image.src
+  const blogImage = pageContext.article?.image.src
   return (
     <Layout>
       <Container my={[16, 16, 16, 16]}>
