@@ -60,7 +60,7 @@ const Hero = () => {
   ]
 
   return (
-    <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
+    <BackgroundImage Tag="section" fluid={images} preserveStackingContext style={{backgroundPosition: "top"}}>
       <Grid
         templateColumns={[
           "repeat(1, 1fr)",
@@ -86,10 +86,10 @@ const Hero = () => {
           ml="auto"
         >
           <Fade top cascade>
-            <Heading as="h1" color="secondary">
+            <Heading as="h1" color="secondary" textTransform="Uppercase">
               Teaching <br /> Art Studio
             </Heading>
-            <Text fontSize="21px" color="color">
+            <Text fontSize="21px" color="color" fontWeight="500">
               We are excited to share that <br /> The Shard Studio, LLC is now
             </Text>
             <Heading as="h2" fontSize="26px" color="secondary">
@@ -133,7 +133,7 @@ const Hero = () => {
                     color="white"
                     _hover={{ background: "secondary" }}
                   >
-                    <Text transform="rotate(-45deg)">
+                    <Text transform="rotate(-45deg)" fontSize="21px" fontWeight="500" pt="13px">
                       Book a <br /> Class
                     </Text>
                   </Button>
