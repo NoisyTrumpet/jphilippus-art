@@ -5,6 +5,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Box, Grid, Text, Center } from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import Gallery from "../components/Gallery/Gallery"
+
 const AboutPage = () => {
   // Hero Image Query
   const { heroImage } = useStaticQuery(
@@ -78,6 +80,7 @@ const AboutPage = () => {
           "Creating Art From The Broken Pieces"
         </Text>
       </Center>
+      <Gallery />
     </Layout>
   )
 }
