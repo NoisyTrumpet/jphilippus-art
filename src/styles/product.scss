@@ -1,0 +1,20 @@
+@import "./main.scss";
+
+.product-links-flexbox {
+
+    .product-link {
+        padding-bottom: 15px;
+        border-bottom-style: solid;
+        border-bottom: 1.5px solid $brand-dk-grey;
+        width: fit-content;
+
+        color: $brand-dk-grey;
+        
+        &:hover {
+            text-decoration: none !important;
+            border-bottom: 1.5px solid $brand-burnt-orange;
+
+            color: $brand-burnt-orange;
+        }
+    }
+}
