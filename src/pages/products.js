@@ -13,10 +13,10 @@ const Products = ({ data: { products } }) => {
       <VisuallyHidden as="h1">Products</VisuallyHidden>
       <Center m="10">
         <Flex style={{ textTransform: `uppercase` }}>
-          <Link p="5">Classes</Link>
-          <Link p="5">Art</Link>
-          <Link p="5">Jewelry</Link>
-          <Link p="5">All Products</Link>
+          <Link to="/products/class" p="5">Classes</Link>
+          <Link to="/products/art" p="5">Art</Link>
+          <Link to="/products/jewelry" p="5">Jewelry</Link>
+          <Link to="/products/" p="5">All Products</Link>
         </Flex>
       </Center>
       <Container paddingBottom={20}>
