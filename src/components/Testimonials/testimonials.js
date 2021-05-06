@@ -63,7 +63,10 @@ const Testimonials = () => {
     <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
       <Box
         as="section"
-        bg={useColorModeValue("rgba(102, 117, 138, 0.5)")}
+        bg={useColorModeValue(
+          "rgba(102, 117, 138, 0.5)",
+          "rgba(102, 117, 138, 0.5)"
+        )}
         mt="2rem"
       >
         <Box
@@ -78,7 +81,7 @@ const Testimonials = () => {
         >
           <Flex direction="column" align="center" textAlign="center">
             <QuoteIcon
-              color={useColorModeValue("secondary")}
+              color={useColorModeValue("secondary", "secondary")}
               fontSize={{
                 base: "3xl",
                 md: "6xl",

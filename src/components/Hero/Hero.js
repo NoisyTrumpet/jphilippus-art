@@ -2,19 +2,17 @@ import * as React from "react"
 import Roll from "react-reveal/Roll"
 import Fade from "react-reveal/Fade"
 import { graphql, useStaticQuery } from "gatsby"
-import { convertToBgImage } from "gbimage-bridge"
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage, withArtDirection } from "gatsby-plugin-image"
 import {
   Box,
   Grid,
   GridItem,
-  Heading,
   Text,
-  Button,
   Container,
   useMediaQuery,
 } from "@chakra-ui/react"
 import DiamondButton from "../DiamondButton/DiamondButton"
+import "./Hero.scss"
 
 const Hero = () => {
   const { mobileImage, desktopImage } = useStaticQuery(
@@ -48,66 +46,77 @@ const Hero = () => {
 
   const mobileImageGet = getImage(mobileImage)
   const desktopImageGet = getImage(desktopImage)
-
-  const [isSmallerThan1160] = useMediaQuery("(max-width: 1160px)")
+  const images = withArtDirection(desktopImageGet, [
+    {
+      media: "(max-width: 1024px)",
+      image: mobileImageGet,
+    },
+  ])
+  const [isMobile] = useMediaQuery("(max-width: 1200px)")
 
   return (
     <Box as="section" display="grid">
-      {isSmallerThan1160 ? (
-        <GatsbyImage
-          image={mobileImageGet}
-          alt="hero image"
-          style={{ gridArea: "1/1" }}
-        />
-      ) : (
-        <GatsbyImage
-          image={desktopImageGet}
-          alt="hero image"
-          style={{ gridArea: "1/1" }}
-        />
-      )}
+      <GatsbyImage
+        image={images}
+        alt="hero image"
+        style={{ gridArea: "1/1" }}
+        className="hero-image"
+      />
 
-      <div
+      <Box
         style={{
           gridArea: "1/1",
           position: "relative",
-          height: isSmallerThan1160 ? `500px` : `auto`,
         }}
       >
         <Grid
           templateColumns={[
-            "repeat(1, 1fr)",
+            "1fr",
             "repeat(1, 1fr)",
             "repeat(2, 1fr)",
             "repeat(2, 1fr)",
             "repeat(6, 1fr)",
           ]}
-          templateRows="repeat(1, 1fr)"
+          templateRows={["1fr", "repeat(1, 1fr)"]}
           gap={2}
           py={["1.5rem", "5rem"]}
           px="1rem"
           h={["600px", "800px"]}
           overflow="hidden"
+          zIndex={4}
         >
           <GridItem
             colStart={[1, 1, 2, 2, 5]}
             rowStart={1}
             textAlign={["center", "center", "left"]}
             h="min-content"
-            w="fit-content"
-            mr={["auto", "auto", "auto", "auto"]}
-            ml="auto"
+            w={["100%", "fit-content"]}
+            mr={[0, "auto", "auto", "auto"]}
+            ml={[0, "auto"]}
+            zIndex={4}
           >
-            <Fade top cascade>
-              <Heading as="h1" color="secondary">
-                Teaching <br /> Art Studio
-              </Heading>
-              <Text fontSize="21px" color="color">
-                We are excited to share that <br /> The Shard Studio, LLC is now
+            <Fade bottom>
+              <Text
+                as="h1"
+                color="secondary"
+                textTransform="uppercase"
+                fontSize="4xl"
+                fontWeight={500}
+              >
+                Teaching Art {isMobile ? `` : <br />} Studio
               </Text>
-              <Heading as="h2" fontSize="26px" color="secondary">
-                J.Philippus Art Studio <br /> and Gallery, LLC
-              </Heading>
+              <Text fontSize="21px" color="color">
+                We are excited to share that {isMobile ? `` : <br />}The Shard
+                Studio, LLC is now
+              </Text>
+              <Text
+                as="h2"
+                fontSize="26px"
+                color="secondary"
+                marginTop={[2, 4]}
+              >
+                J.Philippus Art Studio {isMobile ? `` : <br />}and Gallery, LLC
+              </Text>
             </Fade>
           </GridItem>
 
@@ -119,22 +128,25 @@ const Hero = () => {
             top={["-6.5rem", "-8rem", "-8rem", "-2rem", "-5rem"]}
           >
             <Container
-              w="min-content"
-              mr={["2rem", "2rem", "8rem", "8rem", "0"]}
+              // w="min-content"
+              display="grid"
+              placeItems="center"
+              // mr={["2rem", "2rem", "8rem", "8rem", "0"]}
             >
               <Grid
-                templateColumns="repeat(2, 1fr)"
-                templateRows="repeat(2, 1fr)"
+                templateColumns={["1fr", "repeat(2, 1fr)"]}
+                templateRows={["1fr", "repeat(2, 1fr)"]}
                 transform="rotate(45deg)"
-                gap={4}
+                gap={2}
                 h="min-content"
                 w="min-content"
               >
                 <GridItem
                   colStart={1}
                   rowStart={1}
-                  d="flex"
-                  alignItems="flex-end"
+                  d={["grid", "flex"]}
+                  placeItems="center"
+                  alignItems={["center", "flex-end"]}
                   // transform="rotate(-45deg)"
                 >
                   <Roll top>
@@ -142,22 +154,10 @@ const Hero = () => {
                       to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
                       rotate
                       buttonStyle="btn--primary"
-                      buttonSize="btn--medium"
+                      buttonSize="btn--small"
                     >
                       Book a Class
                     </DiamondButton>
-                    {/* <Button
-                      bg="primary"
-                      w={100}
-                      h={100}
-                      borderRadius="15px"
-                      color="white"
-                      _hover={{ background: "secondary" }}
-                    >
-                      <Text transform="rotate(-45deg)">
-                        Book a <br /> Class
-                      </Text>
-                    </Button> */}
                   </Roll>
                 </GridItem>
                 <GridItem
@@ -192,7 +192,7 @@ const Hero = () => {
             </Container>
           </GridItem>
         </Grid>
-      </div>
+      </Box>
     </Box>
   )
 }

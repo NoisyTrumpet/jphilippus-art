@@ -9,7 +9,7 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
 
   return (
     <Stack direction="row" justifyContent="flex-end" alignItems="center">
-      <Container display="flex" alignItems="center">
+      <Container display="flex" alignItems="center" padding={0}>
         <IconButton
           aria-label={`Shopping Cart with ${quantity} items`}
           icon={<Cart />}

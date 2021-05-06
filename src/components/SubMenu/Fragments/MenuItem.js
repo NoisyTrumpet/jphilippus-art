@@ -1,7 +1,6 @@
 import {
   Badge,
   Box,
-  chakra,
   Text,
   Square,
   useColorModeValue as mode,

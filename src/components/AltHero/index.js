@@ -109,6 +109,8 @@ const AltHero = ({
     if (productType === "All") {
       return getImage(allHero)
     }
+
+    return getImage(allHero)
   }
 
   const julieImage = getImage(julieVossLogo)
@@ -134,7 +136,7 @@ const AltHero = ({
             </Heading>
           )}
           {subcaption && (
-            <Text color={yellow} fontWeight="semibold" my={5} fontWeight={500}>
+            <Text color={yellow} my={5} fontWeight={500}>
               {subcaption}
             </Text>
           )}

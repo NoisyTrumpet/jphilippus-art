@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Container, VisuallyHidden } from "@chakra-ui/react"
+import { Container } from "@chakra-ui/react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout/Layout"
 import ProductListing from "../components/ProductListing/index"
@@ -16,7 +16,7 @@ const Products = ({ data: { products } }) => {
         productType="All"
         subcaption="Beautiful 1500 Suqare Foot Facility Including:"
       />
-      <Container paddingBottom={20}>
+      <Container py={20}>
         {/* <Center m="10">
         <Flex className="product-links-flexbox" style={{ textTransform: `uppercase` }}>
           <Link className="product-link" to="/products/class" p="5" activeStyle={{ textDecoration: `none`, borderBottom: `1.5px solid #C09559`, color: `#C09559` }}>Classes</Link>

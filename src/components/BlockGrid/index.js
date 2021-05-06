@@ -1,10 +1,8 @@
 import * as React from "react"
 import { Container, Box, Text, Grid, Center } from "@chakra-ui/layout"
-import BackgroundImage from "gatsby-background-image"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"
 import DiamondButton from "../DiamondButton/DiamondButton"
-import { convertToBgImage } from "gbimage-bridge"
 
 import "./BlockGrid.scss"
 
@@ -62,7 +60,7 @@ const BlockGrid = () => {
         templateColumns={["repeat(2, 1fr)"]}
         gap={25}
       >
-        <Box className="block-grid-item" zIndex={1}>
+        <Box className="block-grid-item" zIndex={1} margin={`0 auto`}>
           <GatsbyImage
             className="block-grid-image"
             image={FlowerImage}

@@ -60,16 +60,18 @@ const SubMenu = ({ title }) => {
             justify="space-between"
             px="6"
             py="6"
-            bg={mode("blue.50", "#324a65")}
+            bg={mode("primary", "#324a65")}
           >
             <Box>
-              <Text fontWeight="semibold">Book an Envelope demo today!</Text>
-              <Text fontSize="sm" color={mode("gray.600", "gray.400")}>
-                Discover & access advanced features
+              <Text fontWeight="semibold">
+                Book a Custom Glass Art Class Today!
+              </Text>
+              <Text fontSize="sm" color={mode("white", "white")}>
+                Custom text and stuff here
               </Text>
             </Box>
-            <Box color={mode("blue.600", "blue.300")} fontWeight="semibold">
-              Get a live demo
+            <Box color={mode("white", "white")} fontWeight="semibold">
+              Schedule now
             </Box>
           </Flex>
         </Box>

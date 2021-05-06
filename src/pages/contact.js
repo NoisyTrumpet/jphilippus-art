@@ -14,6 +14,7 @@ import {
   Textarea,
   Wrap,
   WrapItem,
+  Box,
 } from "@chakra-ui/react"
 import GoogleMapReact from "google-map-react"
 import "../styles/contact.scss"
@@ -25,7 +26,7 @@ const center = {
 }
 const PinWrapper = () => (
   <div>
-    <div
+    <Box
       style={{
         padding: "15px 10px",
         width: "55px",
@@ -46,7 +47,7 @@ const PinWrapper = () => (
       }
     >
       <Pin />
-    </div>
+    </Box>
 
     <div className="hidden">
       <h3>J.Philippus Art Studio and Gallery, LLC</h3>

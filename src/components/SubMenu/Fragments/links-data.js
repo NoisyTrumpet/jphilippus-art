@@ -1,8 +1,7 @@
 import * as React from "react"
-import { HiChatAlt, HiChartBar, HiPlay, HiMail } from "react-icons/hi"
-import { GiBigDiamondRing, GiCrackedGlass } from "react-icons/gi"
+import { GiCrackedGlass } from "react-icons/gi"
 
-import { AiFillSchedule } from "react-icons/ai"
+import { AiFillSchedule, AiOutlineShopping } from "react-icons/ai"
 
 import { BiPaint } from "react-icons/bi"
 export const links = [
@@ -19,16 +18,16 @@ export const links = [
     icon: <GiCrackedGlass />,
   },
   {
-    href: "/products/jewelry",
-    title: "Jewelry",
-    description: "We sell Julie Voss Jewelry",
-    icon: <GiBigDiamondRing />,
-    new: false,
-  },
-  {
     href: "#",
     title: "Art Kits",
     description: "See new additions and changes to our platform",
     icon: <BiPaint />,
+  },
+  {
+    href: "/products",
+    title: "All Products",
+    description: "See our entire inventory",
+    icon: <AiOutlineShopping />,
+    new: false,
   },
 ]

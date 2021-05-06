@@ -72,7 +72,6 @@ const CallToAction = () => {
           </DiamondButton> */}
           <Button
             as="a"
-            href=""
             size="lg"
             h="16"
             px="10"

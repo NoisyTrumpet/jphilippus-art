@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
 import { Container, Box, Heading, useColorModeValue } from "@chakra-ui/react"
-import { StaticImage } from "gatsby-plugin-image"
 
 const BlogPage = ({ pageContext }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)

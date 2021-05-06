@@ -48,6 +48,7 @@ const IndexPage = ({ data: products }) => {
           to="/news/parade-of-homes/"
           style={{ textAlign: "center" }}
           color={themeBlue}
+          fontSize="xl"
           alt={`Read more about Jeanne Philippus, the featured artist of all original art in the "Rohare Custom Home" at the 2021 San Antonio Parade of Homes`}
         >
           read more

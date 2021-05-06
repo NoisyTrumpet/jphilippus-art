@@ -1,6 +1,5 @@
 import { Box, Container, Text, useColorModeValue } from "@chakra-ui/react"
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const Quotee = props => {
   const { QuoteBlock, name, jobTitle, imageSrc, ...boxProps } = props

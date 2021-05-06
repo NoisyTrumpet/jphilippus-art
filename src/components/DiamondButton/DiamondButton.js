@@ -1,7 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { Container, Button, Tag } from "@chakra-ui/react"
-import { navigate } from "gatsby"
+import { Container, Tag } from "@chakra-ui/react"
 import Link from "../link"
 
 import "./DiamondButton.scss"
