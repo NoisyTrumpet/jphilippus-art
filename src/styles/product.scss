@@ -9,6 +9,10 @@
         width: fit-content;
 
         color: $brand-dk-grey;
+
+        @media (max-width: 414px) {
+            padding: 8px !important;
+        }
         
         &:hover {
             text-decoration: none !important;
