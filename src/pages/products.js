@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Container, VisuallyHidden } from "@chakra-ui/react"
+import { Container, VisuallyHidden, Center, Flex } from "@chakra-ui/react"
+import Link from "../components/link"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout/Layout"
 import ProductListing from "../components/ProductListing/index"
@@ -10,6 +11,14 @@ const Products = ({ data: { products } }) => {
     <Layout>
       <SEO title="All Products in J. Philippus Art Studio & Gallery" />
       <VisuallyHidden as="h1">Products</VisuallyHidden>
+      <Center m="10">
+        <Flex style={{ textTransform: `uppercase` }}>
+          <Link p="5">Classes</Link>
+          <Link p="5">Art</Link>
+          <Link p="5">Jewelry</Link>
+          <Link p="5">All Products</Link>
+        </Flex>
+      </Center>
       <Container paddingBottom={20}>
         <ProductListing products={products} />
       </Container>
@@ -24,7 +33,8 @@ export default Products
 
 export const query = graphql`
   {
-    products: allShopifyProduct(sort: { fields: [publishedAt], order: ASC }) {
+    products: allShopifyProduct(sort: { 
+      fields: [publishedAt], order: ASC }) {
       nodes {
         ...ProductCard
       }
