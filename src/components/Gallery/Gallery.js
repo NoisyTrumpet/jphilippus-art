@@ -1,53 +1,11 @@
 import * as React from 'react'
 import { graphql, useStaticQuery } from "gatsby"
-import { Grid } from "@chakra-ui/react"
+import { Grid, GridItem } from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "./gallery.css"
 
-export const query = graphql`
-  query {
-    allImageSharp(filter: {fileAbsolutePath: {regex: "/gallery/"  }}) {
-      edges {
-        node {
-          id
-          fluid(quality: 90, fit: CONTAIN) {
-            srcSetWebp
-              ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-`
-
-const Gallery = () => {
-  // const { allImages } = useStaticQuery(
-  //   graphql`
-  //   query {
-  //     allImages: allFile(filter: {relativeDirectory: {eq: "gallery"}}) {
-  //       edges {
-  //         node {
-  //           base
-  //           childImageSharp {
-  //             gatsbyImageData(
-  //               formats: [AUTO, WEBP, AVIF]
-  //               layout: CONSTRAINED
-  //               quality: 90
-  //               placeholder: BLURRED
-  //             )
-  //             fluid(quality: 90, fit: CONTAIN) {
-  //               srcSetWebp
-  //               ...GatsbyImageSharpFluid
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  //   `)
-
-  console.log(allImages)
-
+const Gallery = ({data}) => {
+ 
   return (
     <Grid
       templateColumns="repeat(4, 1fr)"
@@ -55,12 +13,32 @@ const Gallery = () => {
       gap={4}
       className="gallery"
     >
-      {data.allImageSharp.edges.map(edge => 
-        <GatsbyImage fluid={edge.node.fluid} />
-      )}
-        {/* <GatsbyImage image={galleryImages} /> */}
+      {data.galleryImages.edges.map(({node}) => (
+        <GridItem>
+            <GatsbyImage image={getImage(node.childImageSharp)} />
+        </GridItem>
+      ))}
     </Grid>
   )
 }
 
 export default Gallery
+
+export const {galleryImages} = graphql`
+    query {
+      galleryImages: allFile(filter: {relativeDirectory: {eq: "gallery"}}) {
+        edges {
+          node {
+            childImageSharp {
+              gatsbyImageData(
+                formats: [AUTO, WEBP, AVIF]
+                layout: CONSTRAINED
+                quality: 90
+                placeholder: BLURRED
+              )
+            }
+          }
+        }
+      }
+    }
+`
