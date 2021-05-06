@@ -1,5 +1,4 @@
 import {
-  Badge,
   Box,
   Heading,
   Grid,
@@ -17,7 +16,6 @@ const AltHero = ({
   title,
   subcaption,
   body,
-  logo,
   imageAlt,
   productType,
   ctaTitle,
@@ -26,7 +24,13 @@ const AltHero = ({
   ctaLink,
 }) => {
   // Art Page Image:
-  const { artHero, classHero, jewelryHero, julieVossLogo, allHero } = useStaticQuery(
+  const {
+    artHero,
+    classHero,
+    jewelryHero,
+    julieVossLogo,
+    allHero,
+  } = useStaticQuery(
     graphql`
       query {
         artHero: file(relativePath: { eq: "page-heros/art-page-hero.jpg" }) {
@@ -66,7 +70,7 @@ const AltHero = ({
             )
           }
         }
-        allHero: file(relativePath: {eq: "page-heros/shop-page-hero.jpg"}) {
+        allHero: file(relativePath: { eq: "page-heros/shop-page-hero.jpg" }) {
           childImageSharp {
             gatsbyImageData(
               width: 1000
@@ -102,7 +106,7 @@ const AltHero = ({
     if (productType === "Jewelry") {
       return getImage(jewelryHero)
     }
-    if (productType == "All") {
+    if (productType === "All") {
       return getImage(allHero)
     }
   }
@@ -163,23 +167,16 @@ const AltHero = ({
 
           {productType === "Jewelry" && (
             <Box display="grid" placeItems="Center" marginTop={8}>
-              <GatsbyImage
-                image={julieImage}
-                alt="Julie Voss Logo"
-              />
+              <GatsbyImage image={julieImage} alt="Julie Voss Logo" />
             </Box>
           )}
           {productType === "All" && (
-            <UnorderedList >
+            <UnorderedList>
               <ListItem>
                 Kitchen With Refrigerator, Microwave, and Ice Maker
               </ListItem>
-              <ListItem>
-              Handicap Accessible
-              </ListItem>
-              <ListItem>
-                TV Available for Presentation
-              </ListItem>
+              <ListItem>Handicap Accessible</ListItem>
+              <ListItem>TV Available for Presentation</ListItem>
               <ListItem>
                 Open Flex Area in the front, excellent for cocktail receptions
               </ListItem>
@@ -189,7 +186,7 @@ const AltHero = ({
         <Box>
           <GatsbyImage
             image={getImgSrc()}
-            alt={`${productType} | Hero Image`}
+            alt={`${productType || imageAlt} | Hero Image`}
             style={{ height: `100%` }}
           />
         </Box>

@@ -66,7 +66,6 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
         className="hamburger"
         onClick={onOpenMenu}
         ref={menuRef}
-        my={5}
         px={3}
         sx={{ background: "transparent", color: "#707070" }}
         size="lg"

@@ -3,7 +3,7 @@ import Roll from "react-reveal/Roll"
 import Fade from "react-reveal/Fade"
 import { graphql, useStaticQuery } from "gatsby"
 import { convertToBgImage } from "gbimage-bridge"
-import { getImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import {
   Box,
   Grid,
@@ -12,8 +12,8 @@ import {
   Text,
   Button,
   Container,
+  useMediaQuery,
 } from "@chakra-ui/react"
-import BackgroundImage from "gatsby-background-image"
 import DiamondButton from "../DiamondButton/DiamondButton"
 
 const Hero = () => {
@@ -48,130 +48,152 @@ const Hero = () => {
 
   const mobileImageGet = getImage(mobileImage)
   const desktopImageGet = getImage(desktopImage)
-  const desk = convertToBgImage(desktopImageGet)
-  const mob = convertToBgImage(mobileImageGet)
 
-  const images = [
-    mob.fluid,
-    {
-      ...desk.fluid,
-      media: `(min-width: 1024px)`,
-    },
-  ]
+  const [isSmallerThan1160] = useMediaQuery("(max-width: 1160px)")
 
   return (
-    <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
-      <Grid
-        templateColumns={[
-          "repeat(1, 1fr)",
-          "repeat(1, 1fr)",
-          "repeat(2, 1fr)",
-          "repeat(2, 1fr)",
-          "repeat(6, 1fr)",
-        ]}
-        templateRows="repeat(1, 1fr)"
-        gap={2}
-        py={["1.5rem", "5rem"]}
-        px="1rem"
-        h={["600px", "800px"]}
-        overflow="hidden"
-      >
-        <GridItem
-          colStart={[1, 1, 2, 2, 5]}
-          rowStart={1}
-          textAlign={["center", "center", "left"]}
-          h="min-content"
-          w="fit-content"
-          mr={["auto", "auto", "auto", "auto"]}
-          ml="auto"
-        >
-          <Fade top cascade>
-            <Heading as="h1" color="secondary">
-              Teaching <br /> Art Studio
-            </Heading>
-            <Text fontSize="21px" color="color">
-              We are excited to share that <br /> The Shard Studio, LLC is now
-            </Text>
-            <Heading as="h2" fontSize="26px" color="secondary">
-              J.Philippus Art Studio <br /> and Gallery, LLC
-            </Heading>
-          </Fade>
-        </GridItem>
+    <Box as="section" display="grid">
+      {isSmallerThan1160 ? (
+        <GatsbyImage
+          image={mobileImageGet}
+          alt="hero image"
+          style={{ gridArea: "1/1" }}
+        />
+      ) : (
+        <GatsbyImage
+          image={desktopImageGet}
+          alt="hero image"
+          style={{ gridArea: "1/1" }}
+        />
+      )}
 
-        <GridItem
-          colStart={[1, 1, 2, 2, 5]}
-          rowStart={2}
-          h="min-content"
-          pos="relative"
-          top={["-6.5rem", "-8rem", "-8rem", "-2rem", "-5rem"]}
+      <div
+        style={{
+          gridArea: "1/1",
+          position: "relative",
+          height: isSmallerThan1160 ? `500px` : `auto`,
+        }}
+      >
+        <Grid
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(6, 1fr)",
+          ]}
+          templateRows="repeat(1, 1fr)"
+          gap={2}
+          py={["1.5rem", "5rem"]}
+          px="1rem"
+          h={["600px", "800px"]}
+          overflow="hidden"
         >
-          <Container w="min-content" mr={["2rem", "2rem", "8rem", "8rem", "0"]}>
-            <Grid
-              templateColumns="repeat(2, 1fr)"
-              templateRows="repeat(2, 1fr)"
-              transform="rotate(45deg)"
-              gap={4}
-              h="min-content"
+          <GridItem
+            colStart={[1, 1, 2, 2, 5]}
+            rowStart={1}
+            textAlign={["center", "center", "left"]}
+            h="min-content"
+            w="fit-content"
+            mr={["auto", "auto", "auto", "auto"]}
+            ml="auto"
+          >
+            <Fade top cascade>
+              <Heading as="h1" color="secondary">
+                Teaching <br /> Art Studio
+              </Heading>
+              <Text fontSize="21px" color="color">
+                We are excited to share that <br /> The Shard Studio, LLC is now
+              </Text>
+              <Heading as="h2" fontSize="26px" color="secondary">
+                J.Philippus Art Studio <br /> and Gallery, LLC
+              </Heading>
+            </Fade>
+          </GridItem>
+
+          <GridItem
+            colStart={[1, 1, 2, 2, 5]}
+            rowStart={2}
+            h="min-content"
+            pos="relative"
+            top={["-6.5rem", "-8rem", "-8rem", "-2rem", "-5rem"]}
+          >
+            <Container
               w="min-content"
+              mr={["2rem", "2rem", "8rem", "8rem", "0"]}
             >
-              <GridItem
-                colStart={1}
-                rowStart={1}
-                d="flex"
-                alignItems="flex-end"
-                // transform="rotate(-45deg)"
+              <Grid
+                templateColumns="repeat(2, 1fr)"
+                templateRows="repeat(2, 1fr)"
+                transform="rotate(45deg)"
+                gap={4}
+                h="min-content"
+                w="min-content"
               >
-                <Roll top>
-                  {/* <DiamondButton >
-                    Book a Class
-                  </DiamondButton> */}
-                  <Button
-                    bg="primary"
-                    w={100}
-                    h={100}
-                    borderRadius="15px"
-                    color="white"
-                    _hover={{ background: "secondary" }}
-                  >
-                    <Text transform="rotate(-45deg)">
-                      Book a <br /> Class
-                    </Text>
-                  </Button>
-                </Roll>
-              </GridItem>
-              <GridItem
-                colStart={2}
-                rowStart={1}
-                d={["none", "none", "none", "flex"]}
-              >
-                <Roll top>
-                  <Box
-                    bg="rgba(63, 167, 182, .4)"
-                    w={300}
-                    h={300}
-                    borderRadius="15px"
-                  />
-                </Roll>
-              </GridItem>
-              <GridItem
-                colStart={2}
-                rowStart={2}
-                d={["none", "none", "none", "flex"]}
-              >
-                <Roll top>
-                  <Box
-                    bg="rgba(63, 167, 182, .4)"
-                    w={150}
-                    h={150}
-                    borderRadius="15px"
-                  />
-                </Roll>
-              </GridItem>
-            </Grid>
-          </Container>
-        </GridItem>
-      </Grid>
-    </BackgroundImage>
+                <GridItem
+                  colStart={1}
+                  rowStart={1}
+                  d="flex"
+                  alignItems="flex-end"
+                  // transform="rotate(-45deg)"
+                >
+                  <Roll top>
+                    <DiamondButton
+                      to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+                      rotate
+                      buttonStyle="btn--primary"
+                      buttonSize="btn--medium"
+                    >
+                      Book a Class
+                    </DiamondButton>
+                    {/* <Button
+                      bg="primary"
+                      w={100}
+                      h={100}
+                      borderRadius="15px"
+                      color="white"
+                      _hover={{ background: "secondary" }}
+                    >
+                      <Text transform="rotate(-45deg)">
+                        Book a <br /> Class
+                      </Text>
+                    </Button> */}
+                  </Roll>
+                </GridItem>
+                <GridItem
+                  colStart={2}
+                  rowStart={1}
+                  d={["none", "none", "none", "flex"]}
+                >
+                  <Roll top>
+                    <Box
+                      bg="rgba(63, 167, 182, .4)"
+                      w={300}
+                      h={300}
+                      borderRadius="15px"
+                    />
+                  </Roll>
+                </GridItem>
+                <GridItem
+                  colStart={2}
+                  rowStart={2}
+                  d={["none", "none", "none", "flex"]}
+                >
+                  <Roll top>
+                    <Box
+                      bg="rgba(63, 167, 182, .4)"
+                      w={150}
+                      h={150}
+                      borderRadius="15px"
+                    />
+                  </Roll>
+                </GridItem>
+              </Grid>
+            </Container>
+          </GridItem>
+        </Grid>
+      </div>
+    </Box>
   )
 }
 

@@ -18,6 +18,7 @@ import Cart from "../Cart/index"
 import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
 import DiamondButton from "../DiamondButton/DiamondButton"
+import SubMenu from "../SubMenu/index"
 
 const NavBar = props => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
@@ -66,19 +67,17 @@ const NavBar = props => {
       <Announcement />
       <NavBarContainer {...props}>
         {colorMode === "dark" ? (
-          <Link to="/" alt="Home">
+          <Link to="/" alt="Home" maxWidth={[125, 200]}>
             <GatsbyImage
               image={dark}
-              style={{ margin: "10px 5px" }}
               alt={`J. Philippus Art Studio & Gallery Logo`}
               className="header-logo-dark"
             />
           </Link>
         ) : (
-          <Link to="/" alt="Home">
+          <Link to="/" alt="Home" maxWidth={[125, 200]}>
             <GatsbyImage
               image={light}
-              style={{ margin: "10px 5px" }}
               alt={`J. Philippus Art Studio & Gallery Logo`}
               className="header-logo-reg"
             />
@@ -104,16 +103,19 @@ const NavBar = props => {
 
 const MenuItem = ({ children, isLast, to = "/", alt, ...rest }) => {
   const linkColor = useColorModeValue(`headingColor`, `dark.headingColor`)
+  if (to === "/products") {
+    return <SubMenu />
+  }
   return (
     <Link to={to} color={linkColor} alt={alt}>
-      <Text display="block" {...rest}>
+      <Text display="block" {...rest} fontWeight="500">
         {children}
       </Text>
     </Link>
   )
 }
 
-const MenuLinks = () => {
+export const MenuLinks = () => {
   const { isOpen } = React.useContext(StoreContext)
   const navigationLinks = [
     {
@@ -125,6 +127,28 @@ const MenuLinks = () => {
       name: "Shop",
       slug: "/products",
       pActive: true,
+      children: [
+        {
+          name: `Art`,
+          description: `Description for art`,
+          slug: `/products/art`,
+        },
+        {
+          name: `Classes`,
+          description: `Description for Classes`,
+          slug: `/products/class`,
+        },
+        {
+          name: `Jewelry`,
+          description: `We sell Julie Voss Jewelry`,
+          slug: `/products/jewelry`,
+        },
+        {
+          name: `Art Kits`,
+          description: `Custom Art Kits`,
+          slug: `/products/art`,
+        },
+      ],
     },
     {
       name: "Class Schedule",

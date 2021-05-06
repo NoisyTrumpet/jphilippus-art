@@ -9,13 +9,13 @@ const LinkGrid = props => (
       <FooterHeading mb="4">Menu</FooterHeading>
       <SimpleGrid columns={{ base: 1, lg: 1 }}>
         <Box>
-          <Link to="/about" display="block">
+          <Link to="/about" alt="About the Artist" display="block">
             About the Artist
           </Link>
-          <Link to="/shop" display="block">
+          <Link to="/products" alt="Shop our Products" display="block">
             Shop
           </Link>
-          <Link to="/contact" display="block">
+          <Link to="/contact" alt="Contact Us" display="block">
             Contact
           </Link>
         </Box>

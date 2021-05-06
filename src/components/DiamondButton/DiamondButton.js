@@ -2,6 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Container, Button, Tag } from "@chakra-ui/react"
 import { navigate } from "gatsby"
+import Link from "../link"
 
 import "./DiamondButton.scss"
 
@@ -22,6 +23,7 @@ const DiamondButton = ({
   buttonSize,
   to,
   mTop,
+  rotate,
 }) => {
   const checkButtonStyle = styles.includes(buttonStyle)
     ? buttonStyle
@@ -50,13 +52,13 @@ const DiamondButton = ({
       )
     }
     return (
-      <Button
+      <Link
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-        onClick={() => {
-          onClick && onClick()
-          to && navigate(to)
-        }}
+        to={to}
+        onClick={onClick}
         type={type}
+        display="grid"
+        placeItems="center"
       >
         <Tag
           className="btn-text"
@@ -66,14 +68,14 @@ const DiamondButton = ({
         >
           {children}
         </Tag>
-      </Button>
+      </Link>
     )
   }
 
   return (
     <Container
       className="rotate-45"
-      transform="rotate(45deg)"
+      transform={rotate ? `rotate(0deg)` : `rotate(45deg)`}
       marginTop={mTop ? mTop : 0}
     >
       <Linked />
