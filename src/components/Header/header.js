@@ -4,7 +4,6 @@ import {
   Box,
   useColorModeValue,
   useColorMode,
-  useMediaQuery,
   Flex,
   Text,
   Stack,
@@ -24,7 +23,6 @@ const NavBar = props => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
 
   const [isNowOpen] = React.useState(false)
-  const [isSmallerThan1160] = useMediaQuery("(max-width: 1160px)")
   const items = checkout ? checkout.lineItems : []
 
   const quantity = items.reduce((total, item) => {

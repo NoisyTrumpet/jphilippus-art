@@ -1,11 +1,11 @@
-.gallery > :nth-child(6n + 3) {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-  
-  .gallery > :nth-child(6n + 2),
-  .gallery > :nth-child(6n + 5),
-  .gallery > :nth-child(6n + 6) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
+.gallery> :nth-child(6n + 3) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.gallery> :nth-child(6n + 2),
+.gallery> :nth-child(6n + 5),
+.gallery> :nth-child(6n + 6) {
+  grid-column: span 2;
+  grid-row: span 2;
+}

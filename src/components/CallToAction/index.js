@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Stack,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react"
+import { Box, Heading, Stack, Text, useColorModeValue } from "@chakra-ui/react"
 import * as React from "react"
 import DiamondButton from "../DiamondButton/DiamondButton"
 
@@ -56,7 +49,7 @@ const CallToAction = () => {
         </Text>
         <Stack
           direction={{
-            base: "column",
+            base: "row",
             sm: "row",
           }}
           mt="10"

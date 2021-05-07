@@ -59,7 +59,7 @@ const Hero = () => {
       <GatsbyImage
         image={images}
         alt="hero image"
-        style={{ gridArea: "1/1" }}
+        style={{ gridArea: "1/1", objectPosition: "top" }}
         className="hero-image"
       />
 
@@ -77,10 +77,10 @@ const Hero = () => {
             "repeat(2, 1fr)",
             "repeat(6, 1fr)",
           ]}
-          templateRows={["1fr", "repeat(1, 1fr)"]}
-          gap={2}
+          templateRows={["1fr", "1fr", "repeat(1, 1fr)"]}
+          gap={4}
           py={["1.5rem", "5rem"]}
-          px="1rem"
+          px={[0, "1rem"]}
           h={["600px", "800px"]}
           overflow="hidden"
           zIndex={4}
@@ -95,29 +95,29 @@ const Hero = () => {
             ml={[0, "auto"]}
             zIndex={4}
           >
-            <Fade bottom>
+            <Fade bottom cascade>
               <Text
                 as="h1"
                 color="secondary"
                 textTransform="uppercase"
-                fontSize="4xl"
+                fontSize={["3xl", "4xl"]}
                 fontWeight={500}
               >
                 Teaching Art {isMobile ? `` : <br />} Studio
               </Text>
-              <Text fontSize="21px" color="color">
-                We are excited to share that {isMobile ? `` : <br />}The Shard
-                Studio, LLC is now
-              </Text>
-              <Text
-                as="h2"
-                fontSize="26px"
-                color="secondary"
-                marginTop={[2, 4]}
-              >
-                J.Philippus Art Studio {isMobile ? `` : <br />}and Gallery, LLC
-              </Text>
             </Fade>
+            <Text fontSize="21px" color="color">
+              We are excited to share that <br />
+              The Shard Studio, LLC is now
+            </Text>
+            <Text
+              as="h2"
+              fontSize={["3xl", "4xl"]}
+              color="secondary"
+              marginTop={[2, 4]}
+            >
+              J.Philippus Art Studio {isMobile ? `` : <br />}and Gallery, LLC
+            </Text>
           </GridItem>
 
           <GridItem
@@ -154,7 +154,10 @@ const Hero = () => {
                       to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
                       rotate
                       buttonStyle="btn--primary"
-                      buttonSize="btn--small"
+                      buttonSize="btn--large"
+                      p={0}
+                      m={0}
+                      tight
                     >
                       Book a Class
                     </DiamondButton>

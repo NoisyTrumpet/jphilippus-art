@@ -23,6 +23,7 @@ const DiamondButton = ({
   to,
   mTop,
   rotate,
+  tight,
 }) => {
   const checkButtonStyle = styles.includes(buttonStyle)
     ? buttonStyle
@@ -94,6 +95,7 @@ const DiamondButton = ({
       className="rotate-45"
       transform={rotate ? `rotate(0deg)` : `rotate(45deg)`}
       marginTop={mTop ? mTop : 0}
+      p={tight && 0}
     >
       <Linked />
     </Container>
@@ -102,6 +104,7 @@ const DiamondButton = ({
 
 DiamondButton.propTypes = {
   to: PropTypes.string,
+  tight: PropTypes.bool,
 }
 
 export default DiamondButton

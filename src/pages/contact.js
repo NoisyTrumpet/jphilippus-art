@@ -5,7 +5,6 @@ import PropTypes from "prop-types"
 import Pin from "../images/SVG/Pin"
 import {
   Text,
-  Heading,
   Grid,
   GridItem,
   FormControl,
@@ -19,6 +18,7 @@ import {
 import GoogleMapReact from "google-map-react"
 import "../styles/contact.scss"
 import DiamondButton from "../components/DiamondButton/DiamondButton"
+import AltHero from "../components/AltHero/index"
 
 const center = {
   lat: 29.606779288223038,
@@ -63,9 +63,20 @@ const PinWrapper = () => (
 const Contact = () => {
   return (
     <Layout>
+      <AltHero
+        title="Contact"
+        subcaption="Have Questions?"
+        body="Our knowledgeable staff will provide answers to any of your
+            questions. You can expect an email response by the next business
+            day."
+      />
       <Grid
         templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(2 ,1fr)"]}
-        templateRows={["repeat(3 ,1fr)", "repeat(2 ,1fr)", "repeat(2 ,1fr)"]}
+        templateRows={[
+          "repeat(1fr, fit-content ,1fr)",
+          "repeat(1fr, fit-content ,1fr)",
+          "repeat(1fr fit-content)",
+        ]}
         gap={(2, 6, 6)}
         px={["1rem", "2rem", "4rem"]}
         py="2rem"
@@ -90,23 +101,23 @@ const Contact = () => {
           rowStart={[2, 2, 1]}
           rowSpan={1}
         >
-          <Heading as="h3" color="primary">
+          <Text as="h3" color="primary" fontSize={`3xl`}>
             Address
-          </Heading>
-          <Text fontSize="21px">1846 North Loop 1604W Suite 104</Text>
-          <Text fontSize="21px">San Antonio, Tx 78248</Text>
-          <Text fontSize="21px">210.474.0440</Text>
+          </Text>
+          <a
+            href="https://www.google.com/maps/dir//J+Philippus+Art+Studio+%26+Gallery,+1846+N+Loop+1604+W+STE+104,+San+Antonio,+TX+78248/@29.6065838,-98.5237701,16.5z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865c611c33dc2b73:0x5f7bc89cd7fcdf47!2m2!1d-98.5215116!2d29.6067463"
+            target="_blank"
+            rel="noopnener noreferrer"
+          >
+            <Text fontSize="21px">1846 North Loop 1604W Suite 104</Text>
+            <Text fontSize="21px">San Antonio, Tx 78248</Text>
+          </a>
+          <a href="tel:210.474.0440">
+            <Text fontSize="21px">210.474.0440</Text>
+          </a>
+
           <Text fontSize="21px" mt={4}>
             Open M-F 11am-6pm | Sat 11am-5pm
-          </Text>
-
-          <Heading as="h3" color="primary" mt={(4, 8, 16)}>
-            Have Questions?
-          </Heading>
-          <Text fontSize="21px">
-            Our knowledgeable staff will provide answers to any of your
-            questions. You can expect an email response by the next business
-            day.
           </Text>
         </GridItem>
         <GridItem
