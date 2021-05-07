@@ -1,6 +1,5 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
-import Roll from "react-reveal/Roll"
 // import axios from "axios"
 import PropTypes from "prop-types"
 import Pin from "../images/SVG/Pin"
@@ -13,13 +12,13 @@ import {
   FormLabel,
   Input,
   Textarea,
-  Button,
-  Container,
   Wrap,
   WrapItem,
+  Box,
 } from "@chakra-ui/react"
 import GoogleMapReact from "google-map-react"
 import "../styles/contact.scss"
+import DiamondButton from "../components/DiamondButton/DiamondButton"
 
 const center = {
   lat: 29.606779288223038,
@@ -27,7 +26,7 @@ const center = {
 }
 const PinWrapper = () => (
   <div>
-    <div
+    <Box
       style={{
         padding: "15px 10px",
         width: "55px",
@@ -48,7 +47,7 @@ const PinWrapper = () => (
       }
     >
       <Pin />
-    </div>
+    </Box>
 
     <div className="hidden">
       <h3>J.Philippus Art Studio and Gallery, LLC</h3>
@@ -62,36 +61,6 @@ const PinWrapper = () => (
 )
 
 const Contact = () => {
-  // const [serverState, setServerState] = useState({
-  //   submitting: false,
-  //   status: null,
-  // })
-  // const handleServerResponse = (ok, msg, form) => {
-  //   setServerState({
-  //     submitting: false,
-  //     status: { ok, msg },
-  //   })
-  //   if (ok) {
-  //     form.reset()
-  //   }
-  // }
-  // const handleOnSubmit = e => {
-  //   e.preventDefault()
-  //   const form = e.target
-  //   setServerState({ submitting: true })
-  //   axios({
-  //     method: "post",
-  //     url: "https://getform.io/f/5d9b4c2f-392c-41fa-82b4-c3c176621c15",
-  //     data: new FormData(form),
-  //   })
-  //     .then(r => {
-  //       handleServerResponse(true, "Thank You!", form)
-  //     })
-  //     .catch(r => {
-  //       handleServerResponse(false, r.response.data.error, form)
-  //     })
-  // }
-
   return (
     <Layout>
       <Grid
@@ -174,24 +143,9 @@ const Contact = () => {
                 minH="150px"
                 name="message"
               />
-              <Container display="flex" justifyContent="flex-end">
-                <Roll top>
-                  <Button
-                    mt={4}
-                    bg="primary"
-                    w="80px"
-                    h="80px"
-                    borderRadius="15px"
-                    color="white"
-                    _hover={{ background: "secondary" }}
-                    transform="rotate(45deg)"
-                    // isLoading={props.isSubmitting}
-                    type="submit"
-                  >
-                    <Text transform="rotate(-45deg)">Submit</Text>
-                  </Button>
-                </Roll>
-              </Container>
+              <DiamondButton type="submit" to="submit">
+                Submit
+              </DiamondButton>
             </FormControl>
           </form>
         </GridItem>

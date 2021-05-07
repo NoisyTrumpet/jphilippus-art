@@ -18,6 +18,7 @@ import Cart from "../Cart/index"
 import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
 import DiamondButton from "../DiamondButton/DiamondButton"
+import SubMenu from "../SubMenu/index"
 
 const NavBar = props => {
   const { isOpen, onClose, onOpen, checkout } = React.useContext(StoreContext)
@@ -62,41 +63,35 @@ const NavBar = props => {
 
   return (
     <>
-      <Cart isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
       <Announcement />
       <NavBarContainer {...props}>
+        <Cart isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
         {colorMode === "dark" ? (
-          <Link to="/" alt="Home">
+          <Link to="/" alt="Home" maxWidth={[125, 200]}>
             <GatsbyImage
               image={dark}
-              style={{ margin: "10px 5px" }}
               alt={`J. Philippus Art Studio & Gallery Logo`}
               className="header-logo-dark"
             />
           </Link>
         ) : (
-          <Link to="/" alt="Home">
+          <Link to="/" alt="Home" maxWidth={[125, 200]}>
             <GatsbyImage
               image={light}
-              style={{ margin: "10px 5px" }}
               alt={`J. Philippus Art Studio & Gallery Logo`}
               className="header-logo-reg"
             />
           </Link>
         )}
+        <MobileMenu
+          quantity={quantity}
+          btnRef={btnRef}
+          onOpen={onOpen}
+          className="mobile-nav"
+        />
+        <MenuLinks isNowOpen={isNowOpen} />
 
-        {!isSmallerThan1160 && <MenuLinks isNowOpen={isNowOpen} />}
-        {/* <ThemeToggle /> */}
-        {isSmallerThan1160 ? (
-          <MobileMenu
-            quantity={quantity}
-            btnRef={btnRef}
-            onOpen={onOpen}
-            className="mobile-nav"
-          />
-        ) : (
-          <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
-        )}
+        <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
       </NavBarContainer>
     </>
   )
@@ -104,16 +99,19 @@ const NavBar = props => {
 
 const MenuItem = ({ children, isLast, to = "/", alt, ...rest }) => {
   const linkColor = useColorModeValue(`headingColor`, `dark.headingColor`)
+  if (to === "/products") {
+    return <SubMenu />
+  }
   return (
     <Link to={to} color={linkColor} alt={alt}>
-      <Text display="block" {...rest}>
+      <Text display="block" {...rest} fontWeight="500">
         {children}
       </Text>
     </Link>
   )
 }
 
-const MenuLinks = () => {
+export const MenuLinks = () => {
   const { isOpen } = React.useContext(StoreContext)
   const navigationLinks = [
     {
@@ -125,10 +123,32 @@ const MenuLinks = () => {
       name: "Shop",
       slug: "/products",
       pActive: true,
+      children: [
+        {
+          name: `Art`,
+          description: `Description for art`,
+          slug: `/products/art`,
+        },
+        {
+          name: `Classes`,
+          description: `Description for Classes`,
+          slug: `/products/class`,
+        },
+        {
+          name: `Jewelry`,
+          description: `We sell Julie Voss Jewelry`,
+          slug: `/products/jewelry`,
+        },
+        {
+          name: `Art Kits`,
+          description: `Custom Art Kits`,
+          slug: `/products/art`,
+        },
+      ],
     },
     {
       name: "Class Schedule",
-      slug: "/class-schedule",
+      slug: "https://j-philippus-art-studio.myshopify.com/pages/calendar",
       pActive: true,
     },
     {
@@ -144,14 +164,14 @@ const MenuLinks = () => {
   ]
   return (
     <Box
-      display={{ base: isOpen ? "block" : "none", md: "block" }}
+      display={{ base: isOpen ? "block" : "none", md: "none", lg: `flex` }}
       flexBasis={{ base: "100%", md: "auto" }}
     >
       <Stack
         spacing={8}
         align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
-        direction={["column", "row", "row", "row"]}
+        direction={["column", "column", "column", "row"]}
         pt={[4, 4, 0, 0]}
       >
         {navigationLinks.map(n => (
@@ -185,7 +205,7 @@ const NavBarContainer = ({ children, ...props }) => {
       wrap="wrap"
       w="100%"
       my={4}
-      px={8}
+      px={2}
       bg={["primary.500", "primary.500", "transparent", "transparent"]}
       color={["white", "white", "primary.700", "primary.700"]}
       {...props}

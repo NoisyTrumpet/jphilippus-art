@@ -12,6 +12,7 @@ module.exports = {
   flags: {
     DEV_SSR: true,
     FAST_DEV: true,
+    PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
     {
@@ -34,7 +35,11 @@ module.exports = {
         enableListener: true,
 
         /* Preconnect URL-s. This example is for Google Fonts */
-        // preconnect: ["https://fonts.gstatic.com"],
+        preconnect: [
+          "https://localhost:8000",
+          "https://jphilippusart.com",
+          `https://development--jphilippusart.com`,
+        ],
 
         /* Self-hosted fonts config. Add font files and font CSS files to "static" folder */
         custom: [

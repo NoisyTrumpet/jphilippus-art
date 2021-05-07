@@ -2,34 +2,34 @@
 
 .block-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: 1fr 1fr !important;
-    gap: 0px 0px;
-    grid-template-areas:
-      ". ."
-      ". .";
-    
-      @media (max-width: 767px) {
+    // grid-template-columns: 1fr 1fr !important;
+    // grid-template-rows: 1fr 1fr !important;
+    // gap: 0px 0px;
+    // grid-template-areas:
+    //     ". ."
+    //     ". .";
+
+    @media (max-width: 767px) {
         grid-template-columns: 1fr !important;
         grid-template-rows: 1fr 1fr 1fr 1fr !important;
         gap: 0px 0px;
         grid-template-areas:
-          "."
-          "."
-          "."
-          ".";
-      }
+            "."
+            "."
+            "."
+            ".";
+    }
 
-      @media (max-width: 400px) {
+    @media (max-width: 400px) {
         grid-template-columns: 1fr !important;
         grid-template-rows: .5fr .5fr .5fr .5fr !important;
         gap: 0px 0px;
         grid-template-areas:
-          "."
-          "."
-          "."
-          ".";
-      }
+            "."
+            "."
+            "."
+            ".";
+    }
 
     .block-grid-item {
         .block-grid-title {
@@ -39,7 +39,7 @@
                 font-size: 21px;
             }
         }
-        
+
         .block-grid-image {
             min-height: 300px;
             max-height: 500px;

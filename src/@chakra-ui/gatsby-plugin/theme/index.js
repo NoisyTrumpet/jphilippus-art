@@ -39,7 +39,7 @@ const theme = extendTheme({
     // useSystemColorMode: true,
   },
   fonts: {
-    heading: "Gill Sans Bold",
+    heading: "Gill Sans",
     body: "Gill Sans",
   },
 })

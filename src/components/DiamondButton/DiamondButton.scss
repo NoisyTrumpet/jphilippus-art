@@ -17,7 +17,16 @@
     .btn-text {
       text-transform: uppercase;
       white-space: normal;
+      background: none !important;
     }
+
+    span,
+    p {
+      font-family: "Gill Sans" !important;
+      font-weight: 500 !important;
+      text-transform: uppercase;
+    }
+
   }
 
   .btn--primary {

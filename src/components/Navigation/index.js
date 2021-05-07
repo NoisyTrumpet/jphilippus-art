@@ -31,17 +31,17 @@ const Navigation = () => {
       slug: "/contact",
       pActive: true,
     },
-    {
-      name: "FAQ",
-      slug: "/faq",
-      pActive: true,
-    },
+    // {
+    //   name: "FAQ",
+    //   slug: "/faq",
+    //   pActive: true,
+    // },
   ]
   return (
     <Stack
       as="nav"
       className="navigation"
-      direction={["column", "row"]}
+      direction={["column", "column"]}
       fontSize="lg"
       alignItems="center"
       sx={{ "a.active": { fontWeight: `bold`, color: linkColor } }}
@@ -65,6 +65,7 @@ const Navigation = () => {
         buttonStyle="btn--secondary"
         buttonSize="btn--small"
         mTop={8}
+        to={`/products/gift-card/gift-card`}
       >
         Gift Cards
       </DiamondButton>

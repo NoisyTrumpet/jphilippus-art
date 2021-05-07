@@ -1,10 +1,8 @@
 import * as React from "react"
 import { Container, Box, Text, Grid, Center } from "@chakra-ui/layout"
-import BackgroundImage from "gatsby-background-image"
-import { getImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"
 import DiamondButton from "../DiamondButton/DiamondButton"
-import { convertToBgImage } from "gbimage-bridge"
 
 import "./BlockGrid.scss"
 
@@ -50,13 +48,10 @@ const BlockGrid = () => {
   )
 
   const JewelryImage = getImage(JewelryImg)
-  const JewelryBgImg = convertToBgImage(JewelryImage)
 
   const FlowerImage = getImage(FlowerImg)
-  const FlowerBgImg = convertToBgImage(FlowerImage)
 
   const AcrylicImage = getImage(AcrylicImg)
-  const AcrylicBgImg = convertToBgImage(AcrylicImage)
 
   return (
     <Container maxWidth="container.lg">
@@ -65,12 +60,11 @@ const BlockGrid = () => {
         templateColumns={["repeat(2, 1fr)"]}
         gap={25}
       >
-        <Box className="block-grid-item" zIndex={1}>
-          <BackgroundImage
+        <Box className="block-grid-item" zIndex={1} margin={`0 auto`}>
+          <GatsbyImage
             className="block-grid-image"
-            tag="section"
-            {...FlowerBgImg}
-            preserveStackingContext
+            image={FlowerImage}
+            alt="Flower Art"
           />
         </Box>
         <Box className="block-grid-item" py="5" zIndex={1}>
@@ -94,48 +88,67 @@ const BlockGrid = () => {
               buttonSize="btn--medium"
               style={{ textAlign: `center`, margin: `0 auto` }}
               py="10"
+              to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
             >
               Book a Class
             </DiamondButton>
           </Center>
         </Box>
-        <Box className="block-grid-item" zIndex={1}>
-          <BackgroundImage
+        <Box
+          className="block-grid-item"
+          zIndex={1}
+          display="grid"
+          placeItems="center"
+        >
+          <GatsbyImage
             className="block-grid-image"
-            tag="section"
-            {...AcrylicBgImg}
-            preserveStackingContext
+            image={AcrylicImage}
+            alt="Acrylic Art"
+            style={{ gridArea: "1/1" }}
+          />
+
+          <Center
+            className="center-grid-diamond"
+            style={{
+              gridArea: "1/1",
+              position: "relative",
+            }}
           >
-            <Center className="center-grid-diamond">
-              <DiamondButton
-                className="grid-diamond-btn"
-                buttonStyle="btn--primary-transparent"
-                buttonSize="btn--xl"
-                m="0"
-                p="0"
-              >
-                Custom Art Kits
-              </DiamondButton>
-            </Center>
-          </BackgroundImage>
+            <DiamondButton
+              className="grid-diamond-btn"
+              buttonStyle="btn--primary-transparent"
+              buttonSize="btn--xl"
+              m="0"
+              p="0"
+              to="/products/art-kit"
+            >
+              Custom Art Kits
+            </DiamondButton>
+          </Center>
         </Box>
-        <Box className="block-grid-item" zIndex={1}>
-          <BackgroundImage
+        <Box className="block-grid-item" zIndex={1} display="grid">
+          <GatsbyImage
             className="block-grid-image"
-            tag="section"
-            {...JewelryBgImg}
-            preserveStackingContext
+            image={JewelryImage}
+            alt="Jewelry Art"
+            style={{ gridArea: "1/1" }}
+          />
+          <Center
+            className="center-grid-diamond"
+            style={{
+              gridArea: "1/1",
+              position: "relative",
+            }}
           >
-            <Center className="center-grid-diamond">
-              <DiamondButton
-                className="grid-diamond-btn"
-                buttonStyle="btn--primary-transparent"
-                buttonSize="btn--xl"
-              >
-                Jewelry
-              </DiamondButton>
-            </Center>
-          </BackgroundImage>
+            <DiamondButton
+              className="grid-diamond-btn"
+              buttonStyle="btn--primary-transparent"
+              buttonSize="btn--xl"
+              to="/products/jewelry"
+            >
+              Jewelry
+            </DiamondButton>
+          </Center>
         </Box>
       </Grid>
     </Container>

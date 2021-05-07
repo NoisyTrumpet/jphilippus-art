@@ -1,15 +1,10 @@
 import * as React from "react"
-import {
-  Container,
-  Text,
-  Heading,
-  useColorModeValue,
-  Box,
-} from "@chakra-ui/react"
+import { Container, Text, useColorModeValue, Box } from "@chakra-ui/react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import Hero from "../components/Hero/Hero.js"
+import Testimonials from "../components/Testimonials/testimonials.js"
 import Link from "../components/link"
 import BlockGrid from "../components/BlockGrid/index"
 import ProductListing from "../components/ProductListing"
@@ -27,16 +22,17 @@ const IndexPage = ({ data: products }) => {
       <SEO title="J. Philippus Art Studio & Gallery" />
       <Hero />
       <Container my={[16, 16, 16, 16]} textAlign="center">
-        <Heading
+        <Text
           as="h2"
           fontSize="3xl"
           textAlign="center"
-          fontWeight="extrabold"
+          fontWeight="semi-bold"
           letterSpacing="tight"
           color={themeBlue}
+          textTransform="uppercase"
         >
           2021 Parade of Homes
-        </Heading>
+        </Text>
         <Text
           textAlign="center"
           my={7}
@@ -52,6 +48,8 @@ const IndexPage = ({ data: products }) => {
           to="/news/parade-of-homes/"
           style={{ textAlign: "center" }}
           color={themeBlue}
+          fontSize="xl"
+          alt={`Read more about Jeanne Philippus, the featured artist of all original art in the "Rohare Custom Home" at the 2021 San Antonio Parade of Homes`}
         >
           read more
         </Link>
@@ -65,6 +63,8 @@ const IndexPage = ({ data: products }) => {
       <Container px={8} maxWidth="100%">
         <ProductListing featured products={featuredProducts} />
       </Container>
+
+      <Testimonials />
     </Layout>
   )
 }
@@ -82,6 +82,8 @@ export const query = graphql`
             childImageSharp {
               gatsbyImageData(
                 aspectRatio: 1
+                layout: CONSTRAINED
+                placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
                 quality: 90
                 width: 640
