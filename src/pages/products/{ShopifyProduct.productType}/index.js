@@ -1,10 +1,17 @@
 import * as React from "react"
-import { Container, VisuallyHidden } from "@chakra-ui/react"
+import {
+  Container,
+  VisuallyHidden,
+  Flex,
+  Center,
+  useColorModeValue,
+} from "@chakra-ui/react"
 import { graphql } from "gatsby"
 import Layout from "../../../components/Layout/Layout"
 import ProductListing from "../../../components/ProductListing/index"
 import SEO from "../../../components/SEO"
 import AltHero from "../../../components/AltHero"
+import LinkGrid from "../../../components/LinkGrid/index"
 
 const ProductTypeIndex = ({
   data: { products },
@@ -47,6 +54,8 @@ const ProductTypeIndex = ({
     }
   }
 
+  const secondary = useColorModeValue(`secondary`, `secondary`)
+
   return (
     <Layout>
       <SEO title={`Category: ${productType}`} />
@@ -67,7 +76,17 @@ const ProductTypeIndex = ({
           `https://j-philippus-art-studio.myshopify.com/pages/calendar`
         }
       />
-      <Container py={20}>
+      <Container>
+        <Center m="10">
+          <Flex
+            borderBottomStyle="solid"
+            borderBottomWidth="3px"
+            borderColor={secondary}
+            paddingBottom={4}
+          >
+            <LinkGrid />
+          </Flex>
+        </Center>
         <ProductListing products={products} />
       </Container>
     </Layout>

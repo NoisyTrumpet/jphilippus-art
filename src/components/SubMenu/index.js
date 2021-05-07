@@ -35,6 +35,7 @@ const SubMenu = ({ title }) => {
           top="16"
           bg={mode("white", "gray.700")}
           pt="2"
+          display={show ? `` : `none`}
           w="4xl"
           maxW="lg"
           rounded="lg"

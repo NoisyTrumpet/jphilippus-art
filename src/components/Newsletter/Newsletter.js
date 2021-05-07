@@ -42,6 +42,7 @@ const Newsletter = () => {
             buttonStyle="btn--primary"
             buttonSize="btn--xs"
             id="footerNewsletterBtn"
+            to="submit"
           >
             Subscribe
           </DiamondButton>

@@ -143,7 +143,9 @@ const Contact = () => {
                 minH="150px"
                 name="message"
               />
-              <DiamondButton type="submit">Submit</DiamondButton>
+              <DiamondButton type="submit" to="submit">
+                Submit
+              </DiamondButton>
             </FormControl>
           </form>
         </GridItem>

@@ -63,9 +63,9 @@ const NavBar = props => {
 
   return (
     <>
-      <Cart isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
       <Announcement />
       <NavBarContainer {...props}>
+        <Cart isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
         {colorMode === "dark" ? (
           <Link to="/" alt="Home" maxWidth={[125, 200]}>
             <GatsbyImage
@@ -83,19 +83,15 @@ const NavBar = props => {
             />
           </Link>
         )}
+        <MobileMenu
+          quantity={quantity}
+          btnRef={btnRef}
+          onOpen={onOpen}
+          className="mobile-nav"
+        />
+        <MenuLinks isNowOpen={isNowOpen} />
 
-        {!isSmallerThan1160 && <MenuLinks isNowOpen={isNowOpen} />}
-        {/* <ThemeToggle /> */}
-        {isSmallerThan1160 ? (
-          <MobileMenu
-            quantity={quantity}
-            btnRef={btnRef}
-            onOpen={onOpen}
-            className="mobile-nav"
-          />
-        ) : (
-          <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
-        )}
+        <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
       </NavBarContainer>
     </>
   )
@@ -152,7 +148,7 @@ export const MenuLinks = () => {
     },
     {
       name: "Class Schedule",
-      slug: "/class-schedule",
+      slug: "https://j-philippus-art-studio.myshopify.com/pages/calendar",
       pActive: true,
     },
     {
@@ -168,14 +164,14 @@ export const MenuLinks = () => {
   ]
   return (
     <Box
-      display={{ base: isOpen ? "block" : "none", md: "block" }}
+      display={{ base: isOpen ? "block" : "none", md: "none", lg: `flex` }}
       flexBasis={{ base: "100%", md: "auto" }}
     >
       <Stack
         spacing={8}
         align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
-        direction={["column", "row", "row", "row"]}
+        direction={["column", "column", "column", "row"]}
         pt={[4, 4, 0, 0]}
       >
         {navigationLinks.map(n => (

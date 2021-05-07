@@ -24,6 +24,7 @@ import AddToCart from "../../../components/AddToCart/index"
 import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
 import SEO from "../../../components/SEO.js"
+import DiamondButton from "../../../components/DiamondButton/DiamondButton"
 
 const Product = ({ data: { product, suggestions } }) => {
   const {
@@ -34,7 +35,9 @@ const Product = ({ data: { product, suggestions } }) => {
     title,
     description,
     images,
+    handle,
     images: [firstImage],
+    productType,
   } = product
   const { client } = React.useContext(StoreContext)
 
@@ -106,6 +109,12 @@ const Product = ({ data: { product, suggestions } }) => {
   const hasVariants = variants.length > 1
   const hasImages = images.length > 0
   const hasMultipleImages = images.length > 1
+  const isClass = () => {
+    if (productType === "Class") {
+      return true
+    }
+    return false
+  }
 
   return (
     <Layout>
@@ -135,29 +144,31 @@ const Product = ({ data: { product, suggestions } }) => {
                   {price}
                 </Heading>
                 <Flex as="form" noValidate direction="row" flexWrap="wrap">
-                  <Stack
-                    as="fieldset"
-                    mr={6}
-                    mt={4}
-                    sx={{ input: { px: 2, py: 2 } }}
-                  >
-                    <label htmlFor="quantity">Quantity</label>
-                    <NumberInput
-                      onChange={(_, value) => setQuantity(value)}
-                      value={quantity}
-                      id="quantity"
-                      name="quantity"
-                      defaultValue={1}
-                      min={1}
-                      maxW={20}
+                  {!isClass() && (
+                    <Stack
+                      as="fieldset"
+                      mr={6}
+                      mt={4}
+                      sx={{ input: { px: 2, py: 2 } }}
                     >
-                      <NumberInputField bg={bgInput} />
-                      <NumberInputStepper>
-                        <NumberIncrementStepper />
-                        <NumberDecrementStepper />
-                      </NumberInputStepper>
-                    </NumberInput>
-                  </Stack>
+                      <label htmlFor="quantity">Quantity</label>
+                      <NumberInput
+                        onChange={(_, value) => setQuantity(value)}
+                        value={quantity}
+                        id="quantity"
+                        name="quantity"
+                        defaultValue={1}
+                        min={1}
+                        maxW={20}
+                      >
+                        <NumberInputField bg={bgInput} />
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
+                    </Stack>
+                  )}
                   {hasVariants && (
                     <>
                       {options.map(({ id, name, values }, index) => (
@@ -183,14 +194,23 @@ const Product = ({ data: { product, suggestions } }) => {
                       ))}
                     </>
                   )}
-                  <AddToCart
-                    type="submit"
-                    variantId={productVariant.storefrontId}
-                    quantity={quantity}
-                    available={available}
-                    alignSelf="flex-end"
-                    mt={4}
-                  />
+
+                  {isClass() ? (
+                    <DiamondButton
+                      to={`https://j-philippus-art-studio.myshopify.com/products/${handle}`}
+                    >
+                      Book your class
+                    </DiamondButton>
+                  ) : (
+                    <AddToCart
+                      type="submit"
+                      variantId={productVariant.storefrontId}
+                      quantity={quantity}
+                      available={available}
+                      alignSelf="flex-end"
+                      mt={4}
+                    />
+                  )}
                 </Flex>
               </Stack>
             </Stack>
@@ -304,6 +324,8 @@ export const query = graphql`
           currencyCode
         }
       }
+      productType
+      handle
       storefrontId
       images {
         altText

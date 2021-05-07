@@ -41,7 +41,7 @@ const Navigation = () => {
     <Stack
       as="nav"
       className="navigation"
-      direction={["column", "row"]}
+      direction={["column", "column"]}
       fontSize="lg"
       alignItems="center"
       sx={{ "a.active": { fontWeight: `bold`, color: linkColor } }}

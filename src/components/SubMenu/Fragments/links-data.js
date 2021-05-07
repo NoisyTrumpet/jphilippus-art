@@ -18,7 +18,7 @@ export const links = [
     icon: <GiCrackedGlass />,
   },
   {
-    href: "#",
+    href: "/products/art-kit",
     title: "Art Kits",
     description: "See new additions and changes to our platform",
     icon: <BiPaint />,

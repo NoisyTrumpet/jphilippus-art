@@ -10,6 +10,7 @@ import {
   Stack,
   useColorModeValue,
   useDisclosure,
+  useMediaQuery,
 } from "@chakra-ui/react"
 import { FiMenu } from "react-icons/fi"
 import Navigation from "../Navigation/index"
@@ -23,6 +24,7 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
   } = useDisclosure()
   const menuRef = React.useRef()
   const linkColor = useColorModeValue(`headingColor`, `dark.headingColor`)
+  const [isSmallerThan1160] = useMediaQuery("(max-width: 1160px)")
 
   return (
     <>
@@ -72,8 +74,8 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
         aria-label={isOpenMenu ? `Close menu` : `Open menu`}
         icon={<FiMenu />}
         marginLeft="auto"
+        display={[`flex`, `flex`, `flex`, `none`]}
       />
-      <CartButton quantity={quantity} onOpen={onOpen} btnRef={btnRef} />
     </>
   )
 }

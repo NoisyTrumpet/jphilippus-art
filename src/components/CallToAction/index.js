@@ -7,6 +7,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react"
 import * as React from "react"
+import DiamondButton from "../DiamondButton/DiamondButton"
 
 const CallToAction = () => {
   return (
@@ -70,7 +71,14 @@ const CallToAction = () => {
           {/* <DiamondButton>
 
           </DiamondButton> */}
-          <Button
+          <DiamondButton
+            to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+            buttonStyle="btn--primary"
+            buttonSize="btn--large"
+          >
+            Book a class
+          </DiamondButton>
+          {/* <Button
             as="a"
             size="lg"
             h="16"
@@ -100,7 +108,7 @@ const CallToAction = () => {
             fontWeight="bold"
           >
             Custom Classes
-          </Button>
+          </Button> */}
         </Stack>
       </Box>
     </Box>

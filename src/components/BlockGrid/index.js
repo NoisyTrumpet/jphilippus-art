@@ -120,6 +120,7 @@ const BlockGrid = () => {
               buttonSize="btn--xl"
               m="0"
               p="0"
+              to="/products/art-kit"
             >
               Custom Art Kits
             </DiamondButton>

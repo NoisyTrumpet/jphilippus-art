@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { Container, Tag } from "@chakra-ui/react"
+import { Button, Container, Tag } from "@chakra-ui/react"
 import Link from "../link"
 
 import "./DiamondButton.scss"
@@ -31,19 +31,37 @@ const DiamondButton = ({
   const checkButtonSize = sizes.includes(buttonSize) ? buttonSize : sizes[0]
 
   const Linked = () => {
-    if (`${to}`.includes("http")) {
+    if (to === "submit") {
       return (
-        <a
-          href={to}
-          alt={children}
+        <Button
           className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-          style={{ display: `flex` }}
+          display="flex"
+          type={type}
         >
           <Tag
             className="btn-text"
             transform="rotate(-45deg)"
             colorScheme="none"
             p="0"
+          >
+            {children}
+          </Tag>
+        </Button>
+      )
+    }
+    if (to.includes("http") || to.includes("https")) {
+      return (
+        <a
+          href={to}
+          alt={children}
+          className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+          style={{ display: `grid`, placeItems: `center` }}
+        >
+          <Tag
+            className="btn-text"
+            transform="rotate(-45deg)"
+            colorScheme="none"
+            // p={buttonSize === "btn--xl" ? 4 : 2}
           >
             {children}
           </Tag>
