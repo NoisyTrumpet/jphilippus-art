@@ -10,11 +10,9 @@ import {
   Stack,
   useColorModeValue,
   useDisclosure,
-  useMediaQuery,
 } from "@chakra-ui/react"
 import { FiMenu } from "react-icons/fi"
 import Navigation from "../Navigation/index"
-import CartButton from "../CartButton/index"
 
 const MobileMenu = ({ quantity, btnRef, onOpen }) => {
   const {
@@ -24,7 +22,6 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
   } = useDisclosure()
   const menuRef = React.useRef()
   const linkColor = useColorModeValue(`headingColor`, `dark.headingColor`)
-  const [isSmallerThan1160] = useMediaQuery("(max-width: 1160px)")
 
   return (
     <>

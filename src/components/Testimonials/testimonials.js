@@ -38,18 +38,18 @@ const Testimonials = () => {
         image:
           "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fGxhZHklMjBoZWFkc2hvdCUyMHNtaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
       },
-      {
-        text: "This is just a test.",
-        person: "Marrie Jones",
-        image:
-          "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fGxhZHklMjBoZWFkc2hvdCUyMHNtaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-      },
-      {
-        text: "Time is just a big ball of wibbly-wobbly, timey-wimey... stuff.",
-        person: "Doctor Who",
-        image:
-          "https://www.thegallifreytimes.com/wp-content/uploads/2018/07/tenth-doctor.jpg",
-      },
+      // {
+      //   text: "This is just a test.",
+      //   person: "Marrie Jones",
+      //   image:
+      //     "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fGxhZHklMjBoZWFkc2hvdCUyMHNtaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+      // },
+      // {
+      //   text: "Time is just a big ball of wibbly-wobbly, timey-wimey... stuff.",
+      //   person: "Doctor Who",
+      //   image:
+      //     "https://www.thegallifreytimes.com/wp-content/uploads/2018/07/tenth-doctor.jpg",
+      // },
     ],
   }
 

@@ -19,7 +19,7 @@ const Products = ({ data: { products } }) => {
         subcaption="Beautiful 1500 Square Foot Facility Including:"
       />
       <Container>
-        <Center m="10">
+        <Center my="10" mx="0">
           <Flex
             borderBottomStyle="solid"
             borderBottomWidth="3px"

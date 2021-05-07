@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/layout"
 import * as React from "react"
 import Link from "../link"
 
