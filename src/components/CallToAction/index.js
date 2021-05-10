@@ -1,7 +1,6 @@
 import {
   Box,
   Heading,
-  Stack,
   Text,
   useColorModeValue,
   Grid,
@@ -32,8 +31,8 @@ const NewCallToAction = () => {
   )
   const AcrylicImage = getImage(AcrylicImg)
   return (
-    <Grid templateColumns={["1fr", "repeat(2, 1fr)"]} marginBottom={10}>
-      <GridItem>
+    <Grid templateColumns={["1fr", "1fr", "1fr", "repeat(2, 1fr)"]} marginBottom={10}>
+      <GridItem display="grid" placeItems="center" marginBottom={12}>
         <CallToAction />
       </GridItem>
       <GridItem placeItems={"center"} display="grid" position="relative">
@@ -43,20 +42,6 @@ const NewCallToAction = () => {
           alt="Book a Class Today!"
           style={{ gridArea: "1/1", minWidth: `100%`, minHeight: `100%` }}
         />
-        <div
-          style={{
-            gridArea: "1/1",
-            position: "relative",
-          }}
-        >
-          <DiamondButton
-            to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
-            buttonStyle="btn--primary"
-            buttonSize="btn--large"
-          >
-            Book a class
-          </DiamondButton>
-        </div>
       </GridItem>
     </Grid>
   )
@@ -72,41 +57,43 @@ const CallToAction = () => {
           base: "6",
           lg: "8",
         }}
-        py={{
-          base: "16",
-          sm: "20",
-        }}
+        pt={8}
+        pb={8}
         textAlign="center"
+        display="grid"
+        placeItems="center"
       >
-        <Text fontWeight="semibold" color={useColorModeValue("primary")}>
+        <Text fontWeight="normal" color={useColorModeValue("secondary")}>
           Prices now start at just $23/person
         </Text>
         <Heading
           my="4"
           as="h2"
           fontSize={{
-            base: "4xl",
-            md: "6xl",
+            base: "2xl",
+            md: "3xl",
           }}
-          fontWeight="extrabold"
+          fontWeight={500}
+          textTransform="uppercase"
           letterSpacing="tight"
           lineHeight="1.2"
-          color={useColorModeValue("gray.600", "white")}
+          maxWidth={450}
+          color={useColorModeValue("primary", "white")}
         >
-          Discover your inner artist{" "}
-          <Box
-            as="mark"
-            bg="unset"
-            color={useColorModeValue("primary", "primary")}
-            whiteSpace="nowrap"
-          >
-            Book a Class Today
-          </Box>
+          Discover your inner artist Book a Class Today
         </Heading>
-        <Text fontSize="lg" maxW="xl" mx="auto">
+        <Text fontSize="lg" maxW="xl" mx="auto" mb={8}>
           Book a class using our new booking application. Or inquire about a
           custom art class for your special event.
         </Text>
+        <DiamondButton
+            to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+            buttonStyle="btn--primary"
+            buttonSize="btn--medium"
+
+          >
+            Book a class
+          </DiamondButton>
       </Box>
     </Box>
   )
