@@ -56,7 +56,7 @@ const Navigation = () => {
     },
     {
       name: "Class Schedule",
-      slug: "/class-schedule",
+      slug: "https://j-philippus-art-studio.myshopify.com/pages/calendar",
       pActive: true,
     },
     {

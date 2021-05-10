@@ -29,7 +29,10 @@ const Link = props => {
         href={props.to}
         rel={`noopener noreferrer`}
         target={`_blank`}
-        alt="Class Calendar"
+        alt="Class Schedule"
+        style={{ textTransform: `uppercase` }}
+        className={props.className}
+        style={props.style}
       >
         {props.children}
       </a>
