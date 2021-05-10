@@ -16,7 +16,8 @@ const Products = ({ data: { products } }) => {
       <AltHero
         title="Create Your Masterpiece"
         productType="All"
-        subcaption="Beautiful 1500 Square Foot Facility Including:"
+        subcaption="SHOP ART, CLASSES, KITS & MORE"
+        body={`Explore our variety of classes, art kits and products below. Let your imagination soar by booking one of our in-studio glass art or charcuterie board classes. We also offer take-home kits for your convenience. If you are looking for the perfect gift, we offer gift cards and commissioned art for purchase.`}
       />
       <Container>
         <Center my="10" mx="0">

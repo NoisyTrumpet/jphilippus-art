@@ -135,12 +135,25 @@ const AltHero = ({
               {title}
             </Heading>
           )}
+
           {subcaption && (
             <Text color={yellow} my={5} fontWeight={500}>
               {subcaption}
             </Text>
           )}
           {body && <Text>{body}</Text>}
+          {productType === "Class" && (
+            <UnorderedList mt={4}>
+              <ListItem>
+                Kitchen With Refrigerator, Microwave, and Ice Maker
+              </ListItem>
+              <ListItem>Handicap Accessible</ListItem>
+              <ListItem>TV Available for Presentation</ListItem>
+              <ListItem>
+                Open Flex Area in the front, excellent for cocktail receptions
+              </ListItem>
+            </UnorderedList>
+          )}
           {ctaTitle && ctaSubCaption && ctaText && ctaLink && (
             <Box>
               <Heading
@@ -171,18 +184,6 @@ const AltHero = ({
             <Box display="grid" placeItems="Center" marginTop={8}>
               <GatsbyImage image={julieImage} alt="Julie Voss Logo" />
             </Box>
-          )}
-          {productType === "All" && (
-            <UnorderedList>
-              <ListItem>
-                Kitchen With Refrigerator, Microwave, and Ice Maker
-              </ListItem>
-              <ListItem>Handicap Accessible</ListItem>
-              <ListItem>TV Available for Presentation</ListItem>
-              <ListItem>
-                Open Flex Area in the front, excellent for cocktail receptions
-              </ListItem>
-            </UnorderedList>
           )}
         </Box>
         <Box>

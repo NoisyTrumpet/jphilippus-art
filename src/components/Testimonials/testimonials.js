@@ -3,9 +3,7 @@ import React, { useState } from "react"
 import { Quotee } from "./Quotee"
 import { QuoteIcon } from "./QuoteIcon"
 import { graphql, useStaticQuery } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
-import { convertToBgImage } from "gbimage-bridge"
-import { getImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 
 const Testimonials = () => {
   const { desktopImage } = useStaticQuery(
@@ -26,8 +24,6 @@ const Testimonials = () => {
     `
   )
   const desktopImageGet = getImage(desktopImage)
-  const desk = convertToBgImage(desktopImageGet)
-  const images = [desk.fluid]
 
   const testimonial_data = {
     nodes: [
@@ -60,25 +56,34 @@ const Testimonials = () => {
   const t = testimonial_data.nodes[index]
 
   return (
-    <BackgroundImage Tag="section" fluid={images} preserveStackingContext>
+    <Box
+      as="section"
+      display="grid"
+      placeItems={`center`}
+      height={`fit-content`}
+      mt={12}
+    >
+      <GatsbyImage
+        image={desktopImageGet}
+        alt="Testimonial Background Image"
+        style={{ gridArea: "1/1", minHeight: `100%`, objectFit: `cover` }}
+        className={`testimonial-image`}
+      />
       <Box
         as="section"
         bg={useColorModeValue(
-          "rgba(102, 117, 138, 0.5)",
-          "rgba(102, 117, 138, 0.5)"
+          "rgba(102, 117, 138, 0.4)",
+          "rgba(102, 117, 138, 0.4)"
         )}
-        mt="2rem"
+        width={`100%`}
+        height={`100%`}
+        placeItems={`center`}
+        style={{
+          gridArea: "1/1",
+          position: "relative",
+        }}
       >
-        <Box
-          maxW="3xl"
-          mx="auto"
-          px={{
-            base: "6",
-            md: "8",
-          }}
-          py="12"
-          minH="450px"
-        >
+        <Box width="100%" height="100%" display="grid" placeItems={`center`}>
           <Flex direction="column" align="center" textAlign="center">
             <QuoteIcon
               color={useColorModeValue("secondary", "secondary")}
@@ -92,27 +97,29 @@ const Testimonials = () => {
               QuoteBlock={t.text}
               // imageSrc={t.image}
               mt="8"
+              maxWidth={700}
             />
+
+            <HStack
+              justify="center"
+              spacing="4"
+              mt="8"
+              color={useColorModeValue("gray.600", "gray.600")}
+            >
+              {testimonial_data.nodes.map((n, key) => (
+                <Circle
+                  w="3"
+                  h="3"
+                  bg={key === index ? `primary` : `secondary`}
+                  key={n.person}
+                  onClick={() => handleClick(key)}
+                />
+              ))}
+            </HStack>
           </Flex>
-          <HStack
-            justify="center"
-            spacing="4"
-            mt="8"
-            color={useColorModeValue("gray.600", "gray.600")}
-          >
-            {testimonial_data.nodes.map((n, key) => (
-              <Circle
-                w="3"
-                h="3"
-                bg={key === index ? `primary` : `secondary`}
-                key={n.person}
-                onClick={() => handleClick(key)}
-              />
-            ))}
-          </HStack>
         </Box>
       </Box>
-    </BackgroundImage>
+    </Box>
   )
 }
 

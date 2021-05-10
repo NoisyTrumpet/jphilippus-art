@@ -6,6 +6,7 @@ import { Box, Grid, Text, Center } from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Gallery from "../components/Gallery/Gallery"
+import SEO from "../components/SEO"
 
 const AboutPage = () => {
   // Hero Image Query
@@ -31,6 +32,7 @@ const AboutPage = () => {
 
   return (
     <Layout>
+      <SEO title={`About the Artist`} />
       <Grid
         templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
         templateRows={["fit-content 1fr", "1fr 1fr", "repeat(1, 1fr)"]}
