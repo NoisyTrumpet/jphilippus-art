@@ -82,6 +82,7 @@ const Testimonials = () => {
           gridArea: "1/1",
           position: "relative",
         }}
+        py={8}
       >
         <Box width="100%" height="100%" display="grid" placeItems={`center`}>
           <Flex direction="column" align="center" textAlign="center">

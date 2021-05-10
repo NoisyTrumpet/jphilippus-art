@@ -1,6 +1,51 @@
-import { Box, Heading, Stack, Text, useColorModeValue } from "@chakra-ui/react"
+import {
+  Box,
+  Heading,
+  Text,
+  useColorModeValue,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react"
 import * as React from "react"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
 import DiamondButton from "../DiamondButton/DiamondButton"
+
+const NewCallToAction = () => {
+  const { AcrylicImg } = useStaticQuery(
+    graphql`
+      query {
+        AcrylicImg: file(relativePath: { eq: "page-heros/class-page-hero.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 800
+              quality: 90
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    `
+  )
+  const AcrylicImage = getImage(AcrylicImg)
+  return (
+    <Grid templateColumns={["1fr", "1fr", "1fr", "repeat(2, 1fr)"]} marginBottom={10}>
+      <GridItem display="grid" placeItems="center" marginBottom={12}>
+        <CallToAction />
+      </GridItem>
+      <GridItem placeItems={"center"} display="grid" position="relative">
+        <GatsbyImage
+          className="block-grid-image"
+          image={AcrylicImage}
+          alt="Book a Class Today!"
+          style={{ gridArea: "1/1", minWidth: `100%`, minHeight: `100%` }}
+        />
+      </GridItem>
+    </Grid>
+  )
+}
 
 const CallToAction = () => {
   return (
@@ -12,100 +57,46 @@ const CallToAction = () => {
           base: "6",
           lg: "8",
         }}
-        py={{
-          base: "16",
-          sm: "20",
-        }}
+        pt={8}
+        pb={8}
         textAlign="center"
+        display="grid"
+        placeItems="center"
       >
-        <Text fontWeight="semibold" color={useColorModeValue("primary")}>
+        <Text fontWeight="normal" color={useColorModeValue("secondary")}>
           Prices now start at just $23/person
         </Text>
         <Heading
           my="4"
           as="h2"
           fontSize={{
-            base: "4xl",
-            md: "6xl",
+            base: "2xl",
+            md: "3xl",
           }}
-          fontWeight="extrabold"
+          fontWeight={500}
+          textTransform="uppercase"
           letterSpacing="tight"
           lineHeight="1.2"
-          color={useColorModeValue("gray.600", "white")}
+          maxWidth={450}
+          color={useColorModeValue("primary", "white")}
         >
-          Discover your inner artist{" "}
-          <Box
-            as="mark"
-            bg="unset"
-            color={useColorModeValue("primary", "primary")}
-            whiteSpace="nowrap"
-          >
-            Book a Class Today
-          </Box>
+          Discover your inner artist Book a Class Today
         </Heading>
-        <Text fontSize="lg" maxW="xl" mx="auto">
+        <Text fontSize="lg" maxW="xl" mx="auto" mb={8}>
           Book a class using our new booking application. Or inquire about a
           custom art class for your special event.
         </Text>
-        <Stack
-          direction={{
-            base: "row",
-            sm: "row",
-          }}
-          mt="10"
-          justify="center"
-          spacing={{
-            base: "3",
-            md: "5",
-          }}
-          maxW="md"
-          mx="auto"
-        >
-          {/* <DiamondButton>
-
-          </DiamondButton> */}
-          <DiamondButton
+        <DiamondButton
             to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
             buttonStyle="btn--primary"
-            buttonSize="btn--large"
+            buttonSize="btn--medium"
+
           >
             Book a class
           </DiamondButton>
-          {/* <Button
-            as="a"
-            size="lg"
-            h="16"
-            px="10"
-            href="https://j-philippus-art-studio.myshopify.com/pages/calendar"
-            backgroundColor="primary"
-            color="white"
-            fontFamily="Gill Sans"
-            fontWeight={500}
-            textTransform="uppercase"
-            flex={{
-              md: "1",
-            }}
-          >
-            Book a class
-          </Button>
-          <Button
-            as="a"
-            flex={{
-              md: "1",
-            }}
-            variant="outline"
-            href="#"
-            size="lg"
-            h="16"
-            px="10"
-            fontWeight="bold"
-          >
-            Custom Classes
-          </Button> */}
-        </Stack>
       </Box>
     </Box>
   )
 }
 
-export default CallToAction
+export default NewCallToAction
