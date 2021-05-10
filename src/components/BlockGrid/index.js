@@ -79,8 +79,8 @@ const BlockGrid = () => {
             Create Your Masterpiece
           </Text>
           <Text>
-            The Acrylic Pour on Metal Flowers Class is back with more classes
-            and we are adding resin for no extra charge.
+            Browse our selection of classes from Acrylic Pour on Metal Flowers
+            to Glass Art, custom charcuterie boards and more!
           </Text>
           <Center my="10">
             <DiamondButton
@@ -90,7 +90,7 @@ const BlockGrid = () => {
               py="10"
               to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
             >
-              Book a Class
+              Explore Classes
             </DiamondButton>
           </Center>
         </Box>

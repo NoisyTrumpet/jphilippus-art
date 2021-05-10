@@ -21,6 +21,20 @@ const ChakraLink = chakra(GatsbyLink, {
  * ChakraLink with gatsby-link (no external links)
  */
 const Link = props => {
+  if (
+    props.to === "https://j-philippus-art-studio.myshopify.com/pages/calendar"
+  ) {
+    return (
+      <a
+        href={props.to}
+        rel={`noopener noreferrer`}
+        target={`_blank`}
+        alt="Class Calendar"
+      >
+        {props.children}
+      </a>
+    )
+  }
   return <ChakraLink {...props} />
 }
 

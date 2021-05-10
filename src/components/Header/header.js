@@ -65,7 +65,7 @@ const NavBar = props => {
       <NavBarContainer {...props}>
         <Cart isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
         {colorMode === "dark" ? (
-          <Link to="/" alt="Home" maxWidth={[125, 200]}>
+          <Link to="/" alt="Home" maxWidth={[150, 200]}>
             <GatsbyImage
               image={dark}
               alt={`J. Philippus Art Studio & Gallery Logo`}
@@ -73,7 +73,7 @@ const NavBar = props => {
             />
           </Link>
         ) : (
-          <Link to="/" alt="Home" maxWidth={[125, 200]}>
+          <Link to="/" alt="Home" maxWidth={[150, 200]}>
             <GatsbyImage
               image={light}
               alt={`J. Philippus Art Studio & Gallery Logo`}
@@ -184,7 +184,7 @@ export const MenuLinks = () => {
         ))}
         <DiamondButton
           buttonStyle="btn--secondary"
-          buttonSize="btn--small"
+          buttonSize="btn--xs"
           to="/products/gift-card/gift-card/"
         >
           Gift Cards

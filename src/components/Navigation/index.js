@@ -73,16 +73,16 @@ const Navigation = () => {
 
   const SubNav = () => {
     return (
-      <Accordion defaultIndex={[0]} allowMultiple allowToggle>
+      <Accordion allowMultiple allowToggle minWidth={`100%`}>
         <AccordionItem width={`100%`}>
-          <AccordionButton width={`100%`} alignItems="center">
+          <AccordionButton width={`100%`} justifyContent={`space-between`}>
             SHOP
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel pb={4}>
             <Box as="ul" listStyleType="none" px="2" pb="2">
               {links.map((link, idx) => (
-                <Box as="li" key={idx}>
+                <Box as="li" key={link.title}>
                   <MenuItem
                     href={link.href}
                     title={link.title}

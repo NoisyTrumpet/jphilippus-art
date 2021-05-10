@@ -32,10 +32,10 @@ const ProductTypeIndex = ({
 
   const heroSubCaption = () => {
     if (productType === "Art") {
-      return `Lorem Ipsum`
+      return `SPRUCE UP YOUR SPACE`
     }
     if (productType === "Class") {
-      return `Book a class with one of our fabulous instructors.`
+      return `CREATE YOUR MASTERPIECE`
     }
     if (productType === "Jewelry") {
       return `We sell Julie Vos Jewelry.`
@@ -44,10 +44,10 @@ const ProductTypeIndex = ({
 
   const heroBody = () => {
     if (productType === "Art") {
-      return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in`
+      return `Browse our diverse selection of original art created by artist Jeanne Philippus for your home or office.  Commissioned art also available upon request.`
     }
     if (productType === "Class") {
-      return `Glass Art, Acrylic Pour and Resin Art studio for Individuals or groups/parties and Team Building. To schedule a class scroll down. `
+      return `You don’t need to be an artist to create your own beautiful piece of art. Book a class with one of our fabulous instructors. The studio specializes in contemporary art using acrylic pours, resin and glass. Beautiful 1500 Square Foot Facility Including:`
     }
     if (productType === "Jewelry") {
       return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. `
@@ -68,7 +68,7 @@ const ProductTypeIndex = ({
         ctaTitle={productType === "Class" && `Group Classes`}
         ctaSubCaption={
           productType === "Class" &&
-          `We now have new rates starting at $35 per person for glass art for parties with 15 or more people.`
+          `We also offer private group classes for events such as parties and team building activities. Special rates starting at $35 per person for glass art for parties with 15 or more people. Click here to book your private party.`
         }
         ctaText={productType === "Class" && `Book a Group Class`}
         ctaLink={

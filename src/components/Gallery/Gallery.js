@@ -11,6 +11,7 @@ const Gallery = () => {
         edges {
           node {
             childImageSharp {
+              id
               gatsbyImageData(
                 formats: [AUTO, WEBP, AVIF]
                 layout: CONSTRAINED
@@ -32,8 +33,11 @@ const Gallery = () => {
       className="gallery"
     >
       {galleryImages.edges.map(({ node }) => (
-        <GridItem>
-          <GatsbyImage image={getImage(node.childImageSharp)} />
+        <GridItem key={node.childImageSharp.id}>
+          <GatsbyImage
+            image={getImage(node.childImageSharp)}
+            alt={`Gallery Image`}
+          />
         </GridItem>
       ))}
     </Grid>
