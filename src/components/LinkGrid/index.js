@@ -14,13 +14,13 @@ const data = {
       alt: `All Art Products`,
     },
     {
-      slug: `/products/jewelry`,
-      label: `Jewelry`,
-      alt: `All Jewelry Products`,
+      slug: `/products/art-kit`,
+      label: `Art Kits`,
+      alt: `Art Kit Products`,
     },
     {
       slug: `/products`,
-      label: `All Products`,
+      label: `All`,
       alt: `All Products`,
     },
   ],
@@ -35,6 +35,7 @@ const LinkGrid = () => {
           alt={node.alt}
           textTransform="uppercase"
           mx={[2, 4]}
+          key={node.alt}
         >
           {node.label}
         </Link>

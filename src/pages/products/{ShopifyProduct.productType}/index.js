@@ -27,6 +27,9 @@ const ProductTypeIndex = ({
     if (productType === "Jewelry") {
       return `Jewelry`
     }
+    if (productType === "Art Kit") {
+      return `Art Kits`
+    }
     return productType
   }
 
@@ -40,6 +43,9 @@ const ProductTypeIndex = ({
     if (productType === "Jewelry") {
       return `We sell Julie Vos Jewelry.`
     }
+    if (productType === "Art Kit") {
+      return `CREATE YOUR MASTERPIECE IN YOUR OWN HOME`
+    }
   }
 
   const heroBody = () => {
@@ -51,6 +57,9 @@ const ProductTypeIndex = ({
     }
     if (productType === "Jewelry") {
       return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. `
+    }
+    if (productType === "Art Kit") {
+      return `Our at-home art kits are a fun, easy way to take your creativity into the comfort of your own home. Choose between our resin covered charcuterie board kits, acrylic pour kits, glass art kits, oyster shell DIY kits, or resin coaster kits. `
     }
   }
 
