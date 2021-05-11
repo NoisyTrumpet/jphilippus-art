@@ -23,6 +23,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        // username: `jphilippusartstudio`,
+        // instagram_id: `248164697081484`,
+        access_token: process.env.GATSBY_INSTAGRAM_TOKEN,
+        //   paginate: 100,
+        // maxPosts: 1000,
+        // hashtags: true
+      },
+    },
+    {
       /* Include plugin */
       resolve: "gatsby-omni-font-loader",
 
@@ -66,7 +77,7 @@ module.exports = {
       options: {
         name: `jphilippus-art`,
         short_name: `jp-art`,
-        start_url: `/`,
+        start_url: `https://jphilippusart.com`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,

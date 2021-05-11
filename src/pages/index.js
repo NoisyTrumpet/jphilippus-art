@@ -1,5 +1,13 @@
 import * as React from "react"
-import { Container, Text, useColorModeValue, Box } from "@chakra-ui/react"
+import {
+  Container,
+  Text,
+  useColorModeValue,
+  Box,
+  Grid,
+  GridItem,
+  Center,
+} from "@chakra-ui/react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 
@@ -10,13 +18,17 @@ import BlockGrid from "../components/BlockGrid/index"
 import ProductListing from "../components/ProductListing"
 import SEO from "../components/SEO"
 import CallToAction from "../components/CallToAction/index"
+import InstagramFeed from "../components/InstagramFeed/index"
+import { GatsbyImage } from "gatsby-plugin-image"
+import DiamondButton from "../components/DiamondButton/DiamondButton"
 
-const IndexPage = ({ data: products }) => {
+const IndexPage = ({ data: products, data }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
   const bgGray = useColorModeValue(`bgGray`, `gray.700`)
   const featuredProducts = {
     nodes: products?.shopifyCollection?.products,
   }
+
   return (
     <Layout>
       <SEO title="J. Philippus Art Studio & Gallery" />
@@ -63,8 +75,52 @@ const IndexPage = ({ data: products }) => {
       <Container px={8} maxWidth="100%">
         <ProductListing featured products={featuredProducts} />
       </Container>
-
       <Testimonials />
+      <Grid templateColumns={["1fr", "1fr 1fr", "1fr 1fr"]} mt={8} gap={2}>
+        <GridItem position="relative" display="grid" placeItems="center">
+          <Box
+            display="grid"
+            placeItems={`center`}
+            height="100%"
+            width="100%"
+            paddingTop={[0, 4, 14]}
+          >
+            <GatsbyImage
+              image={data.file.childImageSharp.gatsbyImageData}
+              alt="Latest News"
+              style={{ width: `100%`, gridArea: "1/1", height: "100%" }}
+            />
+            <Center
+              className="center-grid-diamond"
+              style={{
+                gridArea: "1/1",
+                position: "relative",
+              }}
+            >
+              <DiamondButton
+                buttonStyle="btn--primary-transparent"
+                buttonSize="btn--xl"
+                to="/news/parade-of-homes/"
+              >
+                Latest News
+              </DiamondButton>
+            </Center>
+          </Box>
+        </GridItem>
+        <GridItem px={2}>
+          <Text
+            textAlign="center"
+            textTransform="uppercase"
+            fontWeight={500}
+            color="primary"
+            fontSize="2xl"
+            my={4}
+          >
+            Let's Get Social
+          </Text>
+          <InstagramFeed images={data.allInstagramContent.edges} />
+        </GridItem>
+      </Grid>
     </Layout>
   )
 }
@@ -97,6 +153,31 @@ export const query = graphql`
             currencyCode
           }
         }
+      }
+    }
+    allInstagramContent(limit: 6) {
+      edges {
+        node {
+          caption
+          permalink
+          localImage {
+            childImageSharp {
+              gatsbyImageData(
+                width: 500
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+                quality: 90
+                aspectRatio: 1
+              )
+            }
+          }
+        }
+      }
+    }
+    file(relativePath: { eq: "news-image.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 700, quality: 90, layout: CONSTRAINED)
       }
     }
   }

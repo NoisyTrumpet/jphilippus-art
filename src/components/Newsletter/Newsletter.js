@@ -31,6 +31,7 @@ const Newsletter = () => {
             placeholder="Enter your email"
             type="email"
             required
+            name="email"
             focusBorderColor={useColorModeValue("blue.500", "blue.300")}
             _placeholder={{
               opacity: 1,
