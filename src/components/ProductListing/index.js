@@ -2,6 +2,7 @@ import * as React from "react"
 import { Grid, Heading, useColorModeValue, Container } from "@chakra-ui/react"
 import ProductCard from "../ProductCard/index"
 import Link from "../link"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const ProductListing = ({ products, featured }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
@@ -18,8 +19,7 @@ const ProductListing = ({ products, featured }) => {
             as="h2"
             fontSize="3xl"
             textAlign="center"
-            fontWeight="extrabold"
-            letterSpacing="tight"
+            fontWeight={500}
             color={themeBlue}
             textTransform="uppercase"
           >
@@ -32,8 +32,10 @@ const ProductListing = ({ products, featured }) => {
             top="25%"
             textTransform="uppercase"
             color={themeBlue}
+            display={`flex`}
+            fontSize={`small`}
           >
-            {`view all >`}
+            {`view all`} <ExternalLinkIcon marginLeft={2} />
           </Link>
         </Container>
       )}
@@ -45,7 +47,7 @@ const ProductListing = ({ products, featured }) => {
           null,
           featured ? "repeat(5, 1fr)" : "repeat(3, 1fr)",
         ]}
-        columnGap={6}
+        columnGap={featured ? 2 : 6}
         rowGap={[12, 16, 20]}
       >
         {products.nodes.map(p => (

@@ -22,6 +22,7 @@ const AltHero = ({
   ctaSubCaption,
   ctaText,
   ctaLink,
+  isContact,
 }) => {
   // Art Page Image:
   const {
@@ -30,17 +31,18 @@ const AltHero = ({
     jewelryHero,
     julieVossLogo,
     allHero,
+    charcuterie,
   } = useStaticQuery(
     graphql`
       query {
         artHero: file(relativePath: { eq: "page-heros/art-page-hero.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 1200
+              width: 800
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -49,11 +51,11 @@ const AltHero = ({
         ) {
           childImageSharp {
             gatsbyImageData(
-              width: 1200
+              width: 800
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -66,7 +68,7 @@ const AltHero = ({
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -77,7 +79,7 @@ const AltHero = ({
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -88,7 +90,18 @@ const AltHero = ({
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
+            )
+          }
+        }
+        charcuterie: file(relativePath: { eq: "charcuterie.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1000
+              quality: 90
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -108,6 +121,9 @@ const AltHero = ({
     }
     if (productType === "All") {
       return getImage(allHero)
+    }
+    if (productType === "Charcuterie") {
+      return getImage(charcuterie)
     }
 
     return getImage(allHero)

@@ -15,10 +15,12 @@ import {
   WrapItem,
   Box,
 } from "@chakra-ui/react"
+import { graphql } from "gatsby"
 import GoogleMapReact from "google-map-react"
 import "../styles/contact.scss"
 import DiamondButton from "../components/DiamondButton/DiamondButton"
 import AltHero from "../components/AltHero/index"
+import SEO from "../components/SEO"
 
 const center = {
   lat: 29.606779288223038,
@@ -63,6 +65,7 @@ const PinWrapper = () => (
 const Contact = () => {
   return (
     <Layout>
+      <SEO title="Contact Us" />
       <AltHero
         title="Contact"
         subcaption="Have Questions?"
@@ -101,7 +104,12 @@ const Contact = () => {
           rowStart={[2, 2, 1]}
           rowSpan={1}
         >
-          <Text as="h3" color="primary" fontSize={`3xl`}>
+          <Text
+            as="h3"
+            color="primary"
+            fontSize={`3xl`}
+            textTransform={`uppercase`}
+          >
             Address
           </Text>
           <a
@@ -153,10 +161,13 @@ const Contact = () => {
                 placeholder="Message Area"
                 minH="150px"
                 name="message"
+                mb={4}
               />
-              <DiamondButton type="submit" to="submit">
-                Submit
-              </DiamondButton>
+              <Box display="flex" justifyContent="flex-end">
+                <DiamondButton type="submit" to="submit">
+                  Submit
+                </DiamondButton>
+              </Box>
             </FormControl>
           </form>
         </GridItem>
@@ -168,5 +179,26 @@ const Contact = () => {
 Contact.propTypes = {
   isHome: PropTypes.bool,
 }
+
+export const query = graphql`
+  query {
+    allFile(filter: { relativeDirectory: { eq: "commisioned" } }) {
+      edges {
+        node {
+          childImageSharp {
+            id
+            gatsbyImageData(
+              formats: [AUTO, WEBP]
+              layout: CONSTRAINED
+              quality: 90
+              placeholder: BLURRED
+              width: 1920
+            )
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Contact

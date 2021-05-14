@@ -19,13 +19,6 @@ const LinkGrid = props => (
             Contact
           </Link>
         </Box>
-        {/* <Box ml="5" mb={8}>
-          <Link to="/news" display="block">News/Press</Link>
-
-          <Link to="/faq" display="block">
-            FAQ
-          </Link>
-        </Box> */}
       </SimpleGrid>
     </Box>
     <Box minW="140px">
@@ -36,10 +29,10 @@ const LinkGrid = props => (
           rel="noopener noreferrer"
           target="_blank"
         >
-          1846 North Loop
-          <br />
-          1604 W<br />
+          1846 North Loop 1604 W<br />
           Suite 104
+          <br />
+          San Antonio, TX 78248
         </a>
       </Stack>
     </Box>

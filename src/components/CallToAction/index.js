@@ -15,14 +15,16 @@ const NewCallToAction = () => {
   const { AcrylicImg } = useStaticQuery(
     graphql`
       query {
-        AcrylicImg: file(relativePath: { eq: "page-heros/class-page-hero.jpg" }) {
+        AcrylicImg: file(
+          relativePath: { eq: "page-heros/class-page-hero.jpg" }
+        ) {
           childImageSharp {
             gatsbyImageData(
               width: 800
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -31,7 +33,10 @@ const NewCallToAction = () => {
   )
   const AcrylicImage = getImage(AcrylicImg)
   return (
-    <Grid templateColumns={["1fr", "1fr", "1fr", "repeat(2, 1fr)"]} marginBottom={10}>
+    <Grid
+      templateColumns={["1fr", "1fr", "1fr", "repeat(2, 1fr)"]}
+      marginBottom={10}
+    >
       <GridItem display="grid" placeItems="center" marginBottom={12}>
         <CallToAction />
       </GridItem>
@@ -63,8 +68,13 @@ const CallToAction = () => {
         display="grid"
         placeItems="center"
       >
-        <Text fontWeight="normal" color={useColorModeValue("secondary")}>
-          Prices now start at just $23/person
+        <Text
+          fontWeight="normal"
+          color={useColorModeValue("secondary")}
+          maxWidth={350}
+        >
+          We now have new rates starting at $45 per person for glass art for
+          parties with 15 or more people.
         </Text>
         <Heading
           my="4"
@@ -82,18 +92,17 @@ const CallToAction = () => {
         >
           Discover your inner artist Book a Class Today
         </Heading>
-        <Text fontSize="lg" maxW="xl" mx="auto" mb={8}>
+        <Text fontSize="lg" maxW="xl" mx="auto" mb={8} maxWidth={450}>
           Book a class using our new booking application. Or inquire about a
           custom art class for your special event.
         </Text>
         <DiamondButton
-            to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
-            buttonStyle="btn--primary"
-            buttonSize="btn--medium"
-
-          >
-            Book a class
-          </DiamondButton>
+          to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+          buttonStyle="btn--primary"
+          buttonSize="btn--medium"
+        >
+          Book a class
+        </DiamondButton>
       </Box>
     </Box>
   )

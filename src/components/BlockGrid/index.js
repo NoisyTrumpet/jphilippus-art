@@ -7,17 +7,17 @@ import DiamondButton from "../DiamondButton/DiamondButton"
 import "./BlockGrid.scss"
 
 const BlockGrid = () => {
-  const { JewelryImg, FlowerImg, AcrylicImg } = useStaticQuery(
+  const { CharcuterieImg, FlowerImg, AcrylicImg } = useStaticQuery(
     graphql`
       query {
-        JewelryImg: file(relativePath: { eq: "jewelry.jpg" }) {
+        CharcuterieImg: file(relativePath: { eq: "charcuterie.jpg" }) {
           childImageSharp {
             gatsbyImageData(
               width: 500
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -28,7 +28,7 @@ const BlockGrid = () => {
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -39,7 +39,7 @@ const BlockGrid = () => {
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -47,7 +47,7 @@ const BlockGrid = () => {
     `
   )
 
-  const JewelryImage = getImage(JewelryImg)
+  const Charcuterie = getImage(CharcuterieImg)
 
   const FlowerImage = getImage(FlowerImg)
 
@@ -70,11 +70,9 @@ const BlockGrid = () => {
         <Box className="block-grid-item" py="5" zIndex={1}>
           <Text
             className="block-grid-title"
-            style={{
-              color: `#3FA7B6`,
-              paddingBottom: `5px`,
-              textTransform: `uppercase`,
-            }}
+            color={`primary`}
+            pb={2}
+            textTransform={`uppercase`}
           >
             Create Your Masterpiece
           </Text>
@@ -122,15 +120,17 @@ const BlockGrid = () => {
               p="0"
               to="/products/art-kit"
             >
-              Custom Art Kits
+              Custom
+              <br />
+              Art Kits
             </DiamondButton>
           </Center>
         </Box>
         <Box className="block-grid-item" zIndex={1} display="grid">
           <GatsbyImage
             className="block-grid-image"
-            image={JewelryImage}
-            alt="Jewelry Art"
+            image={Charcuterie}
+            alt="Charcuterie Boards"
             style={{ gridArea: "1/1" }}
           />
           <Center
@@ -144,9 +144,9 @@ const BlockGrid = () => {
               className="grid-diamond-btn"
               buttonStyle="btn--primary-transparent"
               buttonSize="btn--xl"
-              to="/products/jewelry"
+              to="/products/charcuterie"
             >
-              Jewelry
+              Charcuterie Boards
             </DiamondButton>
           </Center>
         </Box>

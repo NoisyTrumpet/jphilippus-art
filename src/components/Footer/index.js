@@ -1,4 +1,4 @@
-import { Box, Stack, useColorMode, StackDivider } from "@chakra-ui/react"
+import { Box, Stack, useColorMode, Container } from "@chakra-ui/react"
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -20,7 +20,7 @@ const Footer = () => {
               width: 200
               quality: 90
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -30,7 +30,7 @@ const Footer = () => {
               width: 200
               quality: 90
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -43,80 +43,89 @@ const Footer = () => {
   const light = getImage(LightLogo)
 
   return (
-    <Box
-      as="footer"
-      role="contentinfo"
-      mx="auto"
-      marginTop={8}
-      py="12"
-      px={{
-        base: "4",
-        md: "8",
-      }}
-      justifyContent="center"
-    >
-      <Stack spacing={10} divider={<StackDivider />}>
-        <Stack
-          direction={{
-            base: "column",
-            lg: "row",
-          }}
-          spacing={{
-            base: "10",
-            lg: "28",
-          }}
-          justify="space-between"
-        >
-          {colorMode === "dark" ? (
-            <Link to="/" alt="Home">
-              <GatsbyImage
-                image={dark}
-                alt="Footer Logo Dark"
-                className="header-logo-dark"
-              />
-            </Link>
-          ) : (
-            <Link to="/" alt="Home">
-              <GatsbyImage
-                image={light}
-                alt="Footer Logo Light"
-                className="header-logo-reg"
-              />
-            </Link>
-          )}
+    <>
+      <Container>
+        <Newsletter />
+      </Container>
 
+      <Box
+        as="footer"
+        role="contentinfo"
+        mx="auto"
+        marginTop={8}
+        py="12"
+        px={{
+          base: "4",
+          md: "8",
+        }}
+        justifyContent="center"
+        borderTopStyle={`solid`}
+        borderTopWidth={1}
+        borderTopColor={`secondary`}
+      >
+        <Stack spacing={10}>
           <Stack
             direction={{
               base: "column",
-              md: "row",
+              lg: "row",
             }}
             spacing={{
               base: "10",
-              md: "20",
+              lg: "28",
             }}
+            justify="space-between"
           >
-            <LinkGrid />
-            <Newsletter />
+            {colorMode === "dark" ? (
+              <Link to="/" alt="Home">
+                <GatsbyImage
+                  image={dark}
+                  alt="Footer Logo Dark"
+                  className="header-logo-dark"
+                />
+              </Link>
+            ) : (
+              <Link to="/" alt="Home">
+                <GatsbyImage
+                  image={light}
+                  alt="Footer Logo Light"
+                  className="header-logo-reg"
+                />
+              </Link>
+            )}
+
+            <Stack
+              direction={{
+                base: "column",
+                md: "row",
+              }}
+              spacing={{
+                base: "10",
+                md: "20",
+              }}
+            >
+              <LinkGrid />
+            </Stack>
+          </Stack>
+          <Stack
+            direction={{
+              base: "column-reverse",
+              md: "row",
+            }}
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Copyright
+              alignSelf={{
+                base: "center",
+                sm: "start",
+              }}
+              textAlign="center"
+            />
+            <SocialMediaLinks />
           </Stack>
         </Stack>
-        <Stack
-          direction={{
-            base: "column-reverse",
-            md: "row",
-          }}
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <Copyright
-            alignSelf={{
-              base: "center",
-              sm: "start",
-            }}
-          />
-          <SocialMediaLinks />
-        </Stack>
-      </Stack>
-    </Box>
+      </Box>
+    </>
   )
 }
 

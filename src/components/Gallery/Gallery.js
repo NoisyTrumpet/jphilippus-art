@@ -13,7 +13,7 @@ const Gallery = () => {
             childImageSharp {
               id
               gatsbyImageData(
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AUTO, WEBP]
                 layout: CONSTRAINED
                 quality: 90
                 placeholder: BLURRED
@@ -28,8 +28,8 @@ const Gallery = () => {
 
   return (
     <Grid
-      templateColumns={["repeat(1fr)", "repeat(3, 1fr)"]}
-      gap={2}
+      templateColumns={["repeat(1fr)", "repeat(2, 1fr)"]}
+      gap={1}
       className="gallery"
     >
       {galleryImages.edges.map(({ node }) => (

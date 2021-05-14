@@ -2,15 +2,23 @@ import * as React from "react"
 import Layout from "../components/Layout/Layout"
 import { graphql, useStaticQuery } from "gatsby"
 
-import { Box, Grid, Text, Center } from "@chakra-ui/react"
+import {
+  Box,
+  Grid,
+  Text,
+  Center,
+  Container,
+  useColorModeValue as mode,
+} from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Gallery from "../components/Gallery/Gallery"
 import SEO from "../components/SEO"
+import DiamondButton from "../components/DiamondButton/DiamondButton"
 
 const AboutPage = () => {
   // Hero Image Query
-  const { heroImage } = useStaticQuery(
+  const { heroImage, commisioned } = useStaticQuery(
     graphql`
       query {
         heroImage: file(relativePath: { eq: "about-hero.jpg" }) {
@@ -20,8 +28,26 @@ const AboutPage = () => {
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
+          }
+        }
+        commisioned: allFile(
+          filter: { relativeDirectory: { eq: "commisioned" } }
+        ) {
+          edges {
+            node {
+              childImageSharp {
+                id
+                gatsbyImageData(
+                  formats: [AUTO, WEBP]
+                  layout: CONSTRAINED
+                  quality: 90
+                  placeholder: BLURRED
+                  width: 516
+                )
+              }
+            }
           }
         }
       }
@@ -29,6 +55,7 @@ const AboutPage = () => {
   )
   // get image data
   const hero = getImage(heroImage)
+  const bgGray = mode(`bgGray`, `gray.700`)
 
   return (
     <Layout>
@@ -40,9 +67,10 @@ const AboutPage = () => {
         <GatsbyImage image={hero} alt="About Jeanne" />
         <Box
           className="bio-text"
-          px={[4, 4, 4, 8]}
+          px={[4, 4, 4, 12]}
           py={[8, 8, 8, 12]}
           style={{ lineHeight: `25px` }}
+          backgroundColor={bgGray}
         >
           <Text
             tag="h1"
@@ -73,14 +101,37 @@ const AboutPage = () => {
         </Box>
       </Grid>
       <Center className="quote-block">
-        <Text
-          p="10"
-          style={{ color: `#3FA7B6`, fontStyle: `italic`, fontSize: `25px` }}
-        >
+        <Text p="10" color={`primary`} fontStyle={`italic`} fontSize={`3xl`}>
           "Creating Art From The Broken Pieces"
         </Text>
       </Center>
       <Gallery />
+      <Container
+        textAlign="center"
+        mb={4}
+        backgroundColor={bgGray}
+        pt={4}
+        pb={8}
+      >
+        <Text my={6} fontSize={`2xl`} color="primary" textTransform="uppercase">
+          Commisioned Art
+        </Text>
+        <Grid templateColumns={[`repeat(2, 1fr)`, `repeat(3, 1fr)`]} gap={4}>
+          {commisioned.edges.map(({ node }) => (
+            <GatsbyImage
+              image={getImage(node.childImageSharp)}
+              alt="Comissioned Art"
+            />
+          ))}
+        </Grid>
+        <Text my={6}>
+          Custom original art for your home or office. Contact Jeanne to make
+          your vision come to life.
+        </Text>
+        <Center>
+          <DiamondButton to="/contact">Contact</DiamondButton>
+        </Center>
+      </Container>
     </Layout>
   )
 }

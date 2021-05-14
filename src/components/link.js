@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import { chakra } from "@chakra-ui/react"
+import { chakra, Text } from "@chakra-ui/react"
 
 const ChakraLink = chakra(GatsbyLink, {
   baseStyle: {
@@ -14,6 +14,9 @@ const ChakraLink = chakra(GatsbyLink, {
     _focus: {
       boxShadow: `outline`,
     },
+    _activeLink: {
+      color: `secondary`,
+    },
   },
 })
 
@@ -25,18 +28,22 @@ const Link = props => {
     props.to === "https://j-philippus-art-studio.myshopify.com/pages/calendar"
   ) {
     return (
-      <a
+      <chakra.a
         href={props.to}
         rel={`noopener noreferrer`}
         target={`_blank`}
         alt="Class Schedule"
-        style={{ textTransform: `uppercase` }}
         className={props.className}
-        style={props.style}
+        style={{ textTransform: `uppercase` }}
+        {...props}
       >
-        {props.children}
-      </a>
+        <Text>{props.children}</Text>
+      </chakra.a>
     )
+  }
+
+  if (props.to === "/products/gift-card/gift-card/") {
+    return <ChakraLink {...props} _activeLink={{ color: `white` }} />
   }
   return <ChakraLink {...props} />
 }
