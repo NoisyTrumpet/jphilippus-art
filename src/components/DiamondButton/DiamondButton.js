@@ -77,6 +77,7 @@ const DiamondButton = ({
         type={type}
         display="grid"
         placeItems="center"
+        alt={children}
       >
         <Tag
           className="btn-text"

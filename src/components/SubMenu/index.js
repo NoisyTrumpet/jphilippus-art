@@ -19,12 +19,14 @@ const SubMenu = ({ title }) => {
       <Box maxW="7xl" py="6">
         <HStack
           as="button"
-          color={mode("gray.600", "gray.400")}
+          color={mode("black", "white")}
           onClick={() => {
             toggle()
           }}
         >
-          <Text textTransform="uppercase">{title || `Shop`}</Text>
+          <Text textTransform="uppercase" fontWeight={400}>
+            {title || `Shop`}
+          </Text>
           <Box as={HiChevronDown} fontSize="lg" color="gray.500" />
         </HStack>
         <Box

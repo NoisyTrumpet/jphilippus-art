@@ -3,14 +3,7 @@ import Roll from "react-reveal/Roll"
 import Fade from "react-reveal/Fade"
 import { graphql, useStaticQuery } from "gatsby"
 import { getImage, GatsbyImage, withArtDirection } from "gatsby-plugin-image"
-import {
-  Box,
-  Grid,
-  GridItem,
-  Text,
-  Container,
-  useMediaQuery,
-} from "@chakra-ui/react"
+import { Box, Grid, GridItem, Text, Container } from "@chakra-ui/react"
 import DiamondButton from "../DiamondButton/DiamondButton"
 import "./Hero.scss"
 
@@ -52,7 +45,6 @@ const Hero = () => {
       image: mobileImageGet,
     },
   ])
-  const [isMobile] = useMediaQuery("(max-width: 1200px)")
 
   return (
     <Box as="section" display="grid">
@@ -102,8 +94,11 @@ const Hero = () => {
                 textTransform="uppercase"
                 fontSize={["3xl", "4xl"]}
                 fontWeight={500}
+                lineHeight={10}
+                maxWidth={[`none`, `none`, 300]}
+                mb={4}
               >
-                Teaching Art {isMobile ? `` : <br />} Studio
+                Teaching Art Studio
               </Text>
             </Fade>
             <Text fontSize="21px" color="color">
@@ -115,8 +110,10 @@ const Hero = () => {
               fontSize={["3xl", "4xl"]}
               color="secondary"
               marginTop={[2, 4]}
+              maxWidth={[`none`, `none`, 350]}
+              lineHeight={10}
             >
-              J.Philippus Art Studio {isMobile ? `` : <br />}and Gallery, LLC
+              J.Philippus Art Studio and Gallery, LLC
             </Text>
           </GridItem>
 

@@ -28,6 +28,7 @@ module.exports = {
         // username: `jphilippusartstudio`,
         // instagram_id: `248164697081484`,
         access_token: process.env.GATSBY_INSTAGRAM_TOKEN,
+        // max_id: `COeOoBYMd22`
         //   paginate: 100,
         // maxPosts: 1000,
         // hashtags: true
@@ -56,7 +57,7 @@ module.exports = {
         custom: [
           {
             /* Exact name of the font as defied in @font-face CSS rule */
-            name: ["Gill Sans Bold", "Gill Sans"],
+            name: ["Gill Sans"],
             /* Path to the font CSS file inside the "static" folder with @font-face definition */
             file: "/fonts/index.css",
           },

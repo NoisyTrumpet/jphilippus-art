@@ -22,6 +22,7 @@ const AltHero = ({
   ctaSubCaption,
   ctaText,
   ctaLink,
+  isContact,
 }) => {
   // Art Page Image:
   const {
@@ -30,6 +31,7 @@ const AltHero = ({
     jewelryHero,
     julieVossLogo,
     allHero,
+    charcuterie,
   } = useStaticQuery(
     graphql`
       query {
@@ -92,6 +94,17 @@ const AltHero = ({
             )
           }
         }
+        charcuterie: file(relativePath: { eq: "charcuterie.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1000
+              quality: 90
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
       }
     `
   )
@@ -108,6 +121,9 @@ const AltHero = ({
     }
     if (productType === "All") {
       return getImage(allHero)
+    }
+    if (productType === "Charcuterie") {
+      return getImage(charcuterie)
     }
 
     return getImage(allHero)

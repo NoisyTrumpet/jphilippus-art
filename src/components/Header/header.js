@@ -5,7 +5,6 @@ import {
   useColorModeValue,
   useColorMode,
   Flex,
-  Text,
   Stack,
 } from "@chakra-ui/react"
 import Announcement from "./Fragments/Announcement"
@@ -101,10 +100,8 @@ const MenuItem = ({ children, isLast, to = "/", alt, ...rest }) => {
     return <SubMenu />
   }
   return (
-    <Link to={to} color={linkColor} alt={alt}>
-      <Text display="block" {...rest} fontWeight="500">
-        {children}
-      </Text>
+    <Link to={to} color={linkColor} alt={alt} textTransform={`uppercase`}>
+      {children}
     </Link>
   )
 }

@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
-
+import { ExternalLinkIcon } from "@chakra-ui/icons"
 import Hero from "../components/Hero/Hero.js"
 import Testimonials from "../components/Testimonials/testimonials.js"
 import Link from "../components/link"
@@ -58,12 +58,13 @@ const IndexPage = ({ data: products, data }) => {
         </Text>
         <Link
           to="/news/parade-of-homes/"
-          style={{ textAlign: "center" }}
+          textAlign="center"
+          alignItems="center"
           color={themeBlue}
           fontSize="xl"
           alt={`Read more about Jeanne Philippus, the featured artist of all original art in the "Rohare Custom Home" at the 2021 San Antonio Parade of Homes`}
         >
-          read more
+          read full release here <ExternalLinkIcon />
         </Link>
       </Container>
       <Box py={8} backgroundColor={bgGray}>
@@ -76,51 +77,53 @@ const IndexPage = ({ data: products, data }) => {
         <ProductListing featured products={featuredProducts} />
       </Container>
       <Testimonials />
-      <Grid templateColumns={["1fr", "1fr 1fr", "1fr 1fr"]} mt={8} gap={2}>
-        <GridItem position="relative" display="grid" placeItems="center">
-          <Box
-            display="grid"
-            placeItems={`center`}
-            height="100%"
-            width="100%"
-            paddingTop={[0, 4, 14]}
-          >
-            <GatsbyImage
-              image={data.file.childImageSharp.gatsbyImageData}
-              alt="Latest News"
-              style={{ width: `100%`, gridArea: "1/1", height: "100%" }}
-            />
-            <Center
-              className="center-grid-diamond"
-              style={{
-                gridArea: "1/1",
-                position: "relative",
-              }}
+      <Container>
+        <Grid templateColumns={["1fr", "1fr 1fr", "1fr 1fr"]} mt={8} gap={2}>
+          <GridItem position="relative" display="grid" placeItems="center">
+            <Box
+              display="grid"
+              placeItems={`center`}
+              height="100%"
+              width="100%"
+              paddingTop={[0, 4, 14]}
             >
-              <DiamondButton
-                buttonStyle="btn--primary-transparent"
-                buttonSize="btn--xl"
-                to="/news/parade-of-homes/"
+              <GatsbyImage
+                image={data.file.childImageSharp.gatsbyImageData}
+                alt="Latest News"
+                style={{ width: `100%`, gridArea: "1/1", height: "100%" }}
+              />
+              <Center
+                className="center-grid-diamond"
+                style={{
+                  gridArea: "1/1",
+                  position: "relative",
+                }}
               >
-                Latest News
-              </DiamondButton>
-            </Center>
-          </Box>
-        </GridItem>
-        <GridItem px={2}>
-          <Text
-            textAlign="center"
-            textTransform="uppercase"
-            fontWeight={500}
-            color="primary"
-            fontSize="2xl"
-            my={4}
-          >
-            Let's Get Social
-          </Text>
-          <InstagramFeed images={data.allInstagramContent.edges} />
-        </GridItem>
-      </Grid>
+                <DiamondButton
+                  buttonStyle="btn--primary-transparent"
+                  buttonSize="btn--xl"
+                  to="/news/parade-of-homes/"
+                >
+                  Latest News
+                </DiamondButton>
+              </Center>
+            </Box>
+          </GridItem>
+          <GridItem px={2}>
+            <Text
+              textAlign="center"
+              textTransform="uppercase"
+              fontWeight={500}
+              color="primary"
+              fontSize="2xl"
+              my={4}
+            >
+              Let's Get Social
+            </Text>
+            <InstagramFeed images={data.allInstagramContent.edges} />
+          </GridItem>
+        </Grid>
+      </Container>
     </Layout>
   )
 }
@@ -175,6 +178,7 @@ export const query = graphql`
         }
       }
     }
+
     file(relativePath: { eq: "news-image.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 700, quality: 90, layout: CONSTRAINED)

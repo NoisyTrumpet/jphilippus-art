@@ -2,7 +2,13 @@ import * as React from "react"
 import Layout from "../components/Layout/Layout"
 import { graphql, useStaticQuery } from "gatsby"
 
-import { Box, Grid, Text, Center } from "@chakra-ui/react"
+import {
+  Box,
+  Grid,
+  Text,
+  Center,
+  useColorModeValue as mode,
+} from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Gallery from "../components/Gallery/Gallery"
@@ -29,6 +35,7 @@ const AboutPage = () => {
   )
   // get image data
   const hero = getImage(heroImage)
+  const bgGray = mode(`bgGray`, `gray.700`)
 
   return (
     <Layout>
@@ -40,9 +47,10 @@ const AboutPage = () => {
         <GatsbyImage image={hero} alt="About Jeanne" />
         <Box
           className="bio-text"
-          px={[4, 4, 4, 8]}
+          px={[4, 4, 4, 12]}
           py={[8, 8, 8, 12]}
           style={{ lineHeight: `25px` }}
+          backgroundColor={bgGray}
         >
           <Text
             tag="h1"
@@ -73,10 +81,7 @@ const AboutPage = () => {
         </Box>
       </Grid>
       <Center className="quote-block">
-        <Text
-          p="10"
-          style={{ color: `#3FA7B6`, fontStyle: `italic`, fontSize: `25px` }}
-        >
+        <Text p="10" color={`primary`} fontStyle={`italic`} fontSize={`3xl`}>
           "Creating Art From The Broken Pieces"
         </Text>
       </Center>

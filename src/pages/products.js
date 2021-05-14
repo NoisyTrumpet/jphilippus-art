@@ -14,7 +14,7 @@ const Products = ({ data: { products } }) => {
       <SEO title="All Products in J. Philippus Art Studio & Gallery" />
       {/* <VisuallyHidden as="h1">Products</VisuallyHidden> */}
       <AltHero
-        title="Create Your Masterpiece"
+        title="All Products"
         productType="All"
         subcaption="SHOP ART, CLASSES, KITS & MORE"
         body={`Explore our variety of classes, art kits and products below. Let your imagination soar by booking one of our in-studio glass art or charcuterie board classes. We also offer take-home kits for your convenience. If you are looking for the perfect gift, we offer gift cards and commissioned art for purchase.`}

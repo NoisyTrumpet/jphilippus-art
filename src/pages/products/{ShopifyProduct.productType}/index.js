@@ -30,6 +30,9 @@ const ProductTypeIndex = ({
     if (productType === "Art Kit") {
       return `Art Kits`
     }
+    if (productType === "Charcuterie") {
+      return `Charcuterie Boards`
+    }
     return productType
   }
 

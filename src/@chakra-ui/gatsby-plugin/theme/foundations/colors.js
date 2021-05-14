@@ -13,6 +13,7 @@ const colors = {
   headingColor: "black",
   cardBg: "#FFFFFF",
   bgGray: "#F4F4F4",
+  shadowRed: `#7C3100`,
   cardLink: defaultColors.black,
   cardLinkHover: defaultColors.blue["600"],
   dark: {

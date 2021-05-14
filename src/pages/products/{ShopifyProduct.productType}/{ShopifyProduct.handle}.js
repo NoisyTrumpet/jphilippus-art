@@ -105,7 +105,6 @@ const Product = ({ data: { product, suggestions } }) => {
   const bgScrollbar = useColorModeValue(`gray.300`, `gray.800`)
   const bgScrollThumb = useColorModeValue(`gray.600`, `gray.400`)
   const priceColor = useColorModeValue(`primary`, `dark.primary`)
-  const headingColor = useColorModeValue(`black`, `white`)
   const hasVariants = variants.length > 1
   const hasImages = images.length > 0
   const hasMultipleImages = images.length > 1
@@ -134,7 +133,7 @@ const Product = ({ data: { product, suggestions } }) => {
           >
             <Stack spacing={[8, 16]} order={[2, null, 1]}>
               <Stack spacing={4}>
-                <Heading as="h1" color={headingColor}>
+                <Heading as="h1" fontWeight={500} color={`primary`}>
                   {title}
                 </Heading>
                 <Text>{description}</Text>
@@ -297,12 +296,20 @@ const Product = ({ data: { product, suggestions } }) => {
           </Grid>
         </Container>
       </Box>
-      <Container my={[20, 28]}>
-        <Heading as="h2" mb={8} fontSize="3xl" color={headingColor}>
-          More Products
-        </Heading>
-        <ProductListing products={suggestions} />
-      </Container>
+      {suggestions.nodes.length >= 1 && (
+        <Container my={[20, 28]}>
+          <Heading
+            as="h2"
+            mb={8}
+            fontSize="3xl"
+            fontWeight={500}
+            color={`primary`}
+          >
+            More Products
+          </Heading>
+          <ProductListing products={suggestions} />
+        </Container>
+      )}
     </Layout>
   )
 }

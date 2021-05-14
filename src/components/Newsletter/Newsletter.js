@@ -13,7 +13,7 @@ const Newsletter = () => {
       action="https://getform.io/f/aa2a00e7-6704-4a1d-9c29-d5581d340b3d"
       method="POST"
     >
-      <Stack spacing="4">
+      <Stack spacing="4" maxWidth={400} mx={`auto`} mt={8} textAlign="center">
         <FooterHeading color={themeBlue}>
           Subscribe to our newsletter
         </FooterHeading>
@@ -44,6 +44,7 @@ const Newsletter = () => {
             buttonSize="btn--xs"
             id="footerNewsletterBtn"
             to="submit"
+            marginTop={4}
           >
             Subscribe
           </DiamondButton>

@@ -1,10 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { Heading, Box, useColorModeValue, Grid, Tag } from "@chakra-ui/react"
+import { Box, useColorModeValue, Text } from "@chakra-ui/react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Link from "../link"
 import formatPrice from "../../utils/formatPrice"
-import { ChakraHelpersContext } from "../../context/chakra-helpers-context"
 
 const ProductCard = ({ product, featured }) => {
   const {
@@ -14,13 +13,11 @@ const ProductCard = ({ product, featured }) => {
     images: [firstImage],
   } = product
 
-  const { primaryColorScheme } = React.useContext(ChakraHelpersContext)
   const bg = useColorModeValue(`cardBg`, `dark.cardBg`)
   const linkHoverColor = useColorModeValue(
     `cardLinkHover`,
     `dark.cardLinkHover`
   )
-  const linkColor = useColorModeValue(`cardLink`, `dark.cardLink`)
 
   const price = formatPrice(
     priceRangeV2.minVariantPrice.currencyCode,
@@ -46,24 +43,17 @@ const ProductCard = ({ product, featured }) => {
           />
         )}
       </Box>
-      <Grid templateColumns="auto auto" gap={2} mt={2}>
-        <Heading
+      <Box textAlign="center">
+        <Text
           as="h2"
-          fontSize={featured ? "md" : "4xl"}
-          color={linkColor}
+          fontSize={featured ? "sm" : "4xl"}
+          color={`secondary`}
           transition="color 0.25s ease-in-out"
         >
           {title}
-        </Heading>
-        <Tag
-          alignSelf="flex-start"
-          justifySelf="flex-end"
-          size="lg"
-          colorScheme={primaryColorScheme}
-        >
-          {price}
-        </Tag>
-      </Grid>
+        </Text>
+        <Text color="primary">{price}</Text>
+      </Box>
     </Link>
   )
 }

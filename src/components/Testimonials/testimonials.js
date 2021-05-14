@@ -71,10 +71,6 @@ const Testimonials = () => {
       />
       <Box
         as="section"
-        bg={useColorModeValue(
-          "rgba(102, 117, 138, 0.4)",
-          "rgba(102, 117, 138, 0.4)"
-        )}
         width={`100%`}
         height={`100%`}
         placeItems={`center`}

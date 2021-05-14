@@ -6,22 +6,18 @@ const data = {
     {
       slug: `/products/class`,
       label: `Classes`,
-      alt: `All Class Products`,
     },
     {
       slug: `/products/art`,
       label: `Art`,
-      alt: `All Art Products`,
     },
     {
       slug: `/products/art-kit`,
       label: `Art Kits`,
-      alt: `Art Kit Products`,
     },
     {
       slug: `/products`,
-      label: `All`,
-      alt: `All Products`,
+      label: `All Products`,
     },
   ],
 }
@@ -32,10 +28,9 @@ const LinkGrid = () => {
       {data.nodes.map(node => (
         <Link
           to={node.slug}
-          alt={node.alt}
           textTransform="uppercase"
           mx={[2, 4]}
-          key={node.alt}
+          key={node.label}
         >
           {node.label}
         </Link>
