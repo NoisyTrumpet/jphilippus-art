@@ -16,7 +16,7 @@ const Hero = () => {
             gatsbyImageData(
               width: 490
               quality: 90
-              layout: FULL_WIDTH
+              layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )
@@ -27,7 +27,7 @@ const Hero = () => {
             gatsbyImageData(
               width: 1800
               quality: 90
-              layout: FULL_WIDTH
+              layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )
