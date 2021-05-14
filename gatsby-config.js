@@ -22,18 +22,18 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-instagram-all`,
-    //   options: {
-    //     // username: `jphilippusartstudio`,
-    //     // instagram_id: `248164697081484`,
-    //     access_token: process.env.GATSBY_INSTAGRAM_TOKEN,
-    //     // max_id: `COeOoBYMd22`
-    //     //   paginate: 100,
-    //     // maxPosts: 1000,
-    //     // hashtags: true
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        // username: `jphilippusartstudio`,
+        // instagram_id: `248164697081484`,
+        access_token: process.env.GATSBY_INSTAGRAM_TOKEN,
+        // max_id: `COeOoBYMd22`
+        //   paginate: 100,
+        // maxPosts: 1000,
+        // hashtags: true
+      },
+    },
     {
       /* Include plugin */
       resolve: "gatsby-omni-font-loader",
