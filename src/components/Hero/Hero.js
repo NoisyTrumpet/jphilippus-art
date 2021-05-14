@@ -16,20 +16,20 @@ const Hero = () => {
             gatsbyImageData(
               width: 490
               quality: 90
-              layout: CONSTRAINED
+              layout: FULL_WIDTH
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
         desktopImage: file(relativePath: { eq: "heroDesktop-banner.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 2160
+              width: 1800
               quality: 90
-              layout: CONSTRAINED
+              layout: FULL_WIDTH
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }

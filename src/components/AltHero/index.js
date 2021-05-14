@@ -38,11 +38,11 @@ const AltHero = ({
         artHero: file(relativePath: { eq: "page-heros/art-page-hero.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 1200
+              width: 800
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -51,11 +51,11 @@ const AltHero = ({
         ) {
           childImageSharp {
             gatsbyImageData(
-              width: 1200
+              width: 800
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -68,7 +68,7 @@ const AltHero = ({
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -79,7 +79,7 @@ const AltHero = ({
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -90,7 +90,7 @@ const AltHero = ({
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -101,7 +101,7 @@ const AltHero = ({
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }

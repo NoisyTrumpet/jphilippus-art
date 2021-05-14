@@ -143,9 +143,9 @@ export const query = graphql`
                 aspectRatio: 1
                 layout: CONSTRAINED
                 placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AUTO, WEBP]
                 quality: 90
-                width: 640
+                width: 220
               )
             }
           }
@@ -169,7 +169,7 @@ export const query = graphql`
                 width: 500
                 layout: CONSTRAINED
                 placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AUTO, WEBP]
                 quality: 90
                 aspectRatio: 1
               )
@@ -178,10 +178,9 @@ export const query = graphql`
         }
       }
     }
-
     file(relativePath: { eq: "news-image.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 700, quality: 90, layout: CONSTRAINED)
+        gatsbyImageData(width: 569, quality: 90, layout: CONSTRAINED)
       }
     }
   }

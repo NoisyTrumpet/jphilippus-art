@@ -13,7 +13,7 @@ const Gallery = () => {
             childImageSharp {
               id
               gatsbyImageData(
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AUTO, WEBP]
                 layout: CONSTRAINED
                 quality: 90
                 placeholder: BLURRED

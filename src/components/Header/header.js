@@ -36,7 +36,7 @@ const NavBar = props => {
               width: 200
               quality: 90
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -46,7 +46,7 @@ const NavBar = props => {
               width: 200
               quality: 90
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }

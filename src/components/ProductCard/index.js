@@ -73,7 +73,7 @@ export const query = graphql`
             aspectRatio: 1
             layout: CONSTRAINED
             placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
+            formats: [AUTO, WEBP]
             quality: 90
             width: 640
           )

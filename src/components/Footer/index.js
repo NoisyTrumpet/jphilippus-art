@@ -20,7 +20,7 @@ const Footer = () => {
               width: 200
               quality: 90
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }
@@ -30,7 +30,7 @@ const Footer = () => {
               width: 200
               quality: 90
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }

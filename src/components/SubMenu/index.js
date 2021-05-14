@@ -1,6 +1,5 @@
 import {
   Box,
-  Flex,
   HStack,
   SlideFade,
   Text,
@@ -58,7 +57,7 @@ const SubMenu = ({ title }) => {
               </Box>
             ))}
           </Box>
-          <Flex
+          {/* <Flex
             align="center"
             justify="space-between"
             px="6"
@@ -70,13 +69,14 @@ const SubMenu = ({ title }) => {
                 Book a Custom Glass Art Class Today!
               </Text>
               <Text fontSize="sm" color={mode("white", "white")}>
-                Custom text and stuff here
+                Featured classes include acrylic pour and glass art classes, as
+                well as custom charcuterie board and drink coasters classes.
               </Text>
             </Box>
             <Box color={mode("white", "white")} fontWeight="semibold">
               Schedule now
             </Box>
-          </Flex>
+          </Flex> */}
         </Box>
       </Box>
     </Box>
