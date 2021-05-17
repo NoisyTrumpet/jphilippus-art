@@ -1,15 +1,13 @@
 import * as React from "react"
-import { Button } from "@chakra-ui/react"
 import { StoreContext } from "../../context/storeContext"
-import { ChakraHelpersContext } from "../../context/chakra-helpers-context"
+import DiamondButton from "../DiamondButton/DiamondButton"
 
 const AddToCart = ({ variantId, quantity, available, ...props }) => {
   const { addVariantToCart, loading, onOpen } = React.useContext(StoreContext)
-  const { primaryColorScheme } = React.useContext(ChakraHelpersContext)
 
   return (
-    <Button
-      colorScheme={primaryColorScheme}
+    <DiamondButton
+      to="submit"
       onClick={() => {
         addVariantToCart(variantId, quantity)
         onOpen()
@@ -18,7 +16,7 @@ const AddToCart = ({ variantId, quantity, available, ...props }) => {
       {...props}
     >
       {available ? "Add to Cart" : "Out of Stock"}
-    </Button>
+    </DiamondButton>
   )
 }
 

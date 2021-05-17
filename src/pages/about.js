@@ -23,6 +23,7 @@ const AboutPage = () => {
       query {
         heroImage: file(relativePath: { eq: "about-hero.jpg" }) {
           childImageSharp {
+            id
             gatsbyImageData(
               width: 1200
               quality: 90
@@ -121,6 +122,7 @@ const AboutPage = () => {
               <GatsbyImage
                 image={getImage(node.childImageSharp)}
                 alt="Comissioned Art"
+                key={node.childImageSharp.id}
               />
             ))}
           </Grid>

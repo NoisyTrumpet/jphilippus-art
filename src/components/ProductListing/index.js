@@ -1,11 +1,5 @@
 import * as React from "react"
-import {
-  Grid,
-  Heading,
-  useColorModeValue,
-  Container,
-  GridItem,
-} from "@chakra-ui/react"
+import { Grid, Heading, useColorModeValue, Container } from "@chakra-ui/react"
 import ProductCard from "../ProductCard/index"
 import Link from "../link"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
