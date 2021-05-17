@@ -48,12 +48,12 @@ const IndexPage = ({ data: products, data }) => {
         <Text
           textAlign="center"
           my={7}
-          maxWidth={450}
+          maxWidth={475}
           mx="auto"
           mt="4"
           fontSize="lg"
         >
-          Featured artist of all original art in the "Rohare Custom Home" at the
+          Featured artist of all original art in the "Robare Custom Home" at the
           2021 San Antonio Parade of Homes
         </Text>
         <Link

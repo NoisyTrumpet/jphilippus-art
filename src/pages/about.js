@@ -106,32 +106,33 @@ const AboutPage = () => {
         </Text>
       </Center>
       <Gallery />
-      <Container
-        textAlign="center"
-        mb={4}
-        backgroundColor={bgGray}
-        pt={4}
-        pb={8}
-      >
-        <Text my={6} fontSize={`2xl`} color="primary" textTransform="uppercase">
-          Commisioned Art
-        </Text>
-        <Grid templateColumns={[`repeat(2, 1fr)`, `repeat(3, 1fr)`]} gap={4}>
-          {commisioned.edges.map(({ node }) => (
-            <GatsbyImage
-              image={getImage(node.childImageSharp)}
-              alt="Comissioned Art"
-            />
-          ))}
-        </Grid>
-        <Text my={6}>
-          Custom original art for your home or office. Contact Jeanne to make
-          your vision come to life.
-        </Text>
-        <Center>
-          <DiamondButton to="/contact">Contact</DiamondButton>
-        </Center>
-      </Container>
+      <Box backgroundColor={bgGray}>
+        <Container textAlign="center" mb={4} pt={4} pb={8}>
+          <Text
+            my={6}
+            fontSize={`2xl`}
+            color="primary"
+            textTransform="uppercase"
+          >
+            Commisioned Art
+          </Text>
+          <Grid templateColumns={[`repeat(2, 1fr)`, `repeat(3, 1fr)`]} gap={4}>
+            {commisioned.edges.map(({ node }) => (
+              <GatsbyImage
+                image={getImage(node.childImageSharp)}
+                alt="Comissioned Art"
+              />
+            ))}
+          </Grid>
+          <Text my={6}>
+            Custom original art for your home or office. Contact Jeanne to make
+            your vision come to life.
+          </Text>
+          <Center>
+            <DiamondButton to="/contact">Contact</DiamondButton>
+          </Center>
+        </Container>
+      </Box>
     </Layout>
   )
 }

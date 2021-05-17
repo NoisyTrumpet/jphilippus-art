@@ -66,7 +66,12 @@ const Testimonials = () => {
       <GatsbyImage
         image={desktopImageGet}
         alt="Testimonial Background Image"
-        style={{ gridArea: "1/1", minHeight: `100%`, objectFit: `cover` }}
+        style={{
+          gridArea: "1/1",
+          minHeight: `100%`,
+          objectFit: `cover`,
+          minWidth: `100%`,
+        }}
         className={`testimonial-image`}
       />
       <Box
