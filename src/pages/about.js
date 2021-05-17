@@ -15,6 +15,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Gallery from "../components/Gallery/Gallery"
 import SEO from "../components/SEO"
 import DiamondButton from "../components/DiamondButton/DiamondButton"
+import Link from "../components/link"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const AboutPage = () => {
   // Hero Image Query
@@ -101,11 +103,22 @@ const AboutPage = () => {
           </Text>
         </Box>
       </Grid>
-      <Center className="quote-block">
+      <Box
+        className="quote-block"
+        display="grid"
+        placeItems="center"
+        position="relative"
+      >
         <Text p="10" color={`primary`} fontStyle={`italic`} fontSize={`3xl`}>
           "Creating Art From The Broken Pieces"
         </Text>
-      </Center>
+      </Box>
+      <Box textAlign="end" px={4} pb={2}>
+        <Link to="/gallery" color="primary">
+          View Jeanne's full gallery
+          <ExternalLinkIcon />
+        </Link>
+      </Box>
       <Gallery />
       <Box backgroundColor={bgGray}>
         <Container textAlign="center" mb={4} pt={4} pb={8}>

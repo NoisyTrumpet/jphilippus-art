@@ -202,12 +202,22 @@ const AltHero = ({
             </Box>
           )}
         </Box>
-        <Box>
-          <GatsbyImage
-            image={getImgSrc()}
-            alt={`${productType || imageAlt} | Hero Image`}
-            style={{ minHeight: `100%`, minWidth: `100%` }}
-          />
+        <Box display="grid" placeItems="center">
+          {title === "Gallery" ? (
+            <Text
+              fontSize={["2xl", "3xl", "4xl"]}
+              color="primary"
+              fontStyle="italic"
+            >
+              “Creating Art From The Broken Pieces”
+            </Text>
+          ) : (
+            <GatsbyImage
+              image={getImgSrc()}
+              alt={`${productType || imageAlt} | Hero Image`}
+              style={{ minHeight: `100%`, minWidth: `100%` }}
+            />
+          )}
         </Box>
       </Grid>
     </Box>

@@ -21,7 +21,6 @@ import { graphql } from "gatsby"
 import GoogleMapReact from "google-map-react"
 import "../styles/contact.scss"
 import DiamondButton from "../components/DiamondButton/DiamondButton"
-import AltHero from "../components/AltHero/index"
 import SEO from "../components/SEO"
 
 const center = {
