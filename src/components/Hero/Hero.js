@@ -53,6 +53,7 @@ const Hero = () => {
         alt="hero image"
         style={{ gridArea: "1/1", objectPosition: "top" }}
         className="hero-image"
+        loading="eager"
       />
 
       <Box

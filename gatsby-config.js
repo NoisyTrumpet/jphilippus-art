@@ -22,6 +22,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-preact`,
     {
       resolve: `gatsby-source-instagram-all`,
       options: {
@@ -34,6 +35,7 @@ module.exports = {
         // hashtags: true
       },
     },
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       /* Include plugin */
       resolve: "gatsby-omni-font-loader",

@@ -38,6 +38,7 @@ const DiamondButton = ({
           className={`btn ${checkButtonStyle} ${checkButtonSize}`}
           display="flex"
           type={type}
+          onClick={onClick}
         >
           <Tag
             className="btn-text"
