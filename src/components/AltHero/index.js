@@ -206,7 +206,7 @@ const AltHero = ({
           <GatsbyImage
             image={getImgSrc()}
             alt={`${productType || imageAlt} | Hero Image`}
-            style={{ height: `100%` }}
+            style={{ minHeight: `100%`, minWidth: `100%` }}
           />
         </Box>
       </Grid>

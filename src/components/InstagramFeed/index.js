@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { SimpleGrid } from "@chakra-ui/layout"
 
 const InstagramFeed = ({ images }) => {

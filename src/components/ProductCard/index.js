@@ -35,7 +35,13 @@ const ProductCard = ({ product, featured }) => {
         h2: { color: linkHoverColor },
       }}
     >
-      <Box bg={bg} data-name="product-image-box">
+      <Box
+        bg={bg}
+        data-name="product-image-box"
+        display="grid"
+        placeItems="center"
+        mb={4}
+      >
         {firstImage && (
           <GatsbyImage
             alt=""
@@ -46,7 +52,7 @@ const ProductCard = ({ product, featured }) => {
       <Box textAlign="center">
         <Text
           as="h2"
-          fontSize={featured ? "sm" : "4xl"}
+          fontSize={featured ? "md" : "4xl"}
           color={`secondary`}
           transition="color 0.25s ease-in-out"
         >

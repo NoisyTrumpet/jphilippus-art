@@ -37,6 +37,7 @@ const Gallery = () => {
           <GatsbyImage
             image={getImage(node.childImageSharp)}
             alt={`Gallery Image`}
+            style={{ minWidth: `100%` }}
           />
         </GridItem>
       ))}
