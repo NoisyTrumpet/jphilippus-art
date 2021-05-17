@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { lazy } from "react"
 import {
   Container,
   Text,
@@ -8,6 +8,7 @@ import {
   GridItem,
   Center,
 } from "@chakra-ui/react"
+
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
