@@ -172,7 +172,6 @@ export const query = graphql`
                 placeholder: BLURRED
                 formats: [AUTO, WEBP]
                 quality: 90
-                aspectRatio: 1
               )
             }
           }
