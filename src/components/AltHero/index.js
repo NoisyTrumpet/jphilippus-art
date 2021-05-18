@@ -38,7 +38,7 @@ const AltHero = ({
         artHero: file(relativePath: { eq: "page-heros/art-page-hero.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 800
+              width: 960
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
@@ -51,7 +51,7 @@ const AltHero = ({
         ) {
           childImageSharp {
             gatsbyImageData(
-              width: 800
+              width: 960
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
@@ -64,7 +64,7 @@ const AltHero = ({
         ) {
           childImageSharp {
             gatsbyImageData(
-              width: 1054
+              width: 960
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
@@ -75,7 +75,7 @@ const AltHero = ({
         allHero: file(relativePath: { eq: "page-heros/shop-page-hero.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 1000
+              width: 960
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
@@ -97,7 +97,7 @@ const AltHero = ({
         charcuterie: file(relativePath: { eq: "charcuterie.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 1000
+              width: 960
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED

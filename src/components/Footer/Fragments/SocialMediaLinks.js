@@ -1,6 +1,6 @@
 import { ButtonGroup, IconButton } from "@chakra-ui/react"
 import * as React from "react"
-import { FaFacebook, FaInstagram } from "react-icons/fa"
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa"
 import ThemeToggle from "../../ThemeToggle/index"
 
 const SocialMediaLinks = props => (
@@ -21,6 +21,15 @@ const SocialMediaLinks = props => (
       aria-label="Instagram"
       icon={<FaInstagram fontSize="20px" />}
     />
+    <IconButton
+      as="a"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.youtube.com/channel/UC2ebHj7h8u6XAzZRhXbx02w"
+      aria-label="Instagram"
+      icon={<FaYoutube fontSize="20px" />}
+    />
+
     <ThemeToggle />
 
     {/* <IconButton

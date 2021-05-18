@@ -32,7 +32,11 @@ export const Announcement = () => (
         <Icon as={PhoneIcon} fontSize="2xl" h="10" />
         <Text fontWeight="medium" marginEnd="2">
           Call us at <a href="tel:210.474.0440">210-474-0440</a> to book a
-          private individual or group class. Open M-F 11am-6pm • Sat 11am-5pm
+          private individual or group class. Open T-F 11am-6pm • Sat 11am-5pm
+        </Text>
+        <Text fontWeight="medium" marginEnd="2">
+          Closed Monday's in April & May for the showcasing of my original art
+          in the Robare Custom Home at the 2021 Parade of Homes.
         </Text>
       </HStack>
       {/* <Link

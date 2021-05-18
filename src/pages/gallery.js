@@ -1,6 +1,6 @@
 import React from "react"
-import Gallery from "../components/Gallery/Gallery"
 import Layout from "../components/Layout/Layout"
+import Gallery from "../components/Gallery/Gallery"
 import AltHero from "../components/AltHero/index"
 import SEO from "../components/SEO"
 

@@ -17,6 +17,7 @@ const CartButton = ({ quantity, btnRef, onOpen }) => {
           size="lg"
           ref={btnRef}
           onClick={onOpen}
+          p={2}
           className="cart-btn cart-link"
         />
         {""}

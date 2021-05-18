@@ -4,7 +4,7 @@ function Cart(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={26.726}
+      width={27.726}
       height={31.939}
       viewBox="0 0 26.726 31.939"
       {...props}
