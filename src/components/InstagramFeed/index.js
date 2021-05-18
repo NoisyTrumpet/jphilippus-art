@@ -5,7 +5,7 @@ import { SimpleGrid } from "@chakra-ui/layout"
 
 const InstagramFeed = ({ images }) => {
   return (
-    <SimpleGrid columns={[2, 3]} spacing={4}>
+    <SimpleGrid columns={[3]} spacing={0}>
       {images.map(image => (
         <a
           href={image.node.permalink}

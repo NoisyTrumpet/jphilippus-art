@@ -142,8 +142,17 @@ const Contact = () => {
               <a href="tel:210.474.0440">
                 <Text>210.474.0440</Text>
               </a>
+              <Text
+                as="h2"
+                color="primary"
+                fontSize={`3xl`}
+                mt={4}
+                textTransform={`uppercase`}
+              >
+                Hours
+              </Text>
 
-              <Text mt={4}>Open T-F 11am-6pm | Sat 11am-5pm</Text>
+              <Text mt={4}> T-F 11am-6pm • Sat 11am-5pm</Text>
               <Text mt={4}>
                 Closed Monday's in April & May for the showcasing of my original
                 art in the Robare Custom Home at the 2021 Parade of Homes.

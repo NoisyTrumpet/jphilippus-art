@@ -80,11 +80,11 @@ function SEO({
         },
         {
           name: `og:image:width`,
-          content: imageWidth || `400`,
+          content: imageWidth || `1200`,
         },
         {
           name: `og:image:height`,
-          content: imageHeight || `400`,
+          content: imageHeight || `630`,
         },
         {
           name: `og:image`,

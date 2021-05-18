@@ -17,7 +17,9 @@ const Newsletter = () => {
         <FooterHeading color={themeBlue}>
           Subscribe to our newsletter
         </FooterHeading>
-        <Text>Get notified when we add new products and classes.</Text>
+        <Text fontSize={[`small`, `medium`]}>
+          Get notified when we add new products and classes.
+        </Text>
         <Stack
           spacing="4"
           direction={{
@@ -45,6 +47,7 @@ const Newsletter = () => {
             buttonSize="btn--xs"
             id="footerNewsletterBtn"
             to="submit"
+            onClick={() => {}}
             marginTop={4}
           >
             Subscribe

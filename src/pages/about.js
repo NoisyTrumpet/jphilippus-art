@@ -89,11 +89,11 @@ const AboutPage = () => {
             love of art, she developed her own style using leftover paint and
             items she found on the farm. In her late twenties, Jeanne lost her
             husband to cancer after only a few short years of marriage. While
-            grieving such a loss, Jeanne began incorporating broken glass in her
-            art as a metaphor for life. Creating art from the broken and
-            discarded materials was a crucial part of her healing process.
-            Combining acrylics, resins and recycled glass, Jeanne began creating
-            unique art that set the stage for her future career.
+            grieving, Jeanne began incorporating broken glass in her art as a
+            metaphor for life. Creating art from the broken and discarded
+            materials was a crucial part of her healing process. Combining
+            acrylics, resins and recycled glass, Jeanne began creating unique
+            art that set the stage for her future career.
           </Text>
           <Text>
             Jeanne currently lives in San Antonio, Texas where she owns J.
@@ -109,7 +109,13 @@ const AboutPage = () => {
         placeItems="center"
         position="relative"
       >
-        <Text p="10" color={`primary`} fontStyle={`italic`} fontSize={`3xl`}>
+        <Text
+          p="10"
+          color={`primary`}
+          fontStyle={`italic`}
+          fontSize={[`xl`, `3xl`]}
+          textAlign={[`center`, `center`, `left`]}
+        >
           "Creating Art From The Broken Pieces"
         </Text>
       </Box>

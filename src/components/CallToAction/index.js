@@ -73,8 +73,8 @@ const CallToAction = () => {
           color={useColorModeValue("secondary")}
           maxWidth={350}
         >
-          We now have new rates starting at $45 per person for glass art for
-          parties with 15 or more people.
+          New rates starting at $45 per person for glass art parties of 15 or
+          more people.
         </Text>
         <Heading
           my="4"
@@ -93,7 +93,7 @@ const CallToAction = () => {
           Discover your inner artist Book a Class Today
         </Heading>
         <Text fontSize="lg" maxW="xl" mx="auto" mb={8} maxWidth={450}>
-          Book a class using our new booking application. Or inquire about a
+          Book a class using our new booking application or inquire about a
           custom art class for your special event.
         </Text>
         <DiamondButton

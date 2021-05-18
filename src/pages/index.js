@@ -29,10 +29,16 @@ const IndexPage = ({ data: products, data }) => {
   const featuredProducts = {
     nodes: products?.shopifyCollection?.products,
   }
+  console.log(data.graphImg.childImageSharp.gatsbyImageData.width)
 
   return (
     <Layout>
-      <SEO title="J. Philippus Art Studio & Gallery" />
+      <SEO
+        title="J. Philippus Art Studio & Gallery"
+        image={data.graphImg.publicURL}
+        imageWidth={data.graphImg.childImageSharp.gatsbyImageData.width}
+        imageHeight={data.graphImg.childImageSharp.gatsbyImageData.height}
+      />
       <Hero />
       <Container my={[16, 16, 16, 16]} textAlign="center">
         <Text
@@ -177,6 +183,18 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    graphImg: file(relativePath: { eq: "heroDesktop-banner.jpg" }) {
+      publicURL
+      childImageSharp {
+        gatsbyImageData(
+          width: 1800
+          quality: 60
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     file(relativePath: { eq: "news-image.jpg" }) {
