@@ -106,6 +106,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
   ],
 }
