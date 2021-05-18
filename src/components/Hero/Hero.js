@@ -15,7 +15,7 @@ const Hero = () => {
           childImageSharp {
             gatsbyImageData(
               width: 490
-              quality: 90
+              quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]
@@ -26,7 +26,7 @@ const Hero = () => {
           childImageSharp {
             gatsbyImageData(
               width: 1800
-              quality: 90
+              quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]
@@ -53,7 +53,6 @@ const Hero = () => {
         alt="hero image"
         style={{ gridArea: "1/1", objectPosition: "top" }}
         className="hero-image"
-        loading="eager"
       />
 
       <Box

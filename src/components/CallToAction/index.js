@@ -21,7 +21,7 @@ const NewCallToAction = () => {
           childImageSharp {
             gatsbyImageData(
               width: 800
-              quality: 90
+              quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]

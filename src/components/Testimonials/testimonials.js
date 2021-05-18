@@ -13,7 +13,7 @@ const Testimonials = () => {
           childImageSharp {
             gatsbyImageData(
               width: 2160
-              quality: 90
+              quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]

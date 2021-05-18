@@ -7,12 +7,16 @@ const SocialMediaLinks = props => (
   <ButtonGroup variant="ghost" color="#3FA7B6" {...props} alignItems="center">
     <IconButton
       as="a"
+      target="_blank"
+      rel="noopener noreferrer"
       href="https://www.facebook.com/JPhilippusArtStudio"
       aria-label="Facebook"
       icon={<FaFacebook fontSize="20px" />}
     />
     <IconButton
       as="a"
+      target="_blank"
+      rel="noopener noreferrer"
       href="https://www.instagram.com/jphilippusartstudio/"
       aria-label="Instagram"
       icon={<FaInstagram fontSize="20px" />}

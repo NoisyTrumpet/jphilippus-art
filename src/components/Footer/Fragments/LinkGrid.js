@@ -4,7 +4,7 @@ import { FooterHeading } from "./FooterHeading"
 import Link from "../../link"
 
 const LinkGrid = props => (
-  <SimpleGrid columns={{ base: 2, lg: 2 }} {...props}>
+  <SimpleGrid columns={[2, 3]} {...props}>
     <Box minW="140px">
       <FooterHeading mb="4">Menu</FooterHeading>
       <SimpleGrid columns={{ base: 1, lg: 1 }}>
@@ -15,8 +15,27 @@ const LinkGrid = props => (
           <Link to="/products" alt="Shop our Products" display="block">
             Shop
           </Link>
+          <Link to="/gallery" alt="Contact Us" display="block">
+            Gallery
+          </Link>
           <Link to="/contact" alt="Contact Us" display="block">
             Contact
+          </Link>
+        </Box>
+      </SimpleGrid>
+    </Box>
+    <Box minW="140px">
+      <FooterHeading mb="4">Policies</FooterHeading>
+      <SimpleGrid columns={{ base: 1, lg: 1 }}>
+        <Box>
+          <Link to="/privacy-policy" alt="About the Artist" display="block">
+            Privacy
+          </Link>
+          <Link to="/terms-of-service" alt="Shop our Products" display="block">
+            Terms & Conditions
+          </Link>
+          <Link to="/refund-policy" alt="Contact Us" display="block">
+            Refunds
           </Link>
         </Box>
       </SimpleGrid>

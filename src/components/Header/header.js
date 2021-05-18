@@ -34,7 +34,7 @@ const NavBar = props => {
           childImageSharp {
             gatsbyImageData(
               width: 200
-              quality: 90
+              quality: 60
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )
@@ -44,7 +44,7 @@ const NavBar = props => {
           childImageSharp {
             gatsbyImageData(
               width: 200
-              quality: 90
+              quality: 60
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )
@@ -144,6 +144,11 @@ export const MenuLinks = () => {
     {
       name: "Class Schedule",
       slug: "https://j-philippus-art-studio.myshopify.com/pages/calendar",
+      pActive: true,
+    },
+    {
+      name: "Gallery",
+      slug: "/gallery",
       pActive: true,
     },
     {

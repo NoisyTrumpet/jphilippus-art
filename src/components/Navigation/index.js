@@ -60,6 +60,11 @@ const Navigation = () => {
       pActive: true,
     },
     {
+      name: "Gallery",
+      slug: "/gallery",
+      pActive: true,
+    },
+    {
       name: "Contact",
       slug: "/contact",
       pActive: true,

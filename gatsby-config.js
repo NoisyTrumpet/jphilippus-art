@@ -36,7 +36,6 @@ module.exports = {
       },
     },
     "gatsby-plugin-webpack-bundle-analyser-v2",
-    "gatsby-plugin-preload-fonts",
     {
       /* Include plugin */
       resolve: "gatsby-omni-font-loader",

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import {
   Container,
   Text,
@@ -8,6 +8,7 @@ import {
   GridItem,
   Center,
 } from "@chakra-ui/react"
+
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
@@ -144,7 +145,7 @@ export const query = graphql`
                 layout: CONSTRAINED
                 placeholder: BLURRED
                 formats: [AUTO, WEBP]
-                quality: 90
+                quality: 60
                 width: 220
               )
             }
@@ -171,7 +172,7 @@ export const query = graphql`
                 layout: CONSTRAINED
                 placeholder: BLURRED
                 formats: [AUTO, WEBP]
-                quality: 90
+                quality: 60
               )
             }
           }
@@ -180,7 +181,7 @@ export const query = graphql`
     }
     file(relativePath: { eq: "news-image.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 569, quality: 90, layout: CONSTRAINED)
+        gatsbyImageData(width: 569, quality: 60, layout: CONSTRAINED)
       }
     }
   }
