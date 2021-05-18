@@ -97,7 +97,7 @@ const Contact = () => {
               rowStart={1}
               rowSpan={[1, 1, 2]}
               pb={12}
-              minHeight={[`600px`]}
+              height={[`450px`, `700px`]}
             >
               <Text
                 as="h1"
@@ -178,7 +178,7 @@ const Contact = () => {
               >
                 <FormControl id="first-name" isRequired>
                   <Wrap justify="space-between">
-                    <WrapItem flexDir="column" w="48%">
+                    <WrapItem flexDir="column" w={["100%", "100%", "48%"]}>
                       <FormLabel>First name</FormLabel>
                       <Input
                         type="text"
@@ -187,7 +187,7 @@ const Contact = () => {
                         backgroundColor="white"
                       />
                     </WrapItem>
-                    <WrapItem flexDir="column" w="48%">
+                    <WrapItem flexDir="column" w={["100%", "100%", "48%"]}>
                       <FormLabel>Last name</FormLabel>
                       <Input
                         type="text"

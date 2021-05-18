@@ -128,6 +128,7 @@ const Hero = () => {
               // w="min-content"
               display="grid"
               placeItems="center"
+              pt={[300, 0]}
               // mr={["2rem", "2rem", "8rem", "8rem", "0"]}
             >
               <Grid
@@ -143,7 +144,7 @@ const Hero = () => {
                   rowStart={1}
                   d={["grid", "flex"]}
                   placeItems="center"
-                  alignItems={["center", "flex-end"]}
+                  alignItems={["flex-end", "flex-end"]}
                   // transform="rotate(-45deg)"
                 >
                   <Roll top>

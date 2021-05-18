@@ -34,13 +34,13 @@ const LinkGrid = props => (
           <Link to="/terms-of-service" alt="Shop our Products" display="block">
             Terms & Conditions
           </Link>
-          <Link to="/refund-policy" alt="Contact Us" display="block">
+          {/* <Link to="/refund-policy" alt="Contact Us" display="block">
             Refunds
-          </Link>
+          </Link> */}
         </Box>
       </SimpleGrid>
     </Box>
-    <Box minW="140px">
+    <Box minW="140px" mt={[4, 0]}>
       <FooterHeading mb="4">Address</FooterHeading>
       <Stack>
         <a

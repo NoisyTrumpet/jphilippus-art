@@ -121,6 +121,10 @@ const Product = ({ data: { product, suggestions } }) => {
         title={title}
         description={description}
         image={firstImage.localFile.publicURL}
+        imageWidth={firstImage.localFile.childImageSharp.gatsbyImageData.width}
+        imageHeight={
+          firstImage.localFile.childImageSharp.gatsbyImageData.height
+        }
       />
       <Box bgGradient={bgGradient}>
         <Container py={[16, 20, 28]}>
@@ -172,7 +176,7 @@ const Product = ({ data: { product, suggestions } }) => {
                     <>
                       {options.map(({ id, name, values }, index) => (
                         <React.Fragment key={id}>
-                          <Stack as="fieldset" mt={4} mr={6}>
+                          <Stack as="fieldset" mt={4} mr={6} mb={[8, 0]}>
                             <label htmlFor="variant">{name}</label>
                             <Select
                               variant="filled"
@@ -207,7 +211,7 @@ const Product = ({ data: { product, suggestions } }) => {
                       quantity={quantity}
                       available={available}
                       alignSelf="flex-end"
-                      mt={4}
+                      mt={8}
                     />
                   )}
                 </Flex>

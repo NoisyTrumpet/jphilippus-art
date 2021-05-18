@@ -25,6 +25,7 @@ const Newsletter = () => {
             md: "row",
           }}
           className="footer-newsletter"
+          alignItems="center"
         >
           <Input
             bg={useColorModeValue("white", "inherit")}

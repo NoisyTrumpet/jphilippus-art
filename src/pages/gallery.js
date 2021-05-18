@@ -11,7 +11,7 @@ const GalleryPage = () => {
       <AltHero
         title="Gallery"
         subcaption="Take a look, and be inspired"
-        body="Browse through our gallery of unique, hand-crafted artwork and be inspired to create your own piece with the assistance of our instructors. You can create ANYTHING your imagination comes up with"
+        body="Browse through our gallery of unique, hand-crafted artwork and be inspired to create your own piece with the assistance of our instructors. You can create ANYTHING your imagination comes up with."
       />
       <Gallery isPage />
     </Layout>
