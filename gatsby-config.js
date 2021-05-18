@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `J. Philippus Art Studio`,
-    description: `We are excited to share that The Shard Studio, LLC is now J. Philippus Art Studio and Gallery, LLC!  Please stay tuned for the launch of our new logo, which is coming soon!`,
+    description: `J. Philippus Art Studio & Gallery offers Glass Art, Acrylic Pour and Resin Art classes for individuals or groups. Shop classes, gifts and original art.`,
     author: `@noisytrumpet`,
     siteUrl: `https://jphilippusart.com`,
   },
@@ -84,7 +84,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/images/app-icon.png`, // This path is relative to the root of the site.
       },
     },
     {

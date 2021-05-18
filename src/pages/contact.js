@@ -143,7 +143,11 @@ const Contact = () => {
                 <Text>210.474.0440</Text>
               </a>
 
-              <Text mt={4}>Open M-F 11am-6pm | Sat 11am-5pm</Text>
+              <Text mt={4}>Open T-F 11am-6pm | Sat 11am-5pm</Text>
+              <Text mt={4}>
+                Closed Monday's in April & May for the showcasing of my original
+                art in the Robare Custom Home at the 2021 Parade of Homes.
+              </Text>
               <Text
                 as="h2"
                 color="primary"
