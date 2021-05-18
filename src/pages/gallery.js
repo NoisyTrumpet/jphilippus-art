@@ -1,4 +1,3 @@
-import { Container, Text } from "@chakra-ui/layout"
 import React from "react"
 import Gallery from "../components/Gallery/Gallery"
 import Layout from "../components/Layout/Layout"
@@ -11,8 +10,8 @@ const GalleryPage = () => {
       <SEO title="Gallery" />
       <AltHero
         title="Gallery"
-        subcaption="Lorem Ipsum"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
+        subcaption="Take a look, and be inspired"
+        body="Browse through our gallery of unique, hand-crafted artwork and be inspired to create your own piece with the assistance of our instructors. You can create ANYTHING your imagination comes up with"
       />
       <Gallery isPage />
     </Layout>

@@ -15,7 +15,7 @@ const Hero = () => {
           childImageSharp {
             gatsbyImageData(
               width: 490
-              quality: 90
+              quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]
@@ -26,7 +26,7 @@ const Hero = () => {
           childImageSharp {
             gatsbyImageData(
               width: 1800
-              quality: 90
+              quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]

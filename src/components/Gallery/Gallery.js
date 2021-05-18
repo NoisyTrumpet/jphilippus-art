@@ -8,7 +8,10 @@ import "./gallery.css"
 const Gallery = ({ isPage }) => {
   const { galleryImages, someGalleryImages } = useStaticQuery(graphql`
     query {
-      galleryImages: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
+      galleryImages: allFile(
+        filter: { relativeDirectory: { eq: "gallery" } }
+        sort: { order: ASC, fields: name }
+      ) {
         edges {
           node {
             childImageSharp {
@@ -16,7 +19,7 @@ const Gallery = ({ isPage }) => {
               gatsbyImageData(
                 formats: [AUTO, WEBP]
                 layout: CONSTRAINED
-                quality: 90
+                quality: 60
                 placeholder: BLURRED
                 width: 1920
               )
@@ -27,6 +30,7 @@ const Gallery = ({ isPage }) => {
       someGalleryImages: allFile(
         filter: { relativeDirectory: { eq: "gallery" } }
         limit: 3
+        sort: { order: ASC, fields: name }
       ) {
         edges {
           node {
@@ -35,7 +39,7 @@ const Gallery = ({ isPage }) => {
               gatsbyImageData(
                 formats: [AUTO, WEBP]
                 layout: CONSTRAINED
-                quality: 90
+                quality: 60
                 placeholder: BLURRED
                 width: 1920
               )
@@ -47,11 +51,7 @@ const Gallery = ({ isPage }) => {
   `)
 
   return (
-    <Grid
-      templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)"]}
-      gap={1}
-      className="gallery"
-    >
+    <Grid templateColumns={["repeat(2, 1fr)"]} className="gallery">
       {isPage
         ? galleryImages.edges.map(({ node }) => (
             <GridItem key={node.childImageSharp.id}>

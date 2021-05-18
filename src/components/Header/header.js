@@ -34,7 +34,7 @@ const NavBar = props => {
           childImageSharp {
             gatsbyImageData(
               width: 200
-              quality: 90
+              quality: 60
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )
@@ -44,7 +44,7 @@ const NavBar = props => {
           childImageSharp {
             gatsbyImageData(
               width: 200
-              quality: 90
+              quality: 60
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )

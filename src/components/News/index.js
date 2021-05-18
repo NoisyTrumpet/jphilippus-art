@@ -14,7 +14,7 @@ const News = () => {
           childImageSharp {
             gatsbyImageData(
               width: 500
-              quality: 90
+              quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]

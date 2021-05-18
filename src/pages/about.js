@@ -28,7 +28,7 @@ const AboutPage = () => {
             id
             gatsbyImageData(
               width: 1200
-              quality: 90
+              quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP]
@@ -45,7 +45,7 @@ const AboutPage = () => {
                 gatsbyImageData(
                   formats: [AUTO, WEBP]
                   layout: CONSTRAINED
-                  quality: 90
+                  quality: 60
                   placeholder: BLURRED
                   width: 516
                 )
