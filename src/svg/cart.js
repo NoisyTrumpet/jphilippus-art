@@ -5,8 +5,11 @@ function Cart(props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={27.726}
-      height={31.939}
-      viewBox="0 0 26.726 31.939"
+      height={32.939}
+      viewBox="0 0 27.726 32.939"
+      style={{
+        paddingBottom: `1px`,
+      }}
       {...props}
     >
       <path
