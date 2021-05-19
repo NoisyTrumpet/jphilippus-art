@@ -32,6 +32,7 @@ const AltHero = ({
     julieVossLogo,
     allHero,
     charcuterie,
+    artKit,
   } = useStaticQuery(
     graphql`
       query {
@@ -105,6 +106,17 @@ const AltHero = ({
             )
           }
         }
+        artKit: file(relativePath: { eq: "page-heros/art-kit-hero.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 960
+              quality: 60
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
+            )
+          }
+        }
       }
     `
   )
@@ -124,6 +136,9 @@ const AltHero = ({
     }
     if (productType === "Charcuterie") {
       return getImage(charcuterie)
+    }
+    if (productType === "Art Kit") {
+      return getImage(artKit)
     }
 
     return getImage(allHero)
