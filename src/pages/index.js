@@ -33,47 +33,44 @@ const IndexPage = ({ data: products, data }) => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "J. Philippus Art Studio & Gallery",
-    "image": data.graphImg.publicURL,
+    name: "J. Philippus Art Studio & Gallery",
+    image: data.graphImg.publicURL,
     "@id": "jphilippusart",
-    "url": "https://jphilippusart.com/",
-    "telephone": "210.474.0440",
-    "address": {
+    url: "https://jphilippusart.com/",
+    telephone: "210.474.0440",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "1846 North Loop 1604 W Suite 10",
-      "addressLocality": "San Antonio",
-      "addressRegion": "TX",
-      "postalCode": "78248",
-      "addressCountry": "US"
+      streetAddress: "1846 North Loop 1604 W Suite 10",
+      addressLocality: "San Antonio",
+      addressRegion: "TX",
+      postalCode: "78248",
+      addressCountry: "US",
     },
-    "geo": {
+    geo: {
       "@type": "GeoCoordinates",
-      "latitude": 29.6066812,
-      "longitude": -98.52151239999999
+      latitude: 29.6066812,
+      longitude: -98.52151239999999,
     },
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "11:00",
-      "closes": "18:00"
-    },{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "11:00",
-      "closes": "17:00"
-    }],
-    "sameAs": [
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "11:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "11:00",
+        closes: "17:00",
+      },
+    ],
+    sameAs: [
       "https://www.facebook.com/JPhilippusArtStudio",
       "https://www.youtube.com/channel/UC2ebHj7h8u6XAzZRhXbx02w",
       "https://jphilippusart.com/",
-      "https://www.instagram.com/jphilippusartstudio/"
-    ]
+      "https://www.instagram.com/jphilippusartstudio/",
+    ],
   }
 
   return (

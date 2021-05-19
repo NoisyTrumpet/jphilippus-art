@@ -18,7 +18,7 @@ function SEO({
   image,
   imageWidth,
   imageHeight,
-  schemaMarkup
+  schemaMarkup,
 }) {
   const { site } = useStaticQuery(
     graphql`
@@ -97,11 +97,11 @@ function SEO({
         },
       ].concat(meta)}
     >
-      {schemaMarkup &&
+      {schemaMarkup && (
         <script type="application/ld+json">
           {JSON.stringify(schemaMarkup)}
         </script>
-      }
+      )}
     </Helmet>
   )
 }
