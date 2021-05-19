@@ -9,7 +9,7 @@ import {
 import { graphql } from "gatsby"
 import Layout from "../../../components/Layout/Layout"
 import ProductListing from "../../../components/ProductListing/index"
-import SEO from "../../../components/SEO"
+import Seo from "../../../components/SEO"
 import AltHero from "../../../components/AltHero"
 import LinkGrid from "../../../components/LinkGrid/index"
 
@@ -70,7 +70,7 @@ const ProductTypeIndex = ({
 
   return (
     <Layout>
-      <SEO title={`Category: ${productType}`} />
+      <Seo title={`Category: ${productType}`} />
       <VisuallyHidden as="h1">{productType}</VisuallyHidden>
       <AltHero
         title={heroTitle()}

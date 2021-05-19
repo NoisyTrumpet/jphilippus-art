@@ -13,7 +13,7 @@ import {
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Gallery from "../components/Gallery/Gallery"
-import SEO from "../components/SEO"
+import Seo from "../components/SEO"
 import DiamondButton from "../components/DiamondButton/DiamondButton"
 import Link from "../components/link"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
@@ -62,7 +62,7 @@ const AboutPage = () => {
 
   return (
     <Layout>
-      <SEO title={`About the Artist`} />
+      <Seo title={`About the Artist`} />
       <Grid
         templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
         templateRows={["fit-content 1fr", "1fr 1fr", "repeat(1, 1fr)"]}

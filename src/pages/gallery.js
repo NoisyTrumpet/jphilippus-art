@@ -2,12 +2,12 @@ import React from "react"
 import Layout from "../components/Layout/Layout"
 import Gallery from "../components/Gallery/Gallery"
 import AltHero from "../components/AltHero/index"
-import SEO from "../components/SEO"
+import Seo from "../components/SEO"
 
 const GalleryPage = () => {
   return (
     <Layout>
-      <SEO title="Gallery" />
+      <Seo title="Gallery" />
       <AltHero
         title="Gallery"
         subcaption="Take a look, and be inspired"

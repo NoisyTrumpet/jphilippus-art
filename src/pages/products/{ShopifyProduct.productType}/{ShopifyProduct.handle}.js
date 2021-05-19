@@ -23,7 +23,7 @@ import { StoreContext } from "../../../context/storeContext"
 import AddToCart from "../../../components/AddToCart/index"
 import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
-import SEO from "../../../components/SEO.js"
+import Seo from "../../../components/SEO.js"
 import DiamondButton from "../../../components/DiamondButton/DiamondButton"
 
 const Product = ({ data: { product, suggestions } }) => {
@@ -117,7 +117,7 @@ const Product = ({ data: { product, suggestions } }) => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={title}
         description={description}
         image={firstImage.localFile.publicURL}

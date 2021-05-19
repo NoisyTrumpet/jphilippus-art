@@ -3,7 +3,7 @@ import { Container, Flex, Center, useColorModeValue } from "@chakra-ui/react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout/Layout"
 import ProductListing from "../components/ProductListing/index"
-import SEO from "../components/SEO"
+import Seo from "../components/SEO"
 import AltHero from "../components/AltHero/index"
 import LinkGrid from "../components/LinkGrid"
 
@@ -11,7 +11,7 @@ const Products = ({ data: { products } }) => {
   const secondary = useColorModeValue(`secondary`, `secondary`)
   return (
     <Layout>
-      <SEO title="All Products in J. Philippus Art Studio & Gallery" />
+      <Seo title="All Products in J. Philippus Art Studio & Gallery" />
       {/* <VisuallyHidden as="h1">Products</VisuallyHidden> */}
       <AltHero
         title="All Products"

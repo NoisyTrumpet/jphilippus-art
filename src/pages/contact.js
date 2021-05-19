@@ -21,7 +21,7 @@ import { graphql } from "gatsby"
 import GoogleMapReact from "google-map-react"
 import "../styles/contact.scss"
 import DiamondButton from "../components/DiamondButton/DiamondButton"
-import SEO from "../components/SEO"
+import Seo from "../components/SEO"
 
 const center = {
   lat: 29.606779288223038,
@@ -67,7 +67,7 @@ const Contact = () => {
   const bgGray = mode(`bgGray`, `gray.700`)
   return (
     <Layout>
-      <SEO title="Contact Us" />
+      <Seo title="Contact Us" />
       {/* <AltHero
         title="Contact"
         subcaption="Have Questions?"
