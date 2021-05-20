@@ -85,19 +85,18 @@ const Hero = () => {
             ml={[0, "auto"]}
             zIndex={4}
           >
-
-              <Text
-                as="h1"
-                color="secondary"
-                textTransform="uppercase"
-                fontSize={["3xl", "4xl"]}
-                fontWeight={500}
-                lineHeight={10}
-                maxWidth={[`none`, `none`, 300]}
-                mb={{ sm: 2, md: 4 }}
-              >
-                Teaching Art Studio
-              </Text>
+            <Text
+              as="h1"
+              color="secondary"
+              textTransform="uppercase"
+              fontSize={["3xl", "4xl"]}
+              fontWeight={500}
+              lineHeight={10}
+              maxWidth={[`none`, `none`, 300]}
+              mb={{ sm: 2, md: 4 }}
+            >
+              Teaching Art Studio
+            </Text>
 
             <Text fontSize="21px" color="color">
               We are excited to share that <br />
@@ -140,54 +139,48 @@ const Hero = () => {
                 w="min-content"
               >
                 <GridItem
-                  colStart={ 1 }
-                  rowStart={ 1 }
+                  colStart={1}
+                  rowStart={1}
                   d={["grid", "flex"]}
                   placeItems={["right", "center"]}
                   alignItems={["flex-end", "flex-end"]}
                   // transform="rotate(-45deg)"
                 >
-
-                    <DiamondButton
-                      to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
-                      rotate
-                      buttonStyle="btn--primary"
-                      buttonSize="btn--medium"
-                      p={0}
-                      m={0}
-                      tight
-                    >
-                      Book a Class &#8594;
-                    </DiamondButton>
-
+                  <DiamondButton
+                    to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+                    rotate
+                    buttonStyle="btn--primary"
+                    buttonSize="btn--medium"
+                    p={0}
+                    m={0}
+                    tight
+                  >
+                    Book a Class &#8594;
+                  </DiamondButton>
                 </GridItem>
                 <GridItem
                   colStart={2}
                   rowStart={1}
                   d={["none", "none", "none", "flex"]}
                 >
-
-                    <Box
-                      bg="rgba(63, 167, 182, .4)"
-                      w={300}
-                      h={300}
-                      borderRadius="15px"
-                    />
-
+                  <Box
+                    bg="rgba(63, 167, 182, .4)"
+                    w={300}
+                    h={300}
+                    borderRadius="15px"
+                  />
                 </GridItem>
                 <GridItem
                   colStart={2}
                   rowStart={2}
                   d={["none", "none", "none", "flex"]}
                 >
-
-                    <Box
-                      bg="rgba(63, 167, 182, .4)"
-                      w={150}
-                      h={150}
-                      borderRadius="15px"
-                    />
-
+                  <Box
+                    bg="rgba(63, 167, 182, .4)"
+                    w={150}
+                    h={150}
+                    borderRadius="15px"
+                  />
                 </GridItem>
               </Grid>
             </Container>
