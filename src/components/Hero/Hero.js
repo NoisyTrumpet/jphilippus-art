@@ -122,7 +122,7 @@ const Hero = () => {
             h="min-content"
             pos="relative"
             top={["-15.5rem", "-8rem", "-8rem", "-2rem", "-5rem"]}
-            right={["-7.5rem", "0"]}
+            right={["-6.25rem", "0"]}
           >
             <Container
               // w="min-content"
