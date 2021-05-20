@@ -1,6 +1,4 @@
 import * as React from "react"
-import Roll from "react-reveal/Roll"
-import Fade from "react-reveal/Fade"
 import { graphql, useStaticQuery } from "gatsby"
 import { getImage, GatsbyImage, withArtDirection } from "gatsby-plugin-image"
 import { Box, Grid, GridItem, Text, Container } from "@chakra-ui/react"
@@ -87,7 +85,7 @@ const Hero = () => {
             ml={[0, "auto"]}
             zIndex={4}
           >
-            <Fade bottom cascade>
+
               <Text
                 as="h1"
                 color="secondary"
@@ -96,20 +94,20 @@ const Hero = () => {
                 fontWeight={500}
                 lineHeight={10}
                 maxWidth={[`none`, `none`, 300]}
-                mb={4}
+                mb={{ sm: 2, md: 4 }}
               >
                 Teaching Art Studio
               </Text>
-            </Fade>
+
             <Text fontSize="21px" color="color">
               We are excited to share that <br />
               The Shard Studio, LLC is now
             </Text>
             <Text
               as="h2"
-              fontSize={["3xl", "4xl"]}
+              fontSize={["2xl", "3xl", "4xl"]}
               color="secondary"
-              marginTop={[2, 4]}
+              marginTop={[1, 4]}
               maxWidth={[`none`, `none`, 350]}
               lineHeight={10}
             >
@@ -118,11 +116,13 @@ const Hero = () => {
           </GridItem>
 
           <GridItem
+            className="btn-grid-wrapper"
             colStart={[1, 1, 2, 2, 5]}
             rowStart={2}
             h="min-content"
             pos="relative"
-            top={["-6.5rem", "-8rem", "-8rem", "-2rem", "-5rem"]}
+            top={["-15.5rem", "-8rem", "-8rem", "-2rem", "-5rem"]}
+            right={["-6rem", "0"]}
           >
             <Container
               // w="min-content"
@@ -140,54 +140,54 @@ const Hero = () => {
                 w="min-content"
               >
                 <GridItem
-                  colStart={1}
-                  rowStart={1}
+                  colStart={ 1 }
+                  rowStart={ 1 }
                   d={["grid", "flex"]}
-                  placeItems="center"
+                  placeItems={["right", "center"]}
                   alignItems={["flex-end", "flex-end"]}
                   // transform="rotate(-45deg)"
                 >
-                  <Roll top>
+
                     <DiamondButton
                       to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
                       rotate
                       buttonStyle="btn--primary"
-                      buttonSize="btn--large"
+                      buttonSize="btn--medium"
                       p={0}
                       m={0}
                       tight
                     >
-                      Book a Class
+                      Book a Class &#8594;
                     </DiamondButton>
-                  </Roll>
+
                 </GridItem>
                 <GridItem
                   colStart={2}
                   rowStart={1}
                   d={["none", "none", "none", "flex"]}
                 >
-                  <Roll top>
+
                     <Box
                       bg="rgba(63, 167, 182, .4)"
                       w={300}
                       h={300}
                       borderRadius="15px"
                     />
-                  </Roll>
+
                 </GridItem>
                 <GridItem
                   colStart={2}
                   rowStart={2}
                   d={["none", "none", "none", "flex"]}
                 >
-                  <Roll top>
+
                     <Box
                       bg="rgba(63, 167, 182, .4)"
                       w={150}
                       h={150}
                       borderRadius="15px"
                     />
-                  </Roll>
+
                 </GridItem>
               </Grid>
             </Container>
