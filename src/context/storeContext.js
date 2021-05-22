@@ -71,7 +71,7 @@ export const StoreProvider = ({ children }) => {
     initializeCheckout()
   }, [])
 
-  const addVariantToCart = (variantId, quantity) => {
+  const addVariantToCart = (variantId, quantity, properties) => {
     setLoading(true)
 
     const checkoutID = checkout.id
@@ -80,6 +80,7 @@ export const StoreProvider = ({ children }) => {
       {
         variantId,
         quantity: parseInt(quantity, 10),
+        customAttributes: properties,
       },
     ]
 
@@ -102,11 +103,15 @@ export const StoreProvider = ({ children }) => {
       })
   }
 
-  const updateLineItem = (checkoutID, lineItemID, quantity) => {
+  const updateLineItem = (checkoutID, lineItemID, quantity, properties) => {
     setLoading(true)
 
     const lineItemsToUpdate = [
-      { id: lineItemID, quantity: parseInt(quantity, 10) },
+      {
+        id: lineItemID,
+        quantity: parseInt(quantity, 10),
+        customAttributes: properties,
+      },
     ]
 
     return client.checkout

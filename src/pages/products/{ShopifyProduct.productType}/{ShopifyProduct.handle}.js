@@ -25,6 +25,7 @@ import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
 import DiamondButton from "../../../components/DiamondButton/DiamondButton"
+// import "https://cdn.sesami.co/shopify.js"
 
 const Product = ({ data: { product, suggestions } }) => {
   const {
@@ -38,8 +39,11 @@ const Product = ({ data: { product, suggestions } }) => {
     handle,
     images: [firstImage],
     productType,
+    productId,
+    variantId,
   } = product
   const { client } = React.useContext(StoreContext)
+  console.log(client)
 
   const [variant, setVariant] = React.useState({ ...initialVariant })
   const [quantity, setQuantity] = React.useState(1)
@@ -65,6 +69,20 @@ const Product = ({ data: { product, suggestions } }) => {
     },
     [productVariant.storefrontId, client.product]
   )
+
+  // Date & Time Change
+  const handleDateSelection = (index, event) => {
+    const value = event
+    if (value === "" || value === null) {
+      return
+    }
+    const currentOptions = [...variant.selectedOptions]
+
+    currentOptions[index] = {
+      ...currentOptions[index],
+      value,
+    }
+  }
 
   const handleOptionChange = (index, event) => {
     const value = event.target.value
@@ -114,6 +132,37 @@ const Product = ({ data: { product, suggestions } }) => {
     }
     return false
   }
+  const isBrowser = typeof window !== `undefined`
+
+  // Booking Date & Time State
+  const [date, setDate] = React.useState(null)
+  const [time, setTime] = React.useState(null)
+
+  React.useEffect(() => {
+    isBrowser &&
+      window.addEventListener("sesami:loaded", function () {
+        const dateElement = document.querySelector("#sesami-date-0")
+        const timeElement = document.querySelector("#sesami-time-0")
+        dateElement.addEventListener("change", function () {
+          setDate(dateElement.value)
+          handleDateSelection(2, date)
+          // console.log(dateElement.value)
+        })
+        timeElement.addEventListener("change", function () {
+          setTime(timeElement.value)
+          handleDateSelection(3, time)
+          // console.log(timeElement.value)
+        })
+      })
+  })
+
+  console.log(date)
+  console.log(time)
+
+  // isBrowser && window.addEventListener("sesami:loaded", function () {
+  //   const formElement = document.querySelector("#sesami-date-0")
+  //   console.log(formElement.value)
+  // })
 
   return (
     <Layout>
@@ -126,6 +175,8 @@ const Product = ({ data: { product, suggestions } }) => {
           firstImage.localFile.childImageSharp.gatsbyImageData.height
         }
       />
+      {/* Testing Sesame Script */}
+
       <Box bgGradient={bgGradient}>
         <Container py={[16, 20, 28]}>
           <Grid
@@ -146,7 +197,27 @@ const Product = ({ data: { product, suggestions } }) => {
                 <Heading as="h2" color={priceColor}>
                   {price}
                 </Heading>
-                <Flex as="form" noValidate direction="row" flexWrap="wrap">
+                {isClass() && (
+                  <>
+                    {/* <script async src="https://cdn.sesami.co/shopify.js"></script> */}
+                    <div
+                      id="sesami__buttonWrapper"
+                      data-sesami-product-id={product.legacyResourceId}
+                      data-sesami-shop-id={`55103946906`}
+                      data-sesami-variant-id={
+                        product.variants[0].legacyResourceId
+                      }
+                      data-sesami-button-label="Book now!"
+                    ></div>
+                  </>
+                )}
+                <Flex
+                  as="form"
+                  noValidate
+                  direction="row"
+                  flexWrap="wrap"
+                  id="other-form"
+                >
                   {!isClass() && (
                     <Stack
                       as="fieldset"
@@ -198,22 +269,25 @@ const Product = ({ data: { product, suggestions } }) => {
                     </>
                   )}
 
-                  {isClass() ? (
-                    <DiamondButton
-                      to={`https://j-philippus-art-studio.myshopify.com/products/${handle}`}
-                    >
-                      Book your class
-                    </DiamondButton>
-                  ) : (
-                    <AddToCart
-                      type="submit"
-                      variantId={productVariant.storefrontId}
-                      quantity={quantity}
-                      available={available}
-                      alignSelf="flex-end"
-                      mt={8}
-                    />
-                  )}
+                  <AddToCart
+                    type="submit"
+                    variantId={productVariant.storefrontId}
+                    quantity={quantity}
+                    available={available}
+                    alignSelf="flex-end"
+                    mt={8}
+                    disabled="true"
+                    properties={[
+                      {
+                        key: "Date",
+                        value: date,
+                      },
+                      {
+                        key: "Time",
+                        value: time,
+                      },
+                    ]}
+                  />
                 </Flex>
               </Stack>
             </Stack>
@@ -335,6 +409,9 @@ export const query = graphql`
           currencyCode
         }
       }
+      tags
+      id
+      legacyResourceId
       productType
       handle
       storefrontId
@@ -356,6 +433,8 @@ export const query = graphql`
         availableForSale
         storefrontId
         title
+        id
+        legacyResourceId
         price
         selectedOptions {
           name

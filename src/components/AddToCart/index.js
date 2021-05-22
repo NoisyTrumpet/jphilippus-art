@@ -2,14 +2,20 @@ import * as React from "react"
 import { StoreContext } from "../../context/storeContext"
 import DiamondButton from "../DiamondButton/DiamondButton"
 
-const AddToCart = ({ variantId, quantity, available, ...props }) => {
+const AddToCart = ({
+  properties,
+  variantId,
+  quantity,
+  available,
+  ...props
+}) => {
   const { addVariantToCart, loading, onOpen } = React.useContext(StoreContext)
 
   return (
     <DiamondButton
       to="submit"
       onClick={() => {
-        addVariantToCart(variantId, quantity)
+        addVariantToCart(variantId, quantity, properties)
         onOpen()
       }}
       disabled={!available || loading}
