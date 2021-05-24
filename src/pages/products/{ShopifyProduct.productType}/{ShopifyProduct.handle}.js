@@ -180,7 +180,7 @@ const Product = ({ data: { product, suggestions } }) => {
                   {title}
                 </Heading>
                 <Text>{description}</Text>
-                {isClass() && (
+                {isClass() && isBrowser &&  (
                   <div
                     id="sesami__buttonWrapper"
                     data-sesami-product-id={product.legacyResourceId}
