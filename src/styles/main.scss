@@ -12,3 +12,12 @@ $brand-true-black: #000000;
 $brand-turquoise-hover: #79C1CC;
 $brand-burnt-orange-hover: #D3B58B;
 $brand-dk-grey-hover: #9B9B9B;
+
+#sesami__buttonWrapper {
+    background-color: $brand-turquoise;
+    width: fit-content;
+    padding: 10px 15px;
+    color: #ffffff;
+    border-radius: 10px;
+    text-transform: uppercase;
+}

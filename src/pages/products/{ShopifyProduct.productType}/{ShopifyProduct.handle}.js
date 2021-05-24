@@ -24,8 +24,6 @@ import AddToCart from "../../../components/AddToCart/index"
 import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
-import DiamondButton from "../../../components/DiamondButton/DiamondButton"
-// import "https://cdn.sesami.co/shopify.js"
 
 const Product = ({ data: { product, suggestions } }) => {
   const {
@@ -36,14 +34,10 @@ const Product = ({ data: { product, suggestions } }) => {
     title,
     description,
     images,
-    handle,
     images: [firstImage],
     productType,
-    productId,
-    variantId,
   } = product
   const { client } = React.useContext(StoreContext)
-  console.log(client)
 
   const [variant, setVariant] = React.useState({ ...initialVariant })
   const [quantity, setQuantity] = React.useState(1)
@@ -137,6 +131,7 @@ const Product = ({ data: { product, suggestions } }) => {
   // Booking Date & Time State
   const [date, setDate] = React.useState(null)
   const [time, setTime] = React.useState(null)
+  const [selected, setSelected] = React.useState(true)
 
   React.useEffect(() => {
     isBrowser &&
@@ -146,6 +141,7 @@ const Product = ({ data: { product, suggestions } }) => {
         dateElement.addEventListener("change", function () {
           setDate(dateElement.value)
           handleDateSelection(2, date)
+          setSelected(false)
           // console.log(dateElement.value)
         })
         timeElement.addEventListener("change", function () {
@@ -155,14 +151,6 @@ const Product = ({ data: { product, suggestions } }) => {
         })
       })
   })
-
-  console.log(date)
-  console.log(time)
-
-  // isBrowser && window.addEventListener("sesami:loaded", function () {
-  //   const formElement = document.querySelector("#sesami-date-0")
-  //   console.log(formElement.value)
-  // })
 
   return (
     <Layout>
@@ -192,32 +180,24 @@ const Product = ({ data: { product, suggestions } }) => {
                   {title}
                 </Heading>
                 <Text>{description}</Text>
+                {isClass() && (
+                  <div
+                    id="sesami__buttonWrapper"
+                    data-sesami-product-id={product.legacyResourceId}
+                    data-sesami-shop-id={`55103946906`}
+                    data-sesami-variant-id={
+                      product.variants[0].legacyResourceId
+                    }
+                    data-sesami-button-label="CHOOSE YOUR TIME"
+                  ></div>
+                )}
               </Stack>
               <Stack spacing={0}>
                 <Heading as="h2" color={priceColor}>
                   {price}
                 </Heading>
-                {isClass() && (
-                  <>
-                    {/* <script async src="https://cdn.sesami.co/shopify.js"></script> */}
-                    <div
-                      id="sesami__buttonWrapper"
-                      data-sesami-product-id={product.legacyResourceId}
-                      data-sesami-shop-id={`55103946906`}
-                      data-sesami-variant-id={
-                        product.variants[0].legacyResourceId
-                      }
-                      data-sesami-button-label="Book now!"
-                    ></div>
-                  </>
-                )}
-                <Flex
-                  as="form"
-                  noValidate
-                  direction="row"
-                  flexWrap="wrap"
-                  id="other-form"
-                >
+
+                <Flex as="form" noValidate direction="row" flexWrap="wrap">
                   {!isClass() && (
                     <Stack
                       as="fieldset"
@@ -276,17 +256,26 @@ const Product = ({ data: { product, suggestions } }) => {
                     available={available}
                     alignSelf="flex-end"
                     mt={8}
-                    disabled="true"
-                    properties={[
-                      {
-                        key: "Date",
-                        value: date,
-                      },
-                      {
-                        key: "Time",
-                        value: time,
-                      },
-                    ]}
+                    disabled={isClass() ? selected : false}
+                    properties={
+                      isClass()
+                        ? [
+                            {
+                              key: "Date",
+                              value: date,
+                            },
+                            {
+                              key: "Time",
+                              value: time,
+                            },
+                          ]
+                        : [
+                            {
+                              key: productType,
+                              value: title,
+                            },
+                          ]
+                    }
                   />
                 </Flex>
               </Stack>

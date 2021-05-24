@@ -24,6 +24,7 @@ const DiamondButton = ({
   mTop,
   rotate,
   tight,
+  disabled,
 }) => {
   const checkButtonStyle = styles.includes(buttonStyle)
     ? buttonStyle
@@ -39,6 +40,7 @@ const DiamondButton = ({
           display="flex"
           type={type}
           onClick={onClick}
+          disabled={disabled}
         >
           <Tag
             className="btn-text"
