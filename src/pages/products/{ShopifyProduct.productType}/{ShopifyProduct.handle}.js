@@ -24,6 +24,7 @@ import AddToCart from "../../../components/AddToCart/index"
 import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
+import useScript from "../../../utils/useScript"
 
 const Product = ({ data: { product, suggestions } }) => {
   const {
@@ -37,6 +38,9 @@ const Product = ({ data: { product, suggestions } }) => {
     images: [firstImage],
     productType,
   } = product
+
+  useScript(`https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com`)
+
   const { client } = React.useContext(StoreContext)
 
   const [variant, setVariant] = React.useState({ ...initialVariant })
