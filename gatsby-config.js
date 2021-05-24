@@ -101,11 +101,8 @@ module.exports = {
     "gatsby-image",
     "gatsby-plugin-sharp",
     `gatsby-plugin-sass`,
-    "gatsby-plugin-sitemap",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-offline`,
   ],
 }

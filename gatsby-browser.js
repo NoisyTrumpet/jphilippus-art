@@ -17,10 +17,13 @@ const addScript = url => {
 
 export const onClientEntry = () => {
   if (isBrowser) {
-    window.onload = () => {
-      addScript(
-        "https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com"
-      )
-    }
+    setTimeout(
+      (window.onload = () => {
+        addScript(
+          "https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com"
+        )
+      }),
+      1000
+    )
   }
 }
