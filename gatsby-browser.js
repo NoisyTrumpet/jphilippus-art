@@ -14,6 +14,8 @@ const addScript = url => {
 
 export const onClientEntry = () => {
   window.onload = () => {
-    addScript("https://cdn.sesami.co/shopify.js")
+    addScript(
+      "https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com"
+    )
   }
 }

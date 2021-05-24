@@ -22,7 +22,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-plugin-preact`,
     {
       resolve: `gatsby-source-instagram-all`,
       options: {
@@ -80,7 +79,7 @@ module.exports = {
       options: {
         name: `jphilippus-art`,
         short_name: `jp-art`,
-        start_url: `https://jphilippusart.com`,
+        start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
