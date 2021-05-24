@@ -10,21 +10,10 @@ const addScript = url => {
   script.src = url
   script.async = true
   document.body.appendChild(script)
-
-  // window.addEventListener('sesami:loaded', function(){
-  //   var formElement = document.querySelector("#form")
-  //   var sesamiDateInput = formElement.querySelector("[name='properties[Date]']")
-  //   sesamiDateInput.addEventListener('change', function(){
-  //     const FD = new FormData( formElement )
-  //     // createOrder(FD)
-  //     console.log(FD)
-  //   })
-  // })
 }
 
 export const onClientEntry = () => {
   window.onload = () => {
     addScript("https://cdn.sesami.co/shopify.js")
-    // addScript("https://fast.wistia.com/assets/external/E-v1.js")
   }
 }

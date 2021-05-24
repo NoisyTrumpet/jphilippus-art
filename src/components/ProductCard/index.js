@@ -11,6 +11,7 @@ const ProductCard = ({ product, featured }) => {
     priceRangeV2,
     slug,
     images: [firstImage],
+    productType,
   } = product
 
   const bg = useColorModeValue(`cardBg`, `dark.cardBg`)
@@ -23,6 +24,38 @@ const ProductCard = ({ product, featured }) => {
     priceRangeV2.minVariantPrice.currencyCode,
     priceRangeV2.minVariantPrice.amount
   )
+
+  if (productType === "Class") {
+    return (
+      <a href={slug} aria-label={`View ${title} product page`}>
+        <Box
+          bg={bg}
+          data-name="product-image-box"
+          display="grid"
+          placeItems="center"
+          mb={4}
+        >
+          {firstImage && (
+            <GatsbyImage
+              alt=""
+              image={firstImage.localFile.childImageSharp.gatsbyImageData}
+            />
+          )}
+        </Box>
+        <Box textAlign="center">
+          <Text
+            as="h2"
+            fontSize={featured ? "md" : "4xl"}
+            color={`secondary`}
+            transition="color 0.25s ease-in-out"
+          >
+            {title}
+          </Text>
+          <Text color="primary">{price}</Text>
+        </Box>
+      </a>
+    )
+  }
 
   return (
     <Link
@@ -72,6 +105,7 @@ export const query = graphql`
     slug: gatsbyPath(
       filePath: "/products/{ShopifyProduct.productType}/{ShopifyProduct.handle}"
     )
+    productType
     images {
       localFile {
         childImageSharp {
