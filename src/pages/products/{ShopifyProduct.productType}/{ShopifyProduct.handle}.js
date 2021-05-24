@@ -65,18 +65,6 @@ const Product = ({ data: { product, suggestions } }) => {
   )
 
   // Date & Time Change
-  const handleDateSelection = (index, event) => {
-    const value = event
-    if (value === "" || value === null) {
-      return
-    }
-    const currentOptions = [...variant.selectedOptions]
-
-    currentOptions[index] = {
-      ...currentOptions[index],
-      value,
-    }
-  }
 
   const handleOptionChange = (index, event) => {
     const value = event.target.value
@@ -140,13 +128,11 @@ const Product = ({ data: { product, suggestions } }) => {
         const timeElement = document.querySelector("#sesami-time-0")
         dateElement.addEventListener("change", function () {
           setDate(dateElement.value)
-          handleDateSelection(2, date)
           setSelected(false)
           // console.log(dateElement.value)
         })
         timeElement.addEventListener("change", function () {
           setTime(timeElement.value)
-          handleDateSelection(3, time)
           // console.log(timeElement.value)
         })
       })
@@ -163,7 +149,6 @@ const Product = ({ data: { product, suggestions } }) => {
           firstImage.localFile.childImageSharp.gatsbyImageData.height
         }
       />
-      {/* Testing Sesame Script */}
 
       <Box bgGradient={bgGradient}>
         <Container py={[16, 20, 28]}>
@@ -180,7 +165,7 @@ const Product = ({ data: { product, suggestions } }) => {
                   {title}
                 </Heading>
                 <Text>{description}</Text>
-                {isClass() && isBrowser &&  (
+                {isClass() && (
                   <div
                     id="sesami__buttonWrapper"
                     data-sesami-product-id={product.legacyResourceId}

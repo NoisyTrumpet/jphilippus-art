@@ -5,6 +5,8 @@ export const wrapRootElement = ({ element }) => (
   <StoreProvider>{element}</StoreProvider>
 )
 
+const isBrowser = typeof window !== `undefined`
+
 const addScript = url => {
   const script = document.createElement("script")
   script.src = url
@@ -14,9 +16,11 @@ const addScript = url => {
 }
 
 export const onClientEntry = () => {
-  window.onload = () => {
-    addScript(
-      "https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com"
-    )
+  if (isBrowser) {
+    window.onload = () => {
+      addScript(
+        "https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com"
+      )
+    }
   }
 }
