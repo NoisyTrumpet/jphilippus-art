@@ -12,7 +12,7 @@ const Calendar = () => {
           style={{ borderWidth: "0" }}
           width="100%"
           height="600"
-          frameborder="0"
+          frameBorder="0"
           scrolling="no"
         ></iframe>
       </Container>
