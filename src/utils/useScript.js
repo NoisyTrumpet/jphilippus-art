@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-const useScript = async resourceUrl=> {
+import { useEffect } from "react"
+const useScript = async resourceUrl => {
   useEffect(() => {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = resourceUrl;
+    const script = document.createElement("script")
+    script.async = true
+    script.src = resourceUrl
     script.type = `text/javascript`
-    document.body.appendChild(script);
+    document.body.appendChild(script)
 
-return () => {
-      document.body.removeChild(script);
+    return () => {
+      document.body.removeChild(script)
     }
-  }, [resourceUrl]);
-};
-export default useScript;
+  }, [resourceUrl])
+}
+export default useScript

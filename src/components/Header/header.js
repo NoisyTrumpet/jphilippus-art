@@ -143,7 +143,7 @@ export const MenuLinks = () => {
     },
     {
       name: "Class Schedule",
-      slug: "https://j-philippus-art-studio.myshopify.com/pages/calendar",
+      slug: "/calendar",
       pActive: true,
     },
     {

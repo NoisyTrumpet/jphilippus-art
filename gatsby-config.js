@@ -23,6 +23,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-youtube-v3`,
+      options: {
+        channelId: ["UC2ebHj7h8u6XAzZRhXbx02w"],
+        apiKey: "AIzaSyBrM3xUMElEKvBZvtXP9lnCCoAEhuEdp1E", // Optional for public requests
+        maxVideos: 50, // Defaults to 50
+      },
+    },
+    {
       resolve: `gatsby-source-instagram-all`,
       options: {
         // username: `jphilippusartstudio`,

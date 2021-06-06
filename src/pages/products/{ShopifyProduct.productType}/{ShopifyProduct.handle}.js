@@ -39,7 +39,9 @@ const Product = ({ data: { product, suggestions } }) => {
     productType,
   } = product
 
-  useScript(`https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com`)
+  useScript(
+    `https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com`
+  )
 
   const { client } = React.useContext(StoreContext)
 
@@ -187,31 +189,31 @@ const Product = ({ data: { product, suggestions } }) => {
                 </Heading>
 
                 <Flex as="form" noValidate direction="row" flexWrap="wrap">
-                  {!isClass() && (
-                    <Stack
-                      as="fieldset"
-                      mr={6}
-                      mt={4}
-                      sx={{ input: { px: 2, py: 2 } }}
+                  <Stack
+                    as="fieldset"
+                    mr={6}
+                    mt={4}
+                    sx={{ input: { px: 2, py: 2 } }}
+                  >
+                    <label htmlFor="quantity">
+                      {isClass() ? "Number of participants" : "Quantity"}
+                    </label>
+                    <NumberInput
+                      onChange={(_, value) => setQuantity(value)}
+                      value={quantity}
+                      id="quantity"
+                      name="quantity"
+                      defaultValue={1}
+                      min={1}
+                      maxW={20}
                     >
-                      <label htmlFor="quantity">Quantity</label>
-                      <NumberInput
-                        onChange={(_, value) => setQuantity(value)}
-                        value={quantity}
-                        id="quantity"
-                        name="quantity"
-                        defaultValue={1}
-                        min={1}
-                        maxW={20}
-                      >
-                        <NumberInputField bg={bgInput} />
-                        <NumberInputStepper>
-                          <NumberIncrementStepper />
-                          <NumberDecrementStepper />
-                        </NumberInputStepper>
-                      </NumberInput>
-                    </Stack>
-                  )}
+                      <NumberInputField bg={bgInput} />
+                      <NumberInputStepper>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
+                      </NumberInputStepper>
+                    </NumberInput>
+                  </Stack>
                   {hasVariants && (
                     <>
                       {options.map(({ id, name, values }, index) => (
