@@ -8,65 +8,68 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
   IconButton,
-  Button,
 } from "@chakra-ui/react"
 import { AiFillPlayCircle } from "react-icons/ai"
 
-const VideoModal = ({ isOpen, onClose, btnRef, title, id }) => {
+const VideoModal = ({ title, id }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      isCentered
-      opacity={1}
-      initialFocusRef={btnRef}
-      finalFocusRef={btnRef}
-      key={id}
-      aria-label={id}
-    >
-      <ModalOverlay background={`blackAlpha.100`} />
-      <ModalContent
-        zIndex={99999999999999}
-        opacity={1}
-        style={{ opacity: `100%!important` }}
+    <>
+      <IconButton
+        fontSize={`6xl`}
+        aria-label={title}
+        icon={<AiFillPlayCircle />}
+        onClick={onOpen}
+        ref={btnRef}
+        id={id}
         width={`fit-content`}
+        height={`fit-content`}
+        color={`primary`}
+        variant={`ghost`}
+      />
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        isCentered
+        opacity={1}
+        initialFocusRef={btnRef}
+        finalFocusRef={btnRef}
+        key={id}
         aria-label={id}
       >
-        <ModalHeader>{title}</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <iframe
-            width="100%"
-            height="300px"
-            src={`https://www.youtube.com/embed/${id}`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </ModalBody>
-
-        <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
-          </Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
+        <ModalOverlay background={`blackAlpha.100`} />
+        <ModalContent
+          zIndex={99999999999999}
+          opacity={1}
+          style={{ opacity: `100%!important` }}
+          width={`fit-content`}
+          aria-label={id}
+        >
+          <ModalHeader>{title}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <iframe
+              width="100%"
+              height="300px"
+              src={`https://www.youtube.com/embed/${id}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   )
 }
 
 const VideoGallery = ({ data: videos }) => {
-  console.log(videos)
-
-  const { isOpen, onOpen, onClose, id } = useDisclosure()
-  const btnRef = React.useRef()
-
   return (
     <Layout>
       <Container>
@@ -94,30 +97,17 @@ const VideoGallery = ({ data: videos }) => {
                       position: "relative",
                     }}
                   >
-                    <IconButton
-                      fontSize={`6xl`}
-                      aria-label={video.node.title}
-                      icon={<AiFillPlayCircle />}
-                      onClick={onOpen}
-                      ref={btnRef}
+                    <VideoModal
+                      // isOpen={isOpen}
+                      // onClose={onClose}
+                      title={video.node.title}
                       id={video.node.videoId}
-                      width={`fit-content`}
-                      height={`fit-content`}
-                      color={`primary`}
-                      variant={`ghost`}
                     />
                     {/* <IconButton  */}
                   </Center>
                 </Box>
                 <Text>{video.node.title}</Text>
               </Box>
-              <VideoModal
-                isOpen={isOpen}
-                onClose={onClose}
-                btnRef={btnRef}
-                title={video.node.title}
-                id={video.node.videoId}
-              />
             </GridItem>
           ))}
         </Grid>

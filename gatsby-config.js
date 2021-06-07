@@ -30,18 +30,18 @@ module.exports = {
         maxVideos: 50, // Defaults to 50
       },
     },
-    {
-      resolve: `gatsby-source-instagram-all`,
-      options: {
-        // username: `jphilippusartstudio`,
-        // instagram_id: `248164697081484`,
-        access_token: process.env.GATSBY_INSTAGRAM_TOKEN,
-        // max_id: `COeOoBYMd22`
-        //   paginate: 100,
-        // maxPosts: 1000,
-        // hashtags: true
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-instagram-all`,
+    //   options: {
+    //     // username: `jphilippusartstudio`,
+    //     // instagram_id: `248164697081484`,
+    //     access_token: process.env.GATSBY_INSTAGRAM_TOKEN,
+    //     // max_id: `COeOoBYMd22`
+    //     //   paginate: 100,
+    //     maxPosts: 100,
+    //     // hashtags: true
+    //   },
+    // },
     "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       /* Include plugin */
