@@ -5,6 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid"
 import timeGridPlugin from "@fullcalendar/timegrid"
 import googleCalendarPlugin from "@fullcalendar/google-calendar"
 import resourceTimelinePlugin from "@fullcalendar/resource-timeline"
+import { stripHtml } from "string-strip-html";
 
 const Calendar = () => {
   // const resources = [
@@ -54,7 +55,8 @@ const Calendar = () => {
       event.color = `#ad3c72`
     }
 
-    event.url = `/${event.description}`
+
+    event.url = `/${stripHtml(event.description).result}`
   }
 
   const [isMobile] = useMediaQuery("(max-width: 1280px)")
