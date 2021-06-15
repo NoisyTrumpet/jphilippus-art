@@ -1,4 +1,5 @@
 import React from "react"
+import { useMediaQuery } from "@chakra-ui/react"
 import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import timeGridPlugin from "@fullcalendar/timegrid"
@@ -6,10 +7,25 @@ import googleCalendarPlugin from "@fullcalendar/google-calendar"
 import resourceTimelinePlugin from "@fullcalendar/resource-timeline"
 
 const Calendar = () => {
-  const resources = [
+  // const resources = [
+  //   {
+  //     id: "a",
+  //     title: "J. Philippus Art Studio",
+  //   },
+  // ]
+
+  const businessHours = [
     {
-      id: "a",
-      title: "J. Philippus Art Studio",
+      // days of week. an array of zero-based day of week integers (0=Sunday)
+      daysOfWeek: [1, 2, 3, 4], // Monday - Thursday
+
+      startTime: "11:00", // a start time (10am in this example)
+      endTime: "18:00", // an end time (6pm in this example)
+    },
+    {
+      daysOfWeek: [5],
+      startTime: "11:00",
+      endTime: "17:00",
     },
   ]
   const handleEventData = event => {
@@ -41,6 +57,47 @@ const Calendar = () => {
     event.url = `/${event.description}`
   }
 
+  const [isMobile] = useMediaQuery("(max-width: 1280px)")
+
+  if (isMobile) {
+    return (
+      <FullCalendar
+        plugins={[
+          dayGridPlugin,
+          googleCalendarPlugin,
+          timeGridPlugin,
+          resourceTimelinePlugin,
+        ]}
+        selectConstraint={businessHours}
+        headerToolbar={{
+          left: "prev",
+          center: "dayGridMonth,timeGridWeek,timeGridDay",
+          right: "next",
+        }}
+        footerToolbar={{
+          left: "title",
+          right: "today",
+        }}
+        slotMinTime={"9:00:00"}
+        slotMaxTime={"19:00:00"}
+        businessHours={businessHours}
+        height={"auto"}
+        fixedWeekCount={false}
+        showNonCurrentDates={false}
+        schedulerLicenseKey={"CC-Attribution-NonCommercial-NoDerivatives"}
+        googleCalendarApiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}
+        events={{
+          googleCalendarId: `fj22k4ljbk35spcb2v2bc36g24@group.calendar.google.com`,
+        }}
+        nowIndicator={true}
+        // resources={resources}
+        eventDataTransform={event => handleEventData(event)}
+        hiddenDays={[0]}
+        initialView="timeGridDay"
+      />
+    )
+  }
+
   return (
     <FullCalendar
       plugins={[
@@ -52,8 +109,12 @@ const Calendar = () => {
       headerToolbar={{
         left: "prev,next today",
         center: "title",
-        right: "dayGridMonth,timeGridWeek,timeGridDay,resourceTimeline",
+        right: "dayGridMonth,timeGridWeek,timeGridDay",
       }}
+      slotMinTime={"9:00:00"}
+      slotMaxTime={"19:00:00"}
+      businessHours={businessHours}
+      nowIndicator={true}
       fixedWeekCount={false}
       showNonCurrentDates={false}
       schedulerLicenseKey={"CC-Attribution-NonCommercial-NoDerivatives"}
@@ -61,7 +122,8 @@ const Calendar = () => {
       events={{
         googleCalendarId: `fj22k4ljbk35spcb2v2bc36g24@group.calendar.google.com`,
       }}
-      resources={resources}
+      height="auto"
+      // resources={resources}
       eventDataTransform={event => handleEventData(event)}
       hiddenDays={[0]}
       initialView="timeGridWeek"

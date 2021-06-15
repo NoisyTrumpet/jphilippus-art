@@ -97,7 +97,7 @@ const CallToAction = () => {
           custom art class for your special event.
         </Text>
         <DiamondButton
-          to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+          to="/calendar"
           buttonStyle="btn--primary"
           buttonSize="btn--medium"
         >

@@ -147,7 +147,7 @@ const Hero = () => {
                   // transform="rotate(-45deg)"
                 >
                   <DiamondButton
-                    to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+                    to="/calendar"
                     rotate
                     buttonStyle="btn--primary"
                     buttonSize="btn--medium"
