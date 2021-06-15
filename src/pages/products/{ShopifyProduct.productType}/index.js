@@ -70,7 +70,7 @@ const ProductTypeIndex = ({
 
   return (
     <Layout>
-      <Seo title={`Category: ${productType}`} />
+      <Seo title={`Category: ${productType || `All`}`} />
       <VisuallyHidden as="h1">{productType}</VisuallyHidden>
       <AltHero
         title={heroTitle()}
