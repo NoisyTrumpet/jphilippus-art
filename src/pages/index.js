@@ -208,6 +208,7 @@ export const query = graphql`
         }
       }
     }
+
     allInstagramContent(limit: 6) {
       edges {
         node {
@@ -228,6 +229,7 @@ export const query = graphql`
         }
       }
     }
+
     graphImg: file(relativePath: { eq: "heroDesktop-banner.jpg" }) {
       publicURL
       childImageSharp {
