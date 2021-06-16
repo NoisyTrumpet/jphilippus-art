@@ -5,7 +5,6 @@ import dayGridPlugin from "@fullcalendar/daygrid"
 import timeGridPlugin from "@fullcalendar/timegrid"
 import googleCalendarPlugin from "@fullcalendar/google-calendar"
 import resourceTimelinePlugin from "@fullcalendar/resource-timeline"
-import listPlugin from "@fullcalendar/list"
 import { stripHtml } from "string-strip-html"
 
 const Calendar = () => {
@@ -56,10 +55,12 @@ const Calendar = () => {
       event.color = `#ad3c72`
     }
 
-    event.url = `/${stripHtml(event.description).result}`
+    if (event.description) {
+      event.url = `/${stripHtml(event.description).result}`
+    }
   }
 
-  const [isMobile] = useMediaQuery("(max-width: 1280px)")
+  const [isMobile] = useMediaQuery("(max-width: 600px)")
 
   if (isMobile) {
     return (
@@ -97,39 +98,39 @@ const Calendar = () => {
         initialView="dayGrid"
       />
     )
+  } else {
+    return (
+      <FullCalendar
+        plugins={[
+          dayGridPlugin,
+          googleCalendarPlugin,
+          timeGridPlugin,
+          resourceTimelinePlugin,
+        ]}
+        headerToolbar={{
+          left: "prev,next today",
+          center: "title",
+          right: "dayGridMonth,timeGridWeek,timeGridDay",
+        }}
+        slotMinTime={"9:00:00"}
+        slotMaxTime={"19:00:00"}
+        businessHours={businessHours}
+        nowIndicator={true}
+        fixedWeekCount={false}
+        showNonCurrentDates={false}
+        schedulerLicenseKey={"CC-Attribution-NonCommercial-NoDerivatives"}
+        googleCalendarApiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}
+        events={{
+          googleCalendarId: `fj22k4ljbk35spcb2v2bc36g24@group.calendar.google.com`,
+        }}
+        height="auto"
+        // resources={resources}
+        eventDataTransform={event => handleEventData(event)}
+        hiddenDays={[0]}
+        initialView="timeGridWeek"
+      />
+    )
   }
-
-  return (
-    <FullCalendar
-      plugins={[
-        dayGridPlugin,
-        googleCalendarPlugin,
-        timeGridPlugin,
-        resourceTimelinePlugin,
-      ]}
-      headerToolbar={{
-        left: "prev,next today",
-        center: "title",
-        right: "dayGridMonth,timeGridWeek,timeGridDay",
-      }}
-      slotMinTime={"9:00:00"}
-      slotMaxTime={"19:00:00"}
-      businessHours={businessHours}
-      nowIndicator={true}
-      fixedWeekCount={false}
-      showNonCurrentDates={false}
-      schedulerLicenseKey={"CC-Attribution-NonCommercial-NoDerivatives"}
-      googleCalendarApiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}
-      events={{
-        googleCalendarId: `fj22k4ljbk35spcb2v2bc36g24@group.calendar.google.com`,
-      }}
-      height="auto"
-      // resources={resources}
-      eventDataTransform={event => handleEventData(event)}
-      hiddenDays={[0]}
-      initialView="timeGridWeek"
-    />
-  )
 }
 
 export default Calendar
