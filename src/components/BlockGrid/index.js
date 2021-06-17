@@ -86,7 +86,7 @@ const BlockGrid = () => {
               buttonSize="btn--medium"
               style={{ textAlign: `center`, margin: `0 auto` }}
               py="10"
-              to="https://j-philippus-art-studio.myshopify.com/pages/calendar"
+              to="/products/class"
             >
               Explore Classes
             </DiamondButton>
