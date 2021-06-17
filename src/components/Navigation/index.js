@@ -28,6 +28,11 @@ const Navigation = () => {
       pActive: false,
     },
     {
+      name: `Classes`,
+      pActive: false,
+      slug: `/products/class`,
+    },
+    {
       name: "Shop",
       slug: "/products",
       pActive: true,

@@ -72,19 +72,6 @@ const ProductTypeIndex = ({
     <Layout>
       <Seo title={`Category: ${productType || `All`}`} />
       <VisuallyHidden as="h1">{productType}</VisuallyHidden>
-      <AltHero
-        title={heroTitle()}
-        productType={productType}
-        subcaption={heroSubCaption()}
-        body={heroBody()}
-        ctaTitle={productType === "Class" && `Group Classes`}
-        ctaSubCaption={
-          productType === "Class" &&
-          `We also offer private group classes for events such as parties and team building activities. Special rates starting at $35 per person for glass art for parties with 15 or more people. Click here to book your private party.`
-        }
-        ctaText={productType === "Class" && `Book a Group Class`}
-        ctaLink={productType === "Class" && `/contact`}
-      />
       <Container>
         <Center my="10" mx="0">
           <Flex
@@ -98,6 +85,19 @@ const ProductTypeIndex = ({
         </Center>
         <ProductListing products={products} />
       </Container>
+      <AltHero
+        title={heroTitle()}
+        productType={productType}
+        subcaption={heroSubCaption()}
+        body={heroBody()}
+        ctaTitle={productType === "Class" && `Group Classes`}
+        ctaSubCaption={
+          productType === "Class" &&
+          `We also offer private group classes for events such as parties and team building activities. Special rates starting at $35 per person for glass art for parties with 15 or more people. Click here to book your private party.`
+        }
+        ctaText={productType === "Class" && `Book a Group Class`}
+        ctaLink={productType === "Class" && `/contact`}
+      />
     </Layout>
   )
 }

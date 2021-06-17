@@ -115,6 +115,11 @@ export const MenuLinks = () => {
       pActive: false,
     },
     {
+      name: `Classes`,
+      pActive: true,
+      slug: `/products/class`,
+    },
+    {
       name: "Shop",
       slug: "/products",
       pActive: true,
