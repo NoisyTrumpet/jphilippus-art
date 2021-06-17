@@ -1,6 +1,10 @@
 import React from "react"
+import useScript from "../../utils/useScript"
 
 const SesamiButton = ({ storeId, variantId, legacyId, text }) => {
+  useScript(
+    `https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com`
+  )
   return (
     <div
       id="sesami__buttonWrapper"

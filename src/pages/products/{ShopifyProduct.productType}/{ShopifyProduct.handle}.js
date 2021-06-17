@@ -24,8 +24,6 @@ import AddToCart from "../../../components/AddToCart/index"
 import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
-import useScript from "../../../utils/useScript"
-
 import loadable from "@loadable/component"
 
 const SesamiButton = loadable(() => import("../../../components/SesamiButton"))
@@ -43,9 +41,7 @@ const Product = ({ data: { product, suggestions } }) => {
     productType,
   } = product
 
-  useScript(
-    `https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com`
-  )
+
 
   const { client } = React.useContext(StoreContext)
 
