@@ -28,7 +28,7 @@ import useScript from "../../../utils/useScript"
 
 import loadable from '@loadable/component'
 
-const SesamiButton = loadable(() => import("../../components/SesamiButton"))
+const SesamiButton = loadable(() => import("../../../components/SesamiButton"))
 
 const Product = ({ data: { product, suggestions } }) => {
   const {
