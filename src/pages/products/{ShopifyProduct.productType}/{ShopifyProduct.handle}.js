@@ -26,6 +26,10 @@ import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
 import useScript from "../../../utils/useScript"
 
+import loadable from '@loadable/component'
+
+const SesamiButton = loadable(() => import("../../components/SesamiButton"))
+
 const Product = ({ data: { product, suggestions } }) => {
   const {
     options,
@@ -173,15 +177,12 @@ const Product = ({ data: { product, suggestions } }) => {
                 <Text>{description}</Text>
                 {console.log('Test Product Variant ID:', product.variants[0].legacyResourceId)}
                 {isClass() && (
-                  <div
-                    id="sesami__buttonWrapper"
-                    data-sesami-product-id={product.legacyResourceId}
-                    data-sesami-shop-id={`55103946906`}
-                    data-sesami-variant-id={
-                      product.variants[0].legacyResourceId
-                    }
-                    data-sesami-button-label="CHOOSE YOUR TIME"
-                  ></div>
+                  <SesamiButton
+                    storeId={`55103946906`}
+                    variantId={product.variants[0].legacyResourceId}
+                    legacyId={product.legacyResourceId}
+                    text={`CHOOSE YOUR TIME`}
+                  />
                 )}
               </Stack>
               <Stack spacing={0}>
