@@ -26,7 +26,7 @@ import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
 import useScript from "../../../utils/useScript"
 
-import loadable from '@loadable/component'
+import loadable from "@loadable/component"
 
 const SesamiButton = loadable(() => import("../../../components/SesamiButton"))
 
@@ -175,7 +175,6 @@ const Product = ({ data: { product, suggestions } }) => {
                   {title}
                 </Heading>
                 <Text>{description}</Text>
-                {console.log('Test Product Variant ID:', product.variants[0].legacyResourceId)}
                 {isClass() && (
                   <SesamiButton
                     storeId={`55103946906`}
