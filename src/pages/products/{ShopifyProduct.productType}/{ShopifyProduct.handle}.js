@@ -171,6 +171,7 @@ const Product = ({ data: { product, suggestions } }) => {
                   {title}
                 </Heading>
                 <Text>{description}</Text>
+                {console.log('Test Product Variant ID:', product.variants[0].legacyResourceId)}
                 {isClass() && (
                   <div
                     id="sesami__buttonWrapper"
