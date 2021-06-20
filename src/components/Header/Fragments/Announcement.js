@@ -34,7 +34,7 @@ export const Announcement = () => (
         </a>
         <Text fontWeight="medium" marginEnd="2">
           Call us at <a href="tel:210.474.0440">210-474-0440</a> to book a
-          private individual or group class. Open T-F 11am-6pm • Sat 11am-5pm
+          private individual or group class. Open M-F 11am-6pm • Sat 11am-5pm
           <br />
           Closed July 3rd for 4th of July Weekend
         </Text>
