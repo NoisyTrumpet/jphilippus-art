@@ -152,11 +152,11 @@ const Contact = () => {
                 Hours
               </Text>
 
-              <Text mt={4}> T-F 11am-6pm • Sat 11am-5pm</Text>
-              <Text mt={4}>
+              <Text mt={4}> M-F 11am-6pm • Sat 11am-5pm</Text>
+              {/* <Text mt={4}>
                 Closed Monday's in April & May for the showcasing of my original
                 art in the Robare Custom Home at the 2021 Parade of Homes.
-              </Text>
+              </Text> */}
               <Text
                 as="h2"
                 color="primary"

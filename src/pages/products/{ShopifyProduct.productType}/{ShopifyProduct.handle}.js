@@ -41,8 +41,6 @@ const Product = ({ data: { product, suggestions } }) => {
     productType,
   } = product
 
-
-
   const { client } = React.useContext(StoreContext)
 
   const [variant, setVariant] = React.useState({ ...initialVariant })

@@ -50,9 +50,12 @@ const ProductListing = ({ products, featured }) => {
         columnGap={featured ? 2 : 6}
         rowGap={[12, 16, 20]}
       >
-        {products.nodes.map(p => (
-          <ProductCard product={p} key={p.slug} featured />
-        ))}
+        {products.nodes.map(
+          p =>
+            p.title.includes("Private") !== true && (
+              <ProductCard product={p} key={p.slug} featured />
+            )
+        )}
       </Grid>
     </>
   )
