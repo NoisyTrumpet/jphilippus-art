@@ -34,6 +34,27 @@ const Testimonials = () => {
         image:
           "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fGxhZHklMjBoZWFkc2hvdCUyMHNtaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
       },
+      {
+        text:
+          "I LOVE THE STUDIO! I had so much fun working with resin which I have used before.  I will definitely be back!",
+        person: "Allora Bellanger",
+        image:
+          "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fGxhZHklMjBoZWFkc2hvdCUyMHNtaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+      },
+      {
+        text:
+          "So much fun being creative and making one of a kind art pieces!  Jeanne and staff are so much fun!",
+        person: "Joy Berberek",
+        image:
+          "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fGxhZHklMjBoZWFkc2hvdCUyMHNtaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+      },
+      {
+        text:
+          "We love this place!! We had great help and all questions answered.",
+        person: "Jean Solansky",
+        image:
+          "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fGxhZHklMjBoZWFkc2hvdCUyMHNtaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+      },
       // {
       //   text: "This is just a test.",
       //   person: "Marrie Jones",
@@ -112,7 +133,7 @@ const Testimonials = () => {
                 <Circle
                   w="3"
                   h="3"
-                  bg={key === index ? `primary` : `secondary`}
+                  bg={key === index ? `primary` : `white`}
                   key={n.person}
                   onClick={() => handleClick(key)}
                 />

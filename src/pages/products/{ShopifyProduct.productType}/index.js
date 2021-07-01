@@ -33,6 +33,9 @@ const ProductTypeIndex = ({
     if (productType === "Charcuterie") {
       return `Charcuterie Boards`
     }
+    if (productType === "Event") {
+      return `Special Events`
+    }
     return productType
   }
 

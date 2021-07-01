@@ -45,7 +45,7 @@ const Link = props => {
   if (props.to === "/products/gift-card/gift-card/") {
     return <ChakraLink {...props} _activeLink={{ color: `white` }} />
   }
-  return <ChakraLink {...props} />
+  return <chakra.a href={props.to} {...props} />
 }
 
 export default Link

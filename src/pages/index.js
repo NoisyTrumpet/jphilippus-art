@@ -13,6 +13,7 @@ import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
 import Hero from "../components/Hero/Hero.js"
+import NewHero from "../components/NewHero"
 import Testimonials from "../components/Testimonials/testimonials.js"
 import Link from "../components/link"
 import BlockGrid from "../components/BlockGrid/index"
@@ -82,7 +83,17 @@ const IndexPage = ({ data: products, data }) => {
         imageHeight={data.graphImg.childImageSharp.gatsbyImageData.height}
         schemaMarkup={schema}
       />
-      <Hero />
+      {/* <Hero /> */}
+      <NewHero />
+      <Container px={8} py={12} maxWidth="100%">
+        <ProductListing featured products={featuredProducts} />
+      </Container>
+      <Box py={8} backgroundColor={bgGray}>
+        <BlockGrid />
+      </Box>
+      <Box>
+        <CallToAction />
+      </Box>
       <Container my={[16, 16, 16, 16]} textAlign="center">
         <Text
           as="h2"
@@ -116,15 +127,6 @@ const IndexPage = ({ data: products, data }) => {
         >
           read full release here <ExternalLinkIcon />
         </Link>
-      </Container>
-      <Box py={8} backgroundColor={bgGray}>
-        <BlockGrid />
-      </Box>
-      <Box>
-        <CallToAction />
-      </Box>
-      <Container px={8} maxWidth="100%">
-        <ProductListing featured products={featuredProducts} />
       </Container>
       <Testimonials />
       <Container>

@@ -6,6 +6,7 @@ import {
   useColorMode,
   Flex,
   Stack,
+  Button,
 } from "@chakra-ui/react"
 import Announcement from "./Fragments/Announcement"
 
@@ -115,9 +116,9 @@ export const MenuLinks = () => {
       pActive: false,
     },
     {
-      name: `Classes`,
+      name: `Events`,
       pActive: true,
-      slug: `/products/class`,
+      slug: `/products/event`,
     },
     {
       name: "Shop",
@@ -189,13 +190,23 @@ export const MenuLinks = () => {
             {n.name}
           </MenuItem>
         ))}
-        <DiamondButton
+        <Button
+          as="a"
+          href="/products/class"
+          bg="primary"
+          color="white"
+          textTransform="uppercase"
+          fontWeight="regular"
+        >
+          Book a Class
+        </Button>
+        {/* <DiamondButton
           buttonStyle="btn--secondary"
           buttonSize="btn--xs"
           to="/products/gift-card/gift-card/"
         >
           Gift Cards
-        </DiamondButton>
+        </DiamondButton> */}
       </Stack>
     </Box>
   )

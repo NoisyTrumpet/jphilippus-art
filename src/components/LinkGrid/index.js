@@ -16,6 +16,10 @@ const data = {
       label: `Art Kits`,
     },
     {
+      slug: `/products/event`,
+      label: `Events`,
+    },
+    {
       slug: `/products`,
       label: `All Products`,
     },

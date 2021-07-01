@@ -36,6 +36,7 @@ const Product = ({ data: { product, suggestions } }) => {
     priceRangeV2,
     title,
     description,
+    descriptionHtml,
     images,
     images: [firstImage],
     productType,
@@ -168,6 +169,7 @@ const Product = ({ data: { product, suggestions } }) => {
                 <Heading as="h1" fontWeight={500} color={`primary`}>
                   {title}
                 </Heading>
+                <Box dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
                 <Text>{description}</Text>
                 {isClass() && (
                   <SesamiButton
@@ -211,32 +213,36 @@ const Product = ({ data: { product, suggestions } }) => {
                   </Stack>
                   {hasVariants && (
                     <>
-                      {options.map(({ id, name, values }, index) => (
-                        <React.Fragment key={id}>
-                          <Stack as="fieldset" mt={4} mr={6} mb={[8, 0]}>
-                            <label htmlFor="variant">{name}</label>
-                            <Select
-                              variant="filled"
-                              bg={bgInput}
-                              onChange={event =>
-                                handleOptionChange(index, event)
-                              }
-                            >
-                              <option value="">{`Choose ${name}`}</option>
-                              {values.map(value => (
-                                <option value={value} key={`${name}-${value}`}>
-                                  {value}
-                                </option>
-                              ))}
-                            </Select>
-                          </Stack>
-                        </React.Fragment>
-                      ))}
+                      {options.map(
+                        ({ id, name, values }, index) =>
+                          name !== "Duration" && (
+                            <React.Fragment key={id}>
+                              <Stack as="fieldset" mt={4} mr={6} mb={[8, 0]}>
+                                <label htmlFor="variant">{name}</label>
+                                <Select
+                                  variant="filled"
+                                  bg={bgInput}
+                                  onChange={event =>
+                                    handleOptionChange(index, event)
+                                  }
+                                >
+                                  {values.map(value => (
+                                    <option
+                                      value={value}
+                                      key={`${name}-${value}`}
+                                    >
+                                      {value}
+                                    </option>
+                                  ))}
+                                </Select>
+                              </Stack>
+                            </React.Fragment>
+                          )
+                      )}
                     </>
                   )}
 
                   <AddToCart
-                    type="submit"
                     variantId={productVariant.storefrontId}
                     quantity={quantity}
                     available={available}
@@ -374,6 +380,7 @@ export const query = graphql`
     product: shopifyProduct(id: { eq: $id }) {
       title
       description
+      descriptionHtml
       priceRangeV2 {
         maxVariantPrice {
           amount
