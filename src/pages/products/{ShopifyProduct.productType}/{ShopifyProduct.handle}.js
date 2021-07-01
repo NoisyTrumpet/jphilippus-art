@@ -170,7 +170,6 @@ const Product = ({ data: { product, suggestions } }) => {
                   {title}
                 </Heading>
                 <Box dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
-                <Text>{description}</Text>
                 {isClass() && (
                   <SesamiButton
                     storeId={`55103946906`}
