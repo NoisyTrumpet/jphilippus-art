@@ -23,7 +23,7 @@ const ProductListing = ({ products, featured }) => {
             color={themeBlue}
             textTransform="uppercase"
           >
-            Featured Classes
+            Featured
           </Heading>
           <Link
             to="/products"

@@ -83,8 +83,8 @@ const IndexPage = ({ data: products, data }) => {
         imageHeight={data.graphImg.childImageSharp.gatsbyImageData.height}
         schemaMarkup={schema}
       />
-      {/* <Hero /> */}
-      <NewHero />
+      <Hero />
+      {/* <NewHero /> */}
       <Container px={8} py={12} maxWidth="100%">
         <ProductListing featured products={featuredProducts} />
       </Container>
