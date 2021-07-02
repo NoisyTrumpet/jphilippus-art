@@ -1,6 +1,5 @@
 import * as React from "react"
 import { StoreContext } from "../../context/storeContext"
-import DiamondButton from "../DiamondButton/DiamondButton"
 import { Button } from "@chakra-ui/react"
 
 const AddToCart = ({

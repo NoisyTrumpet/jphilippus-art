@@ -16,7 +16,6 @@ import Link from "../link"
 import Cart from "../Cart/index"
 import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
-import DiamondButton from "../DiamondButton/DiamondButton"
 import SubMenu from "../SubMenu/index"
 
 const NavBar = props => {

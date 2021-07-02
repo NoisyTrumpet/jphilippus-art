@@ -4,7 +4,7 @@ import {
   Container,
   Grid,
   Heading,
-  Text,
+  // Text,
   Box,
   Stack,
   useColorModeValue,

@@ -81,7 +81,7 @@ const Calendar = () => {
           right: "today",
         }}
         slotMinTime={"9:00:00"}
-        slotMaxTime={"19:00:00"}
+        slotMaxTime={"22:00:00"}
         businessHours={businessHours}
         height={"auto"}
         fixedWeekCount={false}
@@ -113,7 +113,7 @@ const Calendar = () => {
           right: "dayGridMonth,timeGridWeek,timeGridDay",
         }}
         slotMinTime={"9:00:00"}
-        slotMaxTime={"19:00:00"}
+        slotMaxTime={"22:00:00"}
         businessHours={businessHours}
         nowIndicator={true}
         fixedWeekCount={false}
