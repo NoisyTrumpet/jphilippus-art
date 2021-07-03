@@ -33,7 +33,7 @@ const LinkGrid = () => {
         <Link
           to={node.slug}
           textTransform="uppercase"
-          mx={[2, 4]}
+          mx={[1.5, 4]}
           fontSize={["small", "medium"]}
           key={node.label}
         >

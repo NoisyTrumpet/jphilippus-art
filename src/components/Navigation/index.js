@@ -28,9 +28,9 @@ const Navigation = () => {
       pActive: false,
     },
     {
-      name: `Classes`,
+      name: `Events`,
       pActive: false,
-      slug: `/products/class`,
+      slug: `/products/event`,
     },
     {
       name: "Shop",
@@ -67,6 +67,11 @@ const Navigation = () => {
     {
       name: "Gallery",
       slug: "/gallery",
+      pActive: true,
+    },
+    {
+      name: "Gift Cards",
+      slug: "/products/gift-card/gift-card",
       pActive: true,
     },
     {
@@ -139,12 +144,12 @@ const Navigation = () => {
       )}
 
       <DiamondButton
-        buttonStyle="btn--secondary"
+        buttonStyle="btn--primary"
         buttonSize="btn--small"
         mTop={8}
-        to={`/products/gift-card/gift-card`}
+        to={`/products/class`}
       >
-        Gift Cards
+        Book a Class
       </DiamondButton>
     </Stack>
   )

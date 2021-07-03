@@ -194,6 +194,7 @@ export const MenuLinks = () => {
           href="/products/class"
           bg="primary"
           color="white"
+          pt={1}
           textTransform="uppercase"
           fontWeight="regular"
         >

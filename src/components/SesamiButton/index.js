@@ -13,6 +13,10 @@ const SesamiButton = ({ storeId, variantId, legacyId, text }) => {
         data-sesami-shop-id={storeId}
         data-sesami-variant-id={variantId}
         data-sesami-button-label={text}
+        style={{
+          textAlign: "center",
+          paddingTop: "12px",
+        }}
       ></div>
     )
   }

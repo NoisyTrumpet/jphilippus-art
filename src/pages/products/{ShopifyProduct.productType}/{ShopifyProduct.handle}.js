@@ -184,7 +184,12 @@ const Product = ({ data: { product, suggestions } }) => {
                   {price}
                 </Heading>
 
-                <Flex as="form" noValidate direction="row" flexWrap="wrap">
+                <Flex
+                  as="form"
+                  noValidate
+                  direction={["column", "row", "row"]}
+                  flexWrap="wrap"
+                >
                   <Stack
                     as="fieldset"
                     mr={6}
@@ -240,34 +245,37 @@ const Product = ({ data: { product, suggestions } }) => {
                       )}
                     </>
                   )}
-
-                  <AddToCart
-                    variantId={productVariant.storefrontId}
-                    quantity={quantity}
-                    available={available}
-                    alignSelf="flex-end"
-                    mt={8}
-                    disabled={isClass() ? selected : false}
-                    properties={
-                      isClass()
-                        ? [
-                            {
-                              key: "Date",
-                              value: date,
-                            },
-                            {
-                              key: "Time",
-                              value: time,
-                            },
-                          ]
-                        : [
-                            {
-                              key: productType,
-                              value: title,
-                            },
-                          ]
-                    }
-                  />
+                  <Stack>
+                    <AddToCart
+                      variantId={productVariant.storefrontId}
+                      quantity={quantity}
+                      available={available}
+                      alignSelf="flex-end"
+                      mt={8}
+                      pt={1.5}
+                      w="100%"
+                      disabled={isClass() ? selected : false}
+                      properties={
+                        isClass()
+                          ? [
+                              {
+                                key: "Date",
+                                value: date,
+                              },
+                              {
+                                key: "Time",
+                                value: time,
+                              },
+                            ]
+                          : [
+                              {
+                                key: productType,
+                                value: title,
+                              },
+                            ]
+                      }
+                    />
+                  </Stack>
                 </Flex>
               </Stack>
             </Stack>
