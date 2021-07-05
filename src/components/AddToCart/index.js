@@ -10,6 +10,8 @@ const AddToCart = ({
   ...props
 }) => {
   const { addVariantToCart, loading, onOpen } = React.useContext(StoreContext)
+  // Add another button variant
+
 
   return (
     <Button
