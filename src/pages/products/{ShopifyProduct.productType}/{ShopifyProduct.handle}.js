@@ -225,6 +225,8 @@ const Product = ({ data: { product, suggestions } }) => {
                                 <label htmlFor="variant">{name}</label>
                                 <Select
                                   variant="filled"
+                                  borderColor="#dde5ed"
+                                  borderWidth=".75px"
                                   bg={bgInput}
                                   onChange={event =>
                                     handleOptionChange(index, event)
@@ -251,7 +253,7 @@ const Product = ({ data: { product, suggestions } }) => {
                       quantity={quantity}
                       available={available}
                       alignSelf="flex-end"
-                      mt={8}
+                      mt={12}
                       pt={1.5}
                       w="100%"
                       disabled={isClass() ? selected : false}
