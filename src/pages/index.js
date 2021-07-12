@@ -130,34 +130,34 @@ const IndexPage = ({ data: products, data }) => {
       </Container>
       <Testimonials />
       <Container display="grid" placeItems="center">
-      <Box
-              display="grid"
-              placeItems={`center`}
-              height="100%"
-              width="fit-content"
-              paddingTop={[0, 4, 14]}
+        <Box
+          display="grid"
+          placeItems={`center`}
+          height="100%"
+          width="fit-content"
+          paddingTop={[0, 4, 14]}
+        >
+          <GatsbyImage
+            image={data.file.childImageSharp.gatsbyImageData}
+            alt="Latest News"
+            style={{ width: `100%`, gridArea: "1/1", height: "100%" }}
+          />
+          <Center
+            className="center-grid-diamond"
+            style={{
+              gridArea: "1/1",
+              position: "relative",
+            }}
+          >
+            <DiamondButton
+              buttonStyle="btn--primary-transparent"
+              buttonSize="btn--xl"
+              to="/news/parade-of-homes/"
             >
-              <GatsbyImage
-                image={data.file.childImageSharp.gatsbyImageData}
-                alt="Latest News"
-                style={{ width: `100%`, gridArea: "1/1", height: "100%" }}
-              />
-              <Center
-                className="center-grid-diamond"
-                style={{
-                  gridArea: "1/1",
-                  position: "relative",
-                }}
-              >
-                <DiamondButton
-                  buttonStyle="btn--primary-transparent"
-                  buttonSize="btn--xl"
-                  to="/news/parade-of-homes/"
-                >
-                  Latest News
-                </DiamondButton>
-              </Center>
-            </Box>
+              Latest News
+            </DiamondButton>
+          </Center>
+        </Box>
         {/* <Grid templateColumns={["1fr", "1fr 1fr", "1fr 1fr"]} mt={8} gap={2}>
           <GridItem position="relative" display="grid" placeItems="center">
 
@@ -231,7 +231,6 @@ export const query = graphql`
   }
 `
 export default IndexPage
-
 
 // allInstagramContent(limit: 6) {
 //   edges {

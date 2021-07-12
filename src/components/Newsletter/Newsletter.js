@@ -2,6 +2,7 @@ import React from "react"
 import { Input, Stack, Text, useColorModeValue } from "@chakra-ui/react"
 import { FooterHeading } from "../Footer/Fragments/FooterHeading.js"
 import DiamondButton from "../DiamondButton/DiamondButton"
+import Recaptcha from "react-recaptcha"
 
 import "./Newsletter.scss"
 
@@ -53,6 +54,7 @@ const Newsletter = () => {
             Subscribe
           </DiamondButton>
         </Stack>
+        <Recaptcha sitekey={`${process.env.RECATCHA_SITE_KEY}`} />
       </Stack>
     </form>
   )

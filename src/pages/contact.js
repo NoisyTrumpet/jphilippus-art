@@ -22,6 +22,7 @@ import GoogleMapReact from "google-map-react"
 import "../styles/contact.scss"
 import DiamondButton from "../components/DiamondButton/DiamondButton"
 import Seo from "../components/SEO"
+import Recaptcha from "react-recaptcha"
 
 const center = {
   lat: 29.606779288223038,
@@ -227,6 +228,7 @@ const Contact = () => {
                       Submit
                     </DiamondButton>
                   </Box>
+                  <Recaptcha sitekey={`${process.env.RECATCHA_SITE_KEY}`} />
                 </FormControl>
               </form>
             </GridItem>

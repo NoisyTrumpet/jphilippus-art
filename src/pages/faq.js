@@ -61,29 +61,37 @@ const FAQPage = () => {
           >
             Frequently Asked Questions
           </Text>
-          <Text py="5">
-            
-          </Text>
+          <Text py="5"></Text>
         </Box>
-      <GatsbyImage image={hero} alt="Frequently Asked Questions" />
+        <GatsbyImage image={hero} alt="Frequently Asked Questions" />
       </Grid>
       {/* FAQ Accordion */}
       <Container mt={30} mb={40}>
         <Accordion allowToggle>
-        {faqs.map((faq, index) => (
-          <AccordionItem key={index} style={{ borderBottomColor: `#c09559`, borderTopColor: `#c09559` }}>
-            <h2>
-              <AccordionButton style={{ color: `#c09559`, fontWeight: `500`, fontSize: `20px` }}>
-                <Box flex="1" textAlign="left">
-                  {faq.question}
-                </Box>
-                <AccordionIcon color="#3FA7B6" />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel py={4}>
-              {faq.answer}
-            </AccordionPanel>
-          </AccordionItem>
+          {faqs.map((faq, index) => (
+            <AccordionItem
+              key={index}
+              style={{
+                borderBottomColor: `#c09559`,
+                borderTopColor: `#c09559`,
+              }}
+            >
+              <h2>
+                <AccordionButton
+                  style={{
+                    color: `#c09559`,
+                    fontWeight: `500`,
+                    fontSize: `20px`,
+                  }}
+                >
+                  <Box flex="1" textAlign="left">
+                    {faq.question}
+                  </Box>
+                  <AccordionIcon color="#3FA7B6" />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel py={4}>{faq.answer}</AccordionPanel>
+            </AccordionItem>
           ))}
         </Accordion>
       </Container>
