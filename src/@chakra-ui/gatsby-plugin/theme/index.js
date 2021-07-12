@@ -25,7 +25,7 @@ const breakpoints = createBreakpoints({
   "2xl": `1536px`,
 })
 
-const theme = extendTheme({
+export const theme = extendTheme({
   styles,
   space: sizes,
   sizes,
@@ -43,5 +43,3 @@ const theme = extendTheme({
     body: "Gill Sans",
   },
 })
-
-export default theme
