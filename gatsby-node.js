@@ -61,18 +61,3 @@ exports.createPages = async ({ actions: { createPage } }) => {
   })
   // Create Pages for Policies
 }
-
-// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-//   if (stage === "build-html") {
-//     actions.setWebpackConfig({
-//       module: {
-//         rules: [
-//           {
-//             test: /@fullcalendar\/google-calendar/,
-//             use: loaders.null(),
-//           },
-//         ],
-//       },
-//     })
-//   }
-// }

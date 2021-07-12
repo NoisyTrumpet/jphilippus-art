@@ -4,8 +4,8 @@ import {
   Text,
   useColorModeValue,
   Box,
-  Grid,
-  GridItem,
+  // Grid,
+  // GridItem,
   Center,
 } from "@chakra-ui/react"
 
@@ -20,7 +20,7 @@ import BlockGrid from "../components/BlockGrid/index"
 import ProductListing from "../components/ProductListing"
 import Seo from "../components/SEO"
 import CallToAction from "../components/CallToAction/index"
-import InstagramFeed from "../components/InstagramFeed/index"
+// import InstagramFeed from "../components/InstagramFeed/index"
 import { GatsbyImage } from "gatsby-plugin-image"
 import DiamondButton from "../components/DiamondButton/DiamondButton"
 
@@ -129,14 +129,12 @@ const IndexPage = ({ data: products, data }) => {
         </Link>
       </Container>
       <Testimonials />
-      <Container>
-        <Grid templateColumns={["1fr", "1fr 1fr", "1fr 1fr"]} mt={8} gap={2}>
-          <GridItem position="relative" display="grid" placeItems="center">
-            <Box
+      <Container display="grid" placeItems="center">
+      <Box
               display="grid"
               placeItems={`center`}
               height="100%"
-              width="100%"
+              width="fit-content"
               paddingTop={[0, 4, 14]}
             >
               <GatsbyImage
@@ -160,6 +158,9 @@ const IndexPage = ({ data: products, data }) => {
                 </DiamondButton>
               </Center>
             </Box>
+        {/* <Grid templateColumns={["1fr", "1fr 1fr", "1fr 1fr"]} mt={8} gap={2}>
+          <GridItem position="relative" display="grid" placeItems="center">
+
           </GridItem>
           <GridItem px={2}>
             <Text
@@ -174,7 +175,7 @@ const IndexPage = ({ data: products, data }) => {
             </Text>
             <InstagramFeed images={data.allInstagramContent.edges} />
           </GridItem>
-        </Grid>
+        </Grid> */}
       </Container>
     </Layout>
   )
@@ -210,26 +211,6 @@ export const query = graphql`
         }
       }
     }
-    allInstagramContent(limit: 6) {
-      edges {
-        node {
-          caption
-          permalink
-          localImage {
-            childImageSharp {
-              gatsbyImageData(
-                width: 210
-                height: 210
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                formats: [AUTO, WEBP]
-                quality: 60
-              )
-            }
-          }
-        }
-      }
-    }
     graphImg: file(relativePath: { eq: "heroDesktop-banner.jpg" }) {
       publicURL
       childImageSharp {
@@ -250,3 +231,25 @@ export const query = graphql`
   }
 `
 export default IndexPage
+
+
+// allInstagramContent(limit: 6) {
+//   edges {
+//     node {
+//       caption
+//       permalink
+//       localImage {
+//         childImageSharp {
+//           gatsbyImageData(
+//             width: 210
+//             height: 210
+//             layout: CONSTRAINED
+//             placeholder: BLURRED
+//             formats: [AUTO, WEBP]
+//             quality: 60
+//           )
+//         }
+//       }
+//     }
+//   }
+// }

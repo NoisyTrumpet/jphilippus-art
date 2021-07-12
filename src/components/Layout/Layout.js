@@ -6,18 +6,19 @@
  */
 
 import * as React from "react"
+import { ChakraProvider } from "@chakra-ui/react"
 import { SkipNavContent, SkipNavLink } from "../SkipNav/index"
 import Footer from "../Footer/index"
 import Header from "../Header/header"
-import { ChakraHelpersProvider } from "../../context/chakra-helpers-context"
+import { theme } from "../../@chakra-ui/gatsby-plugin/theme/index"
 
 const Layout = ({ children }) => (
-  <ChakraHelpersProvider>
+  <ChakraProvider theme={theme}>
     <SkipNavLink />
     <Header />
     <SkipNavContent>{children}</SkipNavContent>
     <Footer />
-  </ChakraHelpersProvider>
+  </ChakraProvider>
 )
 
 export default Layout
