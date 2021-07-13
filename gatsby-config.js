@@ -10,7 +10,7 @@ module.exports = {
     siteUrl: `https://jphilippusart.com`,
   },
   flags: {
-    DEV_SSR: true,
+    // DEV_SSR: true,
     FAST_DEV: true,
   },
   plugins: [

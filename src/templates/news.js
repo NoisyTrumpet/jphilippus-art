@@ -4,7 +4,6 @@ import Layout from "../components/Layout/Layout"
 
 const NewsPage = data => {
   const { articles } = data?.pageContext
-  console.log(articles)
   return (
     <Layout>
       <Box>

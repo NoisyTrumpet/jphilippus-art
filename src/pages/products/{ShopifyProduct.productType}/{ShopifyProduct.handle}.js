@@ -119,7 +119,6 @@ const Product = ({ data: { product, suggestions } }) => {
     }
     return false
   }
-  console.log(productType)
   const isBrowser = typeof window !== `undefined`
 
   // Booking Date & Time State
