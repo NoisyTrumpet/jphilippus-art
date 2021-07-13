@@ -103,7 +103,6 @@ module.exports = {
         shopifyConnections: ["collections"],
       },
     },
-    `gatsby-plugin-remove-fingerprints`,
     `@chakra-ui/gatsby-plugin`,
     "gatsby-plugin-image",
     "gatsby-image",
@@ -112,6 +111,5 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-netlify"
   ],
 }
