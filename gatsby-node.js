@@ -1,9 +1,5 @@
-const sharp = require("sharp")
 const axios = require("axios")
-const path = require("path")
 
-sharp.cache(false)
-sharp.simd(false)
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
     name: `babel-plugin-react-icons`,
