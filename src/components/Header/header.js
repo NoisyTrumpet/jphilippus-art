@@ -161,11 +161,11 @@ export const MenuLinks = () => {
       slug: "/contact",
       pActive: true,
     },
-    // {
-    //   name: "FAQ",
-    //   slug: "/faq",
-    //   pActive: true,
-    // },
+    {
+      name: "FAQ",
+      slug: "/faq",
+      pActive: true,
+    },
   ]
   return (
     <Box
@@ -173,7 +173,7 @@ export const MenuLinks = () => {
       flexBasis={{ base: "100%", md: "auto" }}
     >
       <Stack
-        spacing={8}
+        spacing={4}
         align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
         direction={["column", "column", "column", "row"]}

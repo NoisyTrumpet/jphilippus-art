@@ -104,6 +104,7 @@ module.exports = {
         shopifyConnections: ["collections"],
       },
     },
+    `gatsby-plugin-remove-fingerprints`,
     `@chakra-ui/gatsby-plugin`,
     "gatsby-plugin-image",
     "gatsby-image",

@@ -79,11 +79,11 @@ const Navigation = () => {
       slug: "/contact",
       pActive: true,
     },
-    // {
-    //   name: "FAQ",
-    //   slug: "/faq",
-    //   pActive: true,
-    // },
+    {
+      name: "FAQ",
+      slug: "/faq",
+      pActive: true,
+    },
   ]
 
   const SubNav = () => {

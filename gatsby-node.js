@@ -49,15 +49,25 @@ exports.createPages = async ({ actions: { createPage } }) => {
     })
   })
 
-  const article = result.data.articles[0]
+  const articles = result.data.articles
+
+  createPage({
+    path: `/news`,
+    component: require.resolve("./src/templates/news.js"),
+    context: {
+      articles: articles,
+    },
+  })
 
   // Create a page that lists all articles.
-  createPage({
-    path: `/news/${article.handle}`,
-    component: require.resolve("./src/pages/blogPage.js"),
-    context: {
-      article: article,
-    },
+  articles.map(article => {
+    createPage({
+      path: `/news/${article.handle}`,
+      component: require.resolve("./src/pages/blogPage.js"),
+      context: {
+        article: article,
+      },
+    })
   })
   // Create Pages for Policies
 }

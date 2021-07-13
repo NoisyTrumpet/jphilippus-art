@@ -5,7 +5,6 @@ import {
   Box,
   Grid,
   Text,
-  Center,
   Container,
   Accordion,
   AccordionItem,
@@ -14,8 +13,11 @@ import {
   AccordionIcon,
   useColorModeValue as mode,
 } from "@chakra-ui/react"
+import Seo from "../components/SEO"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import faqs from "../constants/faq"
+
+import faqItems from "../constants/faq.js"
+
 const FAQPage = () => {
   // Hero Image Query
   const { heroImage } = useStaticQuery(
@@ -41,6 +43,7 @@ const FAQPage = () => {
   const bgGray = mode(`bgGray`, `gray.700`)
   return (
     <Layout>
+      <Seo title="Frequently Asked Questions" />
       <Grid
         templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
         templateRows={["fit-content 1fr", "1fr 1fr", "repeat(1, 1fr)"]}
@@ -61,28 +64,29 @@ const FAQPage = () => {
           >
             Frequently Asked Questions
           </Text>
-          <Text py="5"></Text>
+          <Text py="5">
+            We are excited to welcome you to J. Philippus Art Studio & Gallery.
+            Below you will find a list of frequently asked questions to ensure
+            you have the most enjoyable experience creating your own unique
+            piece of art during your visit
+          </Text>
         </Box>
         <GatsbyImage image={hero} alt="Frequently Asked Questions" />
       </Grid>
       {/* FAQ Accordion */}
       <Container mt={30} mb={40}>
         <Accordion allowToggle>
-          {faqs.map((faq, index) => (
+          {faqItems.map((faq, index) => (
             <AccordionItem
               key={index}
-              style={{
-                borderBottomColor: `#c09559`,
-                borderTopColor: `#c09559`,
-              }}
+              borderBottomColor={`secondary`}
+              borderTopColor={`secondary`}
             >
               <h2>
                 <AccordionButton
-                  style={{
-                    color: `#c09559`,
-                    fontWeight: `500`,
-                    fontSize: `20px`,
-                  }}
+                  color="secondary"
+                  fontWeight="500"
+                  fontSize="20px"
                 >
                   <Box flex="1" textAlign="left">
                     {faq.question}

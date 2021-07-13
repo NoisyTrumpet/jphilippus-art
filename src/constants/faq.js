@@ -1,5 +1,4 @@
-import React from "react"
-export default [
+const faqItems = [
   {
     question:
       "If I go in a group can I do a different class than my friends are doing?",
@@ -55,3 +54,5 @@ export default [
     answer: "Most classes range from 1 & 1/2 hours to 2 hours.",
   },
 ]
+
+export default faqItems
