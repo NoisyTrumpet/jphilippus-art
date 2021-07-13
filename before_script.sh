@@ -1,0 +1,1 @@
+echo "// ${BUILD_ID}" >> ./gatsby-config.js
