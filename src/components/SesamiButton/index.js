@@ -5,7 +5,7 @@ const SesamiButton = ({ storeId, variantId, legacyId, text }) => {
   useScript(
     `https://cdn.sesami.co/shopify.js?shop=j-philippus-art-studio.myshopify.com`
   )
-  if (storeId && variantId && legacyId && text) {
+
     return (
       <div
         id="sesami__buttonWrapper"
@@ -19,7 +19,7 @@ const SesamiButton = ({ storeId, variantId, legacyId, text }) => {
         }}
       ></div>
     )
-  }
+
 }
 
 export default SesamiButton

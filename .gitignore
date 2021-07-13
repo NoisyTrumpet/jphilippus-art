@@ -69,3 +69,6 @@ yarn-error.log
 yarn.lock
 # Yarn Integrity file
 .yarn-integrity
+# @netlify/plugin-gatsby ignores start
+netlify/functions/gatsby
+# @netlify/plugin-gatsby ignores end

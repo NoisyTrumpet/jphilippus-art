@@ -1,5 +1,9 @@
+const sharp = require("sharp")
 const axios = require("axios")
+const path = require("path")
 
+sharp.cache(false)
+sharp.simd(false)
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
     name: `babel-plugin-react-icons`,
@@ -52,7 +56,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
     component: require.resolve("./src/templates/news.js"),
     context: {
       articles: articles,
-    },
+    }
   })
 
   // Create a page that lists all articles.
