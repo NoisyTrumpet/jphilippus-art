@@ -103,7 +103,7 @@ module.exports = {
         shopifyConnections: ["collections"],
       },
     },
-    `gatsby-plugin-netlify`,
+    `netlify-plugin-gatsby-cache`,
     `@chakra-ui/gatsby-plugin`,
     "gatsby-plugin-image",
     "gatsby-image",
