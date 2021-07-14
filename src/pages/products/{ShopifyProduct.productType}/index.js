@@ -52,6 +52,9 @@ const ProductTypeIndex = ({
     if (productType === "Art Kit") {
       return `CREATE YOUR MASTERPIECE IN YOUR OWN HOME`
     }
+    if (productType === "Event") {
+      return `Attend One of Our Special Events`
+    }
   }
 
   const heroBody = () => {
@@ -66,6 +69,9 @@ const ProductTypeIndex = ({
     }
     if (productType === "Art Kit") {
       return `Our at-home art kits are a fun, easy way to take your creativity into the comfort of your own home. Choose between our resin covered charcuterie board kits, acrylic pour kits, glass art kits, oyster shell DIY kits, or resin coaster kits. `
+    }
+    if (productType === "Event") {
+      return `Stay up-to-date on our special even offerings by checking out our events page. We are always coming up with new event options, and can't wait to see you in the studio!`
     }
   }
 
