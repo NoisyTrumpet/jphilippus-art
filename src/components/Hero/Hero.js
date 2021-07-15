@@ -16,7 +16,7 @@ const Hero = () => {
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP]
+              formats: [AUTO, WEBP, AVIF, PNG]
             )
           }
         }
@@ -27,7 +27,7 @@ const Hero = () => {
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP]
+              formats: [AUTO, WEBP, AVIF, PNG]
             )
           }
         }

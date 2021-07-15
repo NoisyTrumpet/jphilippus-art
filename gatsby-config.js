@@ -104,7 +104,16 @@ module.exports = {
       },
     },
     `netlify-plugin-gatsby-cache`,
-    `@chakra-ui/gatsby-plugin`,
+    {
+      resolve: "@chakra-ui/gatsby-plugin",
+      options: {
+        /**
+         * @property {boolean} [resetCSS=true]
+         * if `false`, this plugin will not use `<CSSReset />
+         */
+        resetCSS: false,
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-image",
     "gatsby-plugin-sharp",

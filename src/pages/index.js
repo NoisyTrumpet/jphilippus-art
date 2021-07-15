@@ -196,7 +196,7 @@ export const query = graphql`
                 aspectRatio: 1
                 layout: CONSTRAINED
                 placeholder: BLURRED
-                formats: [AUTO, WEBP]
+                formats: [AUTO, WEBP, AVIF, PNG]
                 quality: 60
                 width: 220
               )
@@ -219,7 +219,7 @@ export const query = graphql`
           quality: 60
           layout: CONSTRAINED
           placeholder: BLURRED
-          formats: [AUTO, WEBP]
+          formats: [AUTO, WEBP, AVIF, PNG]
         )
       }
     }
@@ -244,7 +244,7 @@ export default IndexPage
 //             height: 210
 //             layout: CONSTRAINED
 //             placeholder: BLURRED
-//             formats: [AUTO, WEBP]
+//             formats: [AUTO, WEBP, AVIF, PNG]
 //             quality: 60
 //           )
 //         }

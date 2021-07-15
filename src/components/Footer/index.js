@@ -1,4 +1,4 @@
-import { Box, Stack, useColorMode, Container } from "@chakra-ui/react"
+import { Box, Stack, Container } from "@chakra-ui/react"
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -16,29 +16,18 @@ const Footer = () => {
       query {
         DarkLogo: file(relativePath: { eq: "logo-horizontal-dark.png" }) {
           childImageSharp {
-            gatsbyImageData(
-              width: 200
-              quality: 60
-              placeholder: BLURRED
-              formats: [AUTO, WEBP]
-            )
+            gatsbyImageData(width: 200, quality: 60, formats: [AUTO, WEBP, AVIF, PNG])
           }
         }
         LightLogo: file(relativePath: { eq: "logo-horizontal.png" }) {
           childImageSharp {
-            gatsbyImageData(
-              width: 200
-              quality: 60
-              placeholder: BLURRED
-              formats: [AUTO, WEBP]
-            )
+            gatsbyImageData(width: 200, quality: 60, formats: [AUTO, WEBP, AVIF, PNG])
           }
         }
       }
     `
   )
 
-  const { colorMode } = useColorMode()
   const dark = getImage(DarkLogo)
   const light = getImage(LightLogo)
 
@@ -75,23 +64,14 @@ const Footer = () => {
             }}
             justify="space-between"
           >
-            {colorMode === "dark" ? (
-              <Link to="/" alt="Home">
-                <GatsbyImage
-                  image={dark}
-                  alt="Footer Logo Dark"
-                  className="header-logo-dark"
-                />
-              </Link>
-            ) : (
-              <Link to="/" alt="Home">
-                <GatsbyImage
-                  image={light}
-                  alt="Footer Logo Light"
-                  className="header-logo-reg"
-                />
-              </Link>
-            )}
+            <Link to="/" alt="Home">
+              <GatsbyImage
+                image={light}
+                alt="Footer Logo Light"
+                className="header-logo-reg"
+                loading="eager"
+              />
+            </Link>
 
             <Stack
               direction={{

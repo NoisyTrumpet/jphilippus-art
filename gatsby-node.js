@@ -56,7 +56,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
     component: require.resolve("./src/templates/news.js"),
     context: {
       articles: articles,
-    }
+    },
   })
 
   // Create a page that lists all articles.
