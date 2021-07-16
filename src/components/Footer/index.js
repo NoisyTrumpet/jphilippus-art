@@ -16,12 +16,12 @@ const Footer = () => {
       query {
         DarkLogo: file(relativePath: { eq: "logo-horizontal-dark.png" }) {
           childImageSharp {
-            gatsbyImageData(width: 200, quality: 60, formats: [AUTO, WEBP, AVIF, PNG])
+            gatsbyImageData(width: 200, quality: 60, formats: PNG)
           }
         }
         LightLogo: file(relativePath: { eq: "logo-horizontal.png" }) {
           childImageSharp {
-            gatsbyImageData(width: 200, quality: 60, formats: [AUTO, WEBP, AVIF, PNG])
+            gatsbyImageData(width: 200, quality: 60, formats: PNG)
           }
         }
       }
