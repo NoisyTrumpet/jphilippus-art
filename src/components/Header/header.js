@@ -157,6 +157,11 @@ export const MenuLinks = () => {
       pActive: true,
     },
     {
+      name: "News",
+      slug: "/news",
+      pActive: true,
+    },
+    {
       name: "Contact",
       slug: "/contact",
       pActive: true,
