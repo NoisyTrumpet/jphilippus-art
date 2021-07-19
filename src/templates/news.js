@@ -25,7 +25,7 @@ const NewsPage = data => {
                 <BlogCard
                   featured={true}
                   title={blog.title}
-                  href={blog.handle}
+                  href={`/news/${blog.handle}`}
                   description={blog.summary_html}
                   date={blog.published_at}
                   blogImage={blog.image.src}
@@ -48,7 +48,7 @@ const NewsPage = data => {
             {articles.slice(1, 20).map(blog => (
               <BlogCard
                 title={blog.title}
-                href={blog.handle}
+                href={`/news/${blog.handle}`}
                 description={blog.summary_html}
                 date={blog.published_at}
                 blogImage={blog.image.src}
