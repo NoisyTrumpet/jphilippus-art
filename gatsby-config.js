@@ -15,6 +15,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "@mkitio/gatsby-theme-password-protect",
+      options: {
+        password: "password", // delete or `undefined` to disable password protection
+        pagePaths: [`/products/class/custom`],
+        partialMatching: true,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

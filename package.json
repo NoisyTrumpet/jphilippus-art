@@ -17,6 +17,7 @@
     "@fullcalendar/resource-timeline": "^5.7.2",
     "@fullcalendar/timegrid": "^5.7.2",
     "@loadable/component": "^5.15.0",
+    "@mkitio/gatsby-theme-password-protect": "^2.1.2",
     "@react-icons/all-files": "^4.1.0",
     "@sindresorhus/slugify": "^1.1.2",
     "assert": "^1.5.0",

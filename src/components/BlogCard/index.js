@@ -114,6 +114,7 @@ const BlogCard = props => {
               objectFit="cover"
               alt={title}
               src={blogImage}
+              objectPosition="top"
             />
           </Link>
           <Flex
