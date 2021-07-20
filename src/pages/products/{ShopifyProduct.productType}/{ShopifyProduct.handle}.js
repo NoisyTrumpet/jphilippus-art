@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import {
   Container,
   Grid,
@@ -40,6 +40,7 @@ const Product = ({ data: { product, suggestions } }) => {
     images,
     images: [firstImage],
     productType,
+    handle,
   } = product
 
   const { client } = React.useContext(StoreContext)
@@ -169,6 +170,22 @@ const Product = ({ data: { product, suggestions } }) => {
                 <Heading as="h1" fontWeight={500} color={`primary`}>
                   {title}
                 </Heading>
+                <Box display="flex">
+                  <Link to="/" aria-label="Home">
+                    Home
+                  </Link>{" "}
+                  /{" "}
+                  <Link
+                    to={`/products/${productType.toLowerCase()}`}
+                    aria-label={productType}
+                  >
+                    {productType}
+                  </Link>{" "}
+                  /{" "}
+                  <Link to={`/products/${productType.toLowerCase()}/${handle}`}>
+                    {title}
+                  </Link>
+                </Box>
                 <Box dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
                 {isClass() && (
                   <SesamiButton
@@ -420,6 +437,7 @@ export const query = graphql`
           }
         }
       }
+      handle
       variants {
         availableForSale
         storefrontId

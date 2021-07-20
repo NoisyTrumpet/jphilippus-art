@@ -11,14 +11,9 @@ import SocialMediaLinks from "./Fragments/SocialMediaLinks"
 import Newsletter from "../Newsletter/Newsletter"
 
 const Footer = () => {
-  const { DarkLogo, LightLogo } = useStaticQuery(
+  const { LightLogo } = useStaticQuery(
     graphql`
       query {
-        DarkLogo: file(relativePath: { eq: "logo-horizontal-dark.png" }) {
-          childImageSharp {
-            gatsbyImageData(width: 200, quality: 60, formats: PNG)
-          }
-        }
         LightLogo: file(relativePath: { eq: "logo-horizontal.png" }) {
           childImageSharp {
             gatsbyImageData(width: 200, quality: 60, formats: PNG)
@@ -28,7 +23,6 @@ const Footer = () => {
     `
   )
 
-  const dark = getImage(DarkLogo)
   const light = getImage(LightLogo)
 
   return (
