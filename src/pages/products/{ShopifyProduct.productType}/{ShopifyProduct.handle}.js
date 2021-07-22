@@ -171,18 +171,26 @@ const Product = ({ data: { product, suggestions } }) => {
                   {title}
                 </Heading>
                 <Box display="flex">
-                  <Link to="/" aria-label="Home">
+                  <Link
+                    to="/"
+                    aria-label="Home"
+                    style={{ marginRight: "0.25rem" }}
+                  >
                     Home
                   </Link>{" "}
                   /{" "}
                   <Link
                     to={`/products/${productType.toLowerCase()}`}
                     aria-label={productType}
+                    style={{ margin: "auto 0.25rem" }}
                   >
                     {productType}
                   </Link>{" "}
                   /{" "}
-                  <Link to={`/products/${productType.toLowerCase()}/${handle}`}>
+                  <Link
+                    to={`/products/${productType.toLowerCase()}/${handle}`}
+                    style={{ marginLeft: "0.25rem" }}
+                  >
                     {title}
                   </Link>
                 </Box>

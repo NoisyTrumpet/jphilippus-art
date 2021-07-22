@@ -7,7 +7,9 @@ import {
   useColorModeValue,
   Grid,
   GridItem,
+  useColorMode,
 } from "@chakra-ui/react"
+import { Link } from "gatsby"
 
 const BlogPage = ({ pageContext }) => {
   const themeBlue = useColorModeValue(`secondary`, `gray.300`)
@@ -19,14 +21,38 @@ const BlogPage = ({ pageContext }) => {
         <Container my={[16, 16, 16, 16]}>
           <Grid templateColumns={[`repeat(1, 1fr)`, `repeat(2, 1fr)`]} gap={4}>
             <GridItem>
-              <Text
+              {/* <Text
                 as="span"
                 fontSize="2xl"
                 color={`primary`}
                 textTransform="uppercase"
               >
                 Latest News
-              </Text>
+              </Text> */}
+              <Box display="flex" color={`secondary`}>
+                <Link
+                  to="/"
+                  aria-label="Home"
+                  style={{ marginRight: "0.25rem" }}
+                >
+                  Home
+                </Link>{" "}
+                /{" "}
+                <Link
+                  to="/news"
+                  aria-label="News"
+                  style={{ margin: "auto 0.25rem" }}
+                >
+                  News
+                </Link>{" "}
+                /{" "}
+                <Link
+                  to={`/news/${pageContext.article?.title}`}
+                  style={{ marginLeft: "0.25rem" }}
+                >
+                  {pageContext.article?.title}
+                </Link>
+              </Box>
               <Text as="h1" fontSize="3xl" color={themeBlue}>
                 {pageContext.article?.title}
               </Text>
