@@ -47,6 +47,7 @@ const FAQPage = () => {
       <Grid
         templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
         templateRows={["fit-content 1fr", "1fr 1fr", "repeat(1, 1fr)"]}
+        maxH={`400px`}
       >
         <Box
           className="bio-text"
