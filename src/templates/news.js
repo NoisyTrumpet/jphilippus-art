@@ -32,6 +32,7 @@ const NewsPage = data => {
                   blogImage={blog.image.src}
                 />
               ))}
+              {/* Testing clean build */}
             </Box>
           </Box>
           <Grid

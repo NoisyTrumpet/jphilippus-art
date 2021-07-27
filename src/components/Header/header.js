@@ -36,7 +36,7 @@ const NavBar = props => {
               width: 200
               quality: 60
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, PNG]
+              formats: [ WEBP,  PNG]
             )
           }
         }
@@ -46,7 +46,7 @@ const NavBar = props => {
               width: 200
               quality: 60
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, PNG]
+              formats: [ WEBP,  PNG]
             )
           }
         }
@@ -154,11 +154,6 @@ export const MenuLinks = () => {
     {
       name: "Gallery",
       slug: "/gallery",
-      pActive: true,
-    },
-    {
-      name: "Gift Cards",
-      slug: "/products/gift-card/gift-card",
       pActive: true,
     },
     {

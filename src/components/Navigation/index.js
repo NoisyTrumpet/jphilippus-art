@@ -70,6 +70,11 @@ const Navigation = () => {
       pActive: true,
     },
     {
+      name: "News",
+      slug: "/news",
+      pActive: true,
+    },
+    {
       name: "Gift Cards",
       slug: "/products/gift-card/gift-card",
       pActive: true,
@@ -102,7 +107,7 @@ const Navigation = () => {
           <AccordionPanel pb={4}>
             <Box as="ul" listStyleType="none" px="2" pb="2">
               {links.map((link, idx) => (
-                <Box as="li" key={link.title}>
+                <Box as="li" key={idx}>
                   <MenuItem
                     href={link.href}
                     title={link.title}

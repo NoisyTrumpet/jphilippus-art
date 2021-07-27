@@ -16,8 +16,10 @@ const Layout = ({ children }) => (
   <ChakraProvider theme={theme}>
     <SkipNavLink />
     <Header />
-    <SkipNavContent>{children}</SkipNavContent>
-    <Footer />
+    <SkipNavContent>
+      {children}
+      <Footer />
+    </SkipNavContent>
   </ChakraProvider>
 )
 

@@ -23,7 +23,7 @@ const NewHero = () => {
               quality: 90
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, PNG]
+              formats: [ WEBP,  PNG]
             )
           }
         }

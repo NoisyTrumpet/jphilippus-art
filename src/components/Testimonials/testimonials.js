@@ -16,7 +16,7 @@ const Testimonials = () => {
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, PNG]
+              formats: [ WEBP,  PNG]
             )
           }
         }

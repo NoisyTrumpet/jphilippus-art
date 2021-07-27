@@ -17,7 +17,7 @@ const BlockGrid = () => {
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, PNG]
+              formats: [ WEBP,  PNG]
             )
           }
         }
@@ -28,7 +28,7 @@ const BlockGrid = () => {
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, PNG]
+              formats: [ WEBP,  PNG]
             )
           }
         }
@@ -39,7 +39,7 @@ const BlockGrid = () => {
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, PNG]
+              formats: [ WEBP,  PNG]
             )
           }
         }
