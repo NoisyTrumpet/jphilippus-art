@@ -152,7 +152,7 @@ const IndexPage = ({ data: products, data }) => {
             <DiamondButton
               buttonStyle="btn--primary-transparent"
               buttonSize="btn--xl"
-              to="/news/parade-of-homes/"
+              to="/news"
             >
               Latest News
             </DiamondButton>

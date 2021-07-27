@@ -157,8 +157,13 @@ export const MenuLinks = () => {
       pActive: true,
     },
     {
-      name: "Contact",
-      slug: "/contact",
+      name: "Gift Cards",
+      slug: "/products/gift-card/gift-card",
+      pActive: true,
+    },
+    {
+      name: "News",
+      slug: "/news",
       pActive: true,
     },
     {
@@ -166,10 +171,16 @@ export const MenuLinks = () => {
       slug: "/faq",
       pActive: true,
     },
+    {
+      name: "Contact",
+      slug: "/contact",
+      pActive: true,
+    },
+
   ]
   return (
     <Box
-      display={{ base: isOpen ? "block" : "none", md: "none", lg: `flex` }}
+      display={{ base: isOpen ? "block" : "none", md: "none", lg: `none`, xl: `flex` }}
       flexBasis={{ base: "100%", md: "auto" }}
     >
       <Stack

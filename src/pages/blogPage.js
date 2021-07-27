@@ -29,11 +29,11 @@ const BlogPage = ({ pageContext }) => {
               >
                 Latest News
               </Text> */}
-              <Box display="flex" color={`secondary`}>
+              <Box display="flex" color={`secondary`}alignItems="center">
                 <Link
                   to="/"
                   aria-label="Home"
-                  style={{ marginRight: "0.25rem" }}
+                  style={{ marginRight: "0.25rem", fontSize: '12px' }}
                 >
                   Home
                 </Link>{" "}
@@ -41,14 +41,14 @@ const BlogPage = ({ pageContext }) => {
                 <Link
                   to="/news"
                   aria-label="News"
-                  style={{ margin: "auto 0.25rem" }}
+                  style={{ margin: "auto 0.25rem", fontSize: '12px' }}
                 >
                   News
                 </Link>{" "}
                 /{" "}
                 <Link
-                  to={`/news/${pageContext.article?.title}`}
-                  style={{ marginLeft: "0.25rem" }}
+                  to={`/news/${pageContext.article?.handle}`}
+                  style={{ marginLeft: "0.25rem", fontSize: '12px' }}
                 >
                   {pageContext.article?.title}
                 </Link>

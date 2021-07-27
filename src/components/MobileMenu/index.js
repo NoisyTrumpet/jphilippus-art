@@ -71,7 +71,7 @@ const MobileMenu = ({ quantity, btnRef, onOpen }) => {
         aria-label={isOpenMenu ? `Close menu` : `Open menu`}
         icon={<FiMenu />}
         marginLeft="auto"
-        display={[`flex`, `flex`, `flex`, `none`]}
+        display={[`flex`, `flex`, `flex`, `flex`, `none`]}
       />
     </>
   )

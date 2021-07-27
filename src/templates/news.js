@@ -16,10 +16,11 @@ const NewsPage = data => {
                 as="h1"
                 size="xl"
                 mb="2"
+                fontWeight="regular"
                 lineHeight="base"
                 color={themeBlue}
               >
-                Blog
+                News
               </Heading>
               {articles.slice(0, 1).map(blog => (
                 <BlogCard
