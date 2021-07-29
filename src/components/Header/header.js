@@ -36,7 +36,7 @@ const NavBar = props => {
               width: 200
               quality: 60
               placeholder: BLURRED
-              formats: [ WEBP,  PNG]
+              formats: [WEBP, PNG]
             )
           }
         }
@@ -46,7 +46,7 @@ const NavBar = props => {
               width: 200
               quality: 60
               placeholder: BLURRED
-              formats: [ WEBP,  PNG]
+              formats: [WEBP, PNG]
             )
           }
         }
@@ -171,11 +171,15 @@ export const MenuLinks = () => {
       slug: "/contact",
       pActive: true,
     },
-
   ]
   return (
     <Box
-      display={{ base: isOpen ? "block" : "none", md: "none", lg: `none`, xl: `flex` }}
+      display={{
+        base: isOpen ? "block" : "none",
+        md: "none",
+        lg: `none`,
+        xl: `flex`,
+      }}
       flexBasis={{ base: "100%", md: "auto" }}
     >
       <Stack

@@ -31,7 +31,7 @@ const AboutPage = () => {
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [ WEBP,  PNG]
+              formats: [WEBP, PNG]
             )
           }
         }
@@ -43,7 +43,7 @@ const AboutPage = () => {
               childImageSharp {
                 id
                 gatsbyImageData(
-                  formats: [ WEBP,  PNG]
+                  formats: [WEBP, PNG]
                   layout: CONSTRAINED
                   quality: 60
                   placeholder: BLURRED

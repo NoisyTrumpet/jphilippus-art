@@ -17,7 +17,7 @@ const News = () => {
               quality: 60
               layout: CONSTRAINED
               placeholder: BLURRED
-              formats: [ WEBP,  PNG]
+              formats: [WEBP, PNG]
             )
           }
         }

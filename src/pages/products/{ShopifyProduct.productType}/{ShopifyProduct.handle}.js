@@ -1,5 +1,6 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+import Link from "../../../components/link"
 import {
   Container,
   Grid,
@@ -157,7 +158,7 @@ const Product = ({ data: { product, suggestions } }) => {
       />
 
       <Box bgGradient={bgGradient}>
-        <Container py={[16, 20, 28]}>
+        <Container py={4}>
           <Grid
             templateColumns={["1fr", null, "repeat(2, 1fr)"]}
             gap={[12, 20]}
@@ -167,33 +168,30 @@ const Product = ({ data: { product, suggestions } }) => {
           >
             <Stack spacing={[8, 16]} order={[2, null, 1]}>
               <Stack spacing={4}>
-                <Heading as="h1" fontWeight={500} color={`primary`}>
-                  {title}
-                </Heading>
                 <Box display="flex">
-                  <Link
-                    to="/"
-                    aria-label="Home"
-                    style={{ marginRight: "0.25rem" }}
-                  >
+                  <Link to="/" aria-label="Home" mr={"0.25rem"}>
                     Home
                   </Link>{" "}
                   /{" "}
                   <Link
                     to={`/products/${productType.toLowerCase()}`}
                     aria-label={productType}
-                    style={{ margin: "auto 0.25rem" }}
+                    m={"auto 0.25rem"}
                   >
                     {productType}
                   </Link>{" "}
                   /{" "}
                   <Link
                     to={`/products/${productType.toLowerCase()}/${handle}`}
-                    style={{ marginLeft: "0.25rem" }}
+                    ml={"0.25rem"}
+                    color={"secondary"}
                   >
                     {title}
                   </Link>
                 </Box>
+                <Heading as="h1" fontWeight={500} color={`primary`}>
+                  {title}
+                </Heading>
                 <Box dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
                 {isClass() && (
                   <SesamiButton
@@ -437,7 +435,7 @@ export const query = graphql`
           publicURL
           childImageSharp {
             gatsbyImageData(
-              formats: [ WEBP,  PNG]
+              formats: [WEBP, PNG]
               quality: 60
               layout: CONSTRAINED
               width: 640

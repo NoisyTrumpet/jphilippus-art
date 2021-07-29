@@ -196,7 +196,7 @@ export const query = graphql`
                 aspectRatio: 1
                 layout: CONSTRAINED
                 placeholder: BLURRED
-                formats: [ WEBP,  PNG]
+                formats: [WEBP, PNG]
                 quality: 60
                 width: 220
               )
@@ -219,7 +219,7 @@ export const query = graphql`
           quality: 60
           layout: CONSTRAINED
           placeholder: BLURRED
-          formats: [ WEBP,  PNG]
+          formats: [WEBP, PNG]
         )
       }
     }
