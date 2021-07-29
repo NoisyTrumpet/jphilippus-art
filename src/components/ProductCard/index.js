@@ -44,9 +44,11 @@ const ProductCard = ({ product, featured }) => {
         </Box>
         <Box textAlign="center">
           <Text
+            className="product-name"
             as="h2"
             fontSize={featured ? "md" : "4xl"}
             color={`secondary`}
+            _hover={{ color: `#C09559` }}
             transition="color 0.25s ease-in-out"
           >
             {title}
@@ -61,11 +63,11 @@ const ProductCard = ({ product, featured }) => {
     <Link
       to={slug}
       aria-label={`View ${title} product page`}
-      _hover={{ textDecoration: "none", h2: { color: linkHoverColor } }}
+      _hover={{ textDecoration: "none", h2: { color: `#C09559` } }}
       _focus={{
         boxShadow: "none",
         "[data-name='product-image-box']": { boxShadow: "outline" },
-        h2: { color: linkHoverColor },
+        h2: { color: `#C09559` },
       }}
     >
       <Box

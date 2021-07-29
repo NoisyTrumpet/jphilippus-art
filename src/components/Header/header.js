@@ -203,6 +203,7 @@ export const MenuLinks = () => {
           pt={1}
           textTransform="uppercase"
           fontWeight="regular"
+          _hover={{ backgroundColor: `#79C1CC` }}
         >
           Book a Class
         </Button>

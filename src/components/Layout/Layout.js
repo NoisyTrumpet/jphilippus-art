@@ -11,6 +11,7 @@ import { SkipNavContent, SkipNavLink } from "../SkipNav/index"
 import Footer from "../Footer/index"
 import Header from "../Header/header"
 import { theme } from "../../@chakra-ui/gatsby-plugin/theme/index"
+import styles from "../../styles/main.scss"
 
 const Layout = ({ children }) => (
   <ChakraProvider theme={theme}>

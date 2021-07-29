@@ -9,13 +9,13 @@ const ChakraLink = chakra(GatsbyLink, {
     textDecoration: `none`,
     outline: `none`,
     _hover: {
-      textDecoration: `underline`,
+      textDecoration: `underline`, color: `#C09559`,
     },
     _focus: {
       boxShadow: `outline`,
     },
     _activeLink: {
-      color: `secondary`,
+      color: `#C09559`,
     },
   },
 })
@@ -36,6 +36,9 @@ const Link = props => {
         className={props.className}
         style={{ textTransform: `uppercase` }}
         {...props}
+        _activeLink={{ color: `#C09559`, fontWeight: `600` }}
+        _hover={{ color: `#C09559` }}
+        _focus={{ color: `#C09559` }}
       >
         <Text>{props.children}</Text>
       </chakra.a>
@@ -43,7 +46,7 @@ const Link = props => {
   }
 
   if (props.to === "/products/gift-card/gift-card/") {
-    return <ChakraLink {...props} _activeLink={{ color: `white` }} />
+    return <ChakraLink {...props} _activeLink={{ color: `white`, backgroundColor: `#79C1CC` }} />
   }
   return <chakra.a href={props.to} {...props} />
 }

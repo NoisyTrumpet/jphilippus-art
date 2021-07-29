@@ -1,5 +1,6 @@
 import * as React from "react"
 import Link from "../link"
+import '.'
 
 const data = {
   nodes: [
@@ -31,11 +32,14 @@ const LinkGrid = () => {
     <>
       {data.nodes.map(node => (
         <Link
+          className="product-link"
+          activeClassName="product-active"
           to={node.slug}
           textTransform="uppercase"
           mx={[1.5, 4]}
           fontSize={["small", "medium"]}
           key={node.label}
+          activeStyle={{ color: '#C09559', fontWeight: '600' }}
         >
           {node.label}
         </Link>
