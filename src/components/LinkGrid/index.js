@@ -27,21 +27,17 @@ const data = {
 }
 
 const LinkGrid = () => {
-  return (
-    <>
-      {data.nodes.map(node => (
-        <Link
-          to={node.slug}
-          textTransform="uppercase"
-          mx={[1.5, 4]}
-          fontSize={["small", "medium"]}
-          key={node.label}
-        >
-          {node.label}
-        </Link>
-      ))}
-    </>
-  )
+  return data.nodes.map(node => (
+    <Link
+      to={node.slug}
+      textTransform="uppercase"
+      mx={[1.5, 4]}
+      fontSize={["small", "medium"]}
+      key={node.label}
+    >
+      {node.label}
+    </Link>
+  ))
 }
 
 export default LinkGrid

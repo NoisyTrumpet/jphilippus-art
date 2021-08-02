@@ -1,6 +1,6 @@
 import * as React from "react"
 import Layout from "../components/Layout/Layout"
-import { graphql, useStaticQuery } from "gatsby"
+import { navigate } from "gatsby"
 
 import {
   Box,
@@ -27,6 +27,7 @@ import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
 
+
 // Component with a form to request a new private party
 const PrivatePartyRequest = ({}) => {
   const [startDate, setStartDate] = React.useState(new Date())
@@ -47,9 +48,11 @@ const PrivatePartyRequest = ({}) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => console.log("Form successfully submitted"))
+      .then(() => navigate(`/thank-you`))
       .catch(error => alert(error))
   }
+
+
   return (
     <Layout>
       <Seo title="Private Party Booking Form" />
@@ -128,7 +131,7 @@ const PrivatePartyRequest = ({}) => {
                 <FormLabel minWidth="fit-content" mb="0">
                   Type of Class
                 </FormLabel>
-                <Select>
+                <Select type="select" name="Type of Class">
                   <option>Charcuterie</option>
                   <option>Acrylic Pour</option>
                   <option>Resin Pour</option>
@@ -136,12 +139,14 @@ const PrivatePartyRequest = ({}) => {
                   <option>Glass Art</option>
                 </Select>
               </Flex>
-              <Flex alignItems="center">
+
                 <FormControl>
+                <Flex alignItems="center">
                   <FormLabel minWidth="fit-content" mb="0">
                     Number of Participants
                   </FormLabel>
-                  <NumberInput max={24} min={6}>
+                  <Stack w="100%">
+                  <NumberInput max={24} min={6} name="Number of People" type="number">
                     <NumberInputField />
                     <NumberInputStepper placeholder={8}>
                       <NumberIncrementStepper />
@@ -149,13 +154,15 @@ const PrivatePartyRequest = ({}) => {
                     </NumberInputStepper>
                   </NumberInput>
                   <FormHelperText>Minimum: 6, Maximum: 24</FormHelperText>
+                  </Stack>
+                  </Flex>
                 </FormControl>
-              </Flex>
+
               <Flex alignItems="center">
                 <FormLabel minWidth="fit-content" mb="0">
                   Type of Event
                 </FormLabel>
-                <Select>
+                <Select name="Type of Event" type="select">
                   <option>Birthday</option>
                   <option>Team Building</option>
                   <option>Girls Night Out</option>
@@ -170,6 +177,8 @@ const PrivatePartyRequest = ({}) => {
                   name="date"
                   selected={startDate}
                   onChange={date => setStartDate(date)}
+                  className="date-picker"
+                  placeholderText="Select a date"
                 />
               </Flex>
               <Flex alignItems="center">

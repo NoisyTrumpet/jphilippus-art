@@ -204,7 +204,7 @@ const Product = ({ data: { product, suggestions } }) => {
               </Stack>
               <Stack spacing={0}>
                 <Heading as="h2" color={priceColor}>
-                  {price}
+                  {available ? price : 'Out of Stock'}
                 </Heading>
 
                 <Flex
@@ -213,7 +213,7 @@ const Product = ({ data: { product, suggestions } }) => {
                   direction={["column", "row", "row"]}
                   flexWrap="wrap"
                 >
-                  <Stack
+                  {available && <Stack
                     as="fieldset"
                     mr={6}
                     mt={4}
@@ -237,8 +237,8 @@ const Product = ({ data: { product, suggestions } }) => {
                         <NumberDecrementStepper />
                       </NumberInputStepper>
                     </NumberInput>
-                  </Stack>
-                  {hasVariants && (
+                  </Stack>}
+                  {available && hasVariants && (
                     <>
                       {options.map(
                         ({ id, name, values }, index) =>

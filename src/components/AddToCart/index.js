@@ -15,8 +15,8 @@ const AddToCart = ({
   return (
     <Button
       onClick={() => {
-        addVariantToCart(variantId, quantity, properties)
-        onOpen()
+        available && addVariantToCart(variantId, quantity, properties)
+        available && onOpen()
       }}
       color="white"
       textTransform="uppercase"

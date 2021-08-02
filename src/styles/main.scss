@@ -37,3 +37,17 @@ iframe {
     // }
 
 }
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.date-picker {
+    border-radius: var(--chakra-radii-md);
+    text-align: center;
+    padding-inline-end: 2rem;
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    border: 1px solid rgb(226, 232, 240);
+    width: 100%;
+}
