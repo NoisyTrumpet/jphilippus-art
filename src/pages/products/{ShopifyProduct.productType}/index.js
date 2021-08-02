@@ -5,7 +5,7 @@ import {
   Flex,
   Center,
   useColorModeValue,
-  Text
+  Text,
 } from "@chakra-ui/react"
 import { graphql } from "gatsby"
 import Layout from "../../../components/Layout/Layout"
@@ -82,6 +82,7 @@ const ProductTypeIndex = ({
     <Layout>
       <Seo title={`Category: ${productType || `All`}`} />
       <VisuallyHidden as="h1">{productType}</VisuallyHidden>
+
       <Container>
         <Center my="10" mx="0">
           <Flex
@@ -93,10 +94,10 @@ const ProductTypeIndex = ({
             <LinkGrid />
           </Flex>
         </Center>
-        {productType === "Event" && (
-          <Text color="primary" fontSize="3xl">Past Events:</Text>
-        )}
-        <ProductListing products={products} />
+        <ProductListing
+          products={products}
+          isEvents={productType === "Event"}
+        />
       </Container>
       <AltHero
         title={heroTitle()}

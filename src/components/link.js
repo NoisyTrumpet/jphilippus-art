@@ -17,6 +17,9 @@ const ChakraLink = chakra(GatsbyLink, {
     _activeLink: {
       color: `secondary`,
     },
+    _active: {
+      color: `secondary`,
+    },
   },
 })
 
@@ -45,7 +48,7 @@ const Link = props => {
   if (props.to === "/products/gift-card/gift-card/") {
     return <ChakraLink {...props} _activeLink={{ color: `white` }} />
   }
-  return <chakra.a href={props.to} {...props} />
+  return <chakra.a href={props.to} {...props} _activeLink={{ color: "blue" }} />
 }
 
 export default Link

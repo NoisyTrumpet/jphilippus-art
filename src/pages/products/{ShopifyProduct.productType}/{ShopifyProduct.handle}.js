@@ -204,7 +204,7 @@ const Product = ({ data: { product, suggestions } }) => {
               </Stack>
               <Stack spacing={0}>
                 <Heading as="h2" color={priceColor}>
-                  {available ? price : 'Out of Stock'}
+                  {available ? price : "Out of Stock"}
                 </Heading>
 
                 <Flex
@@ -213,31 +213,33 @@ const Product = ({ data: { product, suggestions } }) => {
                   direction={["column", "row", "row"]}
                   flexWrap="wrap"
                 >
-                  {available && <Stack
-                    as="fieldset"
-                    mr={6}
-                    mt={4}
-                    sx={{ input: { px: 2, py: 2 } }}
-                  >
-                    <label htmlFor="quantity">
-                      {isClass() ? "Number of participants" : "Quantity"}
-                    </label>
-                    <NumberInput
-                      onChange={(_, value) => setQuantity(value)}
-                      value={quantity}
-                      id="quantity"
-                      name="quantity"
-                      defaultValue={1}
-                      min={1}
-                      maxW={20}
+                  {available && (
+                    <Stack
+                      as="fieldset"
+                      mr={6}
+                      mt={4}
+                      sx={{ input: { px: 2, py: 2 } }}
                     >
-                      <NumberInputField bg={bgInput} />
-                      <NumberInputStepper>
-                        <NumberIncrementStepper />
-                        <NumberDecrementStepper />
-                      </NumberInputStepper>
-                    </NumberInput>
-                  </Stack>}
+                      <label htmlFor="quantity">
+                        {isClass() ? "Number of participants" : "Quantity"}
+                      </label>
+                      <NumberInput
+                        onChange={(_, value) => setQuantity(value)}
+                        value={quantity}
+                        id="quantity"
+                        name="quantity"
+                        defaultValue={1}
+                        min={1}
+                        maxW={20}
+                      >
+                        <NumberInputField bg={bgInput} />
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
+                    </Stack>
+                  )}
                   {available && hasVariants && (
                     <>
                       {options.map(

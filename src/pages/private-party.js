@@ -27,7 +27,6 @@ import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
 
-
 // Component with a form to request a new private party
 const PrivatePartyRequest = ({}) => {
   const [startDate, setStartDate] = React.useState(new Date())
@@ -51,7 +50,6 @@ const PrivatePartyRequest = ({}) => {
       .then(() => navigate(`/thank-you`))
       .catch(error => alert(error))
   }
-
 
   return (
     <Layout>
@@ -140,23 +138,28 @@ const PrivatePartyRequest = ({}) => {
                 </Select>
               </Flex>
 
-                <FormControl>
+              <FormControl>
                 <Flex alignItems="center">
                   <FormLabel minWidth="fit-content" mb="0">
                     Number of Participants
                   </FormLabel>
                   <Stack w="100%">
-                  <NumberInput max={24} min={6} name="Number of People" type="number">
-                    <NumberInputField />
-                    <NumberInputStepper placeholder={8}>
-                      <NumberIncrementStepper />
-                      <NumberDecrementStepper />
-                    </NumberInputStepper>
-                  </NumberInput>
-                  <FormHelperText>Minimum: 6, Maximum: 24</FormHelperText>
+                    <NumberInput
+                      max={24}
+                      min={6}
+                      name="Number of People"
+                      type="number"
+                    >
+                      <NumberInputField />
+                      <NumberInputStepper placeholder={8}>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
+                      </NumberInputStepper>
+                    </NumberInput>
+                    <FormHelperText>Minimum: 6, Maximum: 24</FormHelperText>
                   </Stack>
-                  </Flex>
-                </FormControl>
+                </Flex>
+              </FormControl>
 
               <Flex alignItems="center">
                 <FormLabel minWidth="fit-content" mb="0">

@@ -13,7 +13,6 @@ const ProductCard = ({ product, featured }) => {
     slug,
     images: [firstImage],
     productType,
-    variants,
     variants: [initialVariant],
   } = product
 
@@ -124,7 +123,7 @@ const ProductCard = ({ product, featured }) => {
         >
           {title}
         </Text>
-        <Text color="primary">{available ? price : 'Out of Stock'}</Text>
+        <Text color="primary">{available ? price : "Out of Stock"}</Text>
       </Box>
     </Link>
   )

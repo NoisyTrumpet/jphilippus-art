@@ -4,23 +4,23 @@ import Link from "../link"
 const data = {
   nodes: [
     {
-      slug: `/products/class`,
+      slug: `/products/class/`,
       label: `Classes`,
     },
     {
-      slug: `/products/art`,
+      slug: `/products/art/`,
       label: `Art`,
     },
     {
-      slug: `/products/art-kit`,
+      slug: `/products/art-kit/`,
       label: `Art Kits`,
     },
     {
-      slug: `/products/event`,
+      slug: `/products/event/`,
       label: `Events`,
     },
     {
-      slug: `/products`,
+      slug: `/products/`,
       label: `All Products`,
     },
   ],

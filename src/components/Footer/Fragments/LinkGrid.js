@@ -49,13 +49,14 @@ const LinkGrid = props => (
           target="_blank"
         >
           1846 North Loop 1604 W<br />
-          Suite 104<br/>
+          Suite 104
+          <br />
           San Antonio, TX 78248
         </a>
-          <br />
-          San Antonio, TX 78248
-          <br />
-          <a href="tel:210.474.0440">210.474.0440</a>
+        <br />
+        San Antonio, TX 78248
+        <br />
+        <a href="tel:210.474.0440">210.474.0440</a>
       </Stack>
     </Box>
   </SimpleGrid>
