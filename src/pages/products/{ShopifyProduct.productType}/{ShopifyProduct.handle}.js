@@ -56,6 +56,8 @@ const Product = ({ data: { product, suggestions } }) => {
     productVariant.availableForSale
   )
 
+  const isEvent = productType === "Event"
+
   const checkAvailablity = React.useCallback(
     productId => {
       client.product.fetch(productId).then(fetchedProduct => {
@@ -389,7 +391,7 @@ const Product = ({ data: { product, suggestions } }) => {
           </Grid>
         </Container>
       </Box>
-      {suggestions.nodes.length >= 1 && (
+      {!isEvent && suggestions.nodes.length >= 1 && (
         <Container my={[20, 28]}>
           <Heading
             as="h2"
