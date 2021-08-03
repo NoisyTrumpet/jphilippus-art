@@ -147,6 +147,7 @@ const Product = ({ data: { product, suggestions } }) => {
       })
   })
 
+
   return (
     <Layout>
       <Seo
