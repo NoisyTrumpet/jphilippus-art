@@ -55,8 +55,9 @@ const faqItems = [
   },
   {
     question: "Will I be able to take my artwork home with me once complete?",
-    answer: "All artwork takes 48 hours to dry. Therefore we ask that you return to the studio at that point to pick up your artwork. Please keep in mind that we are not able to store your artwork in the studio past a 60 day period.",
-  }
+    answer:
+      "All artwork takes 48 hours to dry. Therefore we ask that you return to the studio at that point to pick up your artwork. Please keep in mind that we are not able to store your artwork in the studio past a 60 day period.",
+  },
 ]
 
 export default faqItems

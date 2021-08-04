@@ -1,5 +1,6 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+import Link from "../../../components/link"
 import {
   Container,
   Grid,
@@ -54,6 +55,8 @@ const Product = ({ data: { product, suggestions } }) => {
   const [available, setAvailable] = React.useState(
     productVariant.availableForSale
   )
+
+  const isEvent = productType === "Event"
 
   const checkAvailablity = React.useCallback(
     productId => {
@@ -144,6 +147,7 @@ const Product = ({ data: { product, suggestions } }) => {
       })
   })
 
+
   return (
     <Layout>
       <Seo
@@ -157,7 +161,7 @@ const Product = ({ data: { product, suggestions } }) => {
       />
 
       <Box bgGradient={bgGradient}>
-        <Container py={[16, 20, 28]}>
+        <Container py={4}>
           <Grid
             templateColumns={["1fr", null, "repeat(2, 1fr)"]}
             gap={[12, 20]}
@@ -167,33 +171,30 @@ const Product = ({ data: { product, suggestions } }) => {
           >
             <Stack spacing={[8, 16]} order={[2, null, 1]}>
               <Stack spacing={4}>
-                <Heading as="h1" fontWeight={500} color={`primary`}>
-                  {title}
-                </Heading>
                 <Box display="flex">
-                  <Link
-                    to="/"
-                    aria-label="Home"
-                    style={{ marginRight: "0.25rem" }}
-                  >
+                  <Link to="/" aria-label="Home" mr={"0.25rem"}>
                     Home
                   </Link>{" "}
                   /{" "}
                   <Link
                     to={`/products/${productType.toLowerCase()}`}
                     aria-label={productType}
-                    style={{ margin: "auto 0.25rem" }}
+                    m={"auto 0.25rem"}
                   >
                     {productType}
                   </Link>{" "}
                   /{" "}
                   <Link
                     to={`/products/${productType.toLowerCase()}/${handle}`}
-                    style={{ marginLeft: "0.25rem" }}
+                    ml={"0.25rem"}
+                    color={"secondary"}
                   >
                     {title}
                   </Link>
                 </Box>
+                <Heading as="h1" fontWeight={500} color={`primary`}>
+                  {title}
+                </Heading>
                 <Box dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
                 {isClass() && (
                   <SesamiButton
@@ -206,7 +207,7 @@ const Product = ({ data: { product, suggestions } }) => {
               </Stack>
               <Stack spacing={0}>
                 <Heading as="h2" color={priceColor}>
-                  {price}
+                  {available ? price : "Out of Stock"}
                 </Heading>
 
                 <Flex
@@ -215,32 +216,34 @@ const Product = ({ data: { product, suggestions } }) => {
                   direction={["column", "row", "row"]}
                   flexWrap="wrap"
                 >
-                  <Stack
-                    as="fieldset"
-                    mr={6}
-                    mt={4}
-                    sx={{ input: { px: 2, py: 2 } }}
-                  >
-                    <label htmlFor="quantity">
-                      {isClass() ? "Number of participants" : "Quantity"}
-                    </label>
-                    <NumberInput
-                      onChange={(_, value) => setQuantity(value)}
-                      value={quantity}
-                      id="quantity"
-                      name="quantity"
-                      defaultValue={1}
-                      min={1}
-                      maxW={20}
+                  {available && (
+                    <Stack
+                      as="fieldset"
+                      mr={6}
+                      mt={4}
+                      sx={{ input: { px: 2, py: 2 } }}
                     >
-                      <NumberInputField bg={bgInput} />
-                      <NumberInputStepper>
-                        <NumberIncrementStepper />
-                        <NumberDecrementStepper />
-                      </NumberInputStepper>
-                    </NumberInput>
-                  </Stack>
-                  {hasVariants && (
+                      <label htmlFor="quantity">
+                        {isClass() ? "Number of participants" : "Quantity"}
+                      </label>
+                      <NumberInput
+                        onChange={(_, value) => setQuantity(value)}
+                        value={quantity}
+                        id="quantity"
+                        name="quantity"
+                        defaultValue={1}
+                        min={1}
+                        maxW={20}
+                      >
+                        <NumberInputField bg={bgInput} />
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
+                    </Stack>
+                  )}
+                  {available && hasVariants && (
                     <>
                       {options.map(
                         ({ id, name, values }, index) =>
@@ -389,7 +392,7 @@ const Product = ({ data: { product, suggestions } }) => {
           </Grid>
         </Container>
       </Box>
-      {suggestions.nodes.length >= 1 && (
+      {!isEvent && suggestions.nodes.length >= 1 && (
         <Container my={[20, 28]}>
           <Heading
             as="h2"
@@ -437,7 +440,7 @@ export const query = graphql`
           publicURL
           childImageSharp {
             gatsbyImageData(
-              formats: [ WEBP,  PNG]
+              formats: [WEBP, PNG]
               quality: 60
               layout: CONSTRAINED
               width: 640

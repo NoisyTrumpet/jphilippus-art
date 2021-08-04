@@ -1,11 +1,20 @@
 import * as React from "react"
-import { Grid, Heading, useColorModeValue, Container } from "@chakra-ui/react"
+import {
+  Grid,
+  Heading,
+  useColorModeValue,
+  Container,
+  Text,
+} from "@chakra-ui/react"
 import ProductCard from "../ProductCard/index"
 import Link from "../link"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
 
-const ProductListing = ({ products, featured }) => {
+const ProductListing = ({ products, featured, isEvents }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
+  const firstProduct = products.nodes[0]
+  const pastEvents = products.nodes.slice(1)
+
   return (
     <>
       {featured && (
@@ -39,24 +48,47 @@ const ProductListing = ({ products, featured }) => {
           </Link>
         </Container>
       )}
-
-      <Grid
-        templateColumns={[
-          "repeat(2, 1fr)",
-          "repeat(2, 1fr)",
-          null,
-          featured ? "repeat(5, 1fr)" : "repeat(3, 1fr)",
-        ]}
-        columnGap={featured ? 2 : 6}
-        rowGap={[12, 16, 20]}
-      >
-        {products.nodes.map(p => (
-          // p.title.includes("Private") !== true && (
-          //   <ProductCard product={p} key={p.slug} featured />
-          // )
-          <ProductCard product={p} key={p.slug} featured />
-        ))}
-      </Grid>
+      {isEvents ? (
+        <>
+          <ProductCard
+            product={firstProduct}
+            key={firstProduct.slug}
+            featured
+          />
+          <Text color="primary" fontSize="3xl">
+            Past Events:
+          </Text>
+          <Grid
+            templateColumns={[
+              "repeat(2, 1fr)",
+              "repeat(2, 1fr)",
+              null,
+              featured ? "repeat(5, 1fr)" : "repeat(3, 1fr)",
+            ]}
+            columnGap={featured ? 2 : 6}
+            rowGap={[12, 16, 20]}
+          >
+            {pastEvents.map(p => (
+              <ProductCard product={p} key={p.slug} featured />
+            ))}
+          </Grid>
+        </>
+      ) : (
+        <Grid
+          templateColumns={[
+            "repeat(2, 1fr)",
+            "repeat(2, 1fr)",
+            null,
+            featured ? "repeat(5, 1fr)" : "repeat(3, 1fr)",
+          ]}
+          columnGap={featured ? 2 : 6}
+          rowGap={[12, 16, 20]}
+        >
+          {products.nodes.map(p => (
+            <ProductCard product={p} key={p.slug} featured />
+          ))}
+        </Grid>
+      )}
     </>
   )
 }

@@ -185,30 +185,7 @@ export const query = graphql`
   query FeaturedProductsQuery {
     shopifyCollection(title: { eq: "Featured Products" }) {
       products {
-        title
-        slug: gatsbyPath(
-          filePath: "/products/{ShopifyProduct.productType}/{ShopifyProduct.handle}"
-        )
-        images {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(
-                aspectRatio: 1
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                formats: [ WEBP,  PNG]
-                quality: 60
-                width: 220
-              )
-            }
-          }
-        }
-        priceRangeV2 {
-          minVariantPrice {
-            amount
-            currencyCode
-          }
-        }
+        ...ProductCard
       }
     }
     graphImg: file(relativePath: { eq: "heroDesktop-banner.jpg" }) {
@@ -219,7 +196,7 @@ export const query = graphql`
           quality: 60
           layout: CONSTRAINED
           placeholder: BLURRED
-          formats: [ WEBP,  PNG]
+          formats: [WEBP, PNG]
         )
       }
     }

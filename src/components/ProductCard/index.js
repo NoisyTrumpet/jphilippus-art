@@ -4,6 +4,7 @@ import { Box, useColorModeValue, Text } from "@chakra-ui/react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Link from "../link"
 import formatPrice from "../../utils/formatPrice"
+import { StoreContext } from "../../context/storeContext"
 
 const ProductCard = ({ product, featured }) => {
   const {
@@ -12,13 +13,44 @@ const ProductCard = ({ product, featured }) => {
     slug,
     images: [firstImage],
     productType,
+    variants: [initialVariant],
   } = product
+
+  const { client } = React.useContext(StoreContext)
+
+  const [variant, setVariant] = React.useState({ ...initialVariant })
 
   const bg = useColorModeValue(`cardBg`, `dark.cardBg`)
   const linkHoverColor = useColorModeValue(
     `cardLinkHover`,
     `dark.cardLinkHover`
   )
+
+  const productVariant =
+    client.product.helpers.variantForOptions(product, variant) || variant
+
+  const [available, setAvailable] = React.useState(
+    productVariant.availableForSale
+  )
+
+  const checkAvailablity = React.useCallback(
+    productId => {
+      client.product.fetch(productId).then(fetchedProduct => {
+        const result = fetchedProduct.variants.filter(
+          variant => variant.id === productVariant.storefrontId
+        )
+
+        if (result.length > 0) {
+          setAvailable(result[0].available)
+        }
+      })
+    },
+    [productVariant.storefrontId, client.product]
+  )
+
+  React.useEffect(() => {
+    checkAvailablity(product.storefrontId)
+  }, [productVariant.storefrontId, checkAvailablity, product.storefrontId])
 
   const price = formatPrice(
     priceRangeV2.minVariantPrice.currencyCode,
@@ -93,7 +125,7 @@ const ProductCard = ({ product, featured }) => {
         >
           {title}
         </Text>
-        <Text color="primary">{price}</Text>
+        <Text color="primary">{available ? price : "Out of Stock"}</Text>
       </Box>
     </Link>
   )
@@ -108,6 +140,8 @@ export const query = graphql`
       filePath: "/products/{ShopifyProduct.productType}/{ShopifyProduct.handle}"
     )
     productType
+    id
+    storefrontId
     images {
       localFile {
         childImageSharp {
@@ -115,11 +149,23 @@ export const query = graphql`
             aspectRatio: 1
             layout: CONSTRAINED
             placeholder: BLURRED
-            formats: [ WEBP,  PNG]
+            formats: [WEBP, PNG]
             quality: 60
             width: 640
           )
         }
+      }
+    }
+    variants {
+      availableForSale
+      storefrontId
+      title
+      id
+      legacyResourceId
+      price
+      selectedOptions {
+        name
+        value
       }
     }
     priceRangeV2 {

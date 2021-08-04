@@ -17,7 +17,7 @@ const Gallery = ({ isPage }) => {
             childImageSharp {
               id
               gatsbyImageData(
-                formats: [ WEBP,  PNG]
+                formats: [WEBP, PNG]
                 layout: CONSTRAINED
                 quality: 60
                 placeholder: BLURRED
@@ -37,7 +37,7 @@ const Gallery = ({ isPage }) => {
             childImageSharp {
               id
               gatsbyImageData(
-                formats: [ WEBP,  PNG]
+                formats: [WEBP, PNG]
                 layout: CONSTRAINED
                 quality: 60
                 placeholder: BLURRED

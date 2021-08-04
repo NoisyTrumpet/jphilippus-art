@@ -1,16 +1,14 @@
 import * as React from "react"
 import Layout from "../components/Layout/Layout"
-import { graphql, useStaticQuery } from "gatsby"
+import { navigate } from "gatsby"
 
 import {
   Box,
-  Grid,
   Text,
   FormControl,
   FormLabel,
   FormHelperText,
   Input,
-  Center,
   Container,
   useColorModeValue as mode,
   Flex,
@@ -22,11 +20,16 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  Textarea,
 } from "@chakra-ui/react"
 import Seo from "../components/SEO"
+import DatePicker from "react-datepicker"
+
+import "react-datepicker/dist/react-datepicker.css"
 
 // Component with a form to request a new private party
 const PrivatePartyRequest = ({}) => {
+  const [startDate, setStartDate] = React.useState(new Date())
   // Check if document is null in case of error
   const isBrowser = typeof window || document !== `undefined`
 
@@ -44,9 +47,10 @@ const PrivatePartyRequest = ({}) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => console.log("Form successfully submitted"))
+      .then(() => navigate(`/thank-you`))
       .catch(error => alert(error))
   }
+
   return (
     <Layout>
       <Seo title="Private Party Booking Form" />
@@ -60,8 +64,12 @@ const PrivatePartyRequest = ({}) => {
         >
           Private Party Booking Form
         </Text>
-        <Text textAlign="center" mb={8}>
-          Brief explanation about form and options
+        <Text textAlign="center" mb={8} maxW={700} mx={"auto"}>
+          Looking to celebrate a special occasion with your friends, family or
+          even coworkers? We are happy to accommodate your event with a
+          customizable Private Party. Whether it's Ladies Night, a birthday
+          celebration, or even a team building event - just fill out the
+          information below, and let us do the rest.
         </Text>
         <Box>
           <form
@@ -74,7 +82,9 @@ const PrivatePartyRequest = ({}) => {
             <input type="hidden" name="private-party" value="private-party" />
             <Stack flexDirection="column" spacing={4}>
               <Flex alignItems="center">
-                <FormLabel minWidth="fit-content">First name</FormLabel>
+                <FormLabel minWidth="fit-content" mb="0">
+                  First name
+                </FormLabel>
                 <Input
                   type="text"
                   placeholder="First name"
@@ -83,7 +93,9 @@ const PrivatePartyRequest = ({}) => {
                 />
               </Flex>
               <Flex alignItems="center">
-                <FormLabel minWidth="fit-content">Last name</FormLabel>
+                <FormLabel minWidth="fit-content" mb="0">
+                  Last name
+                </FormLabel>
                 <Input
                   type="text"
                   placeholder="Last name"
@@ -92,7 +104,9 @@ const PrivatePartyRequest = ({}) => {
                 />
               </Flex>
               <Flex alignItems="center">
-                <FormLabel minWidth="fit-content">Email Address</FormLabel>
+                <FormLabel minWidth="fit-content" mb="0">
+                  Email Address
+                </FormLabel>
                 <Input
                   type="email"
                   placeholder="Email Address"
@@ -101,7 +115,9 @@ const PrivatePartyRequest = ({}) => {
                 />
               </Flex>
               <Flex alignItems="center">
-                <FormLabel minWidth="fit-content">Phone Number</FormLabel>
+                <FormLabel minWidth="fit-content" mb="0">
+                  Phone Number
+                </FormLabel>
                 <Input
                   type="phone"
                   placeholder="Phone Number"
@@ -110,8 +126,10 @@ const PrivatePartyRequest = ({}) => {
                 />
               </Flex>
               <Flex alignItems="center">
-                <FormLabel minWidth="fit-content">Type of Class</FormLabel>
-                <Select>
+                <FormLabel minWidth="fit-content" mb="0">
+                  Type of Class
+                </FormLabel>
+                <Select type="select" name="Type of Class">
                   <option>Charcuterie</option>
                   <option>Acrylic Pour</option>
                   <option>Resin Pour</option>
@@ -119,37 +137,68 @@ const PrivatePartyRequest = ({}) => {
                   <option>Glass Art</option>
                 </Select>
               </Flex>
-              <Flex alignItems="center">
-                <FormControl>
-                  <FormLabel minWidth="fit-content">
+
+              <FormControl>
+                <Flex alignItems="center">
+                  <FormLabel minWidth="fit-content" mb="0">
                     Number of Participants
                   </FormLabel>
-                  <NumberInput max={24} min={6}>
-                    <NumberInputField />
-                    <NumberInputStepper placeholder={8}>
-                      <NumberIncrementStepper />
-                      <NumberDecrementStepper />
-                    </NumberInputStepper>
-                  </NumberInput>
-                  <FormHelperText>Minimum: 6, Maximum: 24</FormHelperText>
-                </FormControl>
-              </Flex>
+                  <Stack w="100%">
+                    <NumberInput
+                      max={24}
+                      min={6}
+                      name="Number of People"
+                      type="number"
+                    >
+                      <NumberInputField />
+                      <NumberInputStepper placeholder={8}>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
+                      </NumberInputStepper>
+                    </NumberInput>
+                    <FormHelperText>Minimum: 6, Maximum: 24</FormHelperText>
+                  </Stack>
+                </Flex>
+              </FormControl>
+
               <Flex alignItems="center">
-                <FormLabel minWidth="fit-content">Type of Event</FormLabel>
-                <Select>
+                <FormLabel minWidth="fit-content" mb="0">
+                  Type of Event
+                </FormLabel>
+                <Select name="Type of Event" type="select">
                   <option>Birthday</option>
-                  <option>Batchelorette Party</option>
-                  <option>etc.</option>
+                  <option>Team Building</option>
+                  <option>Girls Night Out</option>
+                  <option>Other</option>
                 </Select>
               </Flex>
               <Flex alignItems="center">
-                <FormLabel minWidth="fit-content">Down Payment</FormLabel>
-                <Select>
-                  <option>Yes</option>
-                  <option>No</option>
-                </Select>
+                <FormLabel minWidth="fit-content" mb="0">
+                  Date:
+                </FormLabel>
+                <DatePicker
+                  name="date"
+                  selected={startDate}
+                  onChange={date => setStartDate(date)}
+                  className="date-picker"
+                  placeholderText="Select a date"
+                />
               </Flex>
-              <Button type="submit">Submit</Button>
+              <Flex alignItems="center">
+                <FormLabel minWidth="fit-content" mb="0">
+                  Special Requests/Notes
+                </FormLabel>
+                <Textarea name="notes" />
+              </Flex>
+              <Button
+                type="submit"
+                bg="primary"
+                color="white"
+                fontWeight="regular"
+                textTransform="uppercase"
+              >
+                Submit
+              </Button>
             </Stack>
           </form>
         </Box>

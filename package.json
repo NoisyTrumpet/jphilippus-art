@@ -54,6 +54,8 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.14.1",
     "react": "^17.0.2",
+    "react-chakra-ui-datepicker": "github:chrisbull/react-chakra-date-picker",
+    "react-datepicker": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-recaptcha": "^2.3.10",

@@ -52,9 +52,11 @@ const LinkGrid = props => (
           Suite 104
           <br />
           San Antonio, TX 78248
-          <br />
-          <a href="tel:210.474.0440">210.474.0440</a>
         </a>
+        <br />
+        San Antonio, TX 78248
+        <br />
+        <a href="tel:210.474.0440">210.474.0440</a>
       </Stack>
     </Box>
   </SimpleGrid>

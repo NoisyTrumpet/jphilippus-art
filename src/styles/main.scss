@@ -38,11 +38,16 @@ iframe {
 
 }
 
-a.product-link:active {
-    color: #C09559 !important;
-    font-weight: 500 !important;
+.react-datepicker-wrapper {
+    width: 100%;
 }
 
-a.product-active {
-    color: #C09559 !important;
+.date-picker {
+    border-radius: var(--chakra-radii-md);
+    text-align: center;
+    padding-inline-end: 2rem;
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    border: 1px solid rgb(226, 232, 240);
+    width: 100%;
 }
