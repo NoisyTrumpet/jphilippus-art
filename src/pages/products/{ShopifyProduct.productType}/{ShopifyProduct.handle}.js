@@ -26,6 +26,7 @@ import formatPrice from "../../../utils/formatPrice"
 import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
 import loadable from "@loadable/component"
+import ProductAccordion from "../../../components/ProductAccordion/index"
 
 const SesamiButton = loadable(() => import("../../../components/SesamiButton"))
 
@@ -310,6 +311,9 @@ const Product = ({ data: { product, suggestions } }) => {
                     />
                   </Stack>
                 </Flex>
+                <Stack>
+                  <ProductAccordion />
+                </Stack>
               </Stack>
             </Stack>
             {hasImages && (

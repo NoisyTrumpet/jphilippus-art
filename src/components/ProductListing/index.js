@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react"
 import ProductCard from "../ProductCard/index"
 import Link from "../link"
+import ProductAccordion from "../ProductAccordion/index"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const ProductListing = ({ products, featured, isEvents }) => {

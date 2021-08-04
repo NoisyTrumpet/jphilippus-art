@@ -51,3 +51,7 @@ iframe {
     border: 1px solid rgb(226, 232, 240);
     width: 100%;
 }
+
+.chakra-button:hover {
+    background-color: $brand-turquoise-hover;
+}

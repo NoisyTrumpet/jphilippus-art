@@ -19,6 +19,7 @@ const AddToCart = ({
         available && onOpen()
       }}
       color="white"
+      _hover="#79C1CC"
       textTransform="uppercase"
       fontWeight="normal"
       bg="primary"
