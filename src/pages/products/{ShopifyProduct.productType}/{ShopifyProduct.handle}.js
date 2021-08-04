@@ -110,9 +110,9 @@ const Product = ({ data: { product, suggestions } }) => {
     `linear(to-b, dark.gradientTop, dark.gradientBottom)`
   )
   const bgInput = useColorModeValue(`white`, `gray.800`)
-  const bgImage = useColorModeValue(`gray.100`, `gray.700`)
-  const bgScrollbar = useColorModeValue(`gray.300`, `gray.800`)
-  const bgScrollThumb = useColorModeValue(`gray.600`, `gray.400`)
+  // const bgImage = useColorModeValue(`gray.100`, `gray.700`)
+  // const bgScrollbar = useColorModeValue(`gray.300`, `gray.800`)
+  // const bgScrollThumb = useColorModeValue(`gray.600`, `gray.400`)
   const priceColor = useColorModeValue(`primary`, `dark.primary`)
   const hasVariants = variants.length > 1
   const hasImages = images.length > 0
@@ -129,6 +129,7 @@ const Product = ({ data: { product, suggestions } }) => {
   const [date, setDate] = React.useState(null)
   const [time, setTime] = React.useState(null)
   const [selected, setSelected] = React.useState(true)
+  const [image, setImage] = React.useState(firstImage)
 
   React.useEffect(() => {
     isBrowser &&
@@ -146,7 +147,6 @@ const Product = ({ data: { product, suggestions } }) => {
         })
       })
   })
-
 
   return (
     <Layout>
@@ -195,7 +195,10 @@ const Product = ({ data: { product, suggestions } }) => {
                 <Heading as="h1" fontWeight={500} color={`primary`}>
                   {title}
                 </Heading>
-                <Box dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+                <Box
+                  sx={{ a: { color: "primary" } }}
+                  dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+                />
                 {isClass() && (
                   <SesamiButton
                     storeId={`55103946906`}
@@ -314,50 +317,41 @@ const Product = ({ data: { product, suggestions } }) => {
                 <Box
                   role="group"
                   aria-label="gallery"
-                  aria-describedby="instructions"
-                  overflowX={hasMultipleImages ? "scroll" : "auto"}
+                  // aria-describedby="instructions"
+                  // overflowX={hasMultipleImages ? "scroll" : "auto"}
                   tabIndex="0"
-                  bg={bgImage}
                   mb={2}
-                  _focus={{ outline: "none", boxShadow: "outline" }}
-                  sx={{
-                    WebkitOverflowScrolling: "touch",
-                    "::-webkit-scrollbar": { height: "0.875rem" },
-                    "::-webkit-scrollbar-track": {
-                      backgroundColor: bgScrollbar,
-                    },
-                    "::-webkit-scrollbar-thumb": {
-                      backgroundColor: bgScrollThumb,
-                    },
-                    "&:hover + #instructions, &:focus + #instructions": {
-                      display: "block",
-                    },
-                  }}
+                  // _focus={{ outline: "none", boxShadow: "outline" }}
+                  // sx={{
+                  //   WebkitOverflowScrolling: "touch",
+                  //   "::-webkit-scrollbar": { height: "0.875rem" },
+                  //   "::-webkit-scrollbar-track": {
+                  //     backgroundColor: bgScrollbar,
+                  //   },
+                  //   "::-webkit-scrollbar-thumb": {
+                  //     backgroundColor: bgScrollThumb,
+                  //   },
+                  //   "&:hover + #instructions, &:focus + #instructions": {
+                  //     display: "block",
+                  //   },
+                  // }}
                 >
                   {hasImages ? (
                     <Flex as="ul">
-                      {images.map((image, index) => (
-                        <Box
-                          as="li"
-                          flex="0 0 100%"
-                          display="flex"
-                          whiteSpace="nowrap"
-                          key={`product-image-${index}`}
-                          p={6}
-                        >
-                          <GatsbyImage
-                            objectFit="contain"
-                            alt={
-                              image.altText
-                                ? image.altText
-                                : `Product Image of ${title} #${index + 1}`
-                            }
-                            image={
-                              image.localFile.childImageSharp.gatsbyImageData
-                            }
-                          />
-                        </Box>
-                      ))}
+                      <Box
+                        as="li"
+                        flex="0 0 100%"
+                        display="flex"
+                        whiteSpace="nowrap"
+                      >
+                        <GatsbyImage
+                          objectFit="contain"
+                          alt={image.altText ? image.altText : `${title}-image-${productType}`}
+                          image={
+                            image.localFile.childImageSharp.gatsbyImageData
+                          }
+                        />
+                      </Box>
                     </Flex>
                   ) : (
                     <Box
@@ -378,13 +372,29 @@ const Product = ({ data: { product, suggestions } }) => {
                     textAlign="center"
                     mt={1}
                     fontSize="18px"
-                    display="none"
-                    position="absolute"
-                    left="50%"
-                    transform="translate3d(-50%, 0px, 0px)"
+                    maxWidth="100%"
                   >
-                    <span aria-hidden="true">←</span> scroll for more{" "}
-                    <span aria-hidden="true">→</span>
+                    <Grid templateColumns={`repeat(${images.length}, 1fr)`}>
+                      {images.map((image, index) => (
+                        <Box
+                          as="button"
+                          onClick={() => setImage(image)}
+                          key={`bottom-image-${index}`}
+                        >
+                          <GatsbyImage
+                            objectFit="contain"
+                            alt={
+                              image.altText
+                                ? image.altText
+                                : `Product Image of ${title} #${index + 1}`
+                            }
+                            image={
+                              image.localFile.childImageSharp.gatsbyImageData
+                            }
+                          />
+                        </Box>
+                      ))}
+                    </Grid>
                   </Box>
                 )}
               </Box>
@@ -444,6 +454,7 @@ export const query = graphql`
               quality: 60
               layout: CONSTRAINED
               width: 640
+              aspectRatio: 1
             )
           }
         }
