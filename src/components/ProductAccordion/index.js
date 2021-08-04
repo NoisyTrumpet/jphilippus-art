@@ -26,8 +26,8 @@ const data = {
 }
 
 const ProductAccordion = () => {
-  return data.nodes.map(node => (
-    <Accordion allowMultiple="true" key={node.content} mt={5} borderColor="#c09559">
+  return data.nodes.map((node, index) => (
+    <Accordion allowMultiple="true" key={node.content} mt={5} borderColor="#c09559" key={`${node.title}-${index}`}>
         <AccordionItem>
             <h2>
             <AccordionButton color="#c09559">

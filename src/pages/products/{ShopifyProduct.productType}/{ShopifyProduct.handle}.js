@@ -311,9 +311,11 @@ const Product = ({ data: { product, suggestions } }) => {
                     />
                   </Stack>
                 </Flex>
-                <Stack>
+                {isClass() && (
+                  <Stack>
                   <ProductAccordion />
                 </Stack>
+                )}
               </Stack>
             </Stack>
             {hasImages && (
