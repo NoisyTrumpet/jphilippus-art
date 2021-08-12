@@ -18,6 +18,9 @@ const LinkGrid = props => (
           <Link to="/gallery" alt="Contact Us" display="block">
             Gallery
           </Link>
+          <Link to="/private-party" alt="Private Parties" display="block">
+            Private Parties
+          </Link>
           <Link to="/contact" alt="Contact Us" display="block">
             Contact
           </Link>

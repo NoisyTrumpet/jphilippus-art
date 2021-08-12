@@ -92,7 +92,14 @@ const IndexPage = ({ data: products, data }) => {
         <BlockGrid />
       </Box>
       <Box>
-        <CallToAction />
+        {/* topCaption, title, subCaption, ctaText, ctaLink */}
+        <CallToAction
+          topCaption="New rates starting at $45 per person for glass art parties of 15 or more people."
+          title="Discover your inner artist book a class today"
+          subCaption="Book a class using our new booking application or inquire about a custom art class for your special event."
+          ctaText="Book a Class"
+          ctaLink="/calendar"
+        />
       </Box>
       <Container my={[16, 16, 16, 16]} textAlign="center">
         <Text

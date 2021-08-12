@@ -23,10 +23,12 @@ import Layout from "../../../components/Layout/Layout"
 import { StoreContext } from "../../../context/storeContext"
 import AddToCart from "../../../components/AddToCart/index"
 import formatPrice from "../../../utils/formatPrice"
+import CallToAction from "../../../components/CallToAction"
 import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
 import loadable from "@loadable/component"
 import ProductAccordion from "../../../components/ProductAccordion/index"
+import { CallTracker } from "assert"
 
 const SesamiButton = loadable(() => import("../../../components/SesamiButton"))
 
@@ -412,6 +414,15 @@ const Product = ({ data: { product, suggestions } }) => {
           </Grid>
         </Container>
       </Box>
+      {isClass() && (
+        <CallToAction
+          topCaption="Looking to celebrate a special occasion with your friends, family or even coworkers?"
+          title="Interested in a Private Party?"
+          subCaption=" We are happy to accommodate your event with a customizable Private Party. Whether it's Ladies Night, a birthday celebration, or even a team building event - just click on the button below, fill out the form, and let us do the rest."
+          ctaLink="/private-party"
+          ctaText="Private Parties"
+        />
+      )}
       {!isEvent && suggestions.nodes.length >= 1 && (
         <Container my={[20, 28]}>
           <Heading

@@ -14,7 +14,7 @@ import AltHero from "../../../components/AltHero"
 import LinkGrid from "../../../components/LinkGrid/index"
 
 const ProductTypeIndex = ({
-  data: { products },
+  data: { products, events },
   pageContext: { productType },
 }) => {
   const heroTitle = () => {
@@ -76,6 +76,12 @@ const ProductTypeIndex = ({
   }
 
   const secondary = useColorModeValue(`secondary`, `secondary`)
+  console.log(products)
+  console.log(events)
+
+  if (productType === "Class" && events.nodes && events.nodes.length > 0) {
+    products.nodes.unshift(events.nodes[0])
+  }
 
   return (
     <Layout>
@@ -109,7 +115,7 @@ const ProductTypeIndex = ({
           `We also offer private group classes for events such as parties and team building activities. Special rates starting at $35 per person for glass art for parties with 15 or more people. Click here to book your private party.`
         }
         ctaText={productType === "Class" && `Book a Group Class`}
-        ctaLink={productType === "Class" && `/contact`}
+        ctaLink={productType === "Class" && `/private-party`}
       />
     </Layout>
   )
@@ -123,6 +129,11 @@ export const query = graphql`
       filter: { productType: { eq: $productType } }
       sort: { fields: [updatedAt], order: DESC }
     ) {
+      nodes {
+        ...ProductCard
+      }
+    }
+    events: allShopifyProduct(filter: { productType: { eq: "Event" } }) {
       nodes {
         ...ProductCard
       }

@@ -63,7 +63,14 @@ const PrivatePartyRequest = () => {
         >
           Private Party Booking Form
         </Text>
-        <Text textAlign="center" mb={8} maxW={700} mx={"auto"}>
+        <Text
+          textAlign="center"
+          mb={8}
+          maxW={700}
+          mx={"auto"}
+          color="black"
+          fontSize={"large"}
+        >
           Looking to celebrate a special occasion with your friends, family or
           even coworkers? We are happy to accommodate your event with a
           customizable Private Party. Whether it's Ladies Night, a birthday
@@ -77,10 +84,15 @@ const PrivatePartyRequest = () => {
             method="POST"
             data-netlify="true"
             action="/thank-you"
+            data-netlify-recaptcha="true"
+            netlify-honeypot="bot-field"
           >
             <input type="hidden" name="private-party" value="private-party" />
             <Stack flexDirection="column" spacing={4}>
-              <Flex alignItems="center">
+              <Flex
+                alignItems={["left", "center"]}
+                direction={["column", "row"]}
+              >
                 <FormLabel minWidth="fit-content" mb="0">
                   First name
                 </FormLabel>
@@ -91,7 +103,10 @@ const PrivatePartyRequest = () => {
                   backgroundColor="white"
                 />
               </Flex>
-              <Flex alignItems="center">
+              <Flex
+                alignItems={["left", "center"]}
+                direction={["column", "row"]}
+              >
                 <FormLabel minWidth="fit-content" mb="0">
                   Last name
                 </FormLabel>
@@ -102,7 +117,10 @@ const PrivatePartyRequest = () => {
                   backgroundColor="white"
                 />
               </Flex>
-              <Flex alignItems="center">
+              <Flex
+                alignItems={["left", "center"]}
+                direction={["column", "row"]}
+              >
                 <FormLabel minWidth="fit-content" mb="0">
                   Email Address
                 </FormLabel>
@@ -113,7 +131,10 @@ const PrivatePartyRequest = () => {
                   backgroundColor="white"
                 />
               </Flex>
-              <Flex alignItems="center">
+              <Flex
+                alignItems={["left", "center"]}
+                direction={["column", "row"]}
+              >
                 <FormLabel minWidth="fit-content" mb="0">
                   Phone Number
                 </FormLabel>
@@ -124,21 +145,25 @@ const PrivatePartyRequest = () => {
                   backgroundColor="white"
                 />
               </Flex>
-              <Flex alignItems="center">
+              <Flex
+                alignItems={["left", "center"]}
+                direction={["column", "row"]}
+              >
                 <FormLabel minWidth="fit-content" mb="0">
                   Type of Class
                 </FormLabel>
                 <Select type="select" name="Type of Class">
                   <option>Charcuterie</option>
-                  <option>Acrylic Pour</option>
                   <option>Resin Pour</option>
-                  <option>Geode Resin</option>
                   <option>Glass Art</option>
                 </Select>
               </Flex>
 
               <FormControl>
-                <Flex alignItems="center">
+                <Flex
+                  alignItems={["left", "center"]}
+                  direction={["column", "row"]}
+                >
                   <FormLabel minWidth="fit-content" mb="0">
                     Number of Participants
                   </FormLabel>
@@ -160,18 +185,26 @@ const PrivatePartyRequest = () => {
                 </Flex>
               </FormControl>
 
-              <Flex alignItems="center">
+              <Flex
+                alignItems={["left", "center"]}
+                direction={["column", "row"]}
+              >
                 <FormLabel minWidth="fit-content" mb="0">
-                  Type of Event
+                  What type of party is this?
                 </FormLabel>
                 <Select name="Type of Event" type="select">
+                  <option>Holiday</option>
+                  <option>Bridal</option>
                   <option>Birthday</option>
                   <option>Team Building</option>
                   <option>Girls Night Out</option>
                   <option>Other</option>
                 </Select>
               </Flex>
-              <Flex alignItems="center">
+              <Flex
+                alignItems={["left", "center"]}
+                direction={["column", "row"]}
+              >
                 <FormLabel minWidth="fit-content" mb="0">
                   Date:
                 </FormLabel>
@@ -183,12 +216,22 @@ const PrivatePartyRequest = () => {
                   placeholderText="Select a date"
                 />
               </Flex>
-              <Flex alignItems="center">
+              <Flex
+                alignItems={["left", "center"]}
+                direction={["column", "row"]}
+              >
                 <FormLabel minWidth="fit-content" mb="0">
                   Special Requests/Notes
                 </FormLabel>
                 <Textarea name="notes" />
               </Flex>
+              <div data-netlify-recaptcha="true"></div>
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you’re human:{" "}
+                  <input name="bot-field" />
+                </label>
+              </p>
               <Button
                 type="submit"
                 bg="primary"

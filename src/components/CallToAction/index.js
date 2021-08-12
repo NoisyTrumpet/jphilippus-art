@@ -11,7 +11,13 @@ import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"
 import DiamondButton from "../DiamondButton/DiamondButton"
 
-const NewCallToAction = () => {
+const NewCallToAction = ({
+  topCaption,
+  title,
+  subCaption,
+  ctaText,
+  ctaLink,
+}) => {
   const { AcrylicImg } = useStaticQuery(
     graphql`
       query {
@@ -38,7 +44,13 @@ const NewCallToAction = () => {
       marginBottom={10}
     >
       <GridItem display="grid" placeItems="center" marginBottom={12}>
-        <CallToAction />
+        <CallToAction
+          topCaption={topCaption}
+          title={title}
+          subCaption={subCaption}
+          ctaText={ctaText}
+          ctaLink={ctaLink}
+        />
       </GridItem>
       <GridItem placeItems={"center"} display="grid" position="relative">
         <GatsbyImage
@@ -52,7 +64,7 @@ const NewCallToAction = () => {
   )
 }
 
-const CallToAction = () => {
+const CallToAction = ({ topCaption, title, subCaption, ctaText, ctaLink }) => {
   return (
     <Box as="section">
       <Box
@@ -68,41 +80,43 @@ const CallToAction = () => {
         display="grid"
         placeItems="center"
       >
-        <Text
-          fontWeight="normal"
-          color={useColorModeValue("secondary")}
-          maxWidth={350}
-        >
-          New rates starting at $45 per person for glass art parties of 15 or
-          more people.
-        </Text>
-        <Heading
-          my="4"
-          as="h2"
-          fontSize={{
-            base: "2xl",
-            md: "3xl",
-          }}
-          fontWeight={500}
-          textTransform="uppercase"
-          letterSpacing="tight"
-          lineHeight="1.2"
-          maxWidth={450}
-          color={useColorModeValue("primary", "white")}
-        >
-          Discover your inner artist Book a Class Today
-        </Heading>
-        <Text fontSize="lg" maxW="xl" mx="auto" mb={8} maxWidth={450}>
-          Book a class using our new booking application or inquire about a
-          custom art class for your special event.
-        </Text>
-        <DiamondButton
-          to="/calendar"
-          buttonStyle="btn--primary"
-          buttonSize="btn--medium"
-        >
-          Book a class
-        </DiamondButton>
+        {topCaption && (
+          <Text fontWeight="normal" color={"secondary"} maxWidth={350}>
+            {topCaption}
+          </Text>
+        )}
+        {title && (
+          <Heading
+            my="4"
+            as="h2"
+            fontSize={{
+              base: "2xl",
+              md: "3xl",
+            }}
+            fontWeight={500}
+            textTransform="uppercase"
+            letterSpacing="tight"
+            lineHeight="1.2"
+            maxWidth={450}
+            color={"primary"}
+          >
+            {title}
+          </Heading>
+        )}
+        {subCaption && (
+          <Text fontSize="lg" maxW="xl" mx="auto" mb={8} maxWidth={450}>
+            {subCaption}
+          </Text>
+        )}
+        {ctaText && ctaLink && (
+          <DiamondButton
+            to={ctaLink}
+            buttonStyle="btn--primary"
+            buttonSize="btn--medium"
+          >
+            {ctaText}
+          </DiamondButton>
+        )}
       </Box>
     </Box>
   )
