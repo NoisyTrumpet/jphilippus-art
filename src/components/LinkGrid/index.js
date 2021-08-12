@@ -1,6 +1,6 @@
 import * as React from "react"
 import Link from "../link"
-import '.'
+import "."
 
 const data = {
   nodes: [

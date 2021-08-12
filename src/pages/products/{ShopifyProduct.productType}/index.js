@@ -5,7 +5,6 @@ import {
   Flex,
   Center,
   useColorModeValue,
-  Text,
 } from "@chakra-ui/react"
 import { graphql } from "gatsby"
 import Layout from "../../../components/Layout/Layout"

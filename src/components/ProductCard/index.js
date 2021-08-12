@@ -18,13 +18,9 @@ const ProductCard = ({ product, featured }) => {
 
   const { client } = React.useContext(StoreContext)
 
-  const [variant, setVariant] = React.useState({ ...initialVariant })
+  const [variant, setVariant] = React.useState({ ...initialVariant }) // eslint-disable-line
 
   const bg = useColorModeValue(`cardBg`, `dark.cardBg`)
-  const linkHoverColor = useColorModeValue(
-    `cardLinkHover`,
-    `dark.cardLinkHover`
-  )
 
   const productVariant =
     client.product.helpers.variantForOptions(product, variant) || variant

@@ -1,4 +1,3 @@
-import { Container } from "@chakra-ui/layout"
 import React from "react"
 import AltHero from "../components/AltHero"
 import Layout from "../components/Layout/Layout"

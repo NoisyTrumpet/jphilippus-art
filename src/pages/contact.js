@@ -223,6 +223,12 @@ const Contact = () => {
                     mb={4}
                     backgroundColor="white"
                   />
+                  {/* <Input type="text" name="_gotcha" display="none" required="false" /> */}
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    style={{ display: "none" }}
+                  />
                   <Box display="flex" justifyContent="flex-end">
                     <DiamondButton type="submit" to="submit">
                       Submit

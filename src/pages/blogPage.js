@@ -7,7 +7,6 @@ import {
   useColorModeValue,
   Grid,
   GridItem,
-  useColorMode,
 } from "@chakra-ui/react"
 import { Link } from "gatsby"
 

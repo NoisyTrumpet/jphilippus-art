@@ -10,7 +10,6 @@ import {
   FormHelperText,
   Input,
   Container,
-  useColorModeValue as mode,
   Flex,
   Stack,
   Button,
@@ -28,7 +27,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 
 // Component with a form to request a new private party
-const PrivatePartyRequest = ({}) => {
+const PrivatePartyRequest = () => {
   const [startDate, setStartDate] = React.useState(new Date())
   // Check if document is null in case of error
   const isBrowser = typeof window || document !== `undefined`

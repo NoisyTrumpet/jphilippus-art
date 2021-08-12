@@ -313,8 +313,8 @@ const Product = ({ data: { product, suggestions } }) => {
                 </Flex>
                 {isClass() && (
                   <Stack>
-                  <ProductAccordion />
-                </Stack>
+                    <ProductAccordion />
+                  </Stack>
                 )}
               </Stack>
             </Stack>
@@ -352,7 +352,11 @@ const Product = ({ data: { product, suggestions } }) => {
                       >
                         <GatsbyImage
                           objectFit="contain"
-                          alt={image.altText ? image.altText : `${title}-image-${productType}`}
+                          alt={
+                            image.altText
+                              ? image.altText
+                              : `${title}-image-${productType}`
+                          }
                           image={
                             image.localFile.childImageSharp.gatsbyImageData
                           }
