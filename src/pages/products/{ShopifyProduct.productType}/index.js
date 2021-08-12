@@ -76,8 +76,6 @@ const ProductTypeIndex = ({
   }
 
   const secondary = useColorModeValue(`secondary`, `secondary`)
-  console.log(products)
-  console.log(events)
 
   if (productType === "Class" && events.nodes && events.nodes.length > 0) {
     products.nodes.unshift(events.nodes[0])
