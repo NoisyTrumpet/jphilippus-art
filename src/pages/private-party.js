@@ -85,7 +85,7 @@ const PrivatePartyRequest = () => {
             data-netlify="true"
             action="/thank-you"
             data-netlify-recaptcha="true"
-            netlify-honeypot="bot-field"
+            // netlify-honeypot="bot-field"
           >
             <input type="hidden" name="private-party" value="private-party" />
             <Stack flexDirection="column" spacing={4}>
@@ -225,13 +225,14 @@ const PrivatePartyRequest = () => {
                 </FormLabel>
                 <Textarea name="notes" />
               </Flex>
-              <div data-netlify-recaptcha="true"></div>
-              <p className="hidden">
+
+              {/* <p className="hidden">
                 <label>
                   Don’t fill this out if you’re human:{" "}
                   <input name="bot-field" />
                 </label>
-              </p>
+              </p> */}
+              <div data-netlify-recaptcha="true"></div>
               <Button
                 type="submit"
                 bg="primary"
