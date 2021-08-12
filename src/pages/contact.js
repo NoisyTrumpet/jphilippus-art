@@ -234,7 +234,7 @@ const Contact = () => {
                       Submit
                     </DiamondButton>
                   </Box>
-                  <Recaptcha sitekey={`${process.env.RECATCHA_SITE_KEY}`} />
+                  <Recaptcha sitekey={`${process.env.RECATCHA_SITE_KEY}`} id="recaptcha2"/>
                 </FormControl>
               </form>
             </GridItem>
