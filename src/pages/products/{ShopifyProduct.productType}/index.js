@@ -133,7 +133,9 @@ export const query = graphql`
         ...ProductCard
       }
     }
-    events: allShopifyProduct(filter: { productType: { eq: "Event" } }) {
+    events: allShopifyProduct(filter: { productType: { eq: "Event" } }
+    sort: { fields: [updatedAt], order: DESC }
+    ) {
       nodes {
         ...ProductCard
       }
