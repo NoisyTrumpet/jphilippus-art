@@ -1,3 +1,7 @@
 [build]
   command = "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages"
   publish = "public"
+
+[[redirects]]
+  from = "/products/class/charcuterie-board-coasters-class/"
+  to = "/products/class/charcuterie-board-class/"
