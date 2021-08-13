@@ -105,6 +105,7 @@ const PrivatePartyRequest = () => {
                   placeholder="First name"
                   name="first-name"
                   backgroundColor="white"
+                  isRequired
                 />
               </Flex>
               <Flex
@@ -119,6 +120,7 @@ const PrivatePartyRequest = () => {
                   placeholder="Last name"
                   name="last-name"
                   backgroundColor="white"
+                  isRequired
                 />
               </Flex>
               <Flex
@@ -133,6 +135,7 @@ const PrivatePartyRequest = () => {
                   placeholder="Email Address"
                   name="email"
                   backgroundColor="white"
+                  isRequired
                 />
               </Flex>
               <Flex
@@ -147,6 +150,7 @@ const PrivatePartyRequest = () => {
                   placeholder="Phone Number"
                   name="phone"
                   backgroundColor="white"
+                  isRequired
                 />
               </Flex>
               <Flex
@@ -156,7 +160,7 @@ const PrivatePartyRequest = () => {
                 <FormLabel minWidth="fit-content" mb="0">
                   Type of Class
                 </FormLabel>
-                <Select type="select" name="Type of Class">
+                <Select type="select" name="Type of Class" isRequired>
                   <option>Charcuterie</option>
                   <option>Resin Pour</option>
                   <option>Glass Art</option>
@@ -177,6 +181,7 @@ const PrivatePartyRequest = () => {
                       min={6}
                       name="Number of People"
                       type="number"
+                      isRequired
                     >
                       <NumberInputField />
                       <NumberInputStepper placeholder={8}>
@@ -196,7 +201,7 @@ const PrivatePartyRequest = () => {
                 <FormLabel minWidth="fit-content" mb="0">
                   What type of party is this?
                 </FormLabel>
-                <Select name="Type of Event" type="select">
+                <Select name="Type of Event" type="select" isRequired>
                   <option>Holiday</option>
                   <option>Bridal</option>
                   <option>Birthday</option>
@@ -218,6 +223,7 @@ const PrivatePartyRequest = () => {
                   onChange={date => setStartDate(date)}
                   className="date-picker"
                   placeholderText="Select a date"
+                  isRequired
                 />
               </Flex>
               <Flex
