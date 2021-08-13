@@ -126,6 +126,9 @@ const Product = ({ data: { product, suggestions } }) => {
     }
     return false
   }
+
+  const isZoom = () => title.includes("Zoom")
+
   const isBrowser = typeof window !== `undefined`
 
   // Booking Date & Time State
@@ -202,7 +205,7 @@ const Product = ({ data: { product, suggestions } }) => {
                   sx={{ a: { color: "primary" } }}
                   dangerouslySetInnerHTML={{ __html: descriptionHtml }}
                 />
-                {isClass() && (
+                {isClass() && !isZoom() && (
                   <SesamiButton
                     storeId={`55103946906`}
                     variantId={product.variants[0].legacyResourceId}
@@ -290,7 +293,7 @@ const Product = ({ data: { product, suggestions } }) => {
                       mt={12}
                       pt={1.5}
                       w="100%"
-                      disabled={isClass() ? selected : false}
+                      disabled={isClass() && isZoom() ? selected : false}
                       properties={
                         isClass()
                           ? [
