@@ -295,7 +295,7 @@ const Product = ({ data: { product, suggestions } }) => {
                       w="100%"
                       disabled={isClass() && !isZoom() ? selected : false}
                       properties={
-                        isClass()
+                        isClass() && !isZoom()
                           ? [
                               {
                                 key: "Date",
