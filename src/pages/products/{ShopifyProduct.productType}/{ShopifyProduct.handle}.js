@@ -293,7 +293,7 @@ const Product = ({ data: { product, suggestions } }) => {
                       mt={12}
                       pt={1.5}
                       w="100%"
-                      disabled={isClass() && isZoom() ? selected : false}
+                      disabled={isClass() && !isZoom() ? selected : false}
                       properties={
                         isClass()
                           ? [
