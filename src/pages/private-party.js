@@ -88,7 +88,7 @@ const PrivatePartyRequest = () => {
             name="private-party"
             method="POST"
             data-netlify="true"
-            data-netlify-recaptcha="true"
+            // data-netlify-recaptcha="true"
             // netlify-honeypot="bot-field"
           >
             <input type="hidden" name="private-party" value="private-party" />
@@ -236,7 +236,7 @@ const PrivatePartyRequest = () => {
                   <input name="bot-field" />
                 </label>
               </p> */}
-              <div data-netlify-recaptcha="true"></div>
+              {/* <div data-netlify-recaptcha="true"></div> */}
               <Button
                 type="submit"
                 bg="primary"
