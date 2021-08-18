@@ -72,6 +72,26 @@ const DiamondButton = ({
         </a>
       )
     }
+    if (to.includes("tel")) {
+      return (
+        <a
+          href={to}
+          alt={children}
+          className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+          style={{ display: `grid`, placeItems: `center` }}
+        >
+          <Tag
+            className="btn-text"
+            transform="rotate(-45deg)"
+            colorScheme="none"
+            // p={buttonSize === "btn--xl" ? 4 : 2}
+          >
+            {children}
+          </Tag>
+        </a>
+      )
+    }
+
     return (
       <Link
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}

@@ -112,8 +112,8 @@ const ProductTypeIndex = ({
           productType === "Class" &&
           `We also offer private group classes for events such as parties and team building activities. Special rates starting at $35 per person for glass art for parties with 15 or more people. Click here to book your private party.`
         }
-        ctaText={productType === "Class" && `Book a Group Class`}
-        ctaLink={productType === "Class" && `/private-party`}
+        ctaText={productType === "Class" && `Call to Book`}
+        ctaLink={productType === "Class" && `tel:210.474.0440`}
       />
     </Layout>
   )
@@ -131,8 +131,9 @@ export const query = graphql`
         ...ProductCard
       }
     }
-    events: allShopifyProduct(filter: { productType: { eq: "Event" } }
-    sort: { fields: [updatedAt], order: DESC }
+    events: allShopifyProduct(
+      filter: { productType: { eq: "Event" } }
+      sort: { fields: [updatedAt], order: DESC }
     ) {
       nodes {
         ...ProductCard

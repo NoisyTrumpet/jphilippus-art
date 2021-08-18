@@ -41,15 +41,12 @@ const PrivatePartyRequest = () => {
     e.preventDefault()
     const myForm = document.getElementById("private-party-form")
     const formData = new FormData(myForm)
-    console.log(formData)
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
       .then(() => {
-        console.log("Success")
-        console.log(formData)
         navigate(`/thank-you`)
       })
       .catch(error => alert(error))

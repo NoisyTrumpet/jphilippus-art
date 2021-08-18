@@ -18,6 +18,8 @@ const ProductCard = ({ product, featured }) => {
 
   const { client } = React.useContext(StoreContext)
 
+  const isZoom = title.includes("Zoom")
+
   const [variant, setVariant] = React.useState({ ...initialVariant }) // eslint-disable-line
 
   const bg = useColorModeValue(`cardBg`, `dark.cardBg`)
@@ -81,7 +83,9 @@ const ProductCard = ({ product, featured }) => {
           >
             {title}
           </Text>
-          <Text color="primary">{price}</Text>
+          {!isZoom && (
+            <Text color="primary">{available ? price : "Out of Stock"}</Text>
+          )}
         </Box>
       </a>
     )
@@ -121,7 +125,9 @@ const ProductCard = ({ product, featured }) => {
         >
           {title}
         </Text>
-        <Text color="primary">{available ? price : "Out of Stock"}</Text>
+        {!isZoom && (
+          <Text color="primary">{available ? price : "Out of Stock"}</Text>
+        )}
       </Box>
     </Link>
   )

@@ -41,7 +41,7 @@
     "gatsby-plugin-sitemap": "^3.3.0",
     "gatsby-source-filesystem": "^3.2.0",
     "gatsby-source-instagram-all": "^4.2.0",
-    "gatsby-source-shopify": "^5.1.0",
+    "gatsby-source-shopify": "^5.4.0",
     "gatsby-source-youtube-v3": "^3.0.1",
     "gatsby-transformer-sharp": "^3.2.0",
     "gbimage-bridge": "^0.1.2",

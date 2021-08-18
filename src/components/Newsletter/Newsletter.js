@@ -55,11 +55,7 @@ const Newsletter = () => {
               Subscribe
             </DiamondButton>
           </Stack>
-          <input
-                    type="text"
-                    name="_gotcha"
-                    style={{ display: "none" }}
-                  />
+          <input type="text" name="_gotcha" style={{ display: "none" }} />
         </Stack>
       </form>
     </Box>

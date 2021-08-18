@@ -16,7 +16,9 @@ import {
   NumberDecrementStepper,
   Select,
   Flex,
+  Button,
 } from "@chakra-ui/react"
+import { PhoneIcon } from "@chakra-ui/icons"
 import isEqual from "lodash.isequal"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../../../components/Layout/Layout"
@@ -215,110 +217,129 @@ const Product = ({ data: { product, suggestions } }) => {
                 )}
               </Stack>
               <Stack spacing={0}>
-                <Heading as="h2" color={priceColor}>
-                  {available ? price : "Out of Stock"}
-                </Heading>
+                {!isZoom() && (
+                  <Heading as="h2" color={priceColor}>
+                    {available ? price : "Out of Stock"}
+                  </Heading>
+                )}
 
-                <Flex
-                  as="form"
-                  noValidate
-                  direction={["column", "row", "row"]}
-                  flexWrap="wrap"
-                >
-                  {available && (
-                    <Stack
-                      as="fieldset"
-                      mr={6}
-                      mt={4}
-                      sx={{ input: { px: 2, py: 2 } }}
-                    >
-                      <label htmlFor="quantity">
-                        {isClass() ? "Number of participants" : "Quantity"}
-                      </label>
-                      <NumberInput
-                        onChange={(_, value) => setQuantity(value)}
-                        value={quantity}
-                        id="quantity"
-                        name="quantity"
-                        defaultValue={1}
-                        min={1}
-                        maxW={20}
+                {!isZoom() && (
+                  <Flex
+                    as="form"
+                    noValidate
+                    direction={["column", "row", "row"]}
+                    flexWrap="wrap"
+                  >
+                    {available && (
+                      <Stack
+                        as="fieldset"
+                        mr={6}
+                        mt={4}
+                        sx={{ input: { px: 2, py: 2 } }}
                       >
-                        <NumberInputField bg={bgInput} />
-                        <NumberInputStepper>
-                          <NumberIncrementStepper />
-                          <NumberDecrementStepper />
-                        </NumberInputStepper>
-                      </NumberInput>
+                        <label htmlFor="quantity">
+                          {isClass() ? "Number of participants" : "Quantity"}
+                        </label>
+                        <NumberInput
+                          onChange={(_, value) => setQuantity(value)}
+                          value={quantity}
+                          id="quantity"
+                          name="quantity"
+                          defaultValue={1}
+                          min={1}
+                          maxW={20}
+                        >
+                          <NumberInputField bg={bgInput} />
+                          <NumberInputStepper>
+                            <NumberIncrementStepper />
+                            <NumberDecrementStepper />
+                          </NumberInputStepper>
+                        </NumberInput>
+                      </Stack>
+                    )}
+                    {available && hasVariants && (
+                      <>
+                        {options.map(
+                          ({ id, name, values }, index) =>
+                            name !== "Duration" && (
+                              <React.Fragment key={id}>
+                                <Stack as="fieldset" mt={4} mr={6} mb={[8, 0]}>
+                                  <label htmlFor="variant">{name}</label>
+                                  <Select
+                                    variant="filled"
+                                    borderColor="#dde5ed"
+                                    borderWidth=".75px"
+                                    bg={bgInput}
+                                    onChange={event =>
+                                      handleOptionChange(index, event)
+                                    }
+                                  >
+                                    {values.map(value => (
+                                      <option
+                                        value={value}
+                                        key={`${name}-${value}`}
+                                      >
+                                        {value}
+                                      </option>
+                                    ))}
+                                  </Select>
+                                </Stack>
+                              </React.Fragment>
+                            )
+                        )}
+                      </>
+                    )}
+                    <Stack>
+                      <AddToCart
+                        variantId={productVariant.storefrontId}
+                        quantity={quantity}
+                        available={available}
+                        alignSelf="flex-end"
+                        mt={12}
+                        pt={1.5}
+                        w="100%"
+                        disabled={isClass() && !isZoom() ? selected : false}
+                        properties={
+                          isClass() && !isZoom()
+                            ? [
+                                {
+                                  key: "Date",
+                                  value: date,
+                                },
+                                {
+                                  key: "Time",
+                                  value: time,
+                                },
+                              ]
+                            : [
+                                {
+                                  key: productType,
+                                  value: title,
+                                },
+                              ]
+                        }
+                      />
                     </Stack>
-                  )}
-                  {available && hasVariants && (
-                    <>
-                      {options.map(
-                        ({ id, name, values }, index) =>
-                          name !== "Duration" && (
-                            <React.Fragment key={id}>
-                              <Stack as="fieldset" mt={4} mr={6} mb={[8, 0]}>
-                                <label htmlFor="variant">{name}</label>
-                                <Select
-                                  variant="filled"
-                                  borderColor="#dde5ed"
-                                  borderWidth=".75px"
-                                  bg={bgInput}
-                                  onChange={event =>
-                                    handleOptionChange(index, event)
-                                  }
-                                >
-                                  {values.map(value => (
-                                    <option
-                                      value={value}
-                                      key={`${name}-${value}`}
-                                    >
-                                      {value}
-                                    </option>
-                                  ))}
-                                </Select>
-                              </Stack>
-                            </React.Fragment>
-                          )
-                      )}
-                    </>
-                  )}
-                  <Stack>
-                    <AddToCart
-                      variantId={productVariant.storefrontId}
-                      quantity={quantity}
-                      available={available}
-                      alignSelf="flex-end"
-                      mt={12}
-                      pt={1.5}
-                      w="100%"
-                      disabled={isClass() && !isZoom() ? selected : false}
-                      properties={
-                        isClass() && !isZoom()
-                          ? [
-                              {
-                                key: "Date",
-                                value: date,
-                              },
-                              {
-                                key: "Time",
-                                value: time,
-                              },
-                            ]
-                          : [
-                              {
-                                key: productType,
-                                value: title,
-                              },
-                            ]
-                      }
-                    />
-                  </Stack>
-                </Flex>
-                {isClass() && (
+                  </Flex>
+                )}
+                {isClass() && !isZoom() && (
                   <Stack>
                     <ProductAccordion />
+                  </Stack>
+                )}
+                {isZoom() && (
+                  <Stack>
+                    <Button
+                      as="a"
+                      href="tel:210.474.0440"
+                      bg="primary"
+                      color="white"
+                      fontWeight="normal"
+                      textTransform="uppercase"
+                      leftIcon={<PhoneIcon />}
+                    >
+                      Call to schedule
+                    </Button>
                   </Stack>
                 )}
               </Stack>
@@ -419,12 +440,12 @@ const Product = ({ data: { product, suggestions } }) => {
       </Box>
       {isClass() && (
         <CallToAction
-          topCaption="Looking to celebrate a special occasion with your friends, family or even coworkers?"
-          title="Interested in a Private Party?"
-          subCaption=" We are happy to accommodate your event with a customizable Private Party. Whether it's Ladies Night, a birthday celebration, or even a team building event - just click on the button below, fill out the form, and let us do the rest."
-          ctaLink="/private-party"
-          ctaText="Private Parties"
-        />
+        topCaption="Let us help you plan your special event."
+        title="BOOK YOUR PRIVATE PARTY TODAY"
+        subCaption="If you're looking for the perfect way to make your event special, we are happy to customize your experience through our private party offerings."
+        ctaText="Book a Party"
+        ctaLink="tel:210.474.0440"
+      />
       )}
       {!isEvent && suggestions.nodes.length >= 1 && (
         <Container my={[20, 28]}>

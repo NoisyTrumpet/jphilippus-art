@@ -94,11 +94,11 @@ const IndexPage = ({ data: products, data }) => {
       <Box>
         {/* topCaption, title, subCaption, ctaText, ctaLink */}
         <CallToAction
-          topCaption="New rates starting at $45 per person for glass art parties of 15 or more people."
-          title="Discover your inner artist book a class today"
-          subCaption="Book a class using our new booking application or inquire about a custom art class for your special event."
-          ctaText="Book a Class"
-          ctaLink="/calendar"
+          topCaption="Let us help you plan your special event."
+          title="BOOK YOUR PRIVATE PARTY TODAY"
+          subCaption="If you're looking for the perfect way to make your event special, we are happy to customize your experience through our private party offerings."
+          ctaText="Call to Book"
+          ctaLink="tel:210.474.0440"
         />
       </Box>
       <Container my={[16, 16, 16, 16]} textAlign="center">
