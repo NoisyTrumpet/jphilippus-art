@@ -21,6 +21,11 @@ const PolicyPage = ({ pageContext }) => {
           </Text>
           <Box
             my={8}
+            sx={{
+              li: {
+                marginLeft: 4,
+              },
+            }}
             dangerouslySetInnerHTML={{
               __html: pageContext.policy?.body,
             }}

@@ -1,7 +1,7 @@
-import { Box, SimpleGrid, Stack } from "@chakra-ui/react"
+import { Box, SimpleGrid, Stack, Link } from "@chakra-ui/react"
 import * as React from "react"
 import { FooterHeading } from "./FooterHeading"
-import Link from "../../link"
+// import Link from "../../link"
 
 const LinkGrid = props => (
   <SimpleGrid columns={[2, 3]} {...props}>
@@ -9,19 +9,19 @@ const LinkGrid = props => (
       <FooterHeading mb="4">Menu</FooterHeading>
       <SimpleGrid columns={{ base: 1, lg: 1 }}>
         <Box>
-          <Link to="/about" alt="About the Artist" display="block">
+          <Link href="/about" alt="About the Artist" display="block">
             About the Artist
           </Link>
-          <Link to="/products" alt="Shop our Products" display="block">
+          <Link href="/products" alt="Shop our Products" display="block">
             Shop
           </Link>
-          <Link to="/gallery" alt="Contact Us" display="block">
+          <Link href="/gallery" alt="Contact Us" display="block">
             Gallery
           </Link>
-          {/* <Link to="/private-party" alt="Private Parties" display="block">
+          {/* <Link href="/private-party" alt="Private Parties" display="block">
             Private Parties
           </Link> */}
-          <Link to="/contact" alt="Contact Us" display="block">
+          <Link href="/contact" alt="Contact Us" display="block">
             Contact
           </Link>
         </Box>
@@ -31,10 +31,14 @@ const LinkGrid = props => (
       <FooterHeading mb="4">Policies</FooterHeading>
       <SimpleGrid columns={{ base: 1, lg: 1 }}>
         <Box>
-          <Link to="/privacy-policy" alt="About the Artist" display="block">
+          <Link href="/privacy-policy" alt="About the Artist" display="block">
             Privacy
           </Link>
-          <Link to="/terms-of-service" alt="Shop our Products" display="block">
+          <Link
+            href="/terms-of-service"
+            alt="Shop our Products"
+            display="block"
+          >
             Terms & Conditions
           </Link>
           {/* <Link to="/refund-policy" alt="Contact Us" display="block">

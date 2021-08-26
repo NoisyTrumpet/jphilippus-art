@@ -1,11 +1,4 @@
-import {
-  Box,
-  Heading,
-  Text,
-  useColorModeValue,
-  Grid,
-  GridItem,
-} from "@chakra-ui/react"
+import { Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react"
 import * as React from "react"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"

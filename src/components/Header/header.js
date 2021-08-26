@@ -7,12 +7,13 @@ import {
   Flex,
   Stack,
   Button,
+  Link
 } from "@chakra-ui/react"
 import Announcement from "./Fragments/Announcement"
 
 import { StoreContext } from "../../context/storeContext"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Link from "../link"
+// import Link from "../link"
 import Cart from "../Cart/index"
 import MobileMenu from "../MobileMenu/index"
 import CartButton from "../CartButton/index"
@@ -64,7 +65,7 @@ const NavBar = props => {
       <NavBarContainer {...props}>
         <Cart isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
         {colorMode === "dark" ? (
-          <Link to="/" alt="Home" maxWidth={[150, 200]}>
+          <Link href="/" alt="Home" maxWidth={[150, 200]}>
             <GatsbyImage
               image={dark}
               alt={`J. Philippus Art Studio & Gallery Logo`}
@@ -72,7 +73,7 @@ const NavBar = props => {
             />
           </Link>
         ) : (
-          <Link to="/" alt="Home" maxWidth={[150, 200]}>
+          <Link href="/" alt="Home" maxWidth={[150, 200]}>
             <GatsbyImage
               image={light}
               alt={`J. Philippus Art Studio & Gallery Logo`}
@@ -100,7 +101,7 @@ const MenuItem = ({ children, isLast, to = "/", alt, ...rest }) => {
     return <SubMenu />
   }
   return (
-    <Link to={to} color={linkColor} alt={alt} textTransform={`uppercase`}>
+    <Link href={to} color={linkColor} alt={alt} textTransform={`uppercase`}>
       {children}
     </Link>
   )

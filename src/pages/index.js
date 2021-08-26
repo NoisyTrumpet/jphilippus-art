@@ -96,7 +96,7 @@ const IndexPage = ({ data: products, data }) => {
         <CallToAction
           topCaption="Let us help you plan your special event."
           title="BOOK YOUR PRIVATE PARTY TODAY"
-          subCaption="If you're looking for the perfect way to make your event special, we are happy to customize your experience through our private party offerings."
+          subCaption="If you're looking for the perfect way to make your event special, we are happy to customize your experience through our private party offerings. Day or evening parties available. Call us at 210-474-0440 or click the button below to call."
           ctaText="Call to Book"
           ctaLink="tel:210.474.0440"
         />

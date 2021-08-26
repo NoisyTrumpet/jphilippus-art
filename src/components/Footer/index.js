@@ -38,7 +38,7 @@ const Footer = () => {
         marginTop={8}
         py="12"
         px={{
-          base: "4",
+          base: "2",
           md: "8",
         }}
         justifyContent="center"

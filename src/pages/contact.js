@@ -56,7 +56,9 @@ const PinWrapper = () => (
     <div className="hidden">
       <h3>J.Philippus Art Studio and Gallery, LLC</h3>
       <p>
-        1846 North Loop 1604W Suite 104
+        1846 North Loop 1604 W
+        <br />
+        Suite 104
         <br />
         San Antonio, Tx 78248
       </p>
@@ -89,7 +91,7 @@ const Contact = () => {
               "repeat(1fr, fit-content ,1fr)",
               "repeat(1fr fit-content)",
             ]}
-            gap={(2, 6, 6)}
+            gap={[2, 6, 6]}
             py="2rem"
           >
             <GridItem
@@ -137,7 +139,10 @@ const Contact = () => {
                 target="_blank"
                 rel="noopnener noreferrer"
               >
-                <Text>1846 North Loop 1604W Suite 104</Text>
+                <Text>
+                  1846 North Loop 1604 W <br />
+                  Suite 104
+                </Text>
                 <Text>San Antonio, Tx 78248</Text>
               </a>
               <a href="tel:210.474.0440">
@@ -153,7 +158,7 @@ const Contact = () => {
                 Hours
               </Text>
 
-              <Text mt={4}> M-F 11am-6pm • Sat 11am-5pm</Text>
+              <Text mt={4}> M-Sat 11am-6pm</Text>
               {/* <Text mt={4}>
                 Closed Monday's in April & May for the showcasing of my original
                 art in the Robare Custom Home at the 2021 Parade of Homes.

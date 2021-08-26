@@ -5,8 +5,12 @@ import { Grid, GridItem } from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "./gallery.css"
 
-const Gallery = ({ isPage }) => {
-  const { galleryImages, someGalleryImages } = useStaticQuery(graphql`
+const Gallery = ({ isPage, isEventPage }) => {
+  const {
+    galleryImages,
+    someGalleryImages,
+    eventImages,
+  } = useStaticQuery(graphql`
     query {
       galleryImages: allFile(
         filter: { relativeDirectory: { eq: "gallery" } }
@@ -19,9 +23,30 @@ const Gallery = ({ isPage }) => {
               gatsbyImageData(
                 formats: [WEBP, PNG]
                 layout: CONSTRAINED
-                quality: 60
+                quality: 95
                 placeholder: BLURRED
                 width: 1920
+              )
+            }
+          }
+        }
+      }
+
+      eventImages: allFile(
+        filter: { relativeDirectory: { eq: "event-images" } }
+        limit: 5
+        sort: { order: ASC, fields: name }
+      ) {
+        edges {
+          node {
+            childImageSharp {
+              id
+              gatsbyImageData(
+                formats: [WEBP, PNG]
+                layout: CONSTRAINED
+                quality: 90
+                placeholder: BLURRED
+                width: 800
               )
             }
           }
@@ -39,7 +64,7 @@ const Gallery = ({ isPage }) => {
               gatsbyImageData(
                 formats: [WEBP, PNG]
                 layout: CONSTRAINED
-                quality: 60
+                quality: 90
                 placeholder: BLURRED
                 width: 1920
               )
@@ -49,6 +74,22 @@ const Gallery = ({ isPage }) => {
       }
     }
   `)
+
+  if (isEventPage) {
+    return (
+      <Grid templateColumns={["repeat(2, 1fr)"]} className="gallery">
+        {eventImages.edges.map(({ node }) => (
+          <GridItem key={node.childImageSharp.id}>
+            <GatsbyImage
+              image={getImage(node.childImageSharp)}
+              alt={`Gallery Image`}
+              style={{ minWidth: `100%` }}
+            />
+          </GridItem>
+        ))}
+      </Grid>
+    )
+  }
 
   return (
     <Grid templateColumns={["repeat(2, 1fr)"]} className="gallery">

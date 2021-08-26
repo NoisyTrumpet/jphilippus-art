@@ -14,6 +14,7 @@ const ProductCard = ({ product, featured }) => {
     images: [firstImage],
     productType,
     variants: [initialVariant],
+    tags,
   } = product
 
   const { client } = React.useContext(StoreContext)
@@ -55,7 +56,7 @@ const ProductCard = ({ product, featured }) => {
     priceRangeV2.minVariantPrice.amount
   )
 
-  if (productType === "Class") {
+  if (productType === "Class" || "Event") {
     return (
       <a href={slug} aria-label={`View ${title} product page`}>
         <Box
@@ -63,7 +64,7 @@ const ProductCard = ({ product, featured }) => {
           data-name="product-image-box"
           display="grid"
           placeItems="center"
-          mb={4}
+          mb={2}
         >
           {firstImage && (
             <GatsbyImage
@@ -72,7 +73,23 @@ const ProductCard = ({ product, featured }) => {
             />
           )}
         </Box>
-        <Box textAlign="center">
+        <Box textAlign="center" mb={4}>
+          {tags.length > 0 && (
+            <Box d="flex" justifyContent="center" mb="2">
+              {tags.map(tag => (
+                <Box bg="primary" borderRadius="10" px={2} mx={2} pt={1} key={tag}>
+                  <Text
+                    color="white"
+                    fontWeight="bold"
+                    lineHeight="4"
+                    fontSize={["xs", "sm"]}
+                  >
+                    {tag}
+                  </Text>
+                </Box>
+              ))}
+            </Box>
+          )}
           <Text
             className="product-name"
             as="h2"
@@ -83,9 +100,7 @@ const ProductCard = ({ product, featured }) => {
           >
             {title}
           </Text>
-          {!isZoom && (
-            <Text color="primary">{available ? price : "Out of Stock"}</Text>
-          )}
+          {!isZoom && <Text color="primary">{available ? price : ""}</Text>}
         </Box>
       </a>
     )
@@ -125,9 +140,7 @@ const ProductCard = ({ product, featured }) => {
         >
           {title}
         </Text>
-        {!isZoom && (
-          <Text color="primary">{available ? price : "Out of Stock"}</Text>
-        )}
+        {!isZoom && <Text color="primary">{available ? price : ""}</Text>}
       </Box>
     </Link>
   )
@@ -158,6 +171,7 @@ export const query = graphql`
         }
       }
     }
+    tags
     variants {
       availableForSale
       storefrontId

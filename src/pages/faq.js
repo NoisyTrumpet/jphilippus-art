@@ -3,18 +3,16 @@ import Layout from "../components/Layout/Layout"
 import { graphql, useStaticQuery } from "gatsby"
 import {
   Box,
-  Grid,
-  Text,
   Container,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  useColorModeValue as mode,
 } from "@chakra-ui/react"
 import Seo from "../components/SEO"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import AltHero from "../components/AltHero"
+import { getImage } from "gatsby-plugin-image"
 
 import faqItems from "../constants/faq.js"
 
@@ -40,13 +38,20 @@ const FAQPage = () => {
   )
   // get image data
   const hero = getImage(heroImage)
-  const bgGray = mode(`bgGray`, `gray.700`)
   return (
     <Layout>
       <Seo title="Frequently Asked Questions" />
-      <Grid
-        templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
-        templateRows={["fit-content 1fr", "1fr 1fr", "repeat(1, 1fr)"]}
+      <AltHero
+        title="Frequently Asked Questions"
+        body="We are excited to welcome you to J. Philippus Art Studio & Gallery.
+            Below you will find a list of frequently asked questions to ensure
+            you have the most enjoyable experience creating your own unique
+            piece of art during your visit"
+        image={hero}
+      />
+      {/* <Grid
+        templateColumns={["100%", "100%", "repeat(2, 1fr)"]}
+        // templateRows={["fit-content fit-content", "fit-content fit-content", "repeat(1, 1fr)"]}
         maxH={`400px`}
       >
         <Box
@@ -73,7 +78,7 @@ const FAQPage = () => {
           </Text>
         </Box>
         <GatsbyImage image={hero} alt="Frequently Asked Questions" />
-      </Grid>
+      </Grid> */}
       {/* FAQ Accordion */}
       <Container mt={30} mb={40}>
         <Accordion allowToggle>

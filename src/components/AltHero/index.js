@@ -22,6 +22,7 @@ const AltHero = ({
   ctaSubCaption,
   ctaText,
   ctaLink,
+  image,
   isContact,
 }) => {
   // Art Page Image:
@@ -152,7 +153,13 @@ const AltHero = ({
 
   return (
     <Box position={`relative`}>
-      <Grid templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)"]}>
+      <Grid
+        templateColumns={[
+          "repeat(1, 100%)",
+          "repeat(1, 100%)",
+          "repeat(2, 1fr)",
+        ]}
+      >
         <Box backgroundColor={bgGray} padding={12}>
           {title && (
             <Heading
@@ -175,13 +182,11 @@ const AltHero = ({
           {body && <Text>{body}</Text>}
           {productType === "Class" && (
             <UnorderedList mt={4}>
+              <ListItem>Kitchen with refrigerator and microwave.</ListItem>
+              <ListItem>Handicap accessible.</ListItem>
+              <ListItem>TV available for presentations.</ListItem>
               <ListItem>
-                Kitchen With Refrigerator, Microwave, and Ice Maker
-              </ListItem>
-              <ListItem>Handicap Accessible</ListItem>
-              <ListItem>TV Available for Presentation</ListItem>
-              <ListItem>
-                Open Flex Area in the front, excellent for cocktail receptions
+                Front lobby is excellent for cocktail receptions.
               </ListItem>
             </UnorderedList>
           )}
@@ -228,7 +233,7 @@ const AltHero = ({
             </Text>
           ) : (
             <GatsbyImage
-              image={getImgSrc()}
+              image={image ? image : getImgSrc()}
               alt={`${productType || imageAlt} | Hero Image`}
               style={{ minHeight: `100%`, minWidth: `100%` }}
             />

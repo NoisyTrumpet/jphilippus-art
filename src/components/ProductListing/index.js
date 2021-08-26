@@ -26,7 +26,7 @@ const ProductListing = ({ products, featured, isEvents }) => {
         >
           <Heading
             as="h2"
-            fontSize="3xl"
+            fontSize="2xl"
             textAlign="center"
             fontWeight={500}
             color={themeBlue}

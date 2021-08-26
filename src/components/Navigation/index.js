@@ -8,8 +8,9 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Link
 } from "@chakra-ui/react"
-import Link from "../link"
+// import Link from "../link"
 
 import DiamondButton from "../DiamondButton/DiamondButton"
 
@@ -135,7 +136,7 @@ const Navigation = () => {
           <Link
             key={n.slug}
             p={2}
-            to={n.slug}
+            href={n.slug}
             className="navigation-link"
             activeClassName="active"
             partiallyActive={n.pActive}

@@ -30,7 +30,7 @@ import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
 import loadable from "@loadable/component"
 import ProductAccordion from "../../../components/ProductAccordion/index"
-import { CallTracker } from "assert"
+import Gallery from "../../../components/Gallery/Gallery"
 
 const SesamiButton = loadable(() => import("../../../components/SesamiButton"))
 
@@ -47,6 +47,7 @@ const Product = ({ data: { product, suggestions } }) => {
     images: [firstImage],
     productType,
     handle,
+    tags,
   } = product
 
   const { client } = React.useContext(StoreContext)
@@ -60,8 +61,6 @@ const Product = ({ data: { product, suggestions } }) => {
   const [available, setAvailable] = React.useState(
     productVariant.availableForSale
   )
-
-  const isEvent = productType === "Event"
 
   const checkAvailablity = React.useCallback(
     productId => {
@@ -156,6 +155,10 @@ const Product = ({ data: { product, suggestions } }) => {
       })
   })
 
+  // Old Event
+  const isEvent = tags.filter(tag => tag === "Monthly Event").length > 0
+  const isPastEvent = tags.filter(tag => tag === "Past Event").length > 0
+
   return (
     <Layout>
       <Seo
@@ -217,9 +220,14 @@ const Product = ({ data: { product, suggestions } }) => {
                 )}
               </Stack>
               <Stack spacing={0}>
-                {!isZoom() && (
+                {!isPastEvent && !isZoom() && (
                   <Heading as="h2" color={priceColor}>
                     {available ? price : "Out of Stock"}
+                  </Heading>
+                )}
+                {isPastEvent && (
+                  <Heading as="h2" fontSize="lg" color={priceColor}>
+                    This event has already passed
                   </Heading>
                 )}
 
@@ -290,35 +298,37 @@ const Product = ({ data: { product, suggestions } }) => {
                       </>
                     )}
                     <Stack>
-                      <AddToCart
-                        variantId={productVariant.storefrontId}
-                        quantity={quantity}
-                        available={available}
-                        alignSelf="flex-end"
-                        mt={12}
-                        pt={1.5}
-                        w="100%"
-                        disabled={isClass() && !isZoom() ? selected : false}
-                        properties={
-                          isClass() && !isZoom()
-                            ? [
-                                {
-                                  key: "Date",
-                                  value: date,
-                                },
-                                {
-                                  key: "Time",
-                                  value: time,
-                                },
-                              ]
-                            : [
-                                {
-                                  key: productType,
-                                  value: title,
-                                },
-                              ]
-                        }
-                      />
+                      {!isPastEvent && (
+                        <AddToCart
+                          variantId={productVariant.storefrontId}
+                          quantity={quantity}
+                          available={available}
+                          alignSelf="flex-end"
+                          mt={12}
+                          pt={1.5}
+                          w="100%"
+                          disabled={isClass() && !isZoom() ? selected : false}
+                          properties={
+                            isClass() && !isZoom()
+                              ? [
+                                  {
+                                    key: "Date",
+                                    value: date,
+                                  },
+                                  {
+                                    key: "Time",
+                                    value: time,
+                                  },
+                                ]
+                              : [
+                                  {
+                                    key: productType,
+                                    value: title,
+                                  },
+                                ]
+                          }
+                        />
+                      )}
                     </Stack>
                   </Flex>
                 )}
@@ -437,15 +447,20 @@ const Product = ({ data: { product, suggestions } }) => {
             )}
           </Grid>
         </Container>
+        {productType === "Event" && title === "Turn Art Into Charcuterie" && (
+          <Container>
+            <Gallery isEventPage />
+          </Container>
+        )}
       </Box>
       {isClass() && (
         <CallToAction
-        topCaption="Let us help you plan your special event."
-        title="BOOK YOUR PRIVATE PARTY TODAY"
-        subCaption="If you're looking for the perfect way to make your event special, we are happy to customize your experience through our private party offerings."
-        ctaText="Book a Party"
-        ctaLink="tel:210.474.0440"
-      />
+          topCaption="Let us help you plan your special event."
+          title="BOOK YOUR PRIVATE PARTY TODAY"
+          subCaption="If you're looking for the perfect way to make your event special, we are happy to customize your experience through our private party offerings. Call us at 210-474-0440 or click the button below to call."
+          ctaText="Book a Party"
+          ctaLink="tel:210.474.0440"
+        />
       )}
       {!isEvent && suggestions.nodes.length >= 1 && (
         <Container my={[20, 28]}>
@@ -517,6 +532,7 @@ export const query = graphql`
           value
         }
       }
+      tags
       options {
         name
         values

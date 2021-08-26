@@ -62,7 +62,7 @@ const ProductTypeIndex = ({
       return `Browse our diverse selection of original art created by artist Jeanne Philippus for your home or office.  Commissioned art also available upon request.`
     }
     if (productType === "Class") {
-      return `You don’t need to be an artist to create your own beautiful piece of art. Book a class with one of our fabulous instructors. The studio specializes in contemporary art using acrylic pours, resin and glass. Beautiful 1500 Square Foot Facility Including:`
+      return `You don’t need to be an artist to create your own beautiful piece of art. Book a class with one of our fabulous instructors. The studio specializes in contemporary art using acrylic pours, resin and glass. Our beautiful 1,500 sq ft studio includes:`
     }
     if (productType === "Jewelry") {
       return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. `
@@ -71,15 +71,15 @@ const ProductTypeIndex = ({
       return `Our at-home art kits are a fun, easy way to take your creativity into the comfort of your own home. Choose between our resin covered charcuterie board kits, acrylic pour kits, glass art kits, oyster shell DIY kits, or resin coaster kits. `
     }
     if (productType === "Event") {
-      return `Stay up-to-date on our special even offerings by checking out our events page. We are always coming up with new event options, and can't wait to see you in the studio!`
+      return `Stay up-to-date on our special event offerings by checking out our events page. We are always coming up with new event options, and can't wait to see you in the studio!`
     }
   }
 
   const secondary = useColorModeValue(`secondary`, `secondary`)
 
-  if (productType === "Class" && events.nodes && events.nodes.length > 0) {
-    products.nodes.unshift(events.nodes[0])
-  }
+  // if (productType === "Class" && events.nodes && events.nodes.length > 0) {
+  //   products.nodes.unshift(events.nodes[0])
+  // }
 
   return (
     <Layout>
@@ -110,7 +110,7 @@ const ProductTypeIndex = ({
         ctaTitle={productType === "Class" && `Group Classes`}
         ctaSubCaption={
           productType === "Class" &&
-          `We also offer private group classes for events such as parties and team building activities. Special rates starting at $35 per person for glass art for parties with 15 or more people. Click here to book your private party.`
+          `We also offer private group classes for events such as parties and team building activities. Special rates for 10 or more people. Call us at 210-474-0440 or click the button to call.`
         }
         ctaText={productType === "Class" && `Call to Book`}
         ctaLink={productType === "Class" && `tel:210.474.0440`}
