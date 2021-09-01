@@ -7,10 +7,10 @@ import {
   Flex,
   Stack,
   Button,
-  Link
+  Link,
 } from "@chakra-ui/react"
 import Announcement from "./Fragments/Announcement"
-
+import { PhoneIcon, CalendarIcon } from "@chakra-ui/icons"
 import { StoreContext } from "../../context/storeContext"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 // import Link from "../link"
@@ -101,7 +101,14 @@ const MenuItem = ({ children, isLast, to = "/", alt, ...rest }) => {
     return <SubMenu />
   }
   return (
-    <Link href={to} color={linkColor} alt={alt} textTransform={`uppercase`}>
+    <Link
+      href={to}
+      color={linkColor}
+      alt={alt}
+      textTransform={`uppercase`}
+      _hover={{ color: "secondary" }}
+      _active={{ color: "secondary" }}
+    >
       {children}
     </Link>
   )
@@ -111,7 +118,7 @@ export const MenuLinks = () => {
   const { isOpen } = React.useContext(StoreContext)
   const navigationLinks = [
     {
-      name: "About the Artist",
+      name: "About",
       slug: "/about",
       pActive: false,
     },
@@ -184,7 +191,7 @@ export const MenuLinks = () => {
       flexBasis={{ base: "100%", md: "auto" }}
     >
       <Stack
-        spacing={4}
+        spacing={2}
         align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
         direction={["column", "column", "column", "row"]}
@@ -208,9 +215,23 @@ export const MenuLinks = () => {
           pt={1}
           textTransform="uppercase"
           fontWeight="regular"
-          _hover={{ backgroundColor: `#79C1CC` }}
+          leftIcon={<CalendarIcon />}
+          // _hover={{ backgroundColor: `#79C1CC` }}
         >
           Book a Class
+        </Button>
+        <Button
+          as="a"
+          href="tel:210.474.0440"
+          bg="secondary"
+          color="white"
+          pt={1}
+          textTransform="uppercase"
+          fontWeight="regular"
+          leftIcon={<PhoneIcon />}
+          // _hover={{ backgroundColor: `#79C1CC` }}
+        >
+          Book a Party
         </Button>
         {/* <DiamondButton
           buttonStyle="btn--secondary"

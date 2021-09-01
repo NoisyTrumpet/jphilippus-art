@@ -46,6 +46,13 @@ const BlockGrid = () => {
       }
     `
   )
+  // <CallToAction
+  //   topCaption="Let us help you plan your special event."
+  //   title="BOOK YOUR PRIVATE PARTY TODAY"
+  //   subCaption="If you're looking for the perfect way to make your event special, we are happy to customize your experience through our private party offerings. Day or evening parties available. Call us at 210-474-0440 or click the button below to call."
+  //   ctaText="Call to Book"
+  //   ctaLink="tel:210.474.0440"
+  // />
 
   const Charcuterie = getImage(CharcuterieImg)
 
@@ -74,11 +81,16 @@ const BlockGrid = () => {
             pb={2}
             textTransform={`uppercase`}
           >
-            Create Your Masterpiece
+            {/* Create Your Masterpiece */}
+            BOOK YOUR PRIVATE PARTY TODAY
           </Text>
           <Text>
-            Browse our selection of classes from Acrylic Pour on Metal Flowers
-            to Glass Art, custom charcuterie boards and more!
+            {/* Browse our selection of classes from Acrylic Pour on Metal Flowers
+            to Glass Art, custom charcuterie boards and more! */}
+            If you're looking for the perfect way to make your event special, we
+            are happy to customize your experience through our private party
+            offerings. Day or evening parties available. Call us at 210-474-0440
+            or click the button below to call.
           </Text>
           <Center my="10">
             <DiamondButton
@@ -86,9 +98,9 @@ const BlockGrid = () => {
               buttonSize="btn--medium"
               style={{ textAlign: `center`, margin: `0 auto` }}
               py="10"
-              to="/products/class"
+              to="tel:210.474.0440"
             >
-              Explore Classes
+              Call to Book
             </DiamondButton>
           </Center>
         </Box>

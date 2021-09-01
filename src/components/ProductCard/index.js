@@ -77,7 +77,14 @@ const ProductCard = ({ product, featured }) => {
           {tags.length > 0 && (
             <Box d="flex" justifyContent="center" mb="2">
               {tags.map(tag => (
-                <Box bg="primary" borderRadius="10" px={2} mx={2} pt={1} key={tag}>
+                <Box
+                  bg="primary"
+                  borderRadius="10"
+                  px={2}
+                  mx={2}
+                  pt={1}
+                  key={tag}
+                >
                   <Text
                     color="white"
                     fontWeight="bold"

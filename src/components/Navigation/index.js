@@ -8,11 +8,12 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Link
+  Link,
+  Button,
 } from "@chakra-ui/react"
 // import Link from "../link"
-
-import DiamondButton from "../DiamondButton/DiamondButton"
+import { PhoneIcon, CalendarIcon } from "@chakra-ui/icons"
+// import DiamondButton from "../DiamondButton/DiamondButton"
 
 import "./Navigation.scss"
 import { links } from "../SubMenu/Fragments/links-data"
@@ -148,15 +149,32 @@ const Navigation = () => {
           </Link>
         )
       )}
-
-      <DiamondButton
-        buttonStyle="btn--primary"
-        buttonSize="btn--small"
-        mTop={8}
-        to={`/products/class`}
+      <Button
+        as="a"
+        href="/products/class"
+        bg="primary"
+        color="white"
+        pt={1}
+        textTransform="uppercase"
+        fontWeight="regular"
+        leftIcon={<CalendarIcon />}
+        _hover={{ backgroundColor: `#79C1CC` }}
       >
         Book a Class
-      </DiamondButton>
+      </Button>
+      <Button
+        as="a"
+        href="tel:210.474.0440"
+        bg="secondary"
+        color="white"
+        pt={1}
+        textTransform="uppercase"
+        fontWeight="regular"
+        leftIcon={<PhoneIcon />}
+        // _hover={{ backgroundColor: `#79C1CC` }}
+      >
+        Book a Party
+      </Button>
     </Stack>
   )
 }

@@ -4,7 +4,7 @@ import { MdWeb } from "react-icons/md"
 
 export const links = [
   {
-    name: "About the Artist",
+    name: "About",
     to: "/about",
   },
   {

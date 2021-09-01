@@ -55,7 +55,8 @@ const LinkGrid = props => (
           rel="noopener noreferrer"
           target="_blank"
         >
-          1846 North Loop 1604 W<br />
+          1846 North Loop 1604 W
+          <br />
           Suite 104
           <br />
           San Antonio, TX 78248

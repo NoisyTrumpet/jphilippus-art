@@ -94,11 +94,12 @@ const IndexPage = ({ data: products, data }) => {
       <Box>
         {/* topCaption, title, subCaption, ctaText, ctaLink */}
         <CallToAction
-          topCaption="Let us help you plan your special event."
-          title="BOOK YOUR PRIVATE PARTY TODAY"
-          subCaption="If you're looking for the perfect way to make your event special, we are happy to customize your experience through our private party offerings. Day or evening parties available. Call us at 210-474-0440 or click the button below to call."
-          ctaText="Call to Book"
-          ctaLink="tel:210.474.0440"
+          // topCaption="Let us help you plan your special event."
+          title="Create Your Masterpiece"
+          topCaption="Browse our selection of classes"
+          subCaption="Classes range rom Acrylic Pour on Metal Flowers to Glass Art, custom Charcuterie Boards and more!"
+          ctaText="Explore Classes"
+          ctaLink="/products/class/"
         />
       </Box>
       <Container my={[16, 16, 16, 16]} textAlign="center">
@@ -142,7 +143,7 @@ const IndexPage = ({ data: products, data }) => {
           placeItems={`center`}
           height="100%"
           width="fit-content"
-          paddingTop={[0, 4, 14]}
+          paddingTop={[4, 14]}
         >
           <GatsbyImage
             image={data.file.childImageSharp.gatsbyImageData}

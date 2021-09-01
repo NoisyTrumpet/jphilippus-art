@@ -13,7 +13,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons"
 const ProductListing = ({ products, featured, isEvents }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
   const firstProduct = products.nodes[0]
-  const pastEvents = products.nodes.slice(1)
+  const pastEvents = products.nodes
 
   return (
     <>
@@ -50,11 +50,14 @@ const ProductListing = ({ products, featured, isEvents }) => {
       )}
       {isEvents ? (
         <>
-          <ProductCard
+          {/* <ProductCard
             product={firstProduct}
             key={firstProduct.slug}
             featured
-          />
+          /> */}
+          <Text color="primary" fontSize="3xl">
+            Check back soon for upcoming events!
+          </Text>
           <Text color="primary" fontSize="3xl">
             Past Events:
           </Text>

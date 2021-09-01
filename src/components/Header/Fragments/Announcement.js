@@ -32,9 +32,14 @@ export const Announcement = () => (
         <a href="tel:210.474.0440" aria-label="Call us to book a class!">
           <Icon as={PhoneIcon} fontSize="2xl" h="10" />
         </a>
-        <Text fontWeight="medium" marginEnd="2">
+        <Text fontWeight="medium" marginEnd="2" d={["none", "block", "block"]}>
           Call us at <a href="tel:210.474.0440">210-474-0440</a> to book a
           private party, individual, or group class. Open M-Sat 11am-6pm.
+        </Text>
+        <Text fontWeight="medium" marginEnd="0" d={["block", "none", "none"]}>
+          Call us at <a href="tel:210.474.0440">210-474-0440</a> to book a
+          private party, individual, or group class. <br />
+          Open M-Sat 11am-6pm.
         </Text>
       </HStack>
       {/* <Link
