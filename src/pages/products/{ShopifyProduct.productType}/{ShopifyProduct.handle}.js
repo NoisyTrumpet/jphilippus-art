@@ -28,11 +28,8 @@ import formatPrice from "../../../utils/formatPrice"
 import CallToAction from "../../../components/CallToAction"
 import ProductListing from "../../../components/ProductListing/index"
 import Seo from "../../../components/SEO.js"
-import loadable from "@loadable/component"
 import ProductAccordion from "../../../components/ProductAccordion/index"
 import Gallery from "../../../components/Gallery/Gallery"
-
-const SesamiButton = loadable(() => import("../../../components/SesamiButton"))
 
 const Product = ({ data: { product, suggestions } }) => {
   const {
@@ -76,6 +73,11 @@ const Product = ({ data: { product, suggestions } }) => {
     },
     [productVariant.storefrontId, client.product]
   )
+
+  const simplyBookLink =
+    productVariant.metafields.length >= 1
+      ? productVariant.metafields[0].value
+      : ""
 
   // Date & Time Change
 
@@ -130,30 +132,11 @@ const Product = ({ data: { product, suggestions } }) => {
 
   const isZoom = () => title.includes("Zoom")
 
-  const isBrowser = typeof window !== `undefined`
-
   // Booking Date & Time State
-  const [date, setDate] = React.useState(null)
-  const [time, setTime] = React.useState(null)
-  const [selected, setSelected] = React.useState(true)
+  const [date, setDate] = React.useState(null) //eslint-disable-line
+  const [time, setTime] = React.useState(null) //eslint-disable-line
+  const [selected, setSelected] = React.useState(true) //eslint-disable-line
   const [image, setImage] = React.useState(firstImage)
-
-  React.useEffect(() => {
-    isBrowser &&
-      window.addEventListener("sesami:loaded", function () {
-        const dateElement = document.querySelector("#sesami-date-0")
-        const timeElement = document.querySelector("#sesami-time-0")
-        dateElement.addEventListener("change", function () {
-          setDate(dateElement.value)
-          setSelected(false)
-          // console.log(dateElement.value)
-        })
-        timeElement.addEventListener("change", function () {
-          setTime(timeElement.value)
-          // console.log(timeElement.value)
-        })
-      })
-  })
 
   // Old Event
   const isEvent = tags.filter(tag => tag === "Monthly Event").length > 0
@@ -210,14 +193,6 @@ const Product = ({ data: { product, suggestions } }) => {
                   sx={{ a: { color: "primary" } }}
                   dangerouslySetInnerHTML={{ __html: descriptionHtml }}
                 />
-                {isClass() && !isZoom() && (
-                  <SesamiButton
-                    storeId={`55103946906`}
-                    variantId={product.variants[0].legacyResourceId}
-                    legacyId={product.legacyResourceId}
-                    text={`CHOOSE YOUR TIME`}
-                  />
-                )}
               </Stack>
               <Stack spacing={0}>
                 {!isPastEvent && !isZoom() && (
@@ -238,7 +213,7 @@ const Product = ({ data: { product, suggestions } }) => {
                     direction={["column", "row", "row"]}
                     flexWrap="wrap"
                   >
-                    {available && (
+                    {!isClass() && available && (
                       <Stack
                         as="fieldset"
                         mr={6}
@@ -298,7 +273,7 @@ const Product = ({ data: { product, suggestions } }) => {
                       </>
                     )}
                     <Stack>
-                      {!isPastEvent && (
+                      {!isPastEvent && !isClass() && (
                         <AddToCart
                           variantId={productVariant.storefrontId}
                           quantity={quantity}
@@ -331,6 +306,23 @@ const Product = ({ data: { product, suggestions } }) => {
                       )}
                     </Stack>
                   </Flex>
+                )}
+                {isClass() && !isZoom() && (
+                  <Stack>
+                    <Button
+                      as="a"
+                      mt={4}
+                      href={simplyBookLink}
+                      maxW={`fit-content`}
+                      aria-label={title}
+                      bg="primary"
+                      color="white"
+                      textTransform="uppercase"
+                      fontWeight="normal"
+                    >
+                      Book Class
+                    </Button>
+                  </Stack>
                 )}
                 {isClass() && !isZoom() && (
                   <Stack>
@@ -529,6 +521,10 @@ export const query = graphql`
         price
         selectedOptions {
           name
+          value
+        }
+        metafields {
+          key
           value
         }
       }

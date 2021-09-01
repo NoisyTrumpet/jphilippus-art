@@ -12,7 +12,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const ProductListing = ({ products, featured, isEvents }) => {
   const themeBlue = useColorModeValue(`primary`, `gray.300`)
-  const firstProduct = products.nodes[0]
+  const firstProduct = products.nodes[0] //eslint-disable-line
   const pastEvents = products.nodes
 
   return (
